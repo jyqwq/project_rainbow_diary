@@ -1,0 +1,223 @@
+.qz_body{
+}
+.qz_con{
+    margin-top: 50px;
+    padding: 0;
+}
+.qz_head{
+    margin: 15px 0px;
+}
+.wid_nav{
+    background: #FFF7FB;
+}
+.cen_icon{
+    margin-top: 20px;
+}
+.cen_inf{
+    margin:10px;
+}
+.ico_lin{
+    border-bottom: solid 3px rgba(220, 20, 60, 0);
+}
+.ico_lin_act{
+    border-bottom: solid 3px #dc143c;
+}
+
+/*首页样式*/
+.qz_home{
+    margin: 15px 0px;
+    display: block;
+}
+.qz_row{
+    margin: 15px 0px;
+}
+.qz_line{
+    height: 1px;
+    margin: 5px;
+    background: #EEEEEE;
+}
+.portrait{
+    float: left;
+}
+.pet_name{
+    padding-top: 20px;
+}
+.qz_an{
+   font-size: 1.5em;
+}
+.qz_ag{
+    font-size: 1.2em;
+}
+.num_f{
+    margin-top: 15px;
+}
+.qz_group{
+    width: 200px;
+    float: right;
+    margin-top: 10px;
+}
+.qz_str{
+    font-size: 1.2em;
+    color: #FF95CA;
+}
+.qz_bad{
+    background: red;
+}
+.qz_dyn{
+    height: 100px;
+    /*background: #FFAAAA;*/
+}
+/*.exe_bla{*/
+/*height: 100px;*/
+/*margin-right: -15px;*/
+/*background: #66afe9;*/
+/*}*/
+.dyt_cli{
+    height: 100px;
+    margin: 0px -15px;
+}
+.qz_dbt{
+    width: 80%;
+    height: 40%;
+    font-size: 1.2em;
+    margin-top: 20px;
+    background: #FFC1E0;
+    border-color: #FFC1E0;
+}
+.dyt_img{
+    height: 100px;
+    margin-left: -15px;
+    /*background: #FFAAAA;*/
+}
+.dyt_img img{
+    height: 100%;
+}
+.dy_pic{
+    height: 100px;
+    margin-right: -12px;
+    /*background: #FFAAAA;*/
+}
+.dy_pic img{
+    height: 100%;
+    /*object-fit: contain;*/
+}
+.dy_info{
+    height: 100px;
+    margin-left: -12px;
+    /*background: #9783b9;*/
+}
+.dy_tit{
+    font-size: 1.2em;
+}
+.qz_a{
+    color: purple;
+}
+.qz_gly{
+    color: purple;
+}
+.qz_ext{
+    height: 100px;
+}
+.ext_tit{
+    font-size: 1.2em;
+}
+.dedli_pic{
+    height: 100px;
+    margin-right: -15px;
+    /*background: #FFAAAA;*/
+}
+.dedli_pic img{
+    height: 100%;
+}
+.dedli_inf{
+    height: 100px;
+    margin-left: -15px;
+    /*background: #9783b9;*/
+}
+.qz_a{
+    text-decoration: none;
+}
+.qz_dis{
+    font-size: 1.2em;
+    color: #0f0f0f;
+}
+.qz_dip{
+    font-size: 0.8em;
+    color: #0f0f0f;
+}
+.qz_das{
+    font-size: 1.2em;
+}
+.fab_pic{
+    height: 70px;
+    margin-right: -15px;
+    /*background: #9783b9;*/
+}
+.fab_pic img{
+    height: 100%;
+}
+.fab_inf{
+    height: 70px;
+    margin-left: -15px;
+    /*background: #FFAAAA;*/
+}
+.qz_fis{
+    font-size: 1.2em;
+}
+
+/*动态页样式*/
+.mic_body{
+    display: none;
+    margin: 15px 0px;
+}
+.dyn_pic{
+    height: 40px;
+    /*background: #FFAAAA;*/
+}
+.dyn_pic img{
+    height: 100%;
+}
+.dyn_for{
+    float: left;
+}
+
+/*收藏页样式*/
+.qz_collect{
+    display: none;
+    margin: 15px 0px;
+}
+.shoucang{
+    height: 800px;
+    background: #9783b9;
+}
+
+/*设置页样式*/
+.qz_set{
+    display: none;
+    margin: 15px 0px;
+}
+.shezhi{
+    height: 800px;
+    background: #66afe9;
+}
+
+/*动画*/
+.anima_pul:hover{
+    animation: pulse 1s;
+}
+.animal_swi:hover{
+    animation: swing 1s;
+}
+/*.animal_bin:hover{*/
+    /*animation: bounceIn 1s;*/
+/*}*/
+/*.animal_rin:hover{*/
+    /*animation: rotateIn 2s;*/
+/*}*/
+.animal_sil{
+    animation: slideInLeft 1s;
+    /*color: #FF79BC;*/
+}
+/*.animal_jac:hover{*/
+    /*animation: jackInTheBox 1s;*/
+/*}*/

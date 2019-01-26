@@ -1,0 +1,140 @@
+
+.logo_img{
+    position: relative;
+    top: -5px;
+}
+.usericon_img{
+    margin: -15px;
+    margin-right: 7px;
+}
+.sharing_btn{
+    width: 100px;
+    line-height: 35px;
+    font-size: 1.2em;
+    background: #00CCFF;
+}
+.sharing_btn:hover{
+    border: solid 1px #00dcff;
+    background: #00dcff;
+}
+.unlogin_btn{
+    position: relative;
+    top: 7px;
+    margin-right: 20px;
+}
+.unlogin_btn:hover{
+    border: solid 1px #00CC00;
+    background: #00CC00;
+}
+.nav_col{
+    background: rgba(255, 255, 255, 0.8);
+}
+.a_width{
+    width: 83px;
+}
+.nav_hover:hover{
+    background: rgba(255, 255, 255, 0.5);
+}
+.bg_img{
+    margin-top: 50px;
+    height: 170px;
+    background-image: url("../img/longbg.png");
+    background-repeat: round;
+}
+.search_margin{
+    margin-top: 50px;
+    /*background: #FFB5B5;*/
+    text-align: center;
+    line-height: 80px;
+}
+.btn_search01{
+    background: hotpink;
+    border: darkgrey;
+}
+.btn_search{
+    margin-top: 90px;
+    background: hotpink;
+    border: darkgrey;
+}
+.btn_search:hover{
+    background: white;
+    color: hotpink;
+}
+.search_div{
+    text-align: center;
+}
+
+.more_color{
+    background: rgba(255, 105, 180, 0.7);
+    border: solid 1px rgba(255, 105, 180, 0.7);
+}
+.more_color:hover{
+    background: deeppink;
+    border: solid 1px deeppink;
+}
+.under_nav{
+    margin-top: 40px;
+    background: lightpink;
+}
+
+.under_table td{
+    width: 100px;
+    line-height: 30px;
+    text-align: center;
+}
+.under_line{
+    margin: 0;
+    padding: 0;
+    width: 1px;
+    height: 50px;
+    position: relative;
+    top: 20px;
+    border-left: solid 1px darkgrey;
+}
+.colour{
+    color: darkgrey;
+}
+.last_center{
+    margin-top: 20px;
+    text-align: center;
+}
+.down_nav{
+    background: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    animation: fadeInDown 0.5s;
+}
+.down_position{
+    top: 50px;
+}
+.logo_text{
+    border: none;
+    padding: 0;
+    margin: 0;
+    line-height: 50px;
+    right: 29%;
+}
+.logo_text:hover{
+    background: none;
+}
+.sharing_nav{
+    top:49px;
+    animation: fadeInDown 1s;
+}
+.sharing_nav_box{
+    margin-right: 15px;
+    float: right;
+    background: #ffffff;
+    border-radius: 5px;
+}
+.sharing_hover{
+    float: right;
+    border-radius: 5px;
+}
+.sharing_hover:hover{
+    background: #ebebeb;
+}
+.sharing_nav_btn{
+    float: right;
+    color: hotpink;
+    margin: 10px 30px;
+}

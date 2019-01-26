@@ -1,0 +1,93 @@
+.con{
+    margin-top: 80px;
+}
+.con .fbtn button{
+    color: deeppink;
+}
+.con .fbtn button:hover{
+    background:pink;
+}
+.icy_sch input{
+    border: 2px solid rgb(255, 20, 147);
+    border-radius: 0px;
+}
+.icy_sch input:focus{
+    border: 3px solid deeppink;
+    box-shadow: 0px 0px 0px;
+}
+.icy_sch button{
+    border: 1px solid rgb(255, 20, 147);
+    border-radius: 0px;
+    background-color: rgb(255, 20, 147);
+    color: white;
+    width: 90px;
+}
+.icy_sch button:hover{
+    background: deeppink;
+    color: white;
+}
+.top-img{
+    margin-bottom: 30px;
+}
+.sch,.hot{
+    margin-top: 20px;
+}
+.hot{
+    /*border: 1px solid rgba(128, 128, 128, 0.67);*/
+    border-radius: 2px;
+    margin-left: 0px;
+    margin-right: 0px;
+    overflow: hidden;
+}
+#tab-1 tr td{
+    border-top: 1px dashed rgba(128, 128, 128, 0.2);
+}
+#tab-2 tr td{
+    border-top: 1px dashed rgba(128, 128, 128, 0.2);
+}
+#tab-3 tr td{
+    border-top: 1px dashed rgba(128, 128, 128, 0.2);
+}
+.hot-left{
+    display: inline-block;
+    width: 66%;
+    padding: 0px 10px 0px 0px;
+    box-sizing:border-box;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    margin-right: 18px;
+
+}
+.hot-title,.history-title{
+    padding: 15px;
+}
+.glyphicon-fire{
+    /*color: rgba(255, 0, 0, 0.78);*/
+    font-size: 1.6em;
+}
+.glyphicon-time{
+    font-size: 1.6em;
+}
+.hs{
+    font-size: 1.6em;
+}
+.hot-title .hs{
+    /*color: rgba(255, 0, 0, 0.77);*/
+    font-size: 1.6em;
+}
+.hot-right{
+    display: inline-block;
+    width: 30%;
+    padding: 0px;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+}
+.glyphicon-trash{
+    font-size: 1em;
+    color: rgb(128, 128, 128);
+}
+.glyphicon-trash:hover{
+    cursor: pointer;
+    color: rgba(0, 0, 255, 0.62);
+}
+button{
+    border: deeppink;
+}

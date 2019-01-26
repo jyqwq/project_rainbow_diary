@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="../img/logo.ico" type="image/x-icon"/>
+    <title>center</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.7/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="user_css/center.css">
+    <link rel="stylesheet" href="../css/animate.css">
+    <link rel="stylesheet" href="../css/all_nav.css">
+</head>
+
+<body class="qz_body">
+    <!--导航栏-->
+    <nav class="navbar navbar-default nav_col navbar-fixed-top">
+    <div class="container">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">彩虹日记</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand" href="index.html">
+                    <img alt="彩虹日记" src="../img/logo_.png" class="logo_img">
+                </a>
+                <span class="navbar-toggle navbar-brand logo_text" style="color: #ffdd90"><strong>彩&nbsp;&nbsp;虹&nbsp;&nbsp;日&nbsp;&nbsp;记</strong></span>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="nav_hover"><a href="index.html">首页</a></li>
+                    <li class="nav_hover"><a href="#">热门</a></li>
+                    <li class="nav_hover"><a href="search/rank.html">排行榜</a></li>
+                    <li class="nav_hover"><a href="#">测评资讯</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><button type="button" class="btn btn-success unlogin"><a href="login.html">登录</a></button></li>
+                    <li><button type="button" class="btn btn-success unlogin"><a href="register.html">注册</a></button></li>
+                    <li><button type="button" class="btn btn-info sharing_btn"><strong>写&nbsp;&nbsp;日&nbsp;&nbsp;记</strong></button></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right islogin" style="display: none">
+                    <li><a href="#"><img src="../img/usericon.png" alt="user-icon" class="img-circle usericon_img"></a></li>
+                    <li class="nav_hover"><a href="#" class="a_width">消息 <span class="badge">4</span></a></li>
+                    <li class="nav_hover"><a href="#" class="a_width">动态 <span class="badge">4</span></a></li>
+                    <li class="nav_hover"><a href="#" >收藏</a></li>
+                    <li><button type="button" class="btn btn-info sharing_btn"><strong>写&nbsp;&nbsp;日&nbsp;&nbsp;记</strong></button></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </div>
+</nav>
+    <!--导航栏下拉-->
+    <div class="container-fluid navbar-fixed-top down_position">
+    <div class="row down_nav" style="display: none">
+        <div class="visible-xs">
+            <ul class="nav navbar-nav navbar_nav">
+                <li class="nav_hover down_nav_text"><a href="#"><strong>热&nbsp;&nbsp;门</strong></a></li>
+                <li class="nav_hover down_nav_text"><a href="search/rank.html"><strong>排&nbsp;&nbsp;行&nbsp;&nbsp;榜</strong></a></li>
+                <li class="nav_hover down_nav_text"><a href="#"><strong>测&nbsp;&nbsp;评&nbsp;&nbsp;资&nbsp;&nbsp;讯</strong></a></li>
+                <li class="nav_hover down_nav_text"><a href="#"><strong>登&nbsp;&nbsp;录</strong></a></li>
+                <li class="nav_hover down_nav_text"><a href="#"><strong>注&nbsp;&nbsp;册</strong></a></li>
+                <li class="nav_hover down_nav_text"><a href="#"><strong>写&nbsp;&nbsp;日&nbsp;&nbsp;记</strong></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar_nav islogin" style="display: none">
+                <li class="nav_hover down_nav_text"><a href="#"><strong>个&nbsp;&nbsp;人&nbsp;&nbsp;中&nbsp;&nbsp;心</strong></a></li>
+                <li class="nav_hover down_nav_text"><a href="#"><strong>消&nbsp;&nbsp;息</strong> <span class="badge">4</span></a></li>
+                <li class="nav_hover down_nav_text"><a href="#"><strong>动&nbsp;&nbsp;态</strong> <span class="badge">4</span></a></li>
+                <li class="nav_hover down_nav_text"><a href="#" ><strong>收&nbsp;&nbsp;藏</strong></a></li>
+                <li class="nav_hover down_nav_text"><a href="#"><strong>写&nbsp;&nbsp;日&nbsp;&nbsp;记</strong></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+    <div class="container qz_con">
+        <!--头像个签-->
+        <div class="row qz_head">
+            <div class="col-xs-7 col-sm-3 col-md-3 col-lg-2">
+                <div class="portrait"><img src="../img/center/cosmetics.png" alt="..." class="img-circle"></div>
+                <div class="pet_name">
+                    <div><a class="qz_an" href="#">昵称</a></div>
+                    <div><a class="qz_ag" href="#">个性签名...</a></div>
+                </div>
+            </div>
+            <div class="col-xs-1 col-sm-6 col-md-6 col-lg-7"></div>
+            <div class="col-xs-4 col-sm-2 col-md-2 col-lg-1">
+                <div class="num_f">
+                    <a href="#">关注数：0</a><br>
+                    <a href="#">粉丝数：0</a>
+                </div>
+            </div>
+            <div class="hidden-xs col-sm-1 col-md-1 col-lg-1"></div>
+
+        </div>
+
+        <!--个人中心导航栏-->
+        <nav class="navbar navbar-default qz_head">
+            <div class="container-fluid wid_nav">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <!--<a class="navbar-brand" href="#">图形</a>-->
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" >
+                    <ul class="nav navbar-nav qz_nav">
+                        <li><img src="../img/center/homepage.png" class="img-responsive cen_icon" alt="Responsive image"></li>
+                        <li><a class="cen_inf animal_swi ico_lin_act" href="#">主页</a></li>
+                        <li><img src="../img/center/dynamic.png" class="img-responsive cen_icon" alt="Responsive image"></li>
+                        <li><a class="cen_inf animal_swi ico_lin" href="#">动态</a></li>
+                        <li><img src="../img/center/favorites.png" class="img-responsive cen_icon" alt="Responsive image"></li>
+                        <li><a class="cen_inf animal_swi ico_lin" href="#">收藏夹</a></li>
+                        <li><img src="../img/center/set.png" class="img-responsive cen_icon" alt="Responsive image"></li>
+                        <li><a class="cen_inf animal_swi ico_lin" href="#">设置</a></li>
+                        <li></li>
+                    </ul>
+                    <form class="nav navbar-nav navbar-right">
+                        <div class="input-group qz_group">
+                            <input type="text" class="form-control" placeholder="Search for...">
+                            <span class="input-group-btn">
+                                    <button class="btn btn-default" type="button">Go!</button>
+                                </span>
+                        </div><!-- /input-group -->
+                    </form>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+
+        <!--个人中心主页-->
+        <div class="row qz_home">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+                <!--我的动态栏-->
+                <div class="row qz_row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <a href="#"><strong class="qz_str">我 的 动 态 </strong><span class="badge qz_bad">0</span></a>
+                    </div>
+                </div>
+
+                <!--动态（添加）-->
+                <div class="row qz_row">
+                    <div class="hidden-xs col-sm-1 col-md-1 col-lg-1"></div>
+                    <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+                        <div class="row qz_dyt">
+                            <div class="col-xs-4 col-sm-5 col-md-5 col-lg-5">
+                                <!--<div class="exe_bla"></div>-->
+                            </div>
+                            <div class="col-xs-4 col-sm-2 col-md-2 col-lg-2">
+                                <div class="dyt_cli ">
+                                    <a class="btn btn-info qz_dbt anima_pul" href="#" role="button">写日记</a>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 col-sm-5 col-md-5 col-lg-5">
+                                <div class="dyt_img"><img src="http://pic.51yuansu.com/pic3/cover/02/04/62/599dadad11b78_610.jpg" class="img-responsive" alt="Responsive image"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden-xs col-sm-1 col-md-1 col-lg-1"></div>
+                </div>
+
+                <!--动态主体-->
+                <div class="dyn_body">
+                    <!--<div class="row qz_row">-->
+                        <!--<div class="hidden-xs col-sm-1 col-md-1 col-lg-1"></div>-->
+                        <!--<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">-->
+                            <!--<div class="row">-->
+                                <!--<div class="col-xs-4 col-sm-2 col-md-2 col-lg-2">-->
+                                    <!--<div class="dy_pic">-->
+                                        <!--<img src="https://img0.bevol.cn/article/316/20170412212645681.jpg@80p" class="img-responsive anima_pul" alt="Responsive image">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="col-xs-8 col-sm-10 col-md-10 col-lg-10">-->
+                                    <!--<div class="dy_info">-->
+                                        <!--<span class="dy_tit">痘印、皮肤屏障的全能修复型选手——所以说EGF是用来长脸的？</span><br>-->
+                                        <!--<span class="dy_con">很多对成分有些研究的修宝们应该都听过EGF，研究的越多，会发现宣传好像很虚，争议好像很多，产品也好像很乱，宝宝看不懂怎么办？相信看完本文，大家对EGF就懂得理性种草了EGF是什么？EGF，全称Epidermal Growth Factor（表皮生长因子），2位科学家因在小鼠中发现了它，获得了诺贝尔奖EGF也广泛存在于人体，是一组重要的活性蛋白多肽物质。</span>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="hidden-xs col-sm-1 col-md-1 col-lg-1"></div>-->
+                    <!--</div>-->
+                </div>
+
+                <!--动态尾部-->
+                <div class="row qz_row">
+                    <div class="col-xs-9 col-sm-10 col-md-11 col-lg-11"></div>
+                    <div class="col-xs-3 col-sm-2 col-md-1 col-lg-1">
+                        <a class="qz_a" href="#">更多</a>
+                        <span class="glyphicon glyphicon-menu-right qz_gly" aria-hidden="true"></span>
+                    </div>
+                </div>
+
+                <!--分割线-->
+                <div class="qz_line"></div>
+
+                <!--我的肤质栏-->
+                <div class="row qz_row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <a href="#"><strong class="qz_str">我 的 肤 质 </strong></a>
+                    </div>
+                </div>
+
+                <!--肤质（添加）-->
+                <div class="row qz_row">
+                    <div class="hidden-xs col-sm-1 col-md-1 col-lg-1"></div>
+                    <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+                        <div class="row qz_dyt">
+                            <div class="col-xs-4 col-sm-5 col-md-5 col-lg-5">
+                                <!--<div class="exe_bla"></div>-->
+                            </div>
+                            <div class="col-xs-4 col-sm-2 col-md-2 col-lg-2">
+                                <div class="dyt_cli">
+                                    <a class="btn btn-info qz_dbt anima_pul" href="#" role="button">肤质测试</a>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 col-sm-5 col-md-5 col-lg-5">
+                                <div class="dyt_img"><img src="http://pic.51yuansu.com/pic3/cover/02/04/62/599dadad11b78_610.jpg" class="img-responsive" alt="Responsive image"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden-xs col-sm-1 col-md-1 col-lg-1"></div>
+                </div>
+
+                <!--肤质主体-->
+                <div class="row qz_row">
+                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+                    <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10">
+                        <div class="qz_ext">
+                            <span class="ext_tit">O（轻油）S（轻敏）N（非色素）W（皱纹）型肤质</span><br>
+                            <span class="ext_inf">OSNW皮肤容易敏感，所以建议对照美丽修行APP对产品安全星级的评定，尽量选择安全星级在3星半以.上的产品，同时建议查看全成分表，避开不适合的易致敏和致粉刺性成分。日常护理主要针对油脂分泌和面部潮红。需要找到不刺激的产品来抑制痤疮、粉刺和皮肤潮红。很多“敏感皮肤适用”的产品更适用于干性肤质，对于油性皮肤来说会刺激粉刺产生。选择清爽控油的洁面产品，定期适用泥状面膜,选择抗炎的保湿产品和抗氧化产品。OSNW需要避免使用含过氧苯甲酰成分的祛痘产品，因为会导致皮肤灼热发红。</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+                </div>
+
+                <!--肤质尾部-->
+                <div class="row qz_row">
+                    <div class="col-xs-9 col-sm-10 col-md-11 col-lg-11"></div>
+                    <div class="col-xs-3 col-sm-2 col-md-1 col-lg-1">
+                        <a class="qz_a" href="#">更多</a>
+                        <span class="glyphicon glyphicon-menu-right qz_gly" aria-hidden="true"></span>
+                    </div>
+                </div>
+
+                <!--分割线-->
+                <div class="qz_line"></div>
+
+                <!--妆品限期栏-->
+                <div class="row qz_row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <a href="#"><strong class="qz_str">妆 品 限 期 </strong></a>
+                    </div>
+                </div>
+
+                <!--妆品限期（添加）-->
+                <div class="row qz_row">
+                    <div class="hidden-xs col-sm-1 col-md-1 col-lg-1"></div>
+                    <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+                        <div class="row qz_dyt">
+                            <div class="col-xs-4 col-sm-5 col-md-5 col-lg-5">
+                                <!--<div class="exe_bla"></div>-->
+                            </div>
+                            <div class="col-xs-4 col-sm-2 col-md-2 col-lg-2">
+                                <div class="dyt_cli">
+                                    <a class="btn btn-info qz_dbt anima_pul" href="#" role="button">添加妆品</a>
+                                </div>
+                            </div>
+                            <div class="col-xs-4 col-sm-5 col-md-5 col-lg-5">
+                                <div class="dyt_img"><img src="http://pic.51yuansu.com/pic3/cover/02/04/62/599dadad11b78_610.jpg" class="img-responsive" alt="Responsive image"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden-xs col-sm-1 col-md-1 col-lg-1"></div>
+                </div>
+
+                <!--妆品限期主体-->
+                <div class="cos_body">
+                    <!--<div class="row qz_row">-->
+                        <!--<div class="hidden-xs col-sm-1 col-md-1 col-lg-1"></div>-->
+                        <!--<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">-->
+                            <!--<div class="row">-->
+                                <!--<div class="col-xs-4 col-sm-2 col-md-2 col-lg-2">-->
+                                    <!--<div class="dedli_pic">-->
+                                        <!--<img src="https://img0.bevol.cn/Goods/source/55dae7cf7cf08.jpg@50p" class="img-responsive anima_pul" alt="Responsive image">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="col-xs-6 col-sm-8 col-md-9 col-lg-9">-->
+                                    <!--<div class="dedli_inf">-->
+                                        <!--<a class="qz_a" href="#">-->
+                                            <!--<span class="qz_dis">理肤泉舒颜紧致眼霜</span><br>-->
+                                            <!--<span class="qz_dip">英文名称：LA ROCHE-POSAY REDERMIC YEUX</span><br>-->
+                                            <!--<span class="qz_dia">剩余365天</span>-->
+                                        <!--</a>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="col-xs-2 col-sm-2 col-md-1 col-lg-1 animal_swi">-->
+                                    <!--<a href="#"><span class="qz_das">编辑</span></a>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="hidden-xs col-sm-1 col-md-1 col-lg-1"></div>-->
+                    <!--</div>-->
+                </div>
+
+                <!--妆品限期尾部-->
+                <div class="row qz_row">
+                    <div class="col-xs-9 col-sm-10 col-md-11 col-lg-11"></div>
+                    <div class="col-xs-3 col-sm-2 col-md-1 col-lg-1">
+                        <a class="qz_a" href="#">更多</a>
+                        <span class="glyphicon glyphicon-menu-right qz_gly" aria-hidden="true"></span>
+                    </div>
+                </div>
+
+                <!--分割线-->
+                <div class="qz_line"></div>
+
+                <!--我的收藏栏-->
+                <div class="row qz_row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        <a href="#"><strong class="qz_str">我 的 收 藏 </strong><span class="badge qz_bad">0</span></a>
+                    </div>
+                </div>
+
+                <!--我的收藏主体（已收藏）-->
+                <div class="row qz_row">
+                    <div class="hidden-xs col-sm-1 col-md-1 col-lg-1"></div>
+                    <div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">
+                        <div class="row fabulous">
+                            <div class="col-xs-3 col-sm-2 col-md-2 col-lg-1">
+                                <div class="fab_pic">
+                                    <img src="https://img0.bevol.cn/UploadFile/head/d25047ce-acac-4dca-8d7e-f13f7bdf5f13.jpg" class="img-responsive" alt="Responsive image">
+                                </div>
+                            </div>
+                            <div class="col-xs-9 col-sm-10 col-md-10 col-lg-11">
+                                <div class="fab_inf">
+                                    <span class="qz_fis">我测评了5款网红遮瑕，拯救你的斑点、痘痘、泛红、毛孔、黑眼圈、法令纹</span><br>
+                                    <span class="qz_fip">我测评了市面上很火的5款遮瑕产品，究竟哪款符合不干不卡纹、遮瑕度高、不假面还轻薄服帖的完美要求呢？
+                                测评产品：1.美宝莲遮瑕棒2.clio遮瑕液3.NYX 6色遮瑕膏4.urban decay遮瑕液5.CPB遮瑕膏
+                                测试说明：肤质：冬混干、夏混油，城墙皮肤色：黄调一白瑕疵：斑点、
+                            </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hidden-xs col-sm-1 col-md-1 col-lg-1"></div>
+                </div>
+
+                <!--收藏尾部-->
+                <div class="row qz_row">
+                    <div class="col-xs-9 col-sm-10 col-md-11 col-lg-11"></div>
+                    <div class="col-xs-3 col-sm-2 col-md-1 col-lg-1">
+                        <a class="qz_a" href="#">更多</a>
+                        <span class="glyphicon glyphicon-menu-right qz_gly" aria-hidden="true"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--动态页-->
+        <div class="mic_body">
+            <!--<div class="row qz_dynamic">-->
+                <!--<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">-->
+                    <!--&lt;!&ndash;作者头像日期&ndash;&gt;-->
+                    <!--<div class="row qz_row">-->
+                        <!--<div class="col-xs-3 col-sm-1 col-md-1 col-lg-1">-->
+                            <!--<div class="dyn_pic">-->
+                                <!--<img src="https://img0.bevol.cn/UploadFile/head/d25047ce-acac-4dca-8d7e-f13f7bdf5f13.jpg" class="img-responsive" alt="Responsive image">-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-4 col-sm-2 col-md-2 col-lg-1">-->
+                            <!--<div class="dyn_aut">-->
+                                <!--<span>一修姐</span><br>-->
+                                <!--<span id="count_time"></span>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-5 col-sm-8 col-md-8 col-lg-9"></div>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;动态内容&ndash;&gt;-->
+                    <!--<div class="row qz_row">-->
+                        <!--<div class="hidden-xs col-sm-1 col-md-1 col-lg-1"></div>-->
+                        <!--<div class="col-xs-12 col-sm-10 col-md-10 col-lg-10">-->
+                            <!--<div class="row">-->
+                                <!--<div class="col-xs-4 col-sm-2 col-md-2 col-lg-2">-->
+                                    <!--<div class="dy_pic">-->
+                                        <!--<img src="https://img0.bevol.cn/article/316/20170412212645681.jpg@80p" class="img-responsive" alt="Responsive image">-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <!--<div class="col-xs-8 col-sm-10 col-md-10 col-lg-10">-->
+                                    <!--<div class="dy_info">-->
+                                        <!--<span class="dy_tit">痘印、皮肤屏障的全能修复型选手——所以说EGF是用来长脸的？</span><br>-->
+                                        <!--<span class="dy_con">很多对成分有些研究的修宝们应该都听过EGF，研究的越多，会发现宣传好像很虚，争议好像很多，产品也好像很乱，宝宝看不懂怎么办？相信看完本文，大家对EGF就懂得理性种草了EGF是什么？EGF，全称Epidermal Growth Factor（表皮生长因子），2位科学家因在小鼠中发现了它，获得了诺贝尔奖EGF也广泛存在于人体，是一组重要的活性蛋白多肽物质。</span>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                        <!--<div class="hidden-xs col-sm-1 col-md-1 col-lg-1"></div>-->
+                    <!--</div>-->
+                    <!--&lt;!&ndash;转发点赞&ndash;&gt;-->
+                    <!--<div class="row qz_row">-->
+                        <!--<div class="hidden-xs col-sm-1 col-md-1 col-lg-1"></div>-->
+                        <!--<div class="col-xs-2 col-sm-1 col-md-1 col-lg-1">-->
+                            <!--<a href="#"><img src="../img/center/forward.png" class="img-responsive dyn_for" alt="Responsive image"></a>-->
+                            <!--<span>&nbsp;0</span>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-2 col-sm-1 col-md-1 col-lg-1">-->
+                            <!--<a href="#"><img src="../img/center/comment.png" class="img-responsive dyn_for" alt="Responsive image"></a>-->
+                            <!--<span>&nbsp;0</span>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-2 col-sm-1 col-md-1 col-lg-1">-->
+                            <!--<a href="#"><img src="../img/center/fabulous.png" class="img-responsive dyn_for" alt="Responsive image"></a>-->
+                            <!--<span>&nbsp;0</span>-->
+                        <!--</div>-->
+                        <!--<div class="col-xs-6 col-sm-8 col-md-8 col-lg-8"></div>-->
+                    <!--</div>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--&lt;!&ndash;分割线&ndash;&gt;-->
+            <!--<div class="qz_line"></div>-->
+        </div>
+
+        <!--收藏页-->
+        <div class="row qz_collect">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="shoucang"></div>
+            </div>
+        </div>
+
+        <!--设置页-->
+        <div class="row qz_set">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="shezhi"></div>
+            </div>
+        </div>
+
+
+    </div>
+
+    <!--网页尾部-->
+    <div class="container-fluid under_nav min_width">
+    <div class="container">
+        <div class="row row-margin">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <table class="under_table">
+                    <tr>
+                        <td class="colour">彩虹日记&nbsp;&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">关于我们</a></td>
+                        <td><a href="#">联系我们</a></td>
+                        <td><a href="#">加入我们</a></td>
+                        <td><a href="#">友情链接</a></td>
+                        <td class="hidden-xs hidden-sm"><a href="#">彩虹认证</a></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="hidden-xs col-sm-1 col-md-1 col-lg-1 under_line"></div>
+            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+                <table class="under_table">
+                    <tr>
+                        <td class="colour">传送门&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">帮助中心</a></td>
+                        <td><a href="#">侵权申诉</a></td>
+                        <td><a href="#">活动中心</a></td>
+                        <td><a href="#">用户反馈</a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row last_center">
+            &copy;rainbow diary 2019 belong to Ji yuan /Qian zhen /Rui hong sheng
+        </div>
+    </div>
+</div>
+
+<script src="user_js/center.js"></script>
+<script src="../js/all_nav.js"></script>
+</body>
+</html>

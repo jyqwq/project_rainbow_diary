@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="img/logo.ico" type="image/x-icon"/>
+    <title>彩虹日记</title>
+    <link rel="stylesheet" href="bootstrap-3.3.7/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="css/all_nav.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/animate.css">
+
+</head>
+<body>
+<!--导航栏-->
+<nav class="navbar navbar-default nav_col navbar-fixed-top">
+    <div class="container">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">彩虹日记</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand" href="index.html">
+                    <img alt="彩虹日记" src="img/logo_.png" class="logo_img">
+                </a>
+                <span class="navbar-toggle navbar-brand logo_text" style="color: #ffdd90"><strong>彩&nbsp;&nbsp;虹&nbsp;&nbsp;日&nbsp;&nbsp;记</strong></span>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="nav_hover"><a href="index.html">首页</a></li>
+                    <li class="nav_hover"><a href="#">热门</a></li>
+                    <li class="nav_hover"><a href="search/rank.html">排行榜</a></li>
+                    <li class="nav_hover"><a href="sharing/evaluation.html">测评资讯</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right unlogin">
+                    <li>
+                        <button type="button" class="btn btn-success unlogin_btn">登录</button>
+                    </li>
+                    <li>
+                        <button type="button" class="btn btn-success unlogin_btn">注册</button>
+                    </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right islogin" style="display: none">
+                    <li><a href="#"><img src="img/usericon.png" alt="user-icon" class="img-circle usericon_img"></a>
+                    </li>
+                    <li class="nav_hover"><a href="#" class="a_width">消息 <span class="badge new_num">4</span></a></li>
+                    <li class="nav_hover"><a href="#" class="a_width">动态 <span class="badge new_num">4</span></a></li>
+                    <li class="nav_hover hidden-sm"><a href="#">收藏</a></li>
+                    <li>
+                        <button type="button" class="btn btn-info sharing_btn">
+                            <strong>写&nbsp;&nbsp;日&nbsp;&nbsp;记</strong></button>
+                    </li>
+                </ul>
+            </div>
+            <div class="container hidden-xs navbar-fixed-top sharing_nav" style="display: none">
+                <div class="sharing_nav_box">
+                    <div class="sharing_hover"><a href="#"><div class="sharing_nav_btn"><img src="img/心率.png" alt=""> <br> 心情</div></a></div>
+                    <div class="sharing_hover"><a href="#"><div class="sharing_nav_btn"><img src="img/日记.png" alt=""> <br> 日记</div></a></div>
+                    <div class="sharing_hover"><a href="#"><div class="sharing_nav_btn"><img src="img/评价.png" alt=""> <br> 测评</div></a></div>
+                </div>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </div>
+</nav>
+<!--导航栏下拉-->
+<div class="container-fluid navbar-fixed-top down_position">
+    <div class="row down_nav" style="display: none">
+        <div class="visible-xs">
+            <ul class="nav navbar-nav navbar_nav">
+                <li class="nav_hover down_nav_text"><a href="#"><strong>热&nbsp;&nbsp;门</strong></a></li>
+                <li class="nav_hover down_nav_text"><a
+                        href="search/rank.html"><strong>排&nbsp;&nbsp;行&nbsp;&nbsp;榜</strong></a></li>
+                <li class="nav_hover down_nav_text"><a
+                        href="#"><strong>测&nbsp;&nbsp;评&nbsp;&nbsp;资&nbsp;&nbsp;讯</strong></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar_nav unlogin">
+                <li class="nav_hover down_nav_text"><a href="#"><strong>登&nbsp;&nbsp;录</strong></a></li>
+                <li class="nav_hover down_nav_text"><a href="#"><strong>注&nbsp;&nbsp;册</strong></a></li>
+                <li class="nav_hover down_nav_text"><a href="#"><strong>写&nbsp;&nbsp;日&nbsp;&nbsp;记</strong></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar_nav islogin" style="display: none">
+                <li class="nav_hover down_nav_text"><a
+                        href="#"><strong>个&nbsp;&nbsp;人&nbsp;&nbsp;中&nbsp;&nbsp;心</strong></a></li>
+                <li class="nav_hover down_nav_text"><a href="#"><strong>消&nbsp;&nbsp;息</strong> <span
+                        class="badge">4</span></a></li>
+                <li class="nav_hover down_nav_text"><a href="#"><strong>动&nbsp;&nbsp;态</strong> <span
+                        class="badge">4</span></a></li>
+                <li class="nav_hover down_nav_text"><a href="#"><strong>收&nbsp;&nbsp;藏</strong></a></li>
+                <li class="nav_hover down_nav_text"><a href="#"><strong>写&nbsp;&nbsp;日&nbsp;&nbsp;记</strong></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--搜索栏长图-->
+<div class="container-fluid visible-xs search_margin">
+    <button type="button" class="btn btn-primary btn-lg btn_search01">
+        开&nbsp;启&nbsp;搜&nbsp;索&nbsp;之&nbsp;旅&nbsp;&nbsp;<span class="glyphicon glyphicon-search"
+                                                              aria-hidden="true"></span></button>
+</div>
+
+<!--网站主体-->
+<div class="container" style="margin-top: 50px">
+    <!--欢迎巨幕-->
+    <div class="row row-margin animate_welcome">
+        <div class="hidden-xs hidden-sm col-md-2 col-lg-2"></div>
+        <div class="hidden-xs col-sm-12 col-md-10 col-lg-10">
+            <div class="jumbotron show_img">
+                <h1>Hello 彩虹日记!</h1>
+                <p class="change_text"></p>
+                <p><a class="btn btn-primary btn-lg more_color" href="#" role="button">加入彩虹日记</a></p>
+            </div>
+        </div>
+    </div>
+
+    <div class="row row-margin animate_welcome1">
+        <div class="hidden-xs col-sm-12 col-md-10 col-lg-10">
+            <div class="jumbotron show_img1">
+                <h1>寻找属于你的生活</h1>
+                <p class="change_text"></p>
+                <p><a class="btn btn-primary btn-lg more_color" href="#" role="button">开启搜索之旅</a></p>
+            </div>
+        </div>
+        <div class="hidden-xs hidden-sm col-md-2 col-lg-2"></div>
+    </div>
+
+    <!--分割线-->
+    <div class="div_line"></div>
+
+    <!--量身推荐-->
+    <div class="row row-margin">
+        <div class="row hidden-xs style_title">
+            <strong>&nbsp;&nbsp;&nbsp;RECOMMENDED VOLUME</strong> <br>
+        </div>
+        <div class="row hidden-xs">
+            <span class="style_title1">BEST FOR YOU</span>
+        </div>
+        <div class="row hidden-xs">
+            <span class="style_title2">量身推荐&nbsp;<span class="glyphicon glyphicon-play" aria-hidden="true"></span></span>
+        </div>
+        <div class="row visible-xs sm_commend">量身推荐</div>
+        <div class="row infirst">
+            <!--ajax请求内容区域-->
+        </div>
+    </div>
+
+    <!--分割线-->
+    <div class="div_line"></div>
+
+    <!--热门动态-->
+    <div class="row row-margin" >
+        <div class="col-lg-6">
+            <div class="row hidden-xs style_title">
+                <strong>&nbsp;&nbsp;&nbsp;HOT DYNAMIC</strong> <br>
+            </div>
+            <div class="row hidden-xs">
+                <span class="style_title1">HOT AND INTERESTING</span>
+            </div>
+            <div class="row hidden-xs">
+                <span class="style_title2">热门动态&nbsp;<span class="glyphicon glyphicon-play" aria-hidden="true"></span></span>
+            </div>
+            <div class="row visible-xs sm_commend">热门动态</div>
+            <div class="row insecond">
+                <!--热门动态ajax请求区-->
+            </div>
+        </div>
+        <div class="col-lg-6 most_hot">
+
+        </div>
+    </div>
+
+    <!--分割线-->
+    <div class="div_line"></div>
+
+    <!--评测资讯-->
+    <div class="row row-margin">
+        <div class="row hidden-xs style_title">
+            <strong>&nbsp;&nbsp;&nbsp;EVALUATION INFORMATION</strong> <br>
+        </div>
+        <div class="row hidden-xs">
+            <span class="style_title1">LATEST INFORMATION</span>
+        </div>
+        <div class="row hidden-xs">
+            <span class="style_title2">评测资讯&nbsp;<span class="glyphicon glyphicon-play" aria-hidden="true"></span></span>
+        </div>
+        <div class="row visible-xs sm_commend">评测资讯</div>
+        <div class="row all_eva">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 md_over_hid">
+                <a href="#"><img src="img/z_md.jpg" class="img-responsive center-block img-rounded" alt="Responsive image"></a>
+                <div class="md_content_div pro_detail">产品评测</div>
+            </div>
+            <div class="hidden-xs col-sm-6 col-md-6 col-lg-6 md_over_hid">
+                <a href="#"><img src="img/z_md.jpg" class="img-responsive center-block img-rounded" alt="Responsive image"></a>
+                <div class="md_content_div pro_detail">产品评测</div>
+            </div>
+        </div>
+        <div class="row row-margin all_eva">
+            <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 over_hid">
+                <a href="#"><img src="img/z_sm.jpg" class="img-responsive center-block img-rounded" alt="Responsive image"></a>
+                <div class="content_div pro_detail">产品评测</div>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 over_hid">
+                <a href="#"><img src="img/z_sm.jpg" class="img-responsive center-block img-rounded" alt="Responsive image"></a>
+                <div class="content_div pro_detail">产品评测</div>
+            </div>
+            <div class="hidden-xs col-sm-4 col-md-4 col-lg-4 over_hid">
+                <a href="#"><img src="img/z_sm.jpg" class="img-responsive center-block img-rounded" alt="Responsive image"></a>
+                <div class="content_div pro_detail">产品评测</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!--网页底部-->
+<div class="container-fluid under_nav min_width">
+    <div class="container">
+        <div class="row row-margin">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <table class="under_table">
+                    <tr>
+                        <td class="colour">彩虹日记&nbsp;&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">关于我们</a></td>
+                        <td><a href="#">联系我们</a></td>
+                        <td><a href="#">加入我们</a></td>
+                        <td><a href="#">友情链接</a></td>
+                        <td class="hidden-xs hidden-sm"><a href="#">彩虹认证</a></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="hidden-xs col-sm-1 col-md-1 col-lg-1 under_line"></div>
+            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+                <table class="under_table">
+                    <tr>
+                        <td class="colour">传送门&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">帮助中心</a></td>
+                        <td><a href="#">侵权申诉</a></td>
+                        <td><a href="#">活动中心</a></td>
+                        <td><a href="#">用户反馈</a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row last_center">
+            &copy;rainbow diary 2019 belong to Ji yuan /Qian zhen /Rui hong sheng
+        </div>
+    </div>
+</div>
+
+<script src="utils/Ajax.js"></script>
+<script src="js/all_nav.js"></script>
+<script src="utils/config.js"></script>
+<script src="js/index.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+.row_margin{
+    margin-top: 20px;
+}
+.unaction li{
+    text-align: center;
+    margin: auto;
+}
+.unaction a{
+    text-decoration: none;
+    color: #25003f;
+}
+.my_active{
+    border-bottom: solid 3px lightpink;
+}
+.my_active>a{
+    color: lightpink;
+}
+.xs_padding{
+    padding: 0 3px;
+}
+.rank_one{
+    animation: fadeInLeft 1s;
+    border-bottom: solid 1px #d5d5d5;
+}
+.rank_one:hover{
+    box-shadow: 0 5px 10px #ffc1c3;
+}
+.rank_one>div{
+    text-align: center;
+    height: 150px;
+}
+.rank_num{
+    line-height: 150px;
+    color: darkgrey;
+    font-size: 2.5em;
+}
+.min_width{
+    min-width: 620px;
+}
+.rank_img{
+    /*边框*/
+    border: solid 1px rgba(128, 128, 128, 0);
+    height: 150px;
+    padding: 0;
+}
+
+.rank_content{
+    /*边框*/
+    border: solid 1px rgba(128, 128, 128, 0);
+    height: 150px;
+}
+.first_row{
+    box-sizing: border-box;
+    padding: 0 15px;
+    text-align: left;
+    line-height: 40px;
+}
+.second_row{
+    box-sizing: border-box;
+    padding: 0 15px;
+    text-align: left;
+    line-height: 40px;
+    font-size: 12px;
+}
+.content_name{
+    text-align: left;
+}
+.content_name h5{
+    font-size: 1.1em;
+    line-height: 50px;
+}
+.content_name:hover{
+    text-decoration: none;
+}
+.rank_detail{
+    /*边框*/
+    border: solid 1px rgba(128, 128, 128, 0);
+    height: 150px;
+    padding: 0;
+    line-height: 40px;
+    padding-top: 20px;
+}
+.rank_detail div{
+    padding: 0;
+}
+.see_more{
+    text-align: center;
+}
+.real_time ,.hot_dairy ,.hot_cosmetics{
+    margin: 0;
+}

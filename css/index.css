@@ -1,0 +1,242 @@
+@keyframes myfirst
+{
+    0%   {opacity: 1;}
+    25%  {opacity: 0.8;}
+    50%  {opacity: 0.6;}
+    100% {opacity: 0.5;}
+}
+
+@-moz-keyframes myfirst /* Firefox */
+{
+    0%   {opacity: 1;}
+    25%  {opacity: 0.8;}
+    50%  {opacity: 0.6;}
+    100% {opacity: 0.5;}
+}
+
+@-webkit-keyframes myfirst /* Safari 和 Chrome */
+{
+    0%   {opacity: 1;}
+    25%  {opacity: 0.8;}
+    50%  {opacity: 0.6;}
+    100% {opacity: 0.5;}
+}
+
+@-o-keyframes myfirst /* Opera */
+{
+    0%   {opacity: 1;}
+    25%  {opacity: 0.8;}
+    50%  {opacity: 0.6;}
+    100% {opacity: 0.5;}
+}
+
+@keyframes mysecond
+{
+    0%   {top:-60px;}
+    20%  {top:-47px;}
+    40%  {top:-35px;}
+    60% {top:-21px;}
+    80% {top:-8px;}
+    100% {top: 0;}
+}
+
+@-moz-keyframes mysecond /* Firefox */
+{
+    0%   {top:-60px;}
+    20%  {top:-47px;}
+    40%  {top:-35px;}
+    60% {top:-21px;}
+    80% {top:-8px;}
+    100% {top: 0;}
+}
+
+@-webkit-keyframes mysecond /* Safari 和 Chrome */
+{
+    0%   {top:-60px;}
+    20%  {top:-47px;}
+    40%  {top:-35px;}
+    60% {top:-21px;}
+    80% {top:-8px;}
+    100% {top: 0;}
+}
+
+@-o-keyframes mysecond /* Opera */
+{
+    0%   {top:-60px;}
+    20%  {top:-47px;}
+    40%  {top:-35px;}
+    60% {top:-21px;}
+    80% {top:-8px;}
+    100% {top: 0;}
+}
+
+.row-margin{
+    margin-top: 30px;
+    margin-right: -15px;
+    margin-left: -15px;
+
+}
+.animate_welcome{
+    animation: bounceInLeft 2s;
+}
+.animate_welcome1{
+    animation: bounceInRight 2s;
+}
+.animate_welcome2{
+    animation: jackInTheBox 2s;
+}
+.style_title{
+    border-left: lightpink solid 3px;
+    font-size: 1.1em;
+}
+.style_title1{
+    font-size: 2.5em;
+    color: rgba(255,192,203,0.53);
+}
+.style_title2{
+    font-size: 2em;
+    color: hotpink;
+}
+.recommend_one{
+    margin: 30px 0;
+    height: 400px;
+    border: solid 2px rgba(128, 128, 128, 0.3);
+    border-radius: 3px;
+    /*text-align: center;*/
+    font-size: 1.1em;
+}
+.recommend_one a{
+    color: #464646;
+}
+.recommend_one a:hover{
+    text-decoration: none;
+}
+.recommend_one:hover{
+    animation: pulse 1s;
+    border: solid 2px rgba(216, 147, 167, 0.92);
+    /*transform: scale(1.1, 1.1);*/
+}
+.div_line{
+    margin: 20px 0;
+    height: 1px;
+    background: pink;
+}
+.hot_thing{
+    height: 141px;
+    overflow: hidden;
+    margin: 10px 0;
+    text-align: center;
+}
+.hot_thing_title{
+    line-height: 40px;
+}
+.hot_thing_title_act{
+    animation: lightSpeedIn 1s;
+}
+.hot_thing:hover{
+    animation: pulse 1s;
+    outline: solid 5px rgba(255, 192, 203, 0.24);
+}
+.hot_thing img:hover{
+    animation: myfirst 1s;
+    opacity: 0.5;
+}
+.hot_search{
+    margin: 20px 10px;
+    height: 400px;
+    border: solid 1px #e9d2c9;
+    border-radius: 7px;
+    text-align: center;
+}
+.hot_message{
+    margin-top: 50px;
+    margin-bottom: 10px;
+    height: 150px;
+    /*border: solid 1px gray;*/
+}
+.hot_rank{
+    list-style: none;
+}
+.pro_detail{
+    text-align: center;
+}
+.sm_commend{
+    text-align: center;
+    color: #FFB5B5;
+    font-size: 1.2em
+}
+.show_img{
+    background-color: white;
+    background-image: url("../img/tim.png");
+    background-repeat: round;
+    color: #ff5044;
+}
+.show_img1{
+    background-color: white;
+    background-image: url("../img/tim1.png");
+    background-repeat: round;
+    color: #ff5044;
+    text-align: right;
+}
+.most_content{
+    height: 111px;
+    border-left: deeppink solid 5px;
+    background: rgba(255,192,203,0.24);
+}
+.most_{
+    line-height: 40px;
+    font-size: 1.8em;
+    color: #ff9341;
+}
+.most_title{
+    font-size: 1.5em;
+    font-family: 幼圆;
+    line-height: 40px;
+}
+.most_author{
+    font-family: 幼圆;
+}
+.row_most_margin{
+    margin-top: 10px;
+    padding-left: 20px;
+    height: 100%;
+}
+.content_div{
+    width: 62%;
+    height: 60px;
+    line-height: 60px;
+    background: rgba(255, 148, 165, 0.63);
+    margin: auto;
+    position: relative;
+    top: -60px;
+}
+.over_hid{
+    overflow: hidden;
+    height: 227px;
+}
+.over_hid:hover{
+    animation: pulse 1s;
+}
+.md_over_hid{
+    overflow: hidden;
+    height: 315px;
+}
+.md_over_hid:hover{
+    animation: pulse 1s;
+}
+.md_content_div{
+    width: 62%;
+    height: 60px;
+    line-height: 60px;
+    background: rgba(255, 148, 165, 0.63);
+    margin: auto;
+    position: relative;
+    top: -60px;
+}
+.upper_div{
+    top: 0;
+    animation: mysecond 300ms;
+}
+.change_text{
+    height: 20px;
+}
