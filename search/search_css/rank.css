@@ -1,10 +1,6 @@
 .row_margin{
     margin-top: 20px;
 }
-.unaction li{
-    text-align: center;
-    margin: auto;
-}
 .unaction a{
     text-decoration: none;
     color: #25003f;
@@ -17,6 +13,7 @@
 }
 .xs_padding{
     padding: 0 3px;
+    text-align: center;
 }
 .rank_one{
     animation: fadeInLeft 1s;
@@ -43,7 +40,9 @@
     height: 150px;
     padding: 0;
 }
-
+.rank_img img{
+    max-height: 148px;
+}
 .rank_content{
     /*边框*/
     border: solid 1px rgba(128, 128, 128, 0);
