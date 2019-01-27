@@ -177,12 +177,23 @@
 .qz_cen{
     background: #9783b9;
     margin: 10px;
+    /*text-align: center;*/
+    overflow: hidden;
 }
-.qz_cen img{
+.qz_cimg{
     margin: auto;
-    max-height: 200px;
+    transition: all 1s ease-in-out;
 }
-
+.cimg_active{
+    transition: all 1s ease-in-out;
+    transform: scale(1.5,1.5);
+}
+.qz_coimg{
+    border: solid 20px red;
+    display: none;
+    position: relative;
+    background: rgba(0, 0, 0, 0.6);
+}
 .qz_collection{
     display: none;
 }
@@ -214,6 +225,8 @@
 /*.animal_jac:hover{*/
     /*animation: jackInTheBox 1s;*/
 /*}*/
+
+/*qz动画*/
 
 
 
