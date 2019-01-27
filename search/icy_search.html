@@ -3,6 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>search</title>
+    <link rel="icon" href="../img/img/logo.ico" type="image/x-icon"/>
+
+    <style type="text/css">
+
+
+    </style>
     <link rel="stylesheet" href="../bootstrap-3.3.7/dist/css/bootstrap.css">
     <link rel="stylesheet" href="search_css/icy_search.css">
     <link rel="stylesheet" href="../css/all_nav.css">
@@ -100,8 +106,8 @@
                         <img src="../img/img/search.png" class="center-block">
                     </div>
                 </div>
-                <div class="row fbtn">
-                  <div class="col-md-2 col-md-offset-1">
+                <div class="row fbtn" id="fbtn">
+                    <div class="col-md-2 col-md-offset-1">
                         <button type="button" class="btn btn-default col-sm-12 col-xs-12">综合</button>
                     </div>
                     <div class="col-md-2 ">
@@ -122,7 +128,7 @@
                         <div class="input-group icy_sch">
                             <input type="text" class="form-control" placeholder="搜索你想要的内容...">
                             <span class="input-group-btn">
-        <button class="btn btn-default" type="button">搜索</button>
+                       <a href="#"><button class="btn " id="search" type="button">搜索</button></a>
                             </span>
                         </div>
                     </div>
@@ -291,8 +297,22 @@
 
 
 
-
-
+<!--模态框-->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <header class="modal-header">
+            <h4>清除历史记录</h4>
+            <span class="close">×</span>
+        </header>
+        <div class="modal-body">
+            <p>确定要清除历史记录吗</p>
+        </div>
+        <footer class="modal-footer">
+            <button id="cancel">取消</button>
+            <button id="sure">确定</button>
+        </footer>
+    </div>
+</div>
 
 
 <!--底部开始-->

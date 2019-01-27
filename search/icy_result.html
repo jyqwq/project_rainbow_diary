@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>result</title>
+    <link rel="icon" href="../img/img/logo.ico" type="image/x-icon"/>
     <style type="text/css">
 
 
@@ -12,6 +13,7 @@
     <link rel="stylesheet" href="../css/all_nav.css">
     <link rel="stylesheet" href="../css/animate.css">
     <link rel="stylesheet" href="search_css/animate.css">
+
 
 
 </head>
@@ -112,9 +114,12 @@
                     <div class="col-md-4 top-mid">
                         <div class="row mid-1">
                             <div class="input-group icy_sch">
-                            <input type="text" class="form-control" placeholder="搜索你想要的内容...">
-                            <span class="input-group-btn">
-                        <button class="btn btn-default" type="button">搜索</button>
+                            <input type="text" name="website" list="list_web" class="form-control"  placeholder="搜索你想要的内容...">
+                                <datalist id="list_web">
+
+                                </datalist>
+                                <span class="input-group-btn">
+                        <button class="btn  search" id="sch_btn" type="button">搜索</button>
                         </span>
                         </div>
                         </div>
@@ -154,7 +159,7 @@
                             <table class="table r-2-tb">
                                 <tr>
                                     <td class="col-md-1">品牌:</td>
-                                    <td class="col-md-6">
+                                    <td class="col-md-6 r-2-td-1">
                                         <span>SNP</span>
                                         <span>毛穴革命</span>
                                         <span>森田药妆</span>
@@ -172,7 +177,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-1">选购热点:</td>
-                                    <td class="col-md-6">
+                                    <td class="col-md-6 r-2-td-2">
                                         <span>龙血自然堂</span>
                                         <span>龙血自然堂</span>
                                         <span>龙血自然堂</span>
@@ -185,7 +190,7 @@
                                 </tr>
                                 <tr>
                                     <td class="col-md-1">功能:</td>
-                                    <td class="col-md-6">
+                                    <td class="col-md-6 r-2-td-3">
                                         <span>提亮肤色</span>
                                         <span>均匀肤色</span>
                                         <span>保湿</span>
@@ -523,6 +528,7 @@
     </div>
 </div>
     <!--底部导航结束-->
+    <script src="../utils/utils.js"></script>
     <script src="search_js/icy_result.js"></script>
     <script src="../js/all_nav.js"></script>
 </body>
