@@ -101,7 +101,7 @@
 .down_nav{
     background: rgba(255, 255, 255, 0.8);
     text-align: center;
-    animation: fadeInDown 0.5s;
+    animation: fadeInDown 1s;
 }
 .down_position{
     top: 50px;
@@ -118,7 +118,7 @@
 }
 .sharing_nav{
     top:49px;
-    animation: fadeInDown 1s;
+    animation: fadeInDown 0.5s;
 }
 .sharing_nav_box{
     margin-right: 15px;

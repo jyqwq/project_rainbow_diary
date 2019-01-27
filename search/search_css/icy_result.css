@@ -50,6 +50,15 @@ body{
     color: white;
     width: 90px;
 }
+#sch_btn:hover{
+    border: 1px solid rgb(255, 20, 147);
+    background: deeppink !important;
+    color: white;
+}
+#sch_btn:focus{
+    color: white;
+    outline: 0px;
+}
 .mid-2-nav{
     border: 0px;
     background: white;

@@ -8,7 +8,7 @@ function f() {
         inter = setInterval(function () {
             index++;
             index = index % 2;
-            lunbo.innerHTML='<img src="../img/img/'+myimgs[index]+'" class="top-right-img">';
+            lunbo.innerHTML=`<img src="../img/img/${myimgs[index]}" class="top-right-img">`;
         }, 2000);
     }
 
@@ -42,5 +42,30 @@ function number_to_time(num) {
     seconds=seconds>9?seconds:'0'+seconds;
     var result=days+" 天"+hours+' 时'+minutes+" 分"+seconds+" 秒";
     return result;
-
 }
+
+
+function q() {
+    var img_lists=document.querySelector('.r-2-4');
+    var big_img=document.querySelector('.r-2-img');
+    img_lists.onclick=function (e) {
+
+        if (e.target.nodeName=="IMG") {
+            big_img.src=e.target.src
+            var a=e.target.parentElement.parentElement.children
+            for (var b of a){
+                b.style.outline="";
+            }
+            e.target.parentElement.style.outline="3px solid rgba(128, 128, 128, 0.31)"
+        }
+        if (e.target.className=='div-img') {
+            big_img.src=e.target.children[0].src
+            var a=e.target.parentElement.children
+            for (var b of a){
+                b.style.outline="";
+            }
+            e.target.style.outline="3px solid rgba(128, 128, 128, 0.31)"
+        }
+    }
+}
+q();

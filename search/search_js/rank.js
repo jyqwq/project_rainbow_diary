@@ -36,7 +36,6 @@
         let real_time=document.querySelector('.real_time');
         postData(ajax_url+'/search/rank',hot,function (res) {
             console.log(res);
-
         })
     }
 
