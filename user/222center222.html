@@ -50,6 +50,68 @@
                             </div>
                             <div class="col-xs-4 col-sm-2 col-md-3 col-lg-3 qz_percha">
                                 <a href="#"><span class="qz_edit">编辑</span></a>
+
+
+                                <!--模态框-->
+                                <button class="btn" id="showModel">编辑</button>
+                                <div id="modal" class="modal">
+                                    <div class="modal-content">
+                                        <header class="modal-header">
+                                            <h4>南浅的小屋</h4>
+                                            <span class="close">×</span>
+                                        </header>
+                                        <div class="modal-body">
+                                            <table>
+                                                <tr>
+                                                    <td>昵称：</td>
+                                                    <td><textarea class="form-control qz_text" rows="1">南浅</textarea></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>个性签名：</td>
+                                                    <td><textarea class="form-control qz_text" rows="1">小仙女都是喝露水的</textarea></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>性别：</td>
+                                                    <td>
+                                                        <select>
+                                                            <option value="man">男</option>
+                                                            <option value="women">女</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td>年龄：</td>
+                                                    <td>
+                                                        <select>
+                                                            <option>12</option>
+                                                            <option>12</option>
+                                                            <option>12</option>
+                                                            <option>12</option>
+                                                            <option>12</option>
+                                                            <option>12</option>
+                                                            <option>12</option>
+                                                            <option>12</option>
+                                                            <option>12</option>
+                                                        </select>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                        <footer class="modal-footer">
+                                            <button id="cancel">取消</button>
+                                            <button id="sure">确定</button>
+                                        </footer>
+                                    </div>
+                                </div>
+
+                                <!--模态框结束-->
+
+
+
+
+
+
+
                             </div>
 
                         </div>
@@ -70,18 +132,21 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <!--箭头指向第二页-->
-        <div class="row qz_row">
-            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 qz_lead ">
-                <div class="qz_leaimg animal_rin">
-                    <a href="#mao">
-                        <img src="../img/222center222/arrow.png" class="img-responsive lea_img " alt="Responsive image">
-                    </a>
 
+            <!--箭头指向第二页-->
+            <div class="row qz_row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 qz_lead ">
+                    <div class="qz_leaimg animal_rin">
+                        <a href="#mao">
+                            <img src="../img/222center222/arrow.png" class="img-responsive lea_img " alt="Responsive image">
+                        </a>
+
+                    </div>
                 </div>
             </div>
+
         </div>
+
 
         <!--第二页-->
         <a name="mao">
@@ -93,25 +158,28 @@
         </a>
 
         <!--大导航栏-->
-        <div class="row qz_row">
+        <div class="row qz_row" id="qz_nav">
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-1"></div>
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
                 <div class="row qz_row">
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 qz_sep">
+                    <!--日记本-->
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 qz_sep" id="qz_dianav">
                         <div class="qz_nimg anima_jel">
                             <img src="../img/222center222/diary.png" class="img-responsive img_diary" alt="Responsive image">
                         </div>
                         <div class="qz_nav"><span class="font_nav">日 记 本</span></div>
                         <div class="qz_ndis"><span class="font_inf">快来写日记吧！</span></div>
                     </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 qz_sep">
+                    <!--收藏夹-->
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 qz_sep" id="qz_colnav">
                         <div class="qz_nimg anima_jel">
                             <img src="../img/222center222/collection.png" class="img-responsive img_diary" alt="Responsive image">
                         </div>
                         <div class="qz_nav"><span class="font_nav">收 藏 夹</span></div>
                         <div class="qz_ndis"><span class="font_inf">喜欢，我收下啦！</span></div>
                     </div>
-                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 qz_sep">
+                    <!--收纳盒-->
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 qz_sep" id="qz_admnav">
                         <div class="qz_nimg anima_jel">
                             <img src="../img/222center222/admission.png" class="img-responsive img_diary" alt="Responsive image">
                         </div>
@@ -126,7 +194,7 @@
         <!--中心内容-->
         <div class="row qz_row qz_data">
             <!--日记本内容-->
-            <div class="qz_diary">
+            <div id="qz_diary" class="animal_sil">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="row">
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
@@ -138,112 +206,129 @@
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             <div class="qz_cen">
                                 <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg" alt="Responsive image">
+                                <div class="qz_coimg"></div>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             <div class="qz_cen">
-                                <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg " alt="Responsive image">
+                                <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg" alt="Responsive image">
+                                <div class="qz_coimg"></div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             <div class="qz_cen">
-                                <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg " alt="Responsive image">
+                                <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg" alt="Responsive image">
+                                <div class="qz_coimg"></div>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             <div class="qz_cen">
-                                <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg " alt="Responsive image">
+                                <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg" alt="Responsive image">
+                                <div class="qz_coimg"></div>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             <div class="qz_cen">
-                                <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg " alt="Responsive image">
+                                <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg" alt="Responsive image">
+                                <div class="qz_coimg"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <!--收藏夹内容-->
-            <div class="qz_collection">
+            <div id="qz_collection" class="animal_sil">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="row">
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             <div class="qz_cen">
-                                <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg " alt="Responsive image">
+                                <img src="../img/222center222/S90120-18241142.jpg" class="img-responsive qz_cimg" alt="Responsive image">
+                                <div class="qz_coimg"></div>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             <div class="qz_cen">
-                                <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg " alt="Responsive image">
+                                <img src="../img/222center222/S90120-18241142.jpg" class="img-responsive qz_cimg" alt="Responsive image">
+                                <div class="qz_coimg"></div>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             <div class="qz_cen">
-                                <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg " alt="Responsive image">
+                                <img src="../img/222center222/S90120-18241142.jpg" class="img-responsive qz_cimg" alt="Responsive image">
+                                <div class="qz_coimg"></div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             <div class="qz_cen">
-                                <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg " alt="Responsive image">
+                                <img src="../img/222center222/S90120-18241142.jpg" class="img-responsive qz_cimg" alt="Responsive image">
+                                <div class="qz_coimg"></div>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             <div class="qz_cen">
-                                <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg " alt="Responsive image">
+                                <img src="../img/222center222/S90120-18241142.jpg" class="img-responsive qz_cimg" alt="Responsive image">
+                                <div class="qz_coimg"></div>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             <div class="qz_cen">
-                                <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg " alt="Responsive image">
+                                <img src="../img/222center222/S90120-18241142.jpg" class="img-responsive qz_cimg" alt="Responsive image">
+                                <div class="qz_coimg"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <!--收纳盒内容-->
-            <div class="qz_admission">
+            <div id="qz_admission" class="animal_sil">
                 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
                     <div class="row">
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             <div class="qz_cen">
-                                <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg " alt="Responsive image">
+                                <img src="../img/222center222/S90123-12364562.jpg" class="img-responsive qz_cimg" alt="Responsive image">
+                                <div class="qz_coimg"></div>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             <div class="qz_cen">
-                                <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg " alt="Responsive image">
+                                <img src="../img/222center222/S90123-12364562.jpg" class="img-responsive qz_cimg" alt="Responsive image">
+                                <div class="qz_coimg"></div>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             <div class="qz_cen">
-                                <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg " alt="Responsive image">
+                                <img src="../img/222center222/S90123-12364562.jpg" class="img-responsive qz_cimg" alt="Responsive image">
+                                <div class="qz_coimg"></div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             <div class="qz_cen">
-                                <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg " alt="Responsive image">
+                                <img src="../img/222center222/S90123-12364562.jpg" class="img-responsive qz_cimg" alt="Responsive image">
+                                <div class="qz_coimg"></div>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             <div class="qz_cen">
-                                <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg " alt="Responsive image">
+                                <img src="../img/222center222/S90123-12364562.jpg" class="img-responsive qz_cimg" alt="Responsive image">
+                                <div class="qz_coimg"></div>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             <div class="qz_cen">
-                                <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg " alt="Responsive image">
+                                <img src="../img/222center222/S90123-12364562.jpg" class="img-responsive qz_cimg" alt="Responsive image">
+                                <div class="qz_coimg"></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+    </div>
     </div>
 
 

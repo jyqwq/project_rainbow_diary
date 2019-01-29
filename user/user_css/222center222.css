@@ -1,46 +1,30 @@
 .qz_con{
     margin-top: 50px;
     padding: 0;
-    height: 2000px;
-    background: #FFECF5;
+    height: 1500px;
+    background: rgba(255, 170, 170, 0.29);
 }
 .qz_row{
     margin: 15px;
 }
-.qz_cover{
-    height: 700px;
-}
 .qz_per{
-    /*width: 85%;*/
-    height: 450px;
     margin-top: 75px;
     border-radius: 20px;
     background: rgba(255, 170, 170, 0.29);
 }
-
 .qz_cir{
-    width: 150px;
-    height: 150px;
     float: right;
     position: relative;
     left: 75px;
     top: -75px;
 }
 .qz_cul{
-    width: 130px;
-    height: 130px;
     float: right;
     position: relative;
     top: -65px;
 }
 .qz_por{
     width: 100%;
-}
-.qz_pernic{
-    height: 120px;
-}
-.qz_nick{
-    height: 120px;
 }
 .qz_nic{
     text-align: center;
@@ -58,14 +42,6 @@
     font-size: 0.9em;
     font-family: 幼圆;
 }
-.qz_perinf{
-    height: 330px;
-    /*background: #66afe9;*/
-}
-.qz_pla{
-    height: 180px;
-    /*background: rgba(255, 255, 0, 0.29);*/
-}
 .qz_gra{
     font-size: 1.2em;
     font-family: 幼圆;
@@ -81,19 +57,146 @@
     height: 80px;
     background: red;
 }
-.qz_percha{
-    height: 330px;
-    /*background: rgba(0, 0, 255, 0.29);*/
-}
 .qz_edit{
     float: right;
     font-size: 1.2em;
     font-family: 幼圆;
     padding-bottom: 0;
 }
+
+
+
+
+
+
+
+.qz_text{
+    resize: none;
+    width: 80%;
+    margin: 7px;
+    float: right;
+}
+
+
+
+
+
+
+
+/*模态框*/
+h4{
+    margin-left: 20px;
+}
+p{
+    text-align: center;
+}
+.btn{
+    width: 100px;
+    height: 35px;
+    border-radius: 5px;
+    font-size: 16px;
+    color: white;
+    background-color: #4cb0ed;
+    outline: none;
+}
+.btn:hover, .btn:focus{
+    background-color: #95b4ed;
+}
+.modal{
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1000;
+    background-color: rgba(0,0,0,0.5);
+}
+.modal-content{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    width: 50%;
+    height: 40%;
+    margin: 100px auto;
+    border-radius:10px;
+    background-color:#fff;
+    -webkit-animation: zoom 0.6s;
+    animation: zoom 0.6s;
+    resize: both;
+    overflow: auto;
+}
+@-webkit-keyframes zoom{
+    from {-webkit-transform: scale(0)}
+    to {-webkit-transform: scale(1)}
+}
+@keyframes zoom{
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
+.modal-header{
+    box-sizing:border-box;
+    border-bottom:1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.close{
+    color: #b7b7b7;
+    font-size: 30px;
+    font-weight: bold;
+    margin-right: 20px;
+    transition: all 0.3s;
+}
+.close:hover, .close:focus{
+    color: #95b4ed;
+    text-decoration: none;
+    cursor: pointer;
+}
+.modal-body{
+    padding: 10px;
+    font-size: 16px;
+    box-sizing:border-box;
+}
+.modal-footer{
+    box-sizing:border-box;
+    border-top:1px solid #ccc;
+    display: flex;
+    padding: 15px;
+    justify-content: flex-end;
+    align-items: center;
+}
+.modal-footer button{
+    width: 60px;
+    height: 35px;
+    padding: 5px;
+    box-sizing: border-box;
+    margin-right: 10px;
+    font-size: 16px;
+    color: white;
+    border-radius: 5px;
+    background-color: cornflowerblue;
+}
+.modal-footer button:hover, .modal-footer button:focus{
+    background-color: #95b4ed;
+    cursor: pointer;
+}
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 80%;
+    }
+}
+/*模态框结束*/
+
+
+
+
+
+
+
+
 .qz_ski{
     margin-top: 80px;
-    height: 200px;
     border-radius: 5px;
     background: rgba(255, 170, 170, 0.29);
 }
@@ -112,23 +215,13 @@
     font-family: 幼圆;
 }
 .qz_skinfo{
-    height: 120px;
     text-align: center;
-}
-.qz_gui{
-    height: 250px;
-}
-.qz_lead{
-    height: 150px;
-    /*background: crimson;*/
 }
 .qz_leaimg{
     width: 80px;
     margin: auto;
-    /*background: yellow;*/
 }
 .lea_img{
-    height: 80px;
     margin: auto;
 }
 .qz_open{
@@ -136,48 +229,45 @@
     margin-top: 50px;
 }
 .font_open{
-    height: 90px;
-    line-height: 90px;
-    font-weight: bolder;
-    font-size: 2.5em;
-    font-family: 幼圆;
-}
-.qz_sep{
-    height: 260px;
-}
-.qz_nimg{
-    margin: auto;
-    width: 200px;
-    height: 150px;
-}
-.img_diary{
-    width: 70%;
-    margin: auto;
-}
-
-.qz_nav{
-    text-align: center;
-}
-.font_nav{
     height: 60px;
     line-height: 60px;
     font-weight: bolder;
     font-size: 2em;
     font-family: 幼圆;
 }
+.qz_nimg{
+    margin: auto;
+    width: 200px;
+}
+.img_diary{
+    height: 100%;
+    margin: auto;
+}
+.qz_nav{
+    text-align: center;
+}
+.font_nav{
+    height: 30px;
+    line-height: 30px;
+    font-weight: bolder;
+    font-size: 1.5em;
+    font-family: 幼圆;
+}
 .qz_ndis{
     text-align: center;
 }
 .font_inf{
-    height: 30px;
-    line-height: 30px;
-    font-size: 1.2em;
+    height: 20px;
+    line-height: 20px;
+    font-size: 1em;
     font-family: 幼圆;
+}
+#qz_diary{
+    display: block;
 }
 .qz_cen{
     background: #9783b9;
     margin: 10px;
-    /*text-align: center;*/
     overflow: hidden;
 }
 .qz_cimg{
@@ -185,26 +275,27 @@
     transition: all 1s ease-in-out;
 }
 .cimg_active{
+    margin: auto;
     transition: all 1s ease-in-out;
     transform: scale(1.5,1.5);
 }
 .qz_coimg{
-    border: solid 20px red;
-    display: none;
+    /*border: solid 10px red;*/
+    display: block;
     position: relative;
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.75);
 }
-.qz_collection{
+#qz_collection{
     display: none;
 }
-.qz_admission{
+#qz_admission{
     display: none;
 }
 
 /*动画*/
 /*左滑入*/
 .animal_sil{
-    animation: slideInLeft 1s;
+    animation: slideInLeft 2s;
 }
 /*右滑入*/
 .animal_sir{
