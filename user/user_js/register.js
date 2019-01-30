@@ -5,7 +5,7 @@ var qz_names={
     "2":"Jane",
     "3":"Tina",
     "4":"Mary"
-}
+};
 
 
 
@@ -30,11 +30,13 @@ form.onclick=function (event) {
     }
     // 检查form表单正确输入
     if(node.type=='button' && flag && checkTelphone() && checkPassword() && confirmpas() && checkName()){
-        console.log(flag);
-        var user={'name':qz_nam.value,'telephone':qz_tel.value,'password':qz_pas.value};
-        postData=('http://192.168.2.66:8080/user/register',user,function (res) {
-            localStorage.setItem('token',res.token)
-            if(res && res.state_code=='10003'){
+        // console.log(flag);
+        let user={'nickname':qz_nam.value,'telephone':qz_tel.value,'password':qz_pas.value};
+        // console.log(user);
+        postData(ajax_url+'/user/person',user,function (res) {
+            localStorage.setItem('token',res.token);
+            // console.log(res);
+            if(res && res.status_code=='10003'){
                 if(sessionStorage.getItem('from')){
                     location.href=sessionStorage.getItem('from');
                 }else{
@@ -43,11 +45,10 @@ form.onclick=function (event) {
             }else{
                 alert(res.status_text);
             }
-
         })
 
     }
-}
+};
 
 // 检查昵称
 function checkName() {
@@ -66,7 +67,7 @@ function checkName() {
 }
 qz_nam.onchange=function () {
     checkName();
-}
+};
 
 // 检查手机号
 function checkTelphone() {
@@ -87,7 +88,7 @@ function checkTelphone() {
 }
 qz_tel.onchange=function(){
     checkTelphone();
-}
+};
 
 // 检查密码
 function checkPassword(){
@@ -107,7 +108,7 @@ function checkPassword(){
 qz_pas.onchange=function () {
     checkPassword();
     confirmpas();
-}
+};
 
 // 确认密码
 function confirmpas() {
@@ -124,7 +125,7 @@ function confirmpas() {
 }
 pas_con.onblur=function () {
     confirmpas();
-}
+};
 
 // 同意协议
 function agreement() {
@@ -136,5 +137,5 @@ function agreement() {
 }
 agree.onchange=function () {
     agreement();
-}
+};
 

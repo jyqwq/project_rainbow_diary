@@ -16,7 +16,7 @@
             check_rem();
             if(check_ltel()&&check_lpas()){
                 var user={'telephone':log_tel.value,'password':log_pas.value,'token':false};
-                postData('http://192.168.2.66:8080/user/login',user,function (res) {
+                postData(ajax_url+'/user/login',user,function (res) {
                     console.log(res);
                     if(res && res.status_code=='10003'){
                         localStorage.setItem('token',res.token);
