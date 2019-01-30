@@ -39,7 +39,7 @@
             var optionYear = document.createElement("option");
             optionYear.innerHTML=i;
             optionYear.value=i;
-            selects[0].appendChild(optionYear);
+            selects[1].appendChild(optionYear);
         }
 
         //生成月份选择框
@@ -47,26 +47,33 @@
             var optionMonth = document.createElement("option");
             optionMonth.innerHTML=i;
             optionMonth.value=i;
-            selects[1].appendChild(optionMonth);
+            selects[2].appendChild(optionMonth);
         }
-        getDays(selects[1].value,selects[0].value,selects);
-    }
+        getDays(selects[2].value,selects[1].value,selects);
+
+        selects[1].onchange=function () {
+            setDays()
+        }
+        selects[2].onchange=function () {
+            setDays()
+        }
+    };
 
     function setDays(){
         var selects = document.getElementsByTagName("select");
-        var year = selects[0].options[selects[0].selectedIndex].value;
-        var month = selects[1].options[selects[1].selectedIndex].value;
+        var year = selects[1].options[selects[1].selectedIndex].value;
+        var month = selects[2].options[selects[2].selectedIndex].value;
         getDays(month,year,selects);
     }
 
     function getDays(month,year,selects){
         var days = getDaysInMonth(month,year);//当月获得天数
-        selects[2].options.length = 0;
+        selects[3].options.length = 0;
         for(var i=1;i<=days;i++){
             var optionDay = document.createElement("option");
             optionDay.innerHTML=i;
             optionDay.value=i;
-            selects[2].appendChild(optionDay);
+            selects[3].appendChild(optionDay);
         }
     }
     // 获取某年某月存在多少天
