@@ -49,18 +49,15 @@
                                 </div>
                             </div>
                             <div class="col-xs-4 col-sm-2 col-md-3 col-lg-3 qz_percha">
-                                <a href="#"><span class="qz_edit">编辑</span></a>
-
-
-                                <!--模态框-->
-                                <button class="btn" id="showModel">编辑</button>
-                                <div id="modal" class="modal">
-                                    <div class="modal-content">
-                                        <header class="modal-header">
+                                <!--编辑模态框-->
+                                <button class="btn qz_mobtn" id="showModel">编辑</button>
+                                <div id="modal" class="modal qz_modal">
+                                    <div class="modal-content qz_mocon">
+                                        <header class="modal-header qz_mohead">
                                             <h4>南浅的小屋</h4>
-                                            <span class="close">×</span>
+                                            <span class="close qz_close">×</span>
                                         </header>
-                                        <div class="modal-body">
+                                        <div class="modal-body qz_mobody">
                                             <table>
                                                 <tr>
                                                     <td>昵称：</td>
@@ -82,36 +79,25 @@
                                                 <tr>
                                                     <td>年龄：</td>
                                                     <td>
-                                                        <select>
-                                                            <option>12</option>
-                                                            <option>12</option>
-                                                            <option>12</option>
-                                                            <option>12</option>
-                                                            <option>12</option>
-                                                            <option>12</option>
-                                                            <option>12</option>
-                                                            <option>12</option>
-                                                            <option>12</option>
-                                                        </select>
+                                                        <div class="date1">
+                                                            <select onchange="setDays()"></select>
+                                                            <span>年</span>
+                                                            <select onchange="setDays()"></select>
+                                                            <span>月</span>
+                                                            <select></select>
+                                                            <span>日</span>
+                                                        </div>
                                                     </td>
                                                 </tr>
                                             </table>
                                         </div>
-                                        <footer class="modal-footer">
+                                        <footer class="modal-footer qz_mofoot">
                                             <button id="cancel">取消</button>
                                             <button id="sure">确定</button>
                                         </footer>
                                     </div>
                                 </div>
-
-                                <!--模态框结束-->
-
-
-
-
-
-
-
+                                <!--编辑模态框结束-->
                             </div>
 
                         </div>
