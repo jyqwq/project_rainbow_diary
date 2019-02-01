@@ -1,7 +1,8 @@
 .title_content{
-    height: 800px;
+    /*height: 800px;*/
     border:  solid 1px rgba(128, 128, 128, 0.46);
     border-radius: 5px;
+    padding-bottom: 20px;
 }
 .title_margin{
     margin-left: 30px;
@@ -9,4 +10,26 @@
 }
 .content_margin{
     margin-top: 20px;
+}
+.style_title{
+    border-left: lightpink solid 3px;
+    font-size: 1.1em;
+}
+.style_title1{
+    font-size: 2.5em;
+    color: rgba(255,192,203,0.53);
+}
+.style_title2{
+    font-family: 幼圆;
+    font-size: 1.5em;
+    color: hotpink;
+}
+.a_style:hover{
+    text-decoration: none;
+}
+.Q_and_A{
+    padding-left: 15px;
+}
+.Q_and_Aline{
+    border-left: solid 3px gray;
 }
