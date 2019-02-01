@@ -27,13 +27,19 @@
     width: 100%;
 }
 .qz_nic{
-    text-align: center;
+    height: 80px;
 }
 .qz_nicfon{
-    height: 80px;
-    line-height: 80px;
+
+    margin-top: 25px;
     font-size: 1.5em;
+    font-weight: bolder;
     font-family: 幼圆;
+    float: left;
+    margin-left: 15px;
+}
+.qz_nic img{
+    height: 30px;
 }
 .qz_gra{
     font-size: 1.2em;
@@ -51,9 +57,9 @@
     background: red;
 }
 
-
 /*模态框*/
 .qz_mobtn{
+    /*z-index: 5;*/
     float: right;
     width: 50px;
     height: 35px;
@@ -62,9 +68,10 @@
     font-family: 幼圆;
     color: white;
     background-color: #FFAAAA;
-    outline: none;
+    /*outline: none;*/
 }
 .qz_mobtn:hover, .btn:focus{
+    /*z-index: 5;*/
     background-color: #95b4ed;
 }
 .qz_modal{
@@ -88,7 +95,6 @@
     background-color:#fff;
     -webkit-animation: zoom 0.6s;
     animation: zoom 0.6s;
-    resize: both;
     overflow: auto;
     resize: none;
 
@@ -115,7 +121,7 @@
     margin-right: 20px;
     transition: all 0.3s;
 }
-.qz_close:hover, .close:focus{
+.qz_close:hover, .qz_close:focus{
     color: #95b4ed;
     text-decoration: none;
     cursor: pointer;
@@ -166,26 +172,25 @@
 }
 /*模态框结束*/
 
-
-
-
-
-
 .qz_ski{
     margin-top: 80px;
     border-radius: 5px;
-    background: rgba(255, 170, 170, 0.29);
+    background: rgba(255, 170, 170, 0.7);
 }
-.qz_skitit{
-    text-align: center;
+/*.qz_skitit{*/
+    /*height: 50px;*/
+/*}*/
+.qz_skitit img{
+    height: 30px;
+    margin: auto;
 }
-.font_skitit{
-    height: 80px;
-    line-height: 80px;
-    /*font-weight: bolder;*/
-    font-size: 1.5em;
-    font-family: 幼圆;
-}
+/*.font_skitit{*/
+    /*height: 80px;*/
+    /*line-height: 80px;*/
+    /*!*font-weight: bolder;*!*/
+    /*font-size: 1.5em;*/
+    /*font-family: 幼圆;*/
+/*}*/
 .font_skinfo{
     font-size: 1.5em;
     font-family: 幼圆;
@@ -242,7 +247,6 @@
     display: block;
 }
 .qz_cen{
-    background: #9783b9;
     margin: 10px;
     overflow: hidden;
 }
@@ -256,10 +260,9 @@
     transform: scale(1.5,1.5);
 }
 .qz_coimg{
-    /*border: solid 10px red;*/
-    display: block;
+    display: none;
     position: relative;
-    background: rgba(0, 0, 0, 0.75);
+    background: rgba(0, 0, 0, 0.5);
 }
 #qz_collection{
     display: none;

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片动画</title>
+    <style type="text/css">
+        .qz_cen{
+            margin: 10px;
+            overflow: hidden;
+        }
+        .qz_cimg{
+            margin: auto;
+            transition: all 1s ease-in-out;
+        }
+        .cimg_active{
+            margin: auto;
+            transition: all 1s ease-in-out;/*变化1s*/
+            transform: scale(1.5,1.5);/*放大1.5倍*/
+        }
+        .qz_coimg{
+            display: none;
+            position: relative;
+            background: rgba(0, 0, 0, 0.5);
+        }
+    </style>
+    <link rel="stylesheet" href="../bootstrap-3.3.7/dist/css/bootstrap.css">
+</head>
+<body>
+    <div class="container">
+        <div class="row qz_data">
+            <div class="row">
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                    <div class="qz_cen">
+                        <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg" alt="Responsive image">
+                        <div class="qz_coimg"></div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                    <div class="qz_cen">
+                        <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg" alt="Responsive image">
+                        <div class="qz_coimg"></div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                    <div class="qz_cen">
+                        <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg" alt="Responsive image">
+                        <div class="qz_coimg"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript">
+    var qz_data=document.querySelector('.qz_data');
+    // 鼠标滑入图片放大
+    qz_data.onmouseover=function (event) {
+        var node=event.target;
+        if(node.nodeName.toLowerCase()== 'img'){
+            node.nextElementSibling.style.display='block';
+            node.classList.toggle('qz_cimg');
+            node.classList.toggle('cimg_active');
+        }
+    };
+    // 鼠标滑出图片缩小
+    qz_data.onmouseout=function (event) {
+        var node=event.target;
+        if(node.nodeName.toLowerCase()== 'img'){
+            node.classList.toggle('qz_cimg');
+            node.classList.toggle('cimg_active');
+        }
+    }
+
+    // 浏览器加载时蒙板尺寸随动
+    window.onload=function (){
+        var qz_cimg=document.querySelector('.qz_cimg');
+        var qz_cen=document.querySelectorAll('.qz_cen');
+        var qz_coimg=document.querySelectorAll('.qz_coimg');
+        var hei_cimg=qz_cimg.height;
+        for(let cen of qz_cen){
+            cen.style.height=hei_cimg+'px';
+        }
+        for(let coimg of qz_coimg){
+            coimg.style.height=hei_cimg+'px';
+            coimg.style.top='-'+(hei_cimg)+'px';
+        }
+    }
+
+    // 浏览器尺寸改变时蒙板尺寸随动
+    window.onresize=function (){
+        var qz_cimg=document.querySelector('.qz_cimg');
+        var qz_cen=document.querySelectorAll('.qz_cen');
+        var qz_coimg=document.querySelectorAll('.qz_coimg');
+        var hei_cimg=qz_cimg.height;
+        for(let cen of qz_cen){
+            cen.style.height=hei_cimg+'px';
+        }
+        for(let coimg of qz_coimg){
+            coimg.style.height=hei_cimg+'px';
+            coimg.style.top='-'+(hei_cimg)+'px';
+        }
+    }
+
+    var qz_coimg=document.querySelectorAll('.qz_coimg');
+    for(let coimg of qz_coimg){
+        // 鼠标滑入蒙板
+        coimg.onmouseover=function(event){
+            var node=event&&event.target;
+            node.previousElementSibling.classList.toggle('qz_cimg');
+            node.previousElementSibling.classList.toggle('cimg_active');
+        }
+        // 鼠标滑出蒙板
+        coimg.onmouseout=function (event) {
+            var node=event&&event.target;
+            coimg.style.display='none';
+            node.previousElementSibling.classList.toggle('qz_cimg');
+            node.previousElementSibling.classList.toggle('cimg_active');
+        }
+    }
+</script>
+</body>
+</html>

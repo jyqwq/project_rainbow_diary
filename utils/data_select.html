@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>生日选择器</title>
+    <style type="text/css">
+        .qz_text{
+            resize: none;
+            width: 95%;
+            margin: 7px;
+            float: right;
+            font-family: 幼圆;
+            font-size: 1.1em;
+        }
+    </style>
+    <link rel="stylesheet" href="../bootstrap-3.3.7/dist/css/bootstrap.css">
+</head>
+<body>
+    <div class="qz_text">
+        <select></select>
+        <span>年</span>
+        <select></select>
+        <span>月</span>
+        <select></select>
+        <span>日</span>
+    </div>
+<script type="text/javascript">
+    window.onload=function(){
+        var selects = document.getElementsByTagName("select");//通过标签名获取select对象
+        var date = new Date();//获取系统当前时间
+        var nowYear = date.getFullYear();//获取当前的年
+        //生成年份选择框
+        for(var i=nowYear-100;i<=nowYear;i++){
+            var optionYear = document.createElement("option");
+            optionYear.innerHTML=i;
+            optionYear.value=i;
+            selects[0].appendChild(optionYear);
+        }
+        //生成月份选择框
+        for(var i=1;i<=12;i++){
+            var optionMonth = document.createElement("option");
+            optionMonth.innerHTML=i;
+            optionMonth.value=i;
+            selects[1].appendChild(optionMonth);
+        }
+        // 生成日选择框
+        getDays(selects[1].value,selects[0].value,selects);
+        selects[0].onchange=function () {
+            setDays()
+        }
+        selects[1].onchange=function () {
+            setDays()
+        }
+    };
+    function setDays(){
+        var selects = document.getElementsByTagName("select");
+        var year = selects[0].options[selects[0].selectedIndex].value;
+        var month = selects[1].options[selects[1].selectedIndex].value;
+        getDays(month,year,selects);
+    }
+    function getDays(month,year,selects){
+        var days = getDaysInMonth(month,year);//当月获得天数
+        selects[2].options.length = 0;
+        for(var i=1;i<=days;i++){
+            var optionDay = document.createElement("option");
+            optionDay.innerHTML=i;
+            optionDay.value=i;
+            selects[2].appendChild(optionDay);
+        }
+    }
+    // 获取某年某月存在多少天
+    function getDaysInMonth(month,year){
+        var days;
+        if (month==1 || month==3 || month==5 || month==7 || month==8 || month==10 || month==12) {
+            days=31;
+        }else if (month==4 || month==6 || month==9 || month==11){
+            days=30;
+        }else{
+            if ((year%4 == 0 && year%100 != 0) || (year%400 == 0)) {     // 判断是否为润二月
+                days=29;
+            }else {
+                days=28;
+            }
+        }
+        return days;
+    }
+</script>
+</body>
+</html>
