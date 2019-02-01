@@ -1,148 +1,22 @@
-(function f() {
-    change_size();
-    change_nav();
-    qz_img();
-
-
-
+(function () {
 
     // 模态框
-    var btn = document.getElementById('showModel');
-    var close = document.getElementsByClassName('close')[0];
-    var cancel = document.getElementById('cancel');
-    var modal = document.getElementById('modal');
-    btn.onclick= function(){
-        modal.style.display = "block";
-    };
-    close.onclick= function(){
-        modal.style.display = "none";
-    };
-    cancel.onclick= function(){
-        modal.style.display = "none";
-    };
-
-
-
-
-
-
-
-
-    // 生日选择器
-    window.onload=function(){
-        var selects = document.getElementsByTagName("select");//通过标签名获取select对象
-        var date = new Date();//获取系统当前时间
-        var nowYear = date.getFullYear();//获取当前的年
-
-        //生成年份选择框
-        for(var i=nowYear-100;i<=nowYear;i++){
-            var optionYear = document.createElement("option");
-            optionYear.innerHTML=i;
-            optionYear.value=i;
-            selects[1].appendChild(optionYear);
-        }
-
-        //生成月份选择框
-        for(var i=1;i<=12;i++){
-            var optionMonth = document.createElement("option");
-            optionMonth.innerHTML=i;
-            optionMonth.value=i;
-            selects[2].appendChild(optionMonth);
-        }
-        getDays(selects[2].value,selects[1].value,selects);
-
-        selects[1].onchange=function () {
-            setDays()
-        }
-        selects[2].onchange=function () {
-            setDays()
-        }
-    };
-
-    function setDays(){
-        var selects = document.getElementsByTagName("select");
-        var year = selects[1].options[selects[1].selectedIndex].value;
-        var month = selects[2].options[selects[2].selectedIndex].value;
-        getDays(month,year,selects);
+    function qz_modal() {
+        var btn = document.getElementById('showModel');
+        var close = document.getElementsByClassName('close')[0];
+        var cancel = document.getElementById('cancel');
+        var modal = document.getElementById('modal');
+        btn.onclick= function(){
+            modal.style.display = "block";
+        };
+        close.onclick= function(){
+            modal.style.display = "none";
+        };
+        cancel.onclick= function(){
+            modal.style.display = "none";
+        };
     }
-
-    function getDays(month,year,selects){
-        var days = getDaysInMonth(month,year);//当月获得天数
-        selects[3].options.length = 0;
-        for(var i=1;i<=days;i++){
-            var optionDay = document.createElement("option");
-            optionDay.innerHTML=i;
-            optionDay.value=i;
-            selects[3].appendChild(optionDay);
-        }
-    }
-    // 获取某年某月存在多少天
-    function getDaysInMonth(month,year){
-        var days;
-        if (month==1 || month==3 || month==5 || month==7 || month==8 || month==10 || month==12) {
-            days=31;
-        }else if (month==4 || month==6 || month==9 || month==11){
-            days=30;
-        }else{
-            if ((year%4 == 0 && year%100 != 0) || (year%400 == 0)) {     // 判断是否为润二月
-                days=29;
-            }else {
-                days=28;
-            }
-        }
-        return days;
-    }
-    // 生日结尾
-
-
-
-
-
-
-    // 浏览器尺寸改变时div尺寸随动
-    function change_size(){
-        window.onload=function (event){
-            var screen_height=document.documentElement.clientHeight;
-            // 定义第一页
-            var qz_cover=document.querySelector('.qz_cover');
-            var qz_per=document.querySelector('.qz_per');
-            var qz_cir=document.querySelector('.qz_cir');
-            var qz_cul=document.querySelector('.qz_cul');
-            var qz_pernic=document.querySelector('.qz_pernic');
-            var qz_nick=document.querySelector('.qz_nick');
-            var qz_perinf=document.querySelector('.qz_perinf');
-            var qz_pla=document.querySelector('.qz_pla');
-            var qz_percha=document.querySelector('.qz_percha');
-            var qz_ski=document.querySelector('.qz_ski');
-            var qz_skinfo=document.querySelector('.qz_skinfo');
-            var qz_gui=document.querySelector('.qz_gui');
-            var qz_lead=document.querySelector('.qz_lead');
-            var lea_img=document.querySelector('.lea_img');
-            // 定义第二页
-            var qz_sep=document.querySelectorAll('.qz_sep');
-            var qz_nimg=document.querySelectorAll('.qz_nimg');
-            // 计算第一页
-            qz_cover.style.height=screen_height+'px';
-            qz_per.style.height=screen_height*0.6+'px';
-            qz_cir.style.height=screen_height*0.21+'px';
-            qz_cul.style.width=screen_height*0.18+'px';
-            qz_pernic.style.height=screen_height*0.17+'px';
-            qz_nick.style.height=screen_height*0.17+'px';
-            qz_perinf.style.height=screen_height*0.47+'px';
-            qz_pla.style.height=screen_height*0.25+'px';
-            qz_percha.style.height=screen_height*0.4+'px';
-            qz_ski.style.height=screen_height*0.28+'px';
-            qz_skinfo.style.height=screen_height*0.17+'px';
-            qz_gui.style.height=screen_height*0.35+'px';
-            qz_lead.style.height=screen_height*0.21+'px';
-            lea_img.style.height=screen_height*0.11+'px';
-            // 计算第二页
-            for(i=0;i<3;i++){
-                qz_sep[i].style.height=screen_height*0.18+'px';
-                qz_nimg[i].style.height=screen_height*0.1+'px';
-            }
-        }
-    }
+    qz_modal();
 
     // 导航栏切换
     function change_nav() {
@@ -175,6 +49,53 @@
             }
         };
     }
+    change_nav();
+
+    // 浏览器尺寸改变时div尺寸随动
+    function change_size(){
+        window.onload=function (event){
+            var screen_height=document.documentElement.clientHeight;
+            // 定义第一页
+            var qz_cover=document.querySelector('.qz_cover');
+            var qz_per=document.querySelector('.qz_per');
+            var qz_cir=document.querySelector('.qz_cir');
+            var qz_cul=document.querySelector('.qz_cul');
+            var qz_pernic=document.querySelector('.qz_pernic');
+            var qz_nick=document.querySelector('.qz_nick');
+            var qz_perinf=document.querySelector('.qz_perinf');
+            var qz_pla=document.querySelector('.qz_pla');
+            var qz_percha=document.querySelector('.qz_percha');
+            var qz_ski=document.querySelector('.qz_ski');
+            var qz_skinfo=document.querySelector('.qz_skinfo');
+            var qz_gui=document.querySelector('.qz_gui');
+            var qz_lead=document.querySelector('.qz_lead');
+            var lea_img=document.querySelector('.lea_img');
+            // 定义第二页
+            var qz_sep=document.querySelectorAll('.qz_sep');
+            var qz_nimg=document.querySelectorAll('.qz_nimg');
+            // 计算第一页
+            qz_cover.style.height=screen_height+'px';
+            qz_per.style.height=screen_height*0.6+'px';
+            qz_cir.style.height=screen_height*0.21+'px';
+            qz_cul.style.width=screen_height*0.18+'px';
+            qz_pernic.style.height=screen_height*0.12+'px';
+            qz_nick.style.height=screen_height*0.17+'px';
+            qz_perinf.style.height=screen_height*0.52+'px';
+            qz_pla.style.height=screen_height*0.25+'px';
+            qz_percha.style.height=screen_height*0.4+'px';
+            qz_ski.style.height=screen_height*0.28+'px';
+            qz_skinfo.style.height=screen_height*0.17+'px';
+            qz_gui.style.height=screen_height*0.35+'px';
+            qz_lead.style.height=screen_height*0.21+'px';
+            lea_img.style.height=screen_height*0.11+'px';
+            // 计算第二页
+            for(i=0;i<3;i++){
+                qz_sep[i].style.height=screen_height*0.18+'px';
+                qz_nimg[i].style.height=screen_height*0.1+'px';
+            }
+        }
+    }
+    change_size();
 
     // 图片动画
     function qz_img() {
@@ -235,6 +156,77 @@
             node.previousElementSibling.classList.toggle('cimg_active');
         }
     }
+    qz_img();
+
+    // 生日选择器
+    function data_select(){
+        window.onload=function(){
+            var selects = document.getElementsByTagName("select");//通过标签名获取select对象
+            var date = new Date();//获取系统当前时间
+            var nowYear = date.getFullYear();//获取当前的年
+            //生成年份选择框
+            for(var i=nowYear-100;i<=nowYear;i++){
+                var optionYear = document.createElement("option");
+                optionYear.innerHTML=i;
+                optionYear.value=i;
+                selects[1].appendChild(optionYear);
+            }
+            //生成月份选择框
+            for(var i=1;i<=12;i++){
+                var optionMonth = document.createElement("option");
+                optionMonth.innerHTML=i;
+                optionMonth.value=i;
+                selects[2].appendChild(optionMonth);
+            }
+            // 生成日选择框
+            getDays(selects[2].value,selects[1].value,selects);
+            selects[1].onchange=function () {
+                setDays()
+            }
+            selects[2].onchange=function () {
+                setDays()
+            }
+        };
+        function setDays(){
+            var selects = document.getElementsByTagName("select");
+            var year = selects[1].options[selects[1].selectedIndex].value;
+            var month = selects[2].options[selects[2].selectedIndex].value;
+            getDays(month,year,selects);
+        }
+        function getDays(month,year,selects){
+            var days = getDaysInMonth(month,year);//当月获得天数
+            selects[3].options.length = 0;
+            for(var i=1;i<=days;i++){
+                var optionDay = document.createElement("option");
+                optionDay.innerHTML=i;
+                optionDay.value=i;
+                selects[3].appendChild(optionDay);
+            }
+        }
+        // 获取某年某月存在多少天
+        function getDaysInMonth(month,year){
+            var days;
+            if (month==1 || month==3 || month==5 || month==7 || month==8 || month==10 || month==12) {
+                days=31;
+            }else if (month==4 || month==6 || month==9 || month==11){
+                days=30;
+            }else{
+                if ((year%4 == 0 && year%100 != 0) || (year%400 == 0)) {     // 判断是否为润二月
+                    days=29;
+                }else {
+                    days=28;
+                }
+            }
+            return days;
+        }
+        // 生日结尾
+    }
+    data_select();
+
+    // window.onload=function () {
+    //
+    // }
+
 
 
 
