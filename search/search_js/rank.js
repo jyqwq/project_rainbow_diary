@@ -2,7 +2,7 @@
 
     //页面检查token自动登录
     let token = localStorage.getItem('token');
-    check_login(token);
+    // check_login(token);
     //自动登录
     function check_login(token) {
         if (token){
@@ -29,7 +29,7 @@
         }
     }
 
-    real_time();
+    // real_time();
     //实时热搜ajax
     function real_time() {
         let hot={'hot_search':1};
