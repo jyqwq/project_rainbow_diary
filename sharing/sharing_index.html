@@ -114,11 +114,11 @@
                 <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
                     <textarea class="form-control dy_text" placeholder="说出你的心情吧~~" rows="5" maxlength="140"></textarea>
                     <div class="row row_margin">
-                        <a type="file" class="content_margin" href="#"><img src="../img/sharing_index/图片.png" alt=""></a>
+                        <a class="content_margin" href="#"><img src="../img/sharing_index/图片.png" alt=""></a>
                         <span class="content_margin remind_text">140</span>
                     </div>
                     <div class="row row_margin pic_show" style="display: none;">
-
+                        <!--图片预览区-->
                     </div>
                     <div class="row row_margin">
                         <span class="content_margin">请添加标签</span><span class="remind_text">&nbsp;&nbsp;(添加标签让更多兴趣相仿的小伙伴看到你)</span>
@@ -147,7 +147,10 @@
                         <h4 class="row_margin">内容</h4>
                         <textarea class="form-control dairy_text row_margin" cols="30" rows="10" placeholder="今天发生了什么呢~~"></textarea>
                         <div class="row row_margin">
-                            <a type="file" class="content_margin" href="#"><img src="../img/sharing_index/图片.png" alt=""></a>
+                            <a class="content_margin" href="#"><img src="../img/sharing_index/图片.png" alt=""></a>
+                        </div>
+                        <div class="row row_margin pic_show" style="display: none;">
+                            <!--图片预览区-->
                         </div>
                         <div class="row row_margin">
                             <span class="content_margin">请添加标签</span><span class="remind_text">&nbsp;&nbsp;(添加标签让更多兴趣相仿的小伙伴看到你)</span>
@@ -185,7 +188,10 @@
                         <h4 class="row_margin">内容</h4>
                         <textarea class="form-control dairy_text row_margin" cols="30" rows="5" placeholder="具体点呢~~"></textarea>
                         <div class="row row_margin">
-                            <a type="file" class="content_margin" href="#"><img src="../img/sharing_index/图片.png" alt=""></a>
+                            <a class="content_margin" href="#"><img src="../img/sharing_index/图片.png" alt=""></a>
+                        </div>
+                        <div class="row row_margin pic_show" style="display: none;">
+                            <!--图片预览区-->
                         </div>
                         <div class="row row_margin">
                             <span class="content_margin">请添加标签</span><span class="remind_text">&nbsp;&nbsp;(添加标签让更多兴趣相仿的小伙伴看到你)</span>
@@ -249,6 +255,7 @@
     </div>
 </div>
 
+<script src="../utils/Ajax.js"></script>
 <script src="../js/all_nav.js"></script>
 <script src="sharing_js/sharing_index.js"></script>
 </body>
