@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>轮播图</title>
+    <style type="text/css">
+        .qz_rota{
+            margin:100px auto;
+            width:600px;
+            height:320px;
+            overflow:hidden;
+        }
+        .qz_pic{
+            width:600px;
+            height:320px;
+        }
+    </style>
+    <link rel="stylesheet" href="../bootstrap-3.3.7/dist/css/bootstrap.css">
+</head>
+<body>
+<div class="qz_rota">
+    <a href="../index.html"><img src="../img/222center222/S90131-16385218.jpg" class="img-responsive qz_pic" alt="Responsive image"></a>
+    <a href="../index.html"><img src="../img/222center222/S90120-18241142.jpg" class="img-responsive qz_pic" alt="Responsive image"></a>
+    <a href="../index.html"><img src="../img/222center222/S90123-12364562.jpg" class="img-responsive qz_pic" alt="Responsive image"></a>
+    <a href="../index.html"><img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_pic" alt="Responsive image"></a>
+</div>
+<script type="text/javascript">
+    window.onload = function () {
+        var rota = document.querySelector('.qz_rota');
+        var ropic = document.querySelectorAll('.qz_pic');//通过getElementsByTagName 获取的标签是一个数组
+        var count = 0;//定义一个变量用来记录图片数组下标
+        var timer = null;//定义一个变量标识时器
+        timer=setInterval(change ,1000);//启动一个定时器1000毫秒调用一次change函数（切换一张图片）
+        //切换图片的函数
+        function change() {
+            for (var i = 0; i < ropic.length; i++) {
+                ropic[i].style.display = 'none';
+            }
+            ropic[count].style.display = 'block';
+            count++;
+            //当count==图片张数时让count=0；
+            if (count == ropic.length) {
+                //使图片数组下标又回到0就形成了一个循环那么就可以让图片循环切换了
+                count = 0;
+            }
+        }
+        rota.onmouseover = function () {
+            //当鼠标移入qz_rota时清除定时器，作用是当我们鼠标移入图片时图片就不再自动切换
+            clearInterval(timer);
+        }
+        rota.onmouseout = function () {
+            //当鼠标移入qz_rota时开启定时器，作用是当我们鼠标移出qz_rota时又让图片自动切换
+            timer = setInterval(change, 1000);
+        }
+    }
+</script>
+</body>
+</html>

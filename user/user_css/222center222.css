@@ -1,3 +1,4 @@
+
 .qz_con{
     margin-top: 50px;
     padding: 0;
@@ -7,30 +8,29 @@
 .qz_row{
     margin: 15px;
 }
+/*左边个人信息框*/
 .qz_per{
     margin-top: 75px;
     border-radius: 20px;
     background: #FFAAAA;
 }
+/*主人的头像*/
 .qz_cir{
     float: right;
     position: relative;
     left: 75px;
     top: -75px;
 }
+.qz_por{
+    width: 100%;
+}
 .qz_cul{
     float: right;
     position: relative;
     top: -65px;
 }
-.qz_por{
-    width: 100%;
-}
-.qz_nic{
-    height: 80px;
-}
+/*主人的小屋*/
 .qz_nicfon{
-
     margin-top: 25px;
     font-size: 1.5em;
     font-weight: bolder;
@@ -41,20 +41,10 @@
 .qz_nic img{
     height: 30px;
 }
+/*个人信息*/
 .qz_gra{
     font-size: 1.2em;
     font-family: 幼圆;
-}
-.dis_mor{
-    float: right;
-}
-.qz_morinf{
-    font-size: 0.9em;
-    font-family: 幼圆;
-}
-.qz_more{
-    height: 80px;
-    background: red;
 }
 
 /*模态框*/
@@ -97,7 +87,6 @@
     animation: zoom 0.6s;
     overflow: auto;
     resize: none;
-
 }
 @-webkit-keyframes zoom{
     from {-webkit-transform: scale(0)}
@@ -171,33 +160,46 @@
     }
 }
 /*模态框结束*/
-
-.qz_ski{
-    margin-top: 80px;
-    border-radius: 5px;
-    background: rgba(255, 170, 170, 0.7);
+/*肤质测试*/
+.add_img{
+    height: 150px;
 }
-/*.qz_skitit{*/
-    /*height: 50px;*/
-/*}*/
+.add_img img{
+    height: 100%;
+}
+.add_iner{
+    width: 80px;
+    height: 30px;
+    margin: -100px 40px;
+}
+.gui_img{
+    height: 150px;
+    background: #9783b9;
+}
+/*肤质测试结束*/
+/*右边个人肤质框*/
+/*轮播图开始*/
+.qz_rota{
+    margin:25px auto;
+    overflow:hidden;
+}
+
+/*护 肤 指 南*/
+.qz_skitit{
+    height: 50px;
+}
 .qz_skitit img{
     height: 30px;
     margin: auto;
 }
-/*.font_skitit{*/
-    /*height: 80px;*/
-    /*line-height: 80px;*/
-    /*!*font-weight: bolder;*!*/
-    /*font-size: 1.5em;*/
-    /*font-family: 幼圆;*/
-/*}*/
+.qz_skinfo{
+    text-align: center;
+}
 .font_skinfo{
     font-size: 1.5em;
     font-family: 幼圆;
 }
-.qz_skinfo{
-    text-align: center;
-}
+/*箭头指向第二页*/
 .qz_leaimg{
     width: 80px;
     margin: auto;
@@ -205,6 +207,7 @@
 .lea_img{
     margin: auto;
 }
+/*第二页*/
 .qz_open{
     text-align: center;
     margin-top: 50px;
@@ -216,6 +219,8 @@
     font-size: 2em;
     font-family: 幼圆;
 }
+/*大导航栏*/
+/*日记本*/
 .qz_nimg{
     margin: auto;
     width: 200px;
@@ -243,6 +248,8 @@
     font-size: 1em;
     font-family: 幼圆;
 }
+/*中心内容*/
+/*日记本内容*/
 #qz_diary{
     display: block;
 }
@@ -262,11 +269,13 @@
 .qz_coimg{
     display: none;
     position: relative;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(220, 20, 60, 0.28);
 }
+/*收藏夹内容*/
 #qz_collection{
     display: none;
 }
+/*收纳盒内容*/
 #qz_admission{
     display: none;
 }

@@ -5,25 +5,27 @@
 
 
     // 图片弹出模态框
-    // var qz_cen=document.querySelectorAll('.qz_cen');
-    // var modal = document.querySelectorAll('.modal');
-    // var close = document.querySelectorAll('.close');
-    // var cancel = document.querySelectorAll('.cancel');
-
-    // for (let i in [0,1]){
-    //     for(let cen of qz_cen) {
-    //         cen.onclick = function (event) {
-    //             modal[i].style.display = "block";
-    //             console.log(i);
-    //         }
-    //     }
-    //     close[i].onclick= function(){
-    //         modal[i].style.display = "none";
-    //     };
-    //     cancel[i].onclick= function(){
-    //         modal[i].style.display = "none";
-    //     };
-    // }
+    var qz_cen=document.querySelectorAll('.qz_cen');
+    var modal = document.querySelectorAll('.modal');
+    var close = document.querySelectorAll('.close');
+    var cancel = document.querySelectorAll('.cancel');
+    for (let cen of qz_cen){
+        for(let i in [1,2]) {
+            cen.onclick = function (event) {
+                modal[i].style.display = "block";
+                console.log(i);
+            }
+            close[i].onclick= function(){
+                console.log(i);
+                console.log(modal[i].style.display);
+                modal[i].style.display = "none";
+                console.log(modal[i].style.display);
+            };
+            cancel[i].onclick= function(){
+                modal[i].style.display = "none";
+            };
+        }
+    }
 
 
 
@@ -135,37 +137,44 @@
         var screen_height=document.documentElement.clientHeight;
         // 定义第一页
         var qz_cover=document.querySelector('.qz_cover');
-        var qz_per=document.querySelector('.qz_per');
         var qz_cir=document.querySelector('.qz_cir');
         var qz_cul=document.querySelector('.qz_cul');
         var qz_pernic=document.querySelector('.qz_pernic');
         var qz_nick=document.querySelector('.qz_nick');
-        var qz_perinf=document.querySelector('.qz_perinf');
         var qz_pla=document.querySelector('.qz_pla');
         var qz_percha=document.querySelector('.qz_percha');
-        var qz_ski=document.querySelector('.qz_ski');
-        var qz_skinfo=document.querySelector('.qz_skinfo');
+        var qz_rota=document.querySelector('.qz_rota');
+        var qz_pic=document.querySelector('.qz_pic');
         var qz_gui=document.querySelector('.qz_gui');
+        var qz_skinfo=document.querySelector('.qz_skinfo');
         var qz_lead=document.querySelector('.qz_lead');
         var lea_img=document.querySelector('.lea_img');
         // 定义第二页
         var qz_sep=document.querySelectorAll('.qz_sep');
         var qz_nimg=document.querySelectorAll('.qz_nimg');
         // 计算第一页
+        // 第一页
         qz_cover.style.height=screen_height+'px';
-        qz_per.style.height=screen_height*0.6+'px';
+        // 左边个人信息框
+        // 主人的头像
         qz_cir.style.height=screen_height*0.21+'px';
         qz_cul.style.width=screen_height*0.18+'px';
-        qz_pernic.style.height=screen_height*0.17+'px';
-        qz_nick.style.height=screen_height*0.17+'px';
-        qz_perinf.style.height=screen_height*0.47+'px';
-        qz_pla.style.height=screen_height*0.25+'px';
-        qz_percha.style.height=screen_height*0.4+'px';
-        qz_ski.style.height=screen_height*0.28+'px';
-        qz_skinfo.style.height=screen_height*0.17+'px';
-        qz_gui.style.height=screen_height*0.35+'px';
-        qz_lead.style.height=screen_height*0.21+'px';
-        lea_img.style.height=screen_height*0.11+'px';
+        // 主人的小屋
+        qz_pernic.style.height=screen_height*0.16+'px';
+        qz_nick.style.height=screen_height*0.16+'px';
+        // 个人信息
+        qz_pla.style.height=screen_height*0.18+'px';
+        qz_percha.style.height=screen_height*0.18+'px';
+        // 右边个人肤质框
+        // 轮播图
+        qz_rota.style.height=screen_height*0.45+'px';
+        qz_pic.style.height=screen_height*0.45+'px';
+        // 护肤指南
+        qz_gui.style.height=screen_height*0.23+'px';
+        qz_skinfo.style.height=screen_height*0.15+'px';
+        // 箭头指向第二页
+        qz_lead.style.height=screen_height*0.1+'px';
+        lea_img.style.height=screen_height*0.1+'px';
         // 计算第二页
         for(i=0;i<3;i++){
             qz_sep[i].style.height=screen_height*0.18+'px';
@@ -173,7 +182,32 @@
         }
         // * 1.浏览器加载时div尺寸随动——结束
 
-        // * * 2.图片动画——浏览器加载时蒙板尺寸随动——开始
+        // * * 2.轮播图——开始
+        var rota = document.querySelector('.qz_rota');
+        var ropic = document.querySelectorAll('.qz_pic');
+        var count = 0;
+        var timer = null;
+        timer=setInterval(change ,2000);
+        function change() {
+            for (var j = 0; j < ropic.length; j++) {
+                ropic[j].style.display = 'none';
+            }
+            ropic[count].style.display = 'block';
+            count++;
+            if (count == ropic.length) {
+                count = 0;
+            }
+        }
+        rota.onmouseover = function () {
+            clearInterval(timer);
+        }
+        rota.onmouseout = function () {
+            timer = setInterval(change, 2000);
+        }
+        // * * 2.轮播图——结束
+
+
+        // * * * 3.图片动画——浏览器加载时蒙板尺寸随动——开始
         var qz_cimg=document.querySelector('.qz_cimg');
         var qz_cen=document.querySelectorAll('.qz_cen');
         var qz_coimg=document.querySelectorAll('.qz_coimg');
@@ -185,9 +219,9 @@
             coimg.style.height=hei_cimg+'px';
             coimg.style.top='-'+(hei_cimg)+'px';
         }
-        // * * 2.图片动画——浏览器加载时蒙板尺寸随动——结束
+        // * * * 3.图片动画——浏览器加载时蒙板尺寸随动——结束
 
-        // * * * 3.生日选择器——开始
+        // * * * * 4.生日选择器——开始
         // 浏览器加载时生成select选项
         var selects = document.getElementsByTagName("select");//通过标签名获取select对象
         var date = new Date();//获取系统当前时间
@@ -215,7 +249,7 @@
             setDays()
         }
     }
-    // *** 3.生日选择器——内部方法
+    // **** 4.生日选择器——内部方法
     function setDays(){
         var selects = document.getElementsByTagName("select");
         var year = selects[1].options[selects[1].selectedIndex].value;
@@ -248,20 +282,7 @@
         }
         return days;
     }
-    // * * * 3.生日选择器——结束
-
-
-
-
-
-
-
-
-
-
-
-
-
+    // * * * * 4.生日选择器——结束
 
 
 
