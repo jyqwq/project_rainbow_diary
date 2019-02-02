@@ -1,5 +1,60 @@
 (function () {
 
+    //ajax提交
+    ajax_post();
+    function ajax_post() {
+        let release_btn=document.querySelectorAll('.release_btn');
+        //心情
+        release_btn[0].onclick=function () {
+            let con=this.parentElement.parentElement.children;
+            //标签数组
+            let con_tag=con[3].children[2].children[0].children;
+            let tag=tag_get(con_tag);
+            //整合数据
+            let dy={'content':con[0].value,'img':'img/myimg.jpg','tag':tag,'type':'dy'};
+            console.log(dy);
+            postData(ajax_url+'/sharing/release',dy,function (res) {
+                console.log(res);
+            })
+        };
+        //日记
+        release_btn[1].onclick=function () {
+            let con=this.parentElement.parentElement.children;
+            //标签数组
+            let con_tag=con[6].children[2].children[0].children;
+            let tag=tag_get(con_tag);
+            //整合数据
+            let dairy={'title':con[1].value,'content':con[3].value,'img':'img/myimg.jpg','tag':tag,'type':'dairy'};
+            postData(ajax_url+'/sharing/release',dairy,function (res) {
+                console.log(res);
+            })
+        };
+        //测评
+        release_btn[2].onclick=function () {
+            let con=this.parentElement.parentElement.children;
+            //标签数组
+            let con_tag=con[14].children[2].children[0].children;
+            let tag=tag_get(con_tag);
+            //整合数据
+            let test={'title':con[1].value,'content':con[3].value,'title1':con[5].value,'content1':con[7].value,'title2':con[9].value,'content2':con[11].value,'img':'img/myimg.jpg','tag':tag,'type':'test'}
+            postData(ajax_url+'/sharing/release',test,function (res) {
+                console.log(res);
+            })
+        }
+    }
+
+    //获取选定标签放入数组
+    function tag_get(tag){
+        tag_json=[];
+        for (let i=0;i<5;i++){
+            if (tag[i].classList.contains('tag-item-active')){
+                tag_json.push(tag[i].innerText);
+            }
+        }
+        return tag_json
+    }
+
+
     //导航栏切换
     nav_choose();
     function nav_choose() {
