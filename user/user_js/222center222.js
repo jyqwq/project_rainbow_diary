@@ -1,31 +1,70 @@
 (function () {
 
 
+// 模态框
+    var btn = document.querySelector('.qz_mobtn');
+    var add=document.querySelector('.qz_add');
+    var qz_cen=document.querySelectorAll('.qz_cen');
+
+    var close = document.querySelectorAll('.qz_close');
+    var cancel = document.querySelectorAll('.qz_cancel');
+    var modal = document.querySelectorAll('.qz_modal');
+
+    btn.onclick= function(){
+        modal[0].style.display = 'block';
+    };
+    add.onclick=function(){
+        modal[1].style.display='block';
+    }
+    for (let i=0;i<3;i++){
+        qz_cen[i].onclick=function () {
+            modal[i+2].style.display='block';
+        }
+    }
+    for (let i=0;i<5;i++){
+        close[i].onclick= function(){
+            modal[i].style.display = 'none';
+        };
+        cancel[i].onclick= function(){
+            console.log(i);
+            modal[i].style.display = 'none';
+        };
+
+    }
+
+
+
+
+
+    // 肤质测试弹出模态框
+
+    // var qz_add=document
+
 
 
 
     // 图片弹出模态框
-    var qz_cen=document.querySelectorAll('.qz_cen');
-    var modal = document.querySelectorAll('.modal');
-    var close = document.querySelectorAll('.close');
-    var cancel = document.querySelectorAll('.cancel');
-    for (let cen of qz_cen){
-        for(let i in [1,2]) {
-            cen.onclick = function (event) {
-                modal[i].style.display = "block";
-                console.log(i);
-            }
-            close[i].onclick= function(){
-                console.log(i);
-                console.log(modal[i].style.display);
-                modal[i].style.display = "none";
-                console.log(modal[i].style.display);
-            };
-            cancel[i].onclick= function(){
-                modal[i].style.display = "none";
-            };
-        }
-    }
+    // var qz_cen=document.querySelectorAll('.qz_cen');
+    // var modal = document.querySelectorAll('.modal');
+    // var close = document.querySelectorAll('.close');
+    // var cancel = document.querySelectorAll('.cancel');
+    // for (let cen of qz_cen){
+    //     for(let i in [1,2]) {
+    //         cen.onclick = function (event) {
+    //             modal[i].style.display = "block";
+    //             console.log(i);
+    //         }
+    //         close[i].onclick= function(){
+    //             console.log(i);
+    //             console.log(modal[i].style.display);
+    //             modal[i].style.display = "none";
+    //             console.log(modal[i].style.display);
+    //         };
+    //         cancel[i].onclick= function(){
+    //             modal[i].style.display = "none";
+    //         };
+    //     }
+    // }
 
 
 
@@ -60,22 +99,22 @@
     change_nav();
 
     // 模态框
-    function qz_modal() {
-        var btn = document.querySelector('.showModel');
-        var close = document.querySelector('.close');
-        var cancel = document.querySelector('.cancel');
-        var modal = document.querySelector('.modal');
-        btn.onclick= function(){
-            modal.style.display = "block";
-        };
-        close.onclick= function(){
-            modal.style.display = "none";
-        };
-        cancel.onclick= function(){
-            modal.style.display = "none";
-        };
-    }
-    qz_modal();
+    // function qz_modal() {
+    //     var btn = document.querySelector('.qz_mobtn');
+    //     var close = document.querySelector('.qz_close');
+    //     var cancel = document.querySelector('.qz_cancel');
+    //     var modal = document.querySelector('.qz_modal');
+    //     btn.onclick= function(){
+    //         modal.style.display = "block";
+    //     };
+    //     close.onclick= function(){
+    //         modal.style.display = "none";
+    //     };
+    //     cancel.onclick= function(){
+    //         modal.style.display = "none";
+    //     };
+    // }
+    // qz_modal();
 
     // 图片动画
     function qz_img() {
