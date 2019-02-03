@@ -1,82 +1,45 @@
 (function () {
 
 
-// 模态框
-    var btn = document.querySelector('.qz_mobtn');
-    var add=document.querySelector('.qz_add');
-    var qz_cen=document.querySelectorAll('.qz_cen');
-
-    var close = document.querySelectorAll('.qz_close');
-    var cancel = document.querySelectorAll('.qz_cancel');
-    var modal = document.querySelectorAll('.qz_modal');
-
-    btn.onclick= function(){
-        modal[0].style.display = 'block';
-    };
-    add.onclick=function(){
-        modal[1].style.display='block';
-    }
-    for (let i=0;i<3;i++){
-        qz_cen[i].onclick=function () {
-            modal[i+2].style.display='block';
+    // 模态框
+    function modal_frame() {
+        let btn = document.querySelector('.qz_mobtn');
+        let add=document.querySelector('.qz_add');
+        let qz_cen=document.querySelectorAll('.qz_cen');
+        let close = document.querySelectorAll('.qz_close');
+        let cancel = document.querySelectorAll('.qz_cancel');
+        let modal = document.querySelectorAll('.qz_modal');
+        btn.onclick= function(){
+            modal[0].style.display = 'block';
+        };
+        add.onclick=function(){
+            modal[1].style.display='block';
+        };
+        for (let i=0;i<18;i++){
+            qz_cen[i].onclick=function () {
+                modal[2].style.display='block';
+            };
+        }
+        for (let i=0;i<3;i++){
+            close[i].onclick= function(){
+                modal[i].style.display = 'none';
+            };
+            cancel[i].onclick= function(){
+                console.log(i);
+                modal[i].style.display = 'none';
+            };
         }
     }
-    for (let i=0;i<5;i++){
-        close[i].onclick= function(){
-            modal[i].style.display = 'none';
-        };
-        cancel[i].onclick= function(){
-            console.log(i);
-            modal[i].style.display = 'none';
-        };
-
-    }
-
-
-
-
-
-    // 肤质测试弹出模态框
-
-    // var qz_add=document
-
-
-
-
-    // 图片弹出模态框
-    // var qz_cen=document.querySelectorAll('.qz_cen');
-    // var modal = document.querySelectorAll('.modal');
-    // var close = document.querySelectorAll('.close');
-    // var cancel = document.querySelectorAll('.cancel');
-    // for (let cen of qz_cen){
-    //     for(let i in [1,2]) {
-    //         cen.onclick = function (event) {
-    //             modal[i].style.display = "block";
-    //             console.log(i);
-    //         }
-    //         close[i].onclick= function(){
-    //             console.log(i);
-    //             console.log(modal[i].style.display);
-    //             modal[i].style.display = "none";
-    //             console.log(modal[i].style.display);
-    //         };
-    //         cancel[i].onclick= function(){
-    //             modal[i].style.display = "none";
-    //         };
-    //     }
-    // }
-
-
-
+    modal_frame();
 
     // 导航栏切换
     function change_nav() {
-        var qz_nav=document.querySelector('#qz_nav');
-        var dia=document.querySelector('#qz_diary');
-        var col=document.querySelector('#qz_collection');
-        var adm=document.querySelector('#qz_admission');
+        let qz_nav=document.querySelector('#qz_nav');
+        let dia=document.querySelector('#qz_diary');
+        let col=document.querySelector('#qz_collection');
+        let adm=document.querySelector('#qz_admission');
         qz_nav.onclick=function (event) {
-            var node=event && event.target;
+            let node=event && event.target;
             if(node.nodeName.toLowerCase()=='span'||'img'){
                 if(node.parentNode.parentNode.nextElementSibling){
                     if(node.parentNode.parentNode.nextElementSibling.nextElementSibling){
@@ -98,30 +61,12 @@
     }
     change_nav();
 
-    // 模态框
-    // function qz_modal() {
-    //     var btn = document.querySelector('.qz_mobtn');
-    //     var close = document.querySelector('.qz_close');
-    //     var cancel = document.querySelector('.qz_cancel');
-    //     var modal = document.querySelector('.qz_modal');
-    //     btn.onclick= function(){
-    //         modal.style.display = "block";
-    //     };
-    //     close.onclick= function(){
-    //         modal.style.display = "none";
-    //     };
-    //     cancel.onclick= function(){
-    //         modal.style.display = "none";
-    //     };
-    // }
-    // qz_modal();
-
     // 图片动画
     function qz_img() {
-        var qz_data=document.querySelector('.qz_data');
+        let qz_data=document.querySelector('.qz_data');
         // 鼠标滑入图片放大
         qz_data.onmouseover=function (event) {
-            var node=event.target;
+            let node=event.target;
             if(node.nodeName.toLowerCase()== 'img'){
                 node.nextElementSibling.style.display='block';
                 node.classList.toggle('qz_cimg');
@@ -130,19 +75,19 @@
         };
         // 鼠标滑出图片缩小
         qz_data.onmouseout=function (event) {
-            var node=event.target;
+            let node=event.target;
             if(node.nodeName.toLowerCase()== 'img'){
                 node.classList.toggle('qz_cimg');
                 node.classList.toggle('cimg_active');
             }
-        }
+        };
 
         // 浏览器尺寸改变时蒙板尺寸随动
         window.onresize=function (){
-            var qz_cimg=document.querySelector('.qz_cimg');
-            var qz_cen=document.querySelectorAll('.qz_cen');
-            var qz_coimg=document.querySelectorAll('.qz_coimg');
-            var hei_cimg=qz_cimg.height;
+            let qz_cimg=document.querySelector('.qz_cimg');
+            let qz_cen=document.querySelectorAll('.qz_cen');
+            let qz_coimg=document.querySelectorAll('.qz_coimg');
+            let hei_cimg=qz_cimg.height;
             for(let cen of qz_cen){
                 cen.style.height=hei_cimg+'px';
             }
@@ -150,19 +95,19 @@
                 coimg.style.height=hei_cimg+'px';
                 coimg.style.top='-'+(hei_cimg)+'px';
             }
-        }
+        };
 
-        var qz_coimg=document.querySelectorAll('.qz_coimg');
+        let qz_coimg=document.querySelectorAll('.qz_coimg');
         for(let coimg of qz_coimg){
             // 鼠标滑入蒙板
             coimg.onmouseover=function(event){
-                var node=event&&event.target;
+                let node=event&&event.target;
                 node.previousElementSibling.classList.toggle('qz_cimg');
                 node.previousElementSibling.classList.toggle('cimg_active');
-            }
+            };
             // 鼠标滑出蒙板
             coimg.onmouseout=function (event) {
-                var node=event&&event.target;
+                let node=event&&event.target;
                 coimg.style.display='none';
                 node.previousElementSibling.classList.toggle('qz_cimg');
                 node.previousElementSibling.classList.toggle('cimg_active');
@@ -171,26 +116,26 @@
     }
     qz_img();
 
-    window.onload=function (event){
+    window.onload=function (){
         // * 1.浏览器加载时div尺寸随动——开始
-        var screen_height=document.documentElement.clientHeight;
+        let screen_height=document.documentElement.clientHeight;
         // 定义第一页
-        var qz_cover=document.querySelector('.qz_cover');
-        var qz_cir=document.querySelector('.qz_cir');
-        var qz_cul=document.querySelector('.qz_cul');
-        var qz_pernic=document.querySelector('.qz_pernic');
-        var qz_nick=document.querySelector('.qz_nick');
-        var qz_pla=document.querySelector('.qz_pla');
-        var qz_percha=document.querySelector('.qz_percha');
-        var qz_rota=document.querySelector('.qz_rota');
-        var qz_pic=document.querySelector('.qz_pic');
-        var qz_gui=document.querySelector('.qz_gui');
-        var qz_skinfo=document.querySelector('.qz_skinfo');
-        var qz_lead=document.querySelector('.qz_lead');
-        var lea_img=document.querySelector('.lea_img');
+        let qz_cover=document.querySelector('.qz_cover');
+        let qz_cir=document.querySelector('.qz_cir');
+        let qz_cul=document.querySelector('.qz_cul');
+        let qz_pernic=document.querySelector('.qz_pernic');
+        let qz_nick=document.querySelector('.qz_nick');
+        let qz_pla=document.querySelector('.qz_pla');
+        let qz_percha=document.querySelector('.qz_percha');
+        let qz_rota=document.querySelector('.qz_rota');
+        let qz_pic=document.querySelector('.qz_pic');
+        let qz_gui=document.querySelector('.qz_gui');
+        let qz_skinfo=document.querySelector('.qz_skinfo');
+        let qz_lead=document.querySelector('.qz_lead');
+        let lea_img=document.querySelector('.lea_img');
         // 定义第二页
-        var qz_sep=document.querySelectorAll('.qz_sep');
-        var qz_nimg=document.querySelectorAll('.qz_nimg');
+        let qz_sep=document.querySelectorAll('.qz_sep');
+        let qz_nimg=document.querySelectorAll('.qz_nimg');
         // 计算第一页
         // 第一页
         qz_cover.style.height=screen_height+'px';
@@ -222,13 +167,13 @@
         // * 1.浏览器加载时div尺寸随动——结束
 
         // * * 2.轮播图——开始
-        var rota = document.querySelector('.qz_rota');
-        var ropic = document.querySelectorAll('.qz_pic');
-        var count = 0;
-        var timer = null;
+        let rota = document.querySelector('.qz_rota');
+        let ropic = document.querySelectorAll('.qz_pic');
+        let count = 0;
+        let timer = null;
         timer=setInterval(change ,2000);
         function change() {
-            for (var j = 0; j < ropic.length; j++) {
+            for (let j = 0; j < ropic.length; j++) {
                 ropic[j].style.display = 'none';
             }
             ropic[count].style.display = 'block';
@@ -239,18 +184,18 @@
         }
         rota.onmouseover = function () {
             clearInterval(timer);
-        }
+        };
         rota.onmouseout = function () {
             timer = setInterval(change, 2000);
-        }
+        };
         // * * 2.轮播图——结束
 
 
         // * * * 3.图片动画——浏览器加载时蒙板尺寸随动——开始
-        var qz_cimg=document.querySelector('.qz_cimg');
-        var qz_cen=document.querySelectorAll('.qz_cen');
-        var qz_coimg=document.querySelectorAll('.qz_coimg');
-        var hei_cimg=qz_cimg.height;
+        let qz_cimg=document.querySelector('.qz_cimg');
+        let qz_cen=document.querySelectorAll('.qz_cen');
+        let qz_coimg=document.querySelectorAll('.qz_coimg');
+        let hei_cimg=qz_cimg.height;
         for(let cen of qz_cen){
             cen.style.height=hei_cimg+'px';
         }
@@ -262,19 +207,19 @@
 
         // * * * * 4.生日选择器——开始
         // 浏览器加载时生成select选项
-        var selects = document.getElementsByTagName("select");//通过标签名获取select对象
-        var date = new Date();//获取系统当前时间
-        var nowYear = date.getFullYear();//获取当前的年
+        let selects = document.getElementsByTagName("select");//通过标签名获取select对象
+        let date = new Date();//获取系统当前时间
+        let nowYear = date.getFullYear();//获取当前的年
         //生成年份选择框
-        for(var i=nowYear-100;i<=nowYear;i++){
-            var optionYear = document.createElement("option");
+        for(let i=nowYear-100;i<=nowYear;i++){
+            let optionYear = document.createElement("option");
             optionYear.innerHTML=i;
             optionYear.value=i;
             selects[1].appendChild(optionYear);
         }
         //生成月份选择框
-        for(var i=1;i<=12;i++){
-            var optionMonth = document.createElement("option");
+        for(let i=1;i<=12;i++){
+            let optionMonth = document.createElement("option");
             optionMonth.innerHTML=i;
             optionMonth.value=i;
             selects[2].appendChild(optionMonth);
@@ -283,23 +228,23 @@
         getDays(selects[2].value,selects[1].value,selects);
         selects[1].onchange=function () {
             setDays()
-        }
+        };
         selects[2].onchange=function () {
             setDays()
         }
-    }
+    };
     // **** 4.生日选择器——内部方法
     function setDays(){
-        var selects = document.getElementsByTagName("select");
-        var year = selects[1].options[selects[1].selectedIndex].value;
-        var month = selects[2].options[selects[2].selectedIndex].value;
+        let selects = document.getElementsByTagName("select");
+        let year = selects[1].options[selects[1].selectedIndex].value;
+        let month = selects[2].options[selects[2].selectedIndex].value;
         getDays(month,year,selects);
     }
     function getDays(month,year,selects){
-        var days = getDaysInMonth(month,year);//当月获得天数
+        let days = getDaysInMonth(month,year);//当月获得天数
         selects[3].options.length = 0;
-        for(var i=1;i<=days;i++){
-            var optionDay = document.createElement("option");
+        for(let i=1;i<=days;i++){
+            let optionDay = document.createElement("option");
             optionDay.innerHTML=i;
             optionDay.value=i;
             selects[3].appendChild(optionDay);
@@ -307,7 +252,7 @@
     }
     // 获取某年某月存在多少天
     function getDaysInMonth(month,year){
-        var days;
+        let days;
         if (month==1 || month==3 || month==5 || month==7 || month==8 || month==10 || month==12) {
             days=31;
         }else if (month==4 || month==6 || month==9 || month==11){

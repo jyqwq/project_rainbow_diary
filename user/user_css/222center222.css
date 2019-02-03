@@ -48,22 +48,6 @@
 }
 
 /*模态框*/
-.qz_mobtn{
-    /*z-index: 5;*/
-    float: right;
-    width: 50px;
-    height: 35px;
-    border-radius: 5px;
-    font-size: 16px;
-    font-family: 幼圆;
-    color: white;
-    background-color: #FFAAAA;
-    /*outline: none;*/
-}
-.qz_mobtn:hover, .btn:focus{
-    /*z-index: 5;*/
-    background-color: #95b4ed;
-}
 .qz_modal{
     display: none;
     width: 100%;
@@ -78,11 +62,7 @@
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
-    width: 35%;
-    height: 55%;
-    margin: 150px auto;
     border-radius:10px;
-    background-color:#fff;
     -webkit-animation: zoom 0.6s;
     animation: zoom 0.6s;
     overflow: auto;
@@ -120,17 +100,6 @@
     font-size: 16px;
     box-sizing:border-box;
 }
-.qz_text{
-    resize: none;
-    width: 95%;
-    margin: 7px;
-    float: right;
-    font-family: 幼圆;
-    font-size: 1.1em;
-}
-.qz_opt{
-    font-family: 幼圆;
-}
 .qz_mofoot{
     box-sizing:border-box;
     border-top:1px solid #ccc;
@@ -159,7 +128,66 @@
         width: 80%;
     }
 }
+/* 1.编辑模态框开始*/
+.qz_mobtn{
+    /*z-index: 5;*/
+    float: right;
+    width: 50px;
+    height: 35px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 幼圆;
+    color: white;
+    background-color: #FFAAAA;
+    /*outline: none;*/
+}
+.qz_mobtn:hover, .btn:focus{
+    /*z-index: 5;*/
+    background-color: #95b4ed;
+}
+.edit_con{
+    width: 35%;
+    height: 55%;
+    margin: 150px auto;
+    background-color:#fff;
+}
+.qz_text{
+    resize: none;
+    width: 95%;
+    margin: 7px;
+    float: right;
+    font-family: 幼圆;
+    font-size: 1.1em;
+}
+.qz_opt{
+    font-family: 幼圆;
+}
+/* 2.肤质测试模态框开始*/
+.test_con{
+    width: 40%;
+    height: 60%;
+    margin: 150px auto;
+    background-color:#fff;
+}
+/* 3.动态模态框开始*/
+.dyna_con{
+    width: 78%;
+    height: 100%;
+    margin: 50px auto;
+    background-color:#f9f9f9;
+}
+.dyn_head{
+    height: 40px;
+}
+.dyn_head img{
+    height: 100%;
+}
+.dyn_pic{
+    margin: 2px -13px;
+    background: crimson;
+}
 /*模态框结束*/
+
 /*肤质测试*/
 .add_img{
     height: 150px;
