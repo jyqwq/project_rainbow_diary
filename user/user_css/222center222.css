@@ -1,3 +1,93 @@
+/*字体*/
+/*主人的小屋*/
+.font_nic{
+    font-family: 幼圆;
+    font-size: 1.5em;
+    font-weight: bolder;
+
+    margin-top: 25px;
+    margin-left: 15px;
+    float: left;
+}
+/*个人信息，模态框(2.肤质测试)*/
+.font_gra{
+    font-family: 幼圆;
+    font-size: 1.2em;
+}
+/*护肤指南*/
+.qz_skinfo{
+    text-align: center;
+}
+.font_skinfo{
+    font-family: 幼圆;
+    font-size: 1.3em;
+}
+/*第二页*/
+.qz_open{
+    text-align: center;
+    margin-top: 50px;
+}
+.font_open{
+    font-family: 幼圆;
+    font-size: 2em;
+    font-weight: bolder;
+
+    height: 60px;
+    line-height: 60px;
+}
+/*大导航栏*/
+/*日记本，收藏夹，收纳盒*/
+.qz_nav{
+    text-align: center;
+}
+.font_nav{
+    font-family: 幼圆;
+    font-size: 1.5em;
+    font-weight: bolder;
+
+    height: 30px;
+    line-height: 30px;
+}
+.qz_ndis{
+    text-align: center;
+}
+.font_inf{
+    font-family: 幼圆;
+    height: 20px;
+    line-height: 20px;
+}
+/*模态框开始*/
+/* 1.编辑模态框*/
+.qz_text{
+    font-family: 幼圆;
+    font-size: 1.1em;
+
+    width: 95%;
+    margin: 7px;
+    resize: none;
+    float: right;
+}
+.font_opt{
+    font-family: 幼圆;
+}
+/* 3.动态模态框*/
+.font_dyn{
+    font-size: 1.1em;
+}
+.font_time{
+    font-size: 0.8em;
+    color: rgba(0, 0, 0, 0.8);
+}
+.font_dinf{
+    font-size: 0.9em;
+}
+.font_full{
+    font-size: 0.9em;
+    color: #2e6da4;
+}
+/*模态框结束*/
+
+/*全局*/
 .qz_con{
     margin-top: 50px;
     padding: 0;
@@ -7,73 +97,34 @@
 .qz_row{
     margin: 15px;
 }
+
+/*左边个人信息框*/
 .qz_per{
     margin-top: 75px;
     border-radius: 20px;
     background: #FFAAAA;
 }
+/*主人的头像*/
 .qz_cir{
     float: right;
     position: relative;
     left: 75px;
     top: -75px;
 }
+.qz_por{
+    width: 100%;
+}
 .qz_cul{
     float: right;
     position: relative;
     top: -65px;
 }
-.qz_por{
-    width: 100%;
-}
-.qz_nic{
-    height: 80px;
-}
-.qz_nicfon{
-
-    margin-top: 25px;
-    font-size: 1.5em;
-    font-weight: bolder;
-    font-family: 幼圆;
-    float: left;
-    margin-left: 15px;
-}
+/*主人的小屋*/
 .qz_nic img{
     height: 30px;
 }
-.qz_gra{
-    font-size: 1.2em;
-    font-family: 幼圆;
-}
-.dis_mor{
-    float: right;
-}
-.qz_morinf{
-    font-size: 0.9em;
-    font-family: 幼圆;
-}
-.qz_more{
-    height: 80px;
-    background: red;
-}
 
 /*模态框*/
-.qz_mobtn{
-    /*z-index: 5;*/
-    float: right;
-    width: 50px;
-    height: 35px;
-    border-radius: 5px;
-    font-size: 16px;
-    font-family: 幼圆;
-    color: white;
-    background-color: #FFAAAA;
-    /*outline: none;*/
-}
-.qz_mobtn:hover, .btn:focus{
-    /*z-index: 5;*/
-    background-color: #95b4ed;
-}
 .qz_modal{
     display: none;
     width: 100%;
@@ -88,16 +139,11 @@
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
-    width: 35%;
-    height: 55%;
-    margin: 150px auto;
     border-radius:10px;
-    background-color:#fff;
     -webkit-animation: zoom 0.6s;
     animation: zoom 0.6s;
     overflow: auto;
     resize: none;
-
 }
 @-webkit-keyframes zoom{
     from {-webkit-transform: scale(0)}
@@ -131,17 +177,6 @@
     font-size: 16px;
     box-sizing:border-box;
 }
-.qz_text{
-    resize: none;
-    width: 95%;
-    margin: 7px;
-    float: right;
-    font-family: 幼圆;
-    font-size: 1.1em;
-}
-.qz_opt{
-    font-family: 幼圆;
-}
 .qz_mofoot{
     box-sizing:border-box;
     border-top:1px solid #ccc;
@@ -170,34 +205,93 @@
         width: 80%;
     }
 }
+/* 1.编辑模态框开始*/
+.qz_mobtn{
+    /*z-index: 5;*/
+    float: right;
+    width: 50px;
+    height: 35px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: 幼圆;
+    color: white;
+    background-color: #FFAAAA;
+    /*outline: none;*/
+}
+.qz_mobtn:hover, .btn:focus{
+    /*z-index: 5;*/
+    background-color: #95b4ed;
+}
+.edit_con{
+    width: 35%;
+    height: 55%;
+    margin: 150px auto;
+    background-color:#fff;
+}
+/* 2.肤质测试模态框开始*/
+.test_con{
+    width: 40%;
+    height: 60%;
+    margin: 150px auto;
+    background-color:#fff;
+}
+/* 3.动态模态框开始*/
+.dyna_con{
+    width: 78%;
+    height: 93%;
+    margin: 50px auto;
+    background-color:#f9f9f9;
+}
+.dyn_head{
+    height: 40px;
+}
+.dyn_head img{
+    height: 100%;
+}
+.dyn_pic{
+    margin: 2px -13px;
+    background: crimson;
+}
+.qz_line{
+    height: 1px;
+    margin: 5px;
+    background: #EEEEEE;
+}
 /*模态框结束*/
 
-.qz_ski{
-    margin-top: 80px;
-    border-radius: 5px;
-    background: rgba(255, 170, 170, 0.7);
+/*肤质测试*/
+.add_img{
+    height: 150px;
 }
-/*.qz_skitit{*/
-    /*height: 50px;*/
-/*}*/
+.add_img img{
+    height: 100%;
+}
+.add_iner{
+    width: 80px;
+    height: 30px;
+    margin: -100px 40px;
+}
+.gui_img{
+    height: 150px;
+    background: #9783b9;
+}
+/*肤质测试结束*/
+/*右边个人肤质框*/
+/*轮播图开始*/
+.qz_rota{
+    margin:25px auto;
+    overflow:hidden;
+}
+
+/*护 肤 指 南*/
+.qz_skitit{
+    height: 50px;
+}
 .qz_skitit img{
     height: 30px;
     margin: auto;
 }
-/*.font_skitit{*/
-    /*height: 80px;*/
-    /*line-height: 80px;*/
-    /*!*font-weight: bolder;*!*/
-    /*font-size: 1.5em;*/
-    /*font-family: 幼圆;*/
-/*}*/
-.font_skinfo{
-    font-size: 1.5em;
-    font-family: 幼圆;
-}
-.qz_skinfo{
-    text-align: center;
-}
+/*箭头指向第二页*/
 .qz_leaimg{
     width: 80px;
     margin: auto;
@@ -205,17 +299,9 @@
 .lea_img{
     margin: auto;
 }
-.qz_open{
-    text-align: center;
-    margin-top: 50px;
-}
-.font_open{
-    height: 60px;
-    line-height: 60px;
-    font-weight: bolder;
-    font-size: 2em;
-    font-family: 幼圆;
-}
+
+/*大导航栏*/
+/*日记本*/
 .qz_nimg{
     margin: auto;
     width: 200px;
@@ -224,25 +310,9 @@
     height: 100%;
     margin: auto;
 }
-.qz_nav{
-    text-align: center;
-}
-.font_nav{
-    height: 30px;
-    line-height: 30px;
-    font-weight: bolder;
-    font-size: 1.5em;
-    font-family: 幼圆;
-}
-.qz_ndis{
-    text-align: center;
-}
-.font_inf{
-    height: 20px;
-    line-height: 20px;
-    font-size: 1em;
-    font-family: 幼圆;
-}
+
+/*中心内容*/
+/*日记本内容*/
 #qz_diary{
     display: block;
 }
@@ -262,11 +332,13 @@
 .qz_coimg{
     display: none;
     position: relative;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(220, 20, 60, 0.28);
 }
+/*收藏夹内容*/
 #qz_collection{
     display: none;
 }
+/*收纳盒内容*/
 #qz_admission{
     display: none;
 }

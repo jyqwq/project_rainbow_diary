@@ -11,7 +11,70 @@
 </head>
 
 <body class="qz_body">
+<!--导航栏-->
+<nav class="navbar navbar-default nav_col navbar-fixed-top">
+    <div class="container">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">彩虹日记</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
 
+                <a class="navbar-brand" href="index.html">
+                    <img alt="彩虹日记" src="../img/logo_.png" class="logo_img">
+                </a>
+                <span class="navbar-toggle navbar-brand logo_text" style="color: #ffdd90"><strong>彩&nbsp;&nbsp;虹&nbsp;&nbsp;日&nbsp;&nbsp;记</strong></span>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="nav_hover"><a href="index.html">首页</a></li>
+                    <li class="nav_hover"><a href="#">热门</a></li>
+                    <li class="nav_hover"><a href="search/rank.html">排行榜</a></li>
+                    <li class="nav_hover"><a href="#">测评资讯</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><button type="button" class="btn btn-success unlogin"><a href="login.html">登录</a></button></li>
+                    <li><button type="button" class="btn btn-success unlogin"><a href="register.html">注册</a></button></li>
+                    <li><button type="button" class="btn btn-info sharing_btn"><strong>写&nbsp;&nbsp;日&nbsp;&nbsp;记</strong></button></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right islogin" style="display: none">
+                    <li><a href="#"><img src="../img/usericon.png" alt="user-icon" class="img-circle usericon_img"></a></li>
+                    <li class="nav_hover"><a href="#" class="a_width">消息 <span class="badge">4</span></a></li>
+                    <li class="nav_hover"><a href="#" class="a_width">动态 <span class="badge">4</span></a></li>
+                    <li class="nav_hover"><a href="#" >收藏</a></li>
+                    <li><button type="button" class="btn btn-info sharing_btn"><strong>写&nbsp;&nbsp;日&nbsp;&nbsp;记</strong></button></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </div>
+</nav>
+<!--导航栏下拉-->
+<div class="container-fluid navbar-fixed-top down_position">
+    <div class="row down_nav" style="display: none">
+        <div class="visible-xs">
+            <ul class="nav navbar-nav navbar_nav">
+                <li class="nav_hover down_nav_text"><a href="#"><strong>热&nbsp;&nbsp;门</strong></a></li>
+                <li class="nav_hover down_nav_text"><a href="search/rank.html"><strong>排&nbsp;&nbsp;行&nbsp;&nbsp;榜</strong></a></li>
+                <li class="nav_hover down_nav_text"><a href="#"><strong>测&nbsp;&nbsp;评&nbsp;&nbsp;资&nbsp;&nbsp;讯</strong></a></li>
+                <li class="nav_hover down_nav_text"><a href="#"><strong>登&nbsp;&nbsp;录</strong></a></li>
+                <li class="nav_hover down_nav_text"><a href="#"><strong>注&nbsp;&nbsp;册</strong></a></li>
+                <li class="nav_hover down_nav_text"><a href="#"><strong>写&nbsp;&nbsp;日&nbsp;&nbsp;记</strong></a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar_nav islogin" style="display: none">
+                <li class="nav_hover down_nav_text"><a href="#"><strong>个&nbsp;&nbsp;人&nbsp;&nbsp;中&nbsp;&nbsp;心</strong></a></li>
+                <li class="nav_hover down_nav_text"><a href="#"><strong>消&nbsp;&nbsp;息</strong> <span class="badge">4</span></a></li>
+                <li class="nav_hover down_nav_text"><a href="#"><strong>动&nbsp;&nbsp;态</strong> <span class="badge">4</span></a></li>
+                <li class="nav_hover down_nav_text"><a href="#" ><strong>收&nbsp;&nbsp;藏</strong></a></li>
+                <li class="nav_hover down_nav_text"><a href="#"><strong>写&nbsp;&nbsp;日&nbsp;&nbsp;记</strong></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
 
 
     <div class="container qz_con">
@@ -32,7 +95,7 @@
                         <div class="row qz_row">
                             <div class="col-xs-6 col-sm-9 col-md-7 col-lg-7 qz_nick">
                                 <div class="qz_nic">
-                                    <span class="qz_nicfon">南浅</span><br>
+                                    <span class="font_nic">南浅</span><br>
                                     <img src="../img/222center222/font_house.png" class="img-responsive" alt="Responsive image">
                                 </div>
                             </div>
@@ -45,18 +108,19 @@
                         <div class="row qz_row">
                             <div class="col-xs-8 col-sm-10 col-md-9 col-lg-9">
                                 <div class="qz_pla">
-                                    <span class="qz_gra">个性签名：小仙女都是喝露水的</span><br><br>
-                                    <span class="qz_gra">关注数：0</span><br><br>
-                                    <span class="qz_gra">粉丝数：0</span>
+                                    <span class="font_gra">个性签名：小仙女都是喝露水的</span><br><br>
+                                    <span class="font_gra">关注数：0</span><br><br>
+                                    <span class="font_gra">粉丝数：0</span>
                                 </div>
                             </div>
                             <div class="col-xs-4 col-sm-2 col-md-3 col-lg-3 qz_percha">
-                                <!--编辑模态框-->
+                                <!--模态框开始-->
                                 <button class="btn qz_mobtn showModel">编辑</button>
+                                <!--编辑模态框开始-->
                                 <div class="modal qz_modal">
-                                    <div class="modal-content qz_mocon">
+                                    <div class="modal-content qz_mocon edit_con">
                                         <header class="modal-header qz_mohead">
-                                            <span>南浅的小屋</span>
+                                            <span class="font_gra">南浅的小屋</span>
                                             <span class="close qz_close">×</span>
                                         </header>
                                         <div class="modal-body qz_mobody">
@@ -77,8 +141,8 @@
                                                     <td>性别：</td>
                                                     <td>
                                                         <select class="qz_text">
-                                                            <option class="qz_opt" value="man">女</option>
-                                                            <option class="qz_opt" value="women">男</option>
+                                                            <option class="font_opt" value="man">女</option>
+                                                            <option class="font_opt" value="women">男</option>
                                                         </select>
                                                     </td>
                                                 </tr>
@@ -104,6 +168,321 @@
                                     </div>
                                 </div>
                                 <!--编辑模态框结束-->
+                                <!--肤质测试模态框开始-->
+                                <div class="modal qz_modal">
+                                    <div class="modal-content qz_mocon test_con">
+                                        <header class="modal-header qz_mohead">
+                                            <span class="font_gra">肤质测试</span>
+                                            <span class="close qz_close">×</span>
+                                        </header>
+                                        <div class="modal-body qz_mobody">
+                                            <span>肤质测试内容</span>
+                                        </div>
+                                        <footer class="modal-footer qz_mofoot">
+                                            <button class="qz_cancel">取消</button>
+                                            <button class="qz_sure">确定</button>
+                                        </footer>
+                                    </div>
+                                </div>
+                                <!--肤质测试模态框结束-->
+                                <!--动态模态框开始-->
+                                <div class="modal qz_modal">
+                                    <div class="modal-content qz_mocon dyna_con">
+                                        <header class="modal-header qz_mohead">
+                                            <span class="font_dyn">日记本</span>
+                                            <span class="close qz_close">×</span>
+                                        </header>
+                                        <div class="modal-body qz_mobody">
+                                            <!--动态主体开始-->
+                                            <div class="qz_dynamic">
+                                                <!--作者头像日期-->
+                                                <div class="row qz_row">
+                                                    <div class="hidden-xs hidden-sm col-md-1 col-lg-1"></div>
+                                                    <div class="col-xs-4 col-sm-2 col-md-2 col-lg-1">
+                                                        <div class="dyn_head">
+                                                            <img src="../img/222center222/dynamic_head.jpg" class="img-responsive" alt="Responsive image">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+                                                        <div class="dyn_aut">
+                                                            <span>南浅</span><br>
+                                                            <div class="font_time">
+                                                                <span class="rel_time">2019-2-4 17:36:01</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--动态文字-->
+                                                <div class="row qz_row">
+                                                    <div class="hidden-xs hidden-sm col-md-1 col-lg-1"></div>
+                                                    <div class="col-xs-12 col-sm-12 col-md-11 col-lg-11">
+                                                        <div style="height: 68px; overflow: hidden;">
+                                                        <span class="font_dinf">昨天一直在看伍佰和阿信合唱《挪威的森林》的视频，我说这也太感人了吧，然后裂裂跟我讲：“知道阿信是伍佰的粉丝之后，这个故事就更感人了”。
+                                                        ”念念不忘，必有回响”。他是这么总结的。
+                                                        我想起另一个故事。十三年前，贝克汉姆和两个英格兰球队的小粉丝合影，十三年后，男孩成为了英格兰球队的队长，而照片上的女孩则成为了那个男孩的妻子。
+                                                        像之前说的，月亮虽然遥远，但某一刻，它的光真的照亮过我。
+                                                        </span><br>
+                                                        </div>
+                                                        <span class="font_full">展开全文</span>
+                                                    </div>
+                                                </div>
+                                                <!--动态图片-->
+                                                <div class="row qz_row">
+                                                    <div class="hidden-xs hidden-sm col-md-1 col-lg-1"></div>
+                                                    <div class="col-xs-12 col-sm-7 col-md-6 col-lg-5">
+                                                        <div class="row">
+                                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                                <div class="dyn_pic">
+                                                                    <img src="../img/222center222/dynamic1.jpg" class="img-responsive" alt="Responsive image">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                                <div class="dyn_pic">
+                                                                    <img src="../img/222center222/dynamic2.jpg" class="img-responsive" alt="Responsive image">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                                <div class="dyn_pic">
+                                                                    <img src="../img/222center222/dynamic3.jpg" class="img-responsive" alt="Responsive image">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                                <div class="dyn_pic">
+                                                                    <img src="../img/222center222/dynamic4.jpg" class="img-responsive" alt="Responsive image">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                                <div class="dyn_pic">
+                                                                    <img src="../img/222center222/dynamic5.jpg" class="img-responsive" alt="Responsive image">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                                <div class="dyn_pic">
+                                                                    <img src="../img/222center222/dynamic6.jpg" class="img-responsive" alt="Responsive image">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                                <div class="dyn_pic">
+                                                                    <img src="../img/222center222/dynamic7.jpg" class="img-responsive" alt="Responsive image">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                                <div class="dyn_pic">
+                                                                    <img src="../img/222center222/dynamic8.jpg" class="img-responsive" alt="Responsive image">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                                <div class="dyn_pic">
+                                                                    <img src="../img/222center222/dynamic9.jpg" class="img-responsive" alt="Responsive image">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--分割线-->
+                                                <div class="qz_line"></div>
+                                            </div>
+                                            <div class="qz_dynamic">
+                                                <!--作者头像日期-->
+                                                <div class="row qz_row">
+                                                    <div class="hidden-xs hidden-sm col-md-1 col-lg-1"></div>
+                                                    <div class="col-xs-4 col-sm-2 col-md-2 col-lg-1">
+                                                        <div class="dyn_head">
+                                                            <img src="../img/222center222/dynamic_head.jpg" class="img-responsive" alt="Responsive image">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+                                                        <div class="dyn_aut">
+                                                            <span>南浅</span><br>
+                                                            <div class="font_time">
+                                                                <span class="rel_time">2019-1-4 12:10:01</span>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--动态文字-->
+                                                <div class="row qz_row">
+                                                    <div class="hidden-xs hidden-sm col-md-1 col-lg-1"></div>
+                                                    <div class="col-xs-12 col-sm-12 col-md-11 col-lg-11">
+                                                        <div style="height: 68px; overflow: hidden;">
+                                                        <span class="font_dinf">昨天一直在看伍佰和阿信合唱《挪威的森林》的视频，我说这也太感人了吧，然后裂裂跟我讲：“知道阿信是伍佰的粉丝之后，这个故事就更感人了”。
+                                                        ”念念不忘，必有回响”。他是这么总结的。
+                                                        我想起另一个故事。十三年前，贝克汉姆和两个英格兰球队的小粉丝合影，十三年后，男孩成为了英格兰球队的队长，而照片上的女孩则成为了那个男孩的妻子。
+                                                        像之前说的，月亮虽然遥远，但某一刻，它的光真的照亮过我。
+                                                        </span><br>
+                                                        </div>
+                                                        <span class="font_full">展开全文</span>
+                                                    </div>
+                                                </div>
+                                                <!--动态图片-->
+                                                <div class="row qz_row">
+                                                    <div class="hidden-xs hidden-sm col-md-1 col-lg-1"></div>
+                                                    <div class="col-xs-12 col-sm-7 col-md-6 col-lg-5">
+                                                        <div class="row">
+                                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                                <div class="dyn_pic">
+                                                                    <img src="../img/222center222/dynamic1.jpg" class="img-responsive" alt="Responsive image">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                                <div class="dyn_pic">
+                                                                    <img src="../img/222center222/dynamic2.jpg" class="img-responsive" alt="Responsive image">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                                <div class="dyn_pic">
+                                                                    <img src="../img/222center222/dynamic3.jpg" class="img-responsive" alt="Responsive image">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                                <div class="dyn_pic">
+                                                                    <img src="../img/222center222/dynamic4.jpg" class="img-responsive" alt="Responsive image">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                                <div class="dyn_pic">
+                                                                    <img src="../img/222center222/dynamic5.jpg" class="img-responsive" alt="Responsive image">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                                <div class="dyn_pic">
+                                                                    <img src="../img/222center222/dynamic6.jpg" class="img-responsive" alt="Responsive image">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                                <div class="dyn_pic">
+                                                                    <img src="../img/222center222/dynamic7.jpg" class="img-responsive" alt="Responsive image">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                                <div class="dyn_pic">
+                                                                    <img src="../img/222center222/dynamic8.jpg" class="img-responsive" alt="Responsive image">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                                <div class="dyn_pic">
+                                                                    <img src="../img/222center222/dynamic9.jpg" class="img-responsive" alt="Responsive image">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--分割线-->
+                                                <div class="qz_line"></div>
+                                            </div>
+                                            <div class="qz_dynamic">
+                                                <!--作者头像日期-->
+                                                <div class="row qz_row">
+                                                    <div class="hidden-xs hidden-sm col-md-1 col-lg-1"></div>
+                                                    <div class="col-xs-4 col-sm-2 col-md-2 col-lg-1">
+                                                        <div class="dyn_head">
+                                                            <img src="../img/222center222/dynamic_head.jpg" class="img-responsive" alt="Responsive image">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+                                                        <div class="dyn_aut">
+                                                            <span>南浅</span><br>
+                                                            <div class="font_time">
+                                                                <span class="rel_time">2018-2-4 14:47:01</span>
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--动态文字-->
+                                                <div class="row qz_row">
+                                                    <div class="hidden-xs hidden-sm col-md-1 col-lg-1"></div>
+                                                    <div class="col-xs-12 col-sm-12 col-md-11 col-lg-11">
+                                                        <div style="height: 68px; overflow: hidden;">
+                                                        <span class="font_dinf">昨天一直在看伍佰和阿信合唱《挪威的森林》的视频，我说这也太感人了吧，然后裂裂跟我讲：“知道阿信是伍佰的粉丝之后，这个故事就更感人了”。
+                                                        ”念念不忘，必有回响”。他是这么总结的。
+                                                        我想起另一个故事。十三年前，贝克汉姆和两个英格兰球队的小粉丝合影，十三年后，男孩成为了英格兰球队的队长，而照片上的女孩则成为了那个男孩的妻子。
+                                                        像之前说的，月亮虽然遥远，但某一刻，它的光真的照亮过我。
+                                                        </span><br>
+                                                        </div>
+                                                        <span class="font_full">展开全文</span>
+                                                    </div>
+                                                </div>
+                                                <!--动态图片-->
+                                                <div class="row qz_row">
+                                                    <div class="hidden-xs hidden-sm col-md-1 col-lg-1"></div>
+                                                    <div class="col-xs-12 col-sm-7 col-md-6 col-lg-5">
+                                                        <div class="row">
+                                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                                <div class="dyn_pic">
+                                                                    <img src="../img/222center222/dynamic1.jpg" class="img-responsive" alt="Responsive image">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                                <div class="dyn_pic">
+                                                                    <img src="../img/222center222/dynamic2.jpg" class="img-responsive" alt="Responsive image">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                                <div class="dyn_pic">
+                                                                    <img src="../img/222center222/dynamic3.jpg" class="img-responsive" alt="Responsive image">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                                <div class="dyn_pic">
+                                                                    <img src="../img/222center222/dynamic4.jpg" class="img-responsive" alt="Responsive image">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                                <div class="dyn_pic">
+                                                                    <img src="../img/222center222/dynamic5.jpg" class="img-responsive" alt="Responsive image">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                                <div class="dyn_pic">
+                                                                    <img src="../img/222center222/dynamic6.jpg" class="img-responsive" alt="Responsive image">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                                <div class="dyn_pic">
+                                                                    <img src="../img/222center222/dynamic7.jpg" class="img-responsive" alt="Responsive image">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                                <div class="dyn_pic">
+                                                                    <img src="../img/222center222/dynamic8.jpg" class="img-responsive" alt="Responsive image">
+                                                                </div>
+                                                            </div>
+                                                            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                                                                <div class="dyn_pic">
+                                                                    <img src="../img/222center222/dynamic9.jpg" class="img-responsive" alt="Responsive image">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--分割线-->
+                                                <div class="qz_line"></div>
+                                            </div>
+                                            <!--动态主体结束-->
+
+                                        </div>
+                                        <footer class="modal-footer qz_mofoot">
+                                            <button class="qz_cancel">取消</button>
+                                            <button class="qz_sure">确定</button>
+                                        </footer>
+                                    </div>
+                                </div>
+                                <!--动态模态框结束-->
+                                <!--模态框结束-->
                             </div>
                         </div>
                     </div>
@@ -125,21 +504,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="modal qz_modal">
-                        <div class="modal-content qz_mocon">
-                            <header class="modal-header qz_mohead">
-                                <span>标题2</span>
-                                <span class="close qz_close">×</span>
-                            </header>
-                            <div class="modal-body qz_mobody">
-                                <span>内容2</span>
-                            </div>
-                            <footer class="modal-footer qz_mofoot">
-                                <button class="qz_cancel">取消</button>
-                                <button class="qz_sure">确定</button>
-                            </footer>
-                        </div>
-                    </div>
+
                 </div>
             </div>
             <div class="hidden-xs col-sm-1 col-md-1 col-lg-1"></div>
@@ -178,7 +543,6 @@
                         <a href="#mao">
                             <img src="../img/222center222/arrow.png" class="img-responsive lea_img " alt="Responsive image">
                         </a>
-
                     </div>
                 </div>
             </div>
@@ -239,63 +603,18 @@
                             <div class="qz_cen">
                                 <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg" alt="Responsive image">
                                 <div class="qz_coimg"></div>
-                                <div class="modal qz_modal">
-                                    <div class="modal-content qz_mocon">
-                                        <header class="modal-header qz_mohead">
-                                            <span>标题3</span>
-                                            <span class="close qz_close">×</span>
-                                        </header>
-                                        <div class="modal-body qz_mobody">
-                                            <span>内容3</span>
-                                        </div>
-                                        <footer class="modal-footer qz_mofoot">
-                                            <button class="qz_cancel">取消</button>
-                                            <button class="qz_sure">确定</button>
-                                        </footer>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             <div class="qz_cen">
                                 <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg" alt="Responsive image">
                                 <div class="qz_coimg"></div>
-                                <div class="modal qz_modal">
-                                    <div class="modal-content qz_mocon">
-                                        <header class="modal-header qz_mohead">
-                                            <span>标题4</span>
-                                            <span class="close qz_close">×</span>
-                                        </header>
-                                        <div class="modal-body qz_mobody">
-                                            <span>内容4</span>
-                                        </div>
-                                        <footer class="modal-footer qz_mofoot">
-                                            <button class="qz_cancel">取消</button>
-                                            <button class="qz_sure">确定</button>
-                                        </footer>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             <div class="qz_cen">
                                 <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg" alt="Responsive image">
                                 <div class="qz_coimg"></div>
-                                <div class="modal qz_modal">
-                                    <div class="modal-content qz_mocon">
-                                        <header class="modal-header qz_mohead">
-                                            <span>标题5</span>
-                                            <span class="close qz_close">×</span>
-                                        </header>
-                                        <div class="modal-body qz_mobody">
-                                            <span>内容5</span>
-                                        </div>
-                                        <footer class="modal-footer qz_mofoot">
-                                            <button class="qz_cancel">取消</button>
-                                            <button class="qz_sure">确定</button>
-                                        </footer>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -304,63 +623,18 @@
                             <div class="qz_cen">
                                 <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg" alt="Responsive image">
                                 <div class="qz_coimg"></div>
-                                <div class="modal qz_modal">
-                                    <div class="modal-content qz_mocon">
-                                        <header class="modal-header qz_mohead">
-                                            <span>标题</span>
-                                            <span class="close qz_close">×</span>
-                                        </header>
-                                        <div class="modal-body qz_mobody">
-                                            <span>内容</span>
-                                        </div>
-                                        <footer class="modal-footer qz_mofoot">
-                                            <button class="qz_cancel">取消</button>
-                                            <button class="qz_sure">确定</button>
-                                        </footer>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             <div class="qz_cen">
                                 <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg" alt="Responsive image">
                                 <div class="qz_coimg"></div>
-                                <div class="modal qz_modal">
-                                    <div class="modal-content qz_mocon">
-                                        <header class="modal-header qz_mohead">
-                                            <span>标题</span>
-                                            <span class="close qz_close">×</span>
-                                        </header>
-                                        <div class="modal-body qz_mobody">
-                                            <span>内容</span>
-                                        </div>
-                                        <footer class="modal-footer qz_mofoot">
-                                            <button class="qz_cancel">取消</button>
-                                            <button class="qz_sure">确定</button>
-                                        </footer>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                             <div class="qz_cen">
                                 <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg" alt="Responsive image">
                                 <div class="qz_coimg"></div>
-                                <div class="modal qz_modal">
-                                    <div class="modal-content qz_mocon">
-                                        <header class="modal-header qz_mohead">
-                                            <span>标题</span>
-                                            <span class="close qz_close">×</span>
-                                        </header>
-                                        <div class="modal-body qz_mobody">
-                                            <span>内容</span>
-                                        </div>
-                                        <footer class="modal-footer qz_mofoot">
-                                            <button class="qz_cancel">取消</button>
-                                            <button class="qz_sure">确定</button>
-                                        </footer>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -459,45 +733,6 @@
         </div>
     </div>
 
-
-    <!--网页底部-->
-    <div class="container-fluid under_nav min_width">
-        <div class="container">
-            <div class="row row-margin">
-                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                    <table class="under_table">
-                        <tr>
-                            <td class="colour">彩虹日记&nbsp;&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">关于我们</a></td>
-                            <td><a href="#">联系我们</a></td>
-                            <td><a href="#">加入我们</a></td>
-                            <td><a href="#">友情链接</a></td>
-                            <td class="hidden-xs hidden-sm"><a href="#">彩虹认证</a></td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="hidden-xs col-sm-1 col-md-1 col-lg-1 under_line"></div>
-                <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
-                    <table class="under_table">
-                        <tr>
-                            <td class="colour">传送门&nbsp;&nbsp;&nbsp;&nbsp;</td>
-                        </tr>
-                        <tr>
-                            <td><a href="#">帮助中心</a></td>
-                            <td><a href="#">侵权申诉</a></td>
-                            <td><a href="#">活动中心</a></td>
-                            <td><a href="#">用户反馈</a></td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-            <div class="row last_center">
-                &copy;rainbow diary 2019 belong to Ji yuan /Qian zhen /Rui hong sheng
-            </div>
-        </div>
-    </div>
 
 
 
