@@ -1,4 +1,93 @@
+/*字体*/
+/*主人的小屋*/
+.font_nic{
+    font-family: 幼圆;
+    font-size: 1.5em;
+    font-weight: bolder;
 
+    margin-top: 25px;
+    margin-left: 15px;
+    float: left;
+}
+/*个人信息，模态框(2.肤质测试)*/
+.font_gra{
+    font-family: 幼圆;
+    font-size: 1.2em;
+}
+/*护肤指南*/
+.qz_skinfo{
+    text-align: center;
+}
+.font_skinfo{
+    font-family: 幼圆;
+    font-size: 1.3em;
+}
+/*第二页*/
+.qz_open{
+    text-align: center;
+    margin-top: 50px;
+}
+.font_open{
+    font-family: 幼圆;
+    font-size: 2em;
+    font-weight: bolder;
+
+    height: 60px;
+    line-height: 60px;
+}
+/*大导航栏*/
+/*日记本，收藏夹，收纳盒*/
+.qz_nav{
+    text-align: center;
+}
+.font_nav{
+    font-family: 幼圆;
+    font-size: 1.5em;
+    font-weight: bolder;
+
+    height: 30px;
+    line-height: 30px;
+}
+.qz_ndis{
+    text-align: center;
+}
+.font_inf{
+    font-family: 幼圆;
+    height: 20px;
+    line-height: 20px;
+}
+/*模态框开始*/
+/* 1.编辑模态框*/
+.qz_text{
+    font-family: 幼圆;
+    font-size: 1.1em;
+
+    width: 95%;
+    margin: 7px;
+    resize: none;
+    float: right;
+}
+.font_opt{
+    font-family: 幼圆;
+}
+/* 3.动态模态框*/
+.font_dyn{
+    font-size: 1.1em;
+}
+.font_time{
+    font-size: 0.8em;
+    color: rgba(0, 0, 0, 0.8);
+}
+.font_dinf{
+    font-size: 0.9em;
+}
+.font_full{
+    font-size: 0.9em;
+    color: #2e6da4;
+}
+/*模态框结束*/
+
+/*全局*/
 .qz_con{
     margin-top: 50px;
     padding: 0;
@@ -8,6 +97,7 @@
 .qz_row{
     margin: 15px;
 }
+
 /*左边个人信息框*/
 .qz_per{
     margin-top: 75px;
@@ -30,21 +120,8 @@
     top: -65px;
 }
 /*主人的小屋*/
-.qz_nicfon{
-    margin-top: 25px;
-    font-size: 1.5em;
-    font-weight: bolder;
-    font-family: 幼圆;
-    float: left;
-    margin-left: 15px;
-}
 .qz_nic img{
     height: 30px;
-}
-/*个人信息*/
-.qz_gra{
-    font-size: 1.2em;
-    font-family: 幼圆;
 }
 
 /*模态框*/
@@ -151,17 +228,6 @@
     margin: 150px auto;
     background-color:#fff;
 }
-.qz_text{
-    resize: none;
-    width: 95%;
-    margin: 7px;
-    float: right;
-    font-family: 幼圆;
-    font-size: 1.1em;
-}
-.qz_opt{
-    font-family: 幼圆;
-}
 /* 2.肤质测试模态框开始*/
 .test_con{
     width: 40%;
@@ -172,7 +238,7 @@
 /* 3.动态模态框开始*/
 .dyna_con{
     width: 78%;
-    height: 100%;
+    height: 93%;
     margin: 50px auto;
     background-color:#f9f9f9;
 }
@@ -185,6 +251,11 @@
 .dyn_pic{
     margin: 2px -13px;
     background: crimson;
+}
+.qz_line{
+    height: 1px;
+    margin: 5px;
+    background: #EEEEEE;
 }
 /*模态框结束*/
 
@@ -220,13 +291,6 @@
     height: 30px;
     margin: auto;
 }
-.qz_skinfo{
-    text-align: center;
-}
-.font_skinfo{
-    font-size: 1.5em;
-    font-family: 幼圆;
-}
 /*箭头指向第二页*/
 .qz_leaimg{
     width: 80px;
@@ -235,18 +299,7 @@
 .lea_img{
     margin: auto;
 }
-/*第二页*/
-.qz_open{
-    text-align: center;
-    margin-top: 50px;
-}
-.font_open{
-    height: 60px;
-    line-height: 60px;
-    font-weight: bolder;
-    font-size: 2em;
-    font-family: 幼圆;
-}
+
 /*大导航栏*/
 /*日记本*/
 .qz_nimg{
@@ -257,25 +310,7 @@
     height: 100%;
     margin: auto;
 }
-.qz_nav{
-    text-align: center;
-}
-.font_nav{
-    height: 30px;
-    line-height: 30px;
-    font-weight: bolder;
-    font-size: 1.5em;
-    font-family: 幼圆;
-}
-.qz_ndis{
-    text-align: center;
-}
-.font_inf{
-    height: 20px;
-    line-height: 20px;
-    font-size: 1em;
-    font-family: 幼圆;
-}
+
 /*中心内容*/
 /*日记本内容*/
 #qz_diary{

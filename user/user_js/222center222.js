@@ -268,64 +268,41 @@
     }
     // * * * * 4.生日选择器——结束
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     // 计时器
-    // function count_down() {
-    //     var count_time=document.querySelector('#count_time');
-    //     var inner=setInterval(function () {
-    //         var now_time=new Date();
-    //         var pub_time=new Date('2019-1-22 14:48:24')
-    //         qz_time=now_time-pub_time;
-    //         count_time.innerText=number_to_time(qz_time);
-    //     },1000)
-    // };
-    // count_down();
-    // 时间戳转换为时间差距格式
-    // function number_to_time(num) {
-    //     var num_second=num/1000;
-    //     var days=Math.floor(num_second/(60*60*24));
-    //     var hours=Math.floor((num_second%(60*60*24))/(60*60));
-    //     var mimutes=Math.floor((num_second%(60*60))/60);
-    //     var seconds=Math.floor((num_second%60));
-    //
-    //     if(seconds>0){
-    //         if (mimutes>0){
-    //             if (hours>0){
-    //                 if (days>0){
-    //                     var result= days+'天前';
-    //                 }else {
-    //                     var result= hours+'小时前';
-    //                 }
-    //             }else {
-    //                 var result= mimutes+'分钟前';
-    //             }
-    //         }else {
-    //             var result=seconds+'秒';
-    //         }
-    //     }
-    //     return result;
-    // }
-
+    function timer() {
+        let font_time=document.querySelectorAll('.font_time');
+        let rel_time=document.querySelectorAll('.rel_time');
+        let inner=setInterval(function () {
+            let now_time=new Date();
+            for (i=0;i<3;i++){
+                let rein_time=new Date(rel_time[i].innerText);
+                let time_dif=now_time-rein_time;
+                font_time[i].innerText=number_to_time(time_dif);
+            }
+        },1000)
+        // 时间戳转换为时间差距格式
+        function number_to_time(num) {
+            let num_second=num/1000;
+            let days=Math.floor(num_second/(60*60*24));
+            let hours=Math.floor((num_second%(60*60*24))/(60*60));
+            let mimutes=Math.floor((num_second%(60*60))/60);
+            let seconds=Math.floor((num_second%60));
+            // 显示距系统时间时间差
+            if (days>0){
+                var result=days+'天前';
+            }else if (hours>0){
+                var result=hours+'小时前';
+            } else if (mimutes>0){
+                var result=mimutes+'分钟前';
+            } else if (seconds>0) {
+                var result=seconds+'秒前';
+            } else {
+                var result=null;
+            }
+            return result;
+        }
+    }
+    timer();
 
 
 
