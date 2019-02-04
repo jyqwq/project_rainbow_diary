@@ -50,6 +50,28 @@
 .margin_end{
     margin-bottom: 50px;
 }
+.diy{
+    margin-top: 15px;
+    margin-left: 15px;
+    width: 70px;
+}
+.div_tags{
+    color: #f3fffd;
+    background: #f7c5c9;
+    border: none;
+    border-radius: 16px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    padding: 0 15px;
+    position: relative;
+}
+.div_tags:focus{
+    outline: none;
+    box-shadow: 0 0 10px #e2b3b7;
+}
+
 /*心情部分*/
 .row_margin{
     margin-top: 30px;

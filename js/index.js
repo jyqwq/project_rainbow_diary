@@ -21,6 +21,7 @@
                     let unlogin = document.querySelectorAll('.unlogin');
                     let usericon_img = document.querySelector('.usericon_img');
                     let u = res.usermessage;
+                    console.log(u);
                     for (i in u){
                         sessionStorage.setItem(`${i}`,u[i]);
                     }
@@ -90,7 +91,7 @@
             </div>
             <div class="row hot_thing row_most_margin">
                 <a href="#">
-                    <img src="${res[0].dynamic_images}" class="img-responsive img-rounded" alt="Responsive image">
+                    <img src="${res[0].images}" class="img-responsive img-rounded" alt="Responsive image">
                 </a>
             </div>`;
             for (i=0;i<6;i++){
@@ -104,7 +105,7 @@
             let hot_img=document.querySelectorAll('.hot_img');
             let hot_thing_title=document.querySelectorAll('.hot_thing_title');
             for (i=1;i<7;i++){
-                hot_img[i-1].src=`${res[i].dynamic_images}`;
+                hot_img[i-1].src=`${res[i].images}`;
                 hot_thing_title[i-1].innerHTML=`<span><strong>${res[i].tit}</strong></span>`;
             }
             // 热门动态动画
