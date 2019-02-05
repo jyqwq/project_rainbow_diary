@@ -8,6 +8,11 @@
     border-radius: 5px;
     /*height: 700px;*/
 }
+.content_succss{
+    border: solid 1px #d9d9d9;
+    border-radius: 5px;
+    height: 500px;
+}
 .shu_nav{
     border-bottom: none;
     border-right: solid 2px #f7c5c9;
@@ -75,6 +80,16 @@
 /*心情部分*/
 .row_margin{
     margin-top: 30px;
+}
+.succss_margin{
+    margin-top: 100px;
+    text-align: center;
+}
+.succss_text{
+    font-size: 2em;
+    line-height: 48px;
+    font-family: 幼圆;
+    color: #e2b3b7;
 }
 .dy_text{
     resize: none;

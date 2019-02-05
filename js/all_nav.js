@@ -23,20 +23,23 @@
         var unlogin_btn=document.querySelectorAll('.unlogin_btn');
         if (window.location.pathname=='/rainbow_diary_html/index.html') {
             unlogin_btn[0].onclick=function () {
+                sessionStorage.setItem('from',window.location.pathname);
                 location.href='user/login.html';
             };
             unlogin_btn[1].onclick=function () {
+                sessionStorage.setItem('from',window.location.pathname);
                 location.href='user/register.html';
             };
         }else {
             unlogin_btn[0].onclick=function () {
+                sessionStorage.setItem('from',window.location.pathname);
                 location.href='../user/login.html';
             };
             unlogin_btn[1].onclick=function () {
+                sessionStorage.setItem('from',window.location.pathname);
                 location.href='../user/register.html';
             };
         }
-        sessionStorage.setItem('from',window.location.pathname);
     }
 
     //日记划入下拉

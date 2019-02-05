@@ -3,8 +3,7 @@
     //----------------------Ajax请求方法--------------------------
 
     //页面检查token自动登录
-    let token = localStorage.getItem('token');
-    check_login(token);
+    check_login();
 
     recommended_ajax();
     hot_ajax();
@@ -12,7 +11,8 @@
     // evaluation_ajax();
 
     //自动登录
-    function check_login(token) {
+    function check_login() {
+        let token = localStorage.getItem('token');
         if (token){
             let Token = {'token':token};
             postData(ajax_url+'/user/login',Token,function (res) {
@@ -21,7 +21,6 @@
                     let unlogin = document.querySelectorAll('.unlogin');
                     let usericon_img = document.querySelector('.usericon_img');
                     let u = res.usermessage;
-                    console.log(u);
                     for (i in u){
                         sessionStorage.setItem(`${i}`,u[i]);
                     }

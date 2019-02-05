@@ -1,11 +1,43 @@
 (function () {
 
+    check_login();
+    //自动登录
+    function check_login() {
+        let token = localStorage.getItem('token');
+        if (token){
+            let Token = {'token':token};
+            postData(ajax_url+'/user/login',Token,function (res) {
+                if (res.status_code == '10003') {
+                    let islogin = document.querySelectorAll('.islogin');
+                    let unlogin = document.querySelectorAll('.unlogin');
+                    let usericon_img = document.querySelector('.usericon_img');
+                    let u = res.usermessage;
+                    for (i in u){
+                        sessionStorage.setItem(`${i}`,u[i]);
+                    }
+                    usericon_img.src=`${u.user_icon}`;
+                    unlogin[0].style.display = 'none';
+                    islogin[0].style.display = 'block';
+                    unlogin[1].style.display = 'none';
+                    islogin[1].style.display = 'block';
+                }
+                else {
+                    console.log(res.status_text);
+                }
+            })
+        }
+    }
     //ajax提交
     ajax_post();
     function ajax_post() {
         let release_btn=document.querySelectorAll('.release_btn');
+        let content_succss=document.querySelector('.content_succss');
+        let content_sharing=document.querySelector('.content_sharing');
+        let defeat_message=document.querySelector('.defeat_message');
+        let content_defeat=document.querySelector('.content_defeat');
         //心情
         release_btn[0].onclick=function () {
+            //获取当前用户id
             let user_id = get_user_id();
             let con=this.parentElement.parentElement.children;
             //标签数组
@@ -13,13 +45,21 @@
             let tag=tag_get(con_tag);
             //整合数据
             let dy={'user_id':user_id,'content':con[0].value,'img':'img/myimg.jpg','tag':tag,'type':'dy'};
-            console.log(dy);
             postData(ajax_url+'/sharing/release',dy,function (res) {
-                console.log(res);
+                //{status_code: "10008", status_text: "发布成功"}
+                if (res.status_code=="10008") {
+                    content_succss.style.display='block';
+                    content_sharing.style.display='none';
+                }else {
+                    defeat_message.innerText='错误信息:'+ res.status_code+','+res.status_text;
+                    content_defeat.style.display='block';
+                    content_sharing.style.display='none';
+                }
             })
         };
         //日记
         release_btn[1].onclick=function () {
+            //获取当前用户id
             let user_id = get_user_id();
             let con=this.parentElement.parentElement.children;
             //标签数组
@@ -28,11 +68,16 @@
             //整合数据
             let dairy={'user_id':user_id,'title':con[1].value,'content':con[3].value,'img':'img/myimg.jpg','tag':tag,'type':'dairy'};
             postData(ajax_url+'/sharing/release',dairy,function (res) {
-                console.log(res);
+                //{status_code: "10008", status_text: "发布成功"}
+                if (res.status_code=="10008") {
+                    content_succss.style.display='block';
+                    content_sharing.style.display='none';
+                }
             })
         };
         //测评
         release_btn[2].onclick=function () {
+            //获取当前用户id
             let user_id = get_user_id();
             let con=this.parentElement.parentElement.children;
             //标签数组
@@ -41,7 +86,11 @@
             //整合数据
             let test={'user_id':user_id,'title':con[1].value,'content':con[3].value,'title1':con[5].value,'content1':con[7].value,'title2':con[9].value,'content2':con[11].value,'img':'img/myimg.jpg','tag':tag,'type':'test'};
             postData(ajax_url+'/sharing/release',test,function (res) {
-                console.log(res);
+                //{status_code: "10008", status_text: "发布成功"}
+                if (res.status_code=="10008") {
+                    content_succss.style.display='block';
+                    content_sharing.style.display='none';
+                }
             })
         }
     }
@@ -166,4 +215,34 @@
             }
         }
     }
+
+    //再发布按钮
+    again();
+    function again() {
+        let again_re=document.querySelectorAll('.again_re');
+        let content_sharing=document.querySelector('.content_sharing');
+        let content_succss=document.querySelector('.content_succss');
+        let content_defeat=document.querySelector('.content_defeat');
+        again_re[0].onclick=function () {
+            content_succss.style.display='none';
+            content_sharing.style.display='block';
+        }
+        again_re[1].onclick=function () {
+            content_defeat.style.display='none';
+            content_sharing.style.display='block';
+        }
+    }
+
+    //返回按钮
+    back();
+    function back() {
+        let back_from=document.querySelectorAll('.back_from');
+        back_from[0].onclick=function () {
+            location.href='../index.html';
+        };
+        back_from[1].onclick=function () {
+            location.href='../index.html';
+        }
+    }
+
 })();
