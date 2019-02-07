@@ -8,6 +8,11 @@
     border-radius: 5px;
     /*height: 700px;*/
 }
+.content_succss{
+    border: solid 1px #d9d9d9;
+    border-radius: 5px;
+    height: 500px;
+}
 .shu_nav{
     border-bottom: none;
     border-right: solid 2px #f7c5c9;
@@ -50,9 +55,41 @@
 .margin_end{
     margin-bottom: 50px;
 }
+.diy{
+    margin-top: 15px;
+    margin-left: 15px;
+    width: 70px;
+}
+.div_tags{
+    color: #f3fffd;
+    background: #f7c5c9;
+    border: none;
+    border-radius: 16px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    cursor: pointer;
+    padding: 0 15px;
+    position: relative;
+}
+.div_tags:focus{
+    outline: none;
+    box-shadow: 0 0 10px #e2b3b7;
+}
+
 /*心情部分*/
 .row_margin{
     margin-top: 30px;
+}
+.succss_margin{
+    margin-top: 100px;
+    text-align: center;
+}
+.succss_text{
+    font-size: 2em;
+    line-height: 48px;
+    font-family: 幼圆;
+    color: #e2b3b7;
 }
 .dy_text{
     resize: none;

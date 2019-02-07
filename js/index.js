@@ -3,8 +3,7 @@
     //----------------------Ajax请求方法--------------------------
 
     //页面检查token自动登录
-    let token = localStorage.getItem('token');
-    check_login(token);
+    check_login();
 
     recommended_ajax();
     hot_ajax();
@@ -12,7 +11,8 @@
     // evaluation_ajax();
 
     //自动登录
-    function check_login(token) {
+    function check_login() {
+        let token = localStorage.getItem('token');
         if (token){
             let Token = {'token':token};
             postData(ajax_url+'/user/login',Token,function (res) {
@@ -90,7 +90,7 @@
             </div>
             <div class="row hot_thing row_most_margin">
                 <a href="#">
-                    <img src="${res[0].dynamic_images}" class="img-responsive img-rounded" alt="Responsive image">
+                    <img src="${res[0].images}" class="img-responsive img-rounded" alt="Responsive image">
                 </a>
             </div>`;
             for (i=0;i<6;i++){
@@ -104,7 +104,7 @@
             let hot_img=document.querySelectorAll('.hot_img');
             let hot_thing_title=document.querySelectorAll('.hot_thing_title');
             for (i=1;i<7;i++){
-                hot_img[i-1].src=`${res[i].dynamic_images}`;
+                hot_img[i-1].src=`${res[i].images}`;
                 hot_thing_title[i-1].innerHTML=`<span><strong>${res[i].tit}</strong></span>`;
             }
             // 热门动态动画
