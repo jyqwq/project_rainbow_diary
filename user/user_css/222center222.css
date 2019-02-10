@@ -78,6 +78,7 @@
     font-size: 0.8em;
     color: rgba(0, 0, 0, 0.8);
 }
+
 .font_dinf{
     font-size: 0.9em;
 }
@@ -242,20 +243,41 @@
     margin: 50px auto;
     background-color:#f9f9f9;
 }
+/*动态主体开始*/
+/*日记本，收藏夹*/
+.dynamic{
+    display: block;
+}
+    /*作者头像日期*/
 .dyn_head{
     height: 40px;
 }
 .dyn_head img{
     height: 100%;
 }
+    /*动态文字*/
+.qz_dinf{
+    height: 68px;
+    overflow: hidden;
+}
+    /*动态图片*/
 .dyn_pic{
     margin: 2px -13px;
     background: crimson;
 }
+    /*分割线*/
 .qz_line{
     height: 1px;
     margin: 5px;
     background: #EEEEEE;
+}
+/*收纳盒*/
+/*右边妆品*/
+.taif_img{
+    height: 80px;
+}
+.taif_img img{
+    height: 100%;
 }
 /*模态框结束*/
 

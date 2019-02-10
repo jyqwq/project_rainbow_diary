@@ -303,6 +303,25 @@
         }
     }
     timer();
+    
+    // 展开全文
+    function unfold_text() {
+        var font_full=document.querySelectorAll('.font_full');
+        for(i=0;i<3;i++){
+            font_full[i].onclick=function (event) {
+                node=event && event.target;
+                node.previousElementSibling.classList.toggle('qz_dinf');
+                if(node.previousElementSibling.classList[0]=='qz_dinf'){
+                    node.innerText='展开全文';
+                }
+                else {
+                    node.innerText='收起';
+                }
+            }
+        }
+    }
+    unfold_text();
+
 
 
 
