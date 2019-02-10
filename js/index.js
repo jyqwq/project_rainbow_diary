@@ -2,40 +2,13 @@
 
     //----------------------Ajax请求方法--------------------------
 
-    //页面检查token自动登录
-    check_login();
+
 
     recommended_ajax();
     hot_ajax();
     //测评ajax暂定
     // evaluation_ajax();
 
-    //自动登录
-    function check_login() {
-        let token = localStorage.getItem('token');
-        if (token){
-            let Token = {'token':token};
-            postData(ajax_url+'/user/login',Token,function (res) {
-                if (res.status_code == '10003') {
-                    let islogin = document.querySelectorAll('.islogin');
-                    let unlogin = document.querySelectorAll('.unlogin');
-                    let usericon_img = document.querySelector('.usericon_img');
-                    let u = res.usermessage;
-                    for (i in u){
-                        sessionStorage.setItem(`${i}`,u[i]);
-                    }
-                    usericon_img.src=`${u.user_icon}`;
-                    unlogin[0].style.display = 'none';
-                    islogin[0].style.display = 'block';
-                    unlogin[1].style.display = 'none';
-                    islogin[1].style.display = 'block';
-                }
-                else {
-                    console.log(res.status_text);
-                }
-            })
-        }
-    }
 
     //量身推荐
     function recommended_ajax() {
@@ -125,14 +98,14 @@
                         var insecond=document.querySelector('.insecond');
                         insecond.classList.add('animate_welcome');
                     }
-                    if (t>1300){
-                        var all_eva=document.querySelectorAll('.all_eva');
-                        all_eva[0].children[0].classList.add('animate_welcome2');
-                        all_eva[0].children[1].classList.add('animate_welcome2');
-                        all_eva[1].children[0].classList.add('animate_welcome2');
-                        all_eva[1].children[1].classList.add('animate_welcome2');
-                        all_eva[1].children[2].classList.add('animate_welcome2');
-                    }
+                    // if (t>1300){
+                    //     var all_eva=document.querySelectorAll('.all_eva');
+                    //     all_eva[0].children[0].classList.add('animate_welcome');
+                    //     all_eva[0].children[1].classList.add('animate_welcome');
+                    //     all_eva[1].children[0].classList.add('animate_welcome1');
+                    //     all_eva[1].children[1].classList.add('animate_welcome1');
+                    //     all_eva[1].children[2].classList.add('animate_welcome1');
+                    // }
                 }catch(err){
                     console.log('刷新页面前请移至网页顶部,确保网页动画正常显示!');
                 }

@@ -26,6 +26,15 @@
     border: solid 1px #00CC00;
     background: #00CC00;
 }
+.unregister_btn{
+    position: relative;
+    top: 7px;
+    margin-right: 20px;
+}
+.unregister_btn:hover{
+    border: solid 1px #00CC00;
+    background: #00CC00;
+}
 .nav_col{
     background: rgba(255, 255, 255, 0.8);
 }
