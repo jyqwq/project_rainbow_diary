@@ -6,8 +6,7 @@
 
     recommended_ajax();
     hot_ajax();
-    //测评ajax暂定
-    // evaluation_ajax();
+    evaluation_ajax();
 
 
     //量身推荐
@@ -134,6 +133,13 @@
         var insecond=document.querySelector('.insecond');
         postData(ajax_url+'/index',evaluation,function (res) {
             res.toJSON;
+            let pro_t=document.querySelectorAll('.pro_t');
+            let pro_img=document.querySelectorAll('.pro_img');
+            for (i=0;i<5;i++){
+                pro_t[i].innerHTML=res[i].title;
+                pro_img[i].src=res[i].img;
+            }
+
         })
     }
 

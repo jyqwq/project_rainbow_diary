@@ -40,20 +40,56 @@
     }
 
     //热门日记ajax
+    hot_dairy();
     function hot_dairy() {
         let hot={'hot_dairy':1,'hot_search':false};
         let hot_dairy=document.querySelector('.hot_dairy');
         postData(ajax_url+'/search/rank',hot,function (res) {
-            res.toJSON;
+            for (i=0;i<res.length;i++){
+                let num_rank=document.querySelectorAll('.num_rank');
+                let img_rank=document.querySelectorAll('.img_rank');
+                let title_rank=document.querySelectorAll('.title_rank');
+                let s_rank=document.querySelectorAll('.s_rank');
+                let t_rank=document.querySelectorAll('.t_rank');
+                let f_rank=document.querySelectorAll('.f_rank');
+                let u_rank=document.querySelectorAll('.u_rank');
+                let fraction=document.querySelectorAll('.fraction');
+                num_rank[i].innerHTML=i+1;
+                img_rank[i].src='../'+res[i].images;
+                title_rank[i].innerHTML=res[i].title;
+                s_rank[i].innerHTML=`&nbsp;${res[i].click}`;
+                t_rank[i].innerHTML=`&nbsp;${res[i].cots}`;
+                f_rank[i].innerHTML=`&nbsp;${res[i].fbs}`;
+                u_rank[i].innerHTML=res[i].user_name;
+                fraction[i].innerHTML=res[i].click+res[i].cots*2+res[i].fbs*4;
+
+            }
         })
     }
 
     //热门妆品ajax
+    hot_cosmetics();
     function hot_cosmetics() {
         let hot={'hot_cosmetics':1,'hot_dairy':false,'hot_search':false};
         let hot_cosmetics=document.querySelector('.hot_cosmetics');
         postData(ajax_url+'/search/rank',hot,function (res) {
-            res.toJSON;
+            for (i=0;i<res.length;i++){
+                let cosmetics_num_rank=document.querySelectorAll('.cosmetics_num_rank');
+                let cosmetics_img_rank=document.querySelectorAll('.cosmetics_img_rank');
+                let cosmetics_title=document.querySelectorAll('.cosmetics_title');
+                let s_s_rank=document.querySelectorAll('.s_s_rank');
+                let s_t_rank=document.querySelectorAll('.s_t_rank');
+                let s_f_rank=document.querySelectorAll('.s_f_rank');
+                let cosmetics_fraction=document.querySelectorAll('.cosmetics_fraction');
+                cosmetics_num_rank[i].innerHTML=i+1;
+                cosmetics_img_rank[i].src='../'+res[i].com_img;
+                cosmetics_title[i].innerHTML=res[i].commodity_name;
+                s_s_rank[i].innerHTML=`&nbsp;${res[i].click}`;
+                s_t_rank[i].innerHTML=`&nbsp;${res[i].cots}`;
+                s_f_rank[i].innerHTML=`&nbsp;${res[i].fbs}`;
+                cosmetics_fraction[i].innerHTML=res[i].click+res[i].cots*2+res[i].fbs*4;
+
+            }
         })
     }
 

@@ -22,9 +22,9 @@
                         sessionStorage.setItem(`${i}`,u[i]);
                     }
                     if (window.location.pathname=='/rainbow_diary_html/index.html'){
-                        usericon_img.src=`${u.user_icon}`;
+                        usericon_img.src=u.user_icon;
                     }else {
-                        usericon_img.src='../'+`${u.user_icon}`;
+                        usericon_img.src='../'+u.user_icon;
                     }
 
                     unlogin[0].style.display = 'none';
