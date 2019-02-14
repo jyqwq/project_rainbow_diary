@@ -1,7 +1,7 @@
 (function () {
 
-
     // 模态框
+    modal_frame();
     function modal_frame() {
         let btn = document.querySelector('.qz_mobtn');
         let add=document.querySelector('.qz_add');
@@ -11,6 +11,28 @@
         let modal = document.querySelectorAll('.qz_modal');
         btn.onclick= function(){
             modal[0].style.display = 'block';
+            // 显示用户性别，生日(模拟数据)
+            let option=document.querySelectorAll('option');
+            for (i=0;i<2;i++){
+                if (option[i].innerText=='女') {
+                    option[i].selected='selected';
+                }
+            }
+            for(i=2;i<103;i++){
+                if(option[i].innerText==1948){
+                    option[i].selected='selected';
+                }
+            }
+            for (i=103;i<115;i++){
+                if (option[i].innerText==2) {
+                    option[i].selected='selected';
+                }
+            }
+            for (i=115;i<option.length;i++){
+                if (option[i].innerText==10) {
+                    option[i].selected='selected';
+                }
+            }
         };
         add.onclick=function(){
             modal[1].style.display='block';
@@ -30,9 +52,9 @@
             };
         }
     }
-    modal_frame();
 
     // 导航栏切换
+    change_nav();
     function change_nav() {
         let qz_nav=document.querySelector('#qz_nav');
         let dia=document.querySelector('#qz_diary');
@@ -59,9 +81,9 @@
             }
         };
     }
-    change_nav();
 
     // 图片动画
+    qz_img();
     function qz_img() {
         let qz_data=document.querySelector('.qz_data');
         // 鼠标滑入图片放大
@@ -114,13 +136,13 @@
             }
         }
     }
-    qz_img();
 
     window.onload=function (){
         // * 1.浏览器加载时div尺寸随动——开始
         let screen_height=document.documentElement.clientHeight;
         // 定义第一页
         let qz_cover=document.querySelector('.qz_cover');
+        let qz_per=document.querySelector('.qz_per');
         let qz_cir=document.querySelector('.qz_cir');
         let qz_cul=document.querySelector('.qz_cul');
         let qz_pernic=document.querySelector('.qz_pernic');
@@ -128,41 +150,35 @@
         let qz_pla=document.querySelector('.qz_pla');
         let qz_percha=document.querySelector('.qz_percha');
         let qz_rota=document.querySelector('.qz_rota');
-        let qz_pic=document.querySelector('.qz_pic');
         let qz_gui=document.querySelector('.qz_gui');
         let qz_skinfo=document.querySelector('.qz_skinfo');
-        let qz_lead=document.querySelector('.qz_lead');
-        let lea_img=document.querySelector('.lea_img');
         // 定义第二页
         let qz_sep=document.querySelectorAll('.qz_sep');
         let qz_nimg=document.querySelectorAll('.qz_nimg');
         // 计算第一页
         // 第一页
-        qz_cover.style.height=screen_height+'px';
+        qz_cover.style.height=(screen_height-120)*0.97+'px';
         // 左边个人信息框
+        qz_per.style.marginTop=(screen_height-120)*0.21+'px';
         // 主人的头像
-        qz_cir.style.height=screen_height*0.21+'px';
-        qz_cul.style.width=screen_height*0.18+'px';
+        qz_cir.style.height=(screen_height-120)*0.21+'px';
+        qz_cul.style.width=(screen_height-120)*0.18+'px';
         // 主人的小屋
-        qz_pernic.style.height=screen_height*0.16+'px';
-        qz_nick.style.height=screen_height*0.16+'px';
+        qz_pernic.style.height=(screen_height-120)*0.16+'px';
+        qz_nick.style.height=(screen_height-120)*0.16+'px';
         // 个人信息
-        qz_pla.style.height=screen_height*0.18+'px';
-        qz_percha.style.height=screen_height*0.18+'px';
+        qz_pla.style.height=(screen_height-120)*0.18+'px';
+        qz_percha.style.height=(screen_height-120)*0.18+'px';
         // 右边个人肤质框
-        // 轮播图
-        qz_rota.style.height=screen_height*0.45+'px';
-        qz_pic.style.height=screen_height*0.45+'px';
+        //轮播图
+        qz_rota.style.marginTop=(screen_height-120)*0.15+'px';
         // 护肤指南
-        qz_gui.style.height=screen_height*0.23+'px';
-        qz_skinfo.style.height=screen_height*0.15+'px';
-        // 箭头指向第二页
-        qz_lead.style.height=screen_height*0.1+'px';
-        lea_img.style.height=screen_height*0.1+'px';
+        qz_gui.style.height=(screen_height-120)*0.23+'px';
+        qz_skinfo.style.height=(screen_height-120)*0.15+'px';
         // 计算第二页
         for(i=0;i<3;i++){
-            qz_sep[i].style.height=screen_height*0.18+'px';
-            qz_nimg[i].style.height=screen_height*0.1+'px';
+            qz_sep[i].style.height=(screen_height-120)*0.18+'px';
+            qz_nimg[i].style.height=(screen_height-120)*0.1+'px';
         }
         // * 1.浏览器加载时div尺寸随动——结束
 
@@ -189,7 +205,6 @@
             timer = setInterval(change, 2000);
         };
         // * * 2.轮播图——结束
-
 
         // * * * 3.图片动画——浏览器加载时蒙板尺寸随动——开始
         let qz_cimg=document.querySelector('.qz_cimg');
@@ -268,6 +283,7 @@
     }
     // * * * * 4.生日选择器——结束
 
+    timer();
     // 计时器
     function timer() {
         let font_time=document.querySelectorAll('.font_time');
@@ -302,8 +318,8 @@
             return result;
         }
     }
-    timer();
-    
+
+    unfold_text();
     // 展开全文
     function unfold_text() {
         var font_full=document.querySelectorAll('.font_full');
@@ -320,7 +336,70 @@
             }
         }
     }
-    unfold_text();
+
+    // 传入数据—左边个人信息框
+    perinf_ajax();
+    function perinf_ajax() {
+        if (sessionStorage.getItem('user_id')) {
+            var user_id = {'user_id': sessionStorage.getItem('user_id'),'methods':'get'};
+        } else {
+            location.href = '../user/login.html'
+        }
+        postData(ajax_url + '/user/person', user_id, function (res) {
+            // let res1={'nic':'南浅','gra1':'小仙女都是喝露水的','gra2':'5','gra3':'1'};//测试
+            console.log(res);
+            // let qz_por = document.querySelectorAll('.qz_por');
+            // let font_nic = document.querySelector('.font_nic');
+            // let font_gra1 = document.querySelector('.font_gra1');
+            // let font_gra2 = document.querySelector('.font_gra2');
+            // let font_gra3 = document.querySelector('.font_gra3');
+            // for (i = 0; i < 2; i++) {
+            //     qz_por[i].src = '../img/222center222/head.png';
+            // }
+            // font_nic.innerHTML = res1.nic;
+            // font_gra1.innerHTML = '个性签名：' + res1.gra1;
+            // font_gra2.innerHTML = '关注数：' + res1.gra2;
+            // font_gra3.innerHTML = '粉丝数：' + res1.gra3;
+        })
+    }
+
+    // 传入数据—编辑模态框
+    edit_ajax();
+    function edit_ajax() {
+        // if(sessionStorage.getItem('user_id')){
+        //     var user_id={'user_id':sessionStorage.getItem('user_id')};
+        // }
+        // else {
+        //     location.href='../user/login.html';
+        // }
+        // postData(ajax_url+'网址',user_id,function (res) {
+        let res2={'gra':'南浅','text1':'南浅','text2':'小仙女啊','text3':'17388888888'};
+        let font_gra=document.querySelector('.font_gra');
+        let qz_text1=document.querySelector('.qz_text1');
+        let qz_text2=document.querySelector('.qz_text2');
+        let qz_text3=document.querySelector('.qz_text3');
+        font_gra.innerHTML=res2.gra;
+        qz_text1.innerHTML=res2.text1;
+        qz_text2.innerHTML=res2.text2;
+        qz_text3.innerHTML=res2.text3;
+        // })
+    }
+
+    // 传入数据—动态模态框(日记本)
+    // diary_ajax();
+    // function diary_ajax() {
+    //     if (sessionStorage.getItem('user_id')){
+    //         var user_id={'user_id':sessionStorage.getItem(('user_id'))};
+    //     }
+    //     else{
+    //         location.href='../user/login.html';
+    //     }
+    //     postData(ajax_url+'网址',user_id,function (res) {
+    //         let dyn_img=document.querySelectorAll('.dyn_img')
+    //     })
+    // }
+
+
 
 
 
