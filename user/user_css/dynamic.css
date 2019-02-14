@@ -1,0 +1,30 @@
+.con{
+    /*height: 700px;*/
+    margin-top: 65px;
+}
+.all_dy{
+    background: #00CCFF;
+    border-radius: 5px;
+}
+.user_message{
+    height: 200px;
+
+}
+.dy_margin{
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: 10px;
+}
+.re_dy{
+    height: 150px;
+
+}
+.dy_nav{
+    height: 50px;
+}
+.dy_content{
+    height: 250px;
+}
+.something{
+    height: 200px;
+}

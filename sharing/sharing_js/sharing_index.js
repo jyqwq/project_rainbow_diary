@@ -1,5 +1,5 @@
 (function () {
-
+    let myDate = new Date();
     //ajax提交
     ajax_post();
     function ajax_post() {
@@ -17,7 +17,7 @@
             let con_tag=con[3].children[2].children[0].children;
             let tag=tag_get(con_tag);
             //整合数据
-            let dy={'user_id':user_id,'content':con[0].value,'img':'img/myimg.jpg','tag':tag,'type':'dy'};
+            let dy={'user_id':user_id,'content':con[0].value,'img':'img/myimg.jpg','tag':tag,'type':'dy','data':myDate.getTime()};
             postData(ajax_url+'/sharing/release',dy,function (res) {
                 //{status_code: "10008", status_text: "发布成功"}
                 if (res.status_code=="10008") {
@@ -34,16 +34,22 @@
         release_btn[1].onclick=function () {
             //获取当前用户id
             let user_id = get_user_id();
+            console.log(user_id);
             let con=this.parentElement.parentElement.children;
             //标签数组
             let con_tag=con[6].children[2].children[0].children;
             let tag=tag_get(con_tag);
             //整合数据
-            let dairy={'user_id':user_id,'title':con[1].value,'content':con[3].value,'img':'img/myimg.jpg','tag':tag,'type':'dairy'};
+            let dairy={'user_id':user_id,'title':con[1].value,'content':con[3].value,'img':'img/myimg.jpg','tag':tag,'type':'dairy','data':myDate.getTime()};
+            console.log(dairy);
             postData(ajax_url+'/sharing/release',dairy,function (res) {
                 //{status_code: "10008", status_text: "发布成功"}
                 if (res.status_code=="10008") {
                     content_succss.style.display='block';
+                    content_sharing.style.display='none';
+                }else {
+                    defeat_message.innerText='错误信息:'+ res.status_code+','+res.status_text;
+                    content_defeat.style.display='block';
                     content_sharing.style.display='none';
                 }
             })
@@ -57,11 +63,15 @@
             let con_tag=con[14].children[2].children[0].children;
             let tag=tag_get(con_tag);
             //整合数据
-            let test={'user_id':user_id,'title':con[1].value,'content':con[3].value,'title1':con[5].value,'content1':con[7].value,'title2':con[9].value,'content2':con[11].value,'img':'../img/evaluation/ad.jpg','tag':tag,'type':'test'};
+            let test={'user_id':user_id,'title':con[1].value,'content':con[3].value,'title1':con[5].value,'content1':con[7].value,'title2':con[9].value,'content2':con[11].value,'img':'../img/evaluation/ad.jpg','tag':tag,'type':'test','data':myDate.getTime()};
             postData(ajax_url+'/sharing/release',test,function (res) {
                 //{status_code: "10008", status_text: "发布成功"}
                 if (res.status_code=="10008") {
                     content_succss.style.display='block';
+                    content_sharing.style.display='none';
+                }else {
+                    defeat_message.innerText='错误信息:'+ res.status_code+','+res.status_text;
+                    content_defeat.style.display='block';
                     content_sharing.style.display='none';
                 }
             })
@@ -175,13 +185,13 @@
                 if (!this.value){
                     this.placeholder='自定义标签';
                 }
-            }
+            };
             div_tags[i].onkeypress=function (event) {
-                var e = event || window.event || arguments.callee.caller.arguments[0];
+                let e = event || window.event || arguments.callee.caller.arguments[0];
                 let ul=event.target.parentElement.previousElementSibling.children[0];
                 if(e && e.keyCode==13) {
                     if (this.value){
-                        ul.innerHTML+=`<li class="tag-item tag-item-active">${this.value}</li>`
+                        ul.innerHTML+=`<li class="tag-item tag-item-active">${this.value}</li>`;
                         this.value='';
                     }
                 }
@@ -199,7 +209,7 @@
         again_re[0].onclick=function () {
             content_succss.style.display='none';
             content_sharing.style.display='block';
-        }
+        };
         again_re[1].onclick=function () {
             content_defeat.style.display='none';
             content_sharing.style.display='block';
