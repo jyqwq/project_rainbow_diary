@@ -21,6 +21,7 @@
                     for (i in u){
                         sessionStorage.setItem(`${i}`,u[i]);
                     }
+                    localStorage.setItem('user_skin',u['user_skin']);
                     if (window.location.pathname=='/rainbow_diary_html/index.html'){
                         usericon_img.src=u.user_icon;
                     }else {
@@ -50,6 +51,32 @@
                 down_nav.style.display='none';
             }
         };
+    }
+
+    //头像下拉&&退出登录
+    exit();
+    function exit() {
+        let usericon_img=document.querySelector('.usericon_img');
+        let user_nav=document.querySelector('.user_nav');
+        let exit_login=document.querySelector('.exit_login');
+        usericon_img.onmouseover=function () {
+            user_nav.style.display = 'block';
+        };
+        usericon_img.onmouseout=function () {
+            user_nav.style.display='none';
+        };
+        user_nav.onmouseover=function () {
+            user_nav.style.display='block';
+        };
+        user_nav.onmouseout=function () {
+            user_nav.style.display='none';
+        };
+        exit_login.onclick=function () {
+            localStorage.removeItem('token');
+            sessionStorage.clear();
+            localStorage.setItem('user_skin',1);
+            location.href=window.location.pathname;
+        }
     }
 
 

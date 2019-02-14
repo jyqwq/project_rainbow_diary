@@ -1,3 +1,4 @@
+//动图
 function f() {
     var myimgs=['2019.png','newyear.png'];
     var lunbo=document.querySelector('.top-right');
@@ -15,10 +16,10 @@ function f() {
     createInteral();
 }
 f()
-
+//倒计时
 function keishi() {
     var mydiv=document.querySelector('#content');
-    var end_time=new Date('2019-2-1');
+    var end_time=new Date('2019-2-14');
 
     var inter=setInterval(function () {
         var now_time=new Date();
@@ -29,7 +30,7 @@ function keishi() {
 };
 keishi();
 
-
+//时间转换
 function number_to_time(num) {
     var num_second=num/1000;
     var days=Math.floor(num_second/(60*60*24));
@@ -44,7 +45,7 @@ function number_to_time(num) {
     return result;
 }
 
-
+//点击图片
 function q() {
     var img_lists=document.querySelector('.r-2-4');
     var big_img=document.querySelector('.r-2-img');
@@ -69,3 +70,36 @@ function q() {
     }
 }
 q();
+
+//改变数量
+function changevalue(){
+    var a=document.querySelector('.r-2-11');
+    a.onclick=function (event) {
+        var node=event.target;
+        if (node.getAttribute('type')=='button') {
+            changeNumber(event);
+        }
+    }
+    function changeNumber(event) {
+        var node = event && event.target;
+        var v = 0;
+        if (node.value && node.value == '+') {
+            // node.previousElementSibling.value=parseInt(node.previousElementSibling.value)+1;
+            node.previousElementSibling.value++;
+            v = node.previousElementSibling.value;
+            node.previousElementSibling.previousElementSibling.disabled = false;
+
+        } else {
+            // if(node.value && node.value=='+')
+            if (node.nextElementSibling.value > 1) {
+                node.nextElementSibling.value--;
+                v = node.nextElementSibling.value;
+                if (v == 1) {
+                    node.disabled = true;
+                }
+            }
+        }
+    }
+
+}
+changevalue();

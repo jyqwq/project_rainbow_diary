@@ -33,7 +33,7 @@ form.onclick=function (event) {
         // console.log(flag);
         let user={'nickname':qz_nam.value,'telephone':qz_tel.value,'password':qz_pas.value};
         // console.log(user);
-        postData(ajax_url+'/user/person',user,function (res) {
+        postData(ajax_url+'/user/register',user,function (res) {
             localStorage.setItem('token',res.token);
             // console.log(res);
             if(res && res.status_code=='10003'){

@@ -57,7 +57,7 @@
             let con_tag=con[14].children[2].children[0].children;
             let tag=tag_get(con_tag);
             //整合数据
-            let test={'user_id':user_id,'title':con[1].value,'content':con[3].value,'title1':con[5].value,'content1':con[7].value,'title2':con[9].value,'content2':con[11].value,'img':'img/myimg.jpg','tag':tag,'type':'test'};
+            let test={'user_id':user_id,'title':con[1].value,'content':con[3].value,'title1':con[5].value,'content1':con[7].value,'title2':con[9].value,'content2':con[11].value,'img':'../img/evaluation/ad.jpg','tag':tag,'type':'test'};
             postData(ajax_url+'/sharing/release',test,function (res) {
                 //{status_code: "10008", status_text: "发布成功"}
                 if (res.status_code=="10008") {

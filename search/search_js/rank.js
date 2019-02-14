@@ -29,13 +29,46 @@
         }
     }
 
-    // real_time();
+    real_time();
     //实时热搜ajax
     function real_time() {
         let hot={'hot_search':1};
         let real_time=document.querySelector('.real_time');
         postData(ajax_url+'/search/rank',hot,function (res) {
-            console.log(res);
+            for (let i in res){
+                real_time.innerHTML+=`<div class="row row_margin rank_one">
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 rank_num"><strong>${parseInt(i)+1}</strong></div>
+            <div class="col-xs-10 col-sm-8 col-md-8 col-lg-8">
+                <div class="col-xs-5 col-sm-3 col-md-3 col-lg-3 rank_img">
+                    <img src="${res[i].images}" class="img-responsive img-rounded" alt="Responsive image">
+                </div>
+                <div class="col-xs-7 col-sm-9 col-md-9 col-lg-9 rank_content">
+                    <div class="row first_row">
+                        <a href="#" class="content_name"><h5><strong>${res[i].title}</strong></h5></a>
+                    </div>
+                    <div class="row second_row">
+                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true">&nbsp;${res[i].click}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true">&nbsp;${res[i].cots}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true">&nbsp;${res[i].fbs}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="glyphicon glyphicon-user" aria-hidden="true">&nbsp;<a href="#">${res[i].user_name}</a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="hidden-xs col-sm-2 col-md-2 col-lg-2 rank_detail">
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <span style="color: darkgrey"><strong>热度</strong></span> <br>
+                    <span style="color: #ffadbc; font-size: 1.2em"><strong>${res[i].click+res[i].cots+res[i].fbs}</strong></span>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <span style="color: darkgrey"><strong>分类</strong></span> <br>
+                    <span style="color: #ffadbc; font-size: 1.2em"><strong>${res[i].t_name}</strong></span>
+                </div>
+            </div>
+        </div>`
+            }
         })
     }
 

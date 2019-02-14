@@ -11,8 +11,11 @@
 
     //量身推荐
     function recommended_ajax() {
-        var skin={'skinid':1};
-        var infirst=document.querySelector('.infirst');
+        let skin={'skinid':localStorage.getItem('user_skin')};
+        if (!skin['skinid']) {
+            skin['skinid']=1;
+        }
+        let infirst=document.querySelector('.infirst');
         postData(ajax_url+'/index',skin,function (res) {
             res.toJSON;
             for(i=0;i<4;i++){

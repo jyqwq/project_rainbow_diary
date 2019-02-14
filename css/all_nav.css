@@ -147,3 +147,13 @@
     color: hotpink;
     margin: 10px 30px;
 }
+.user_nav{
+    top:45px;
+    right: 650px;
+    animation: fadeInDown 0.5s;
+}
+.user_box{
+    float: right;
+    background: #ffffff;
+    border-radius: 5px;
+}
