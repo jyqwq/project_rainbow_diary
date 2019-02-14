@@ -43,7 +43,7 @@
                         <button type="button" class="btn btn-success unlogin_btn">登录</button>
                     </li>
                     <li>
-                        <button type="button" class="btn btn-success unlogin_btn">注册</button>
+                        <button type="button" class="btn btn-success unregister_btn">注册</button>
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right islogin" style="display: none">
@@ -58,11 +58,21 @@
                     </li>
                 </ul>
             </div>
+            <!--用户下拉-->
+            <div class="container hidden-xs navbar-fixed-top user_nav" style="display: none">
+                <div class="user_box">
+                    <ul class="nav">
+                        <li><a href="user/222center222.html"><img src="img/个人.png" alt=""><strong style="color: hotpink">&nbsp;个人中心</strong></a></li>
+                        <li><a href="#" class="exit_login"><img src="img/退出.png" alt=""><strong style="color: #cecece">&nbsp;退出登录</strong></a></li>
+                    </ul>
+                </div>
+            </div>
+            <!--日记下拉-->
             <div class="container hidden-xs navbar-fixed-top sharing_nav" style="display: none">
                 <div class="sharing_nav_box">
                     <div class="sharing_hover"><a href="sharing/sharing_index.html"><div class="sharing_nav_btn"><img src="img/心率.png" alt=""> <br> 心情</div></a></div>
-                    <div class="sharing_hover"><a href="#"><div class="sharing_nav_btn"><img src="img/日记.png" alt=""> <br> 日记</div></a></div>
-                    <div class="sharing_hover"><a href="#"><div class="sharing_nav_btn"><img src="img/评价.png" alt=""> <br> 测评</div></a></div>
+                    <div class="sharing_hover"><a href="sharing/sharing_index.html"><div class="sharing_nav_btn"><img src="img/日记.png" alt=""> <br> 日记</div></a></div>
+                    <div class="sharing_hover"><a href="sharing/sharing_index.html"><div class="sharing_nav_btn"><img src="img/评价.png" alt=""> <br> 测评</div></a></div>
                 </div>
             </div>
             <!-- /.navbar-collapse -->
@@ -78,12 +88,11 @@
                 <li class="nav_hover down_nav_text"><a
                         href="search/rank.html"><strong>排&nbsp;&nbsp;行&nbsp;&nbsp;榜</strong></a></li>
                 <li class="nav_hover down_nav_text"><a
-                        href="#"><strong>测&nbsp;&nbsp;评&nbsp;&nbsp;资&nbsp;&nbsp;讯</strong></a></li>
+                        href="sharing/evaluation.html"><strong>测&nbsp;&nbsp;评&nbsp;&nbsp;资&nbsp;&nbsp;讯</strong></a></li>
             </ul>
             <ul class="nav navbar-nav navbar_nav unlogin">
-                <li class="nav_hover down_nav_text"><a href="#"><strong>登&nbsp;&nbsp;录</strong></a></li>
-                <li class="nav_hover down_nav_text"><a href="#"><strong>注&nbsp;&nbsp;册</strong></a></li>
-                <li class="nav_hover down_nav_text"><a href="#"><strong>写&nbsp;&nbsp;日&nbsp;&nbsp;记</strong></a></li>
+                <li class="nav_hover down_nav_text"><a href="#" class="unlogin_btn"><strong>登&nbsp;&nbsp;录</strong></a></li>
+                <li class="nav_hover down_nav_text"><a href="#" class="unregister_btn"><strong>注&nbsp;&nbsp;册</strong></a></li>
             </ul>
             <ul class="nav navbar-nav navbar_nav islogin" style="display: none">
                 <li class="nav_hover down_nav_text"><a
@@ -93,7 +102,7 @@
                 <li class="nav_hover down_nav_text"><a href="#"><strong>动&nbsp;&nbsp;态</strong> <span
                         class="badge">4</span></a></li>
                 <li class="nav_hover down_nav_text"><a href="#"><strong>收&nbsp;&nbsp;藏</strong></a></li>
-                <li class="nav_hover down_nav_text"><a href="#"><strong>写&nbsp;&nbsp;日&nbsp;&nbsp;记</strong></a></li>
+                <li class="nav_hover down_nav_text"><a href="sharing/sharing_index.html"><strong>写&nbsp;&nbsp;日&nbsp;&nbsp;记</strong></a></li>
             </ul>
         </div>
     </div>
@@ -114,7 +123,7 @@
             <div class="jumbotron show_img">
                 <h1>Hello 彩虹日记!</h1>
                 <p class="change_text"></p>
-                <p><a class="btn btn-primary btn-lg more_color" href="#" role="button">加入彩虹日记</a></p>
+                <p><a class="btn btn-primary btn-lg more_color" href="user/login.html" role="button">加入彩虹日记</a></p>
             </div>
         </div>
     </div>
@@ -124,7 +133,7 @@
             <div class="jumbotron show_img1">
                 <h1>寻找属于你的生活</h1>
                 <p class="change_text"></p>
-                <p><a class="btn btn-primary btn-lg more_color" href="#" role="button">开启搜索之旅</a></p>
+                <p><a class="btn btn-primary btn-lg more_color" href="search/icy_search.html" role="button">开启搜索之旅</a></p>
             </div>
         </div>
         <div class="hidden-xs hidden-sm col-md-2 col-lg-2"></div>
@@ -192,26 +201,26 @@
         <div class="row visible-xs sm_commend">评测资讯</div>
         <div class="row all_eva">
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 md_over_hid">
-                <a href="#"><img src="img/z_md.jpg" class="img-responsive center-block img-rounded" alt="Responsive image"></a>
-                <div class="md_content_div pro_detail">产品评测</div>
+                <a href="#"><img src="img/z_md.jpg" class="img-responsive center-block img-rounded pro_img" alt="Responsive image"></a>
+                <div class="md_content_div pro_detail pro_t">产品评测</div>
             </div>
             <div class="hidden-xs col-sm-6 col-md-6 col-lg-6 md_over_hid">
-                <a href="#"><img src="img/z_md.jpg" class="img-responsive center-block img-rounded" alt="Responsive image"></a>
-                <div class="md_content_div pro_detail">产品评测</div>
+                <a href="#"><img src="img/z_md.jpg" class="img-responsive center-block img-rounded pro_img" alt="Responsive image"></a>
+                <div class="md_content_div pro_detail pro_t">产品评测</div>
             </div>
         </div>
         <div class="row row-margin all_eva">
             <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 over_hid">
-                <a href="#"><img src="img/z_sm.jpg" class="img-responsive center-block img-rounded" alt="Responsive image"></a>
-                <div class="content_div pro_detail">产品评测</div>
+                <a href="#"><img src="img/z_sm.jpg" class="img-responsive center-block img-rounded pro_img" alt="Responsive image"></a>
+                <div class="content_div pro_detail pro_t">产品评测</div>
             </div>
             <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4 over_hid">
-                <a href="#"><img src="img/z_sm.jpg" class="img-responsive center-block img-rounded" alt="Responsive image"></a>
-                <div class="content_div pro_detail">产品评测</div>
+                <a href="#"><img src="img/z_sm.jpg" class="img-responsive center-block img-rounded pro_img" alt="Responsive image"></a>
+                <div class="content_div pro_detail pro_t">产品评测</div>
             </div>
             <div class="hidden-xs col-sm-4 col-md-4 col-lg-4 over_hid">
-                <a href="#"><img src="img/z_sm.jpg" class="img-responsive center-block img-rounded" alt="Responsive image"></a>
-                <div class="content_div pro_detail">产品评测</div>
+                <a href="#"><img src="img/z_sm.jpg" class="img-responsive center-block img-rounded pro_img" alt="Responsive image"></a>
+                <div class="content_div pro_detail pro_t">产品评测</div>
             </div>
         </div>
     </div>
@@ -257,9 +266,9 @@
     </div>
 </div>
 
+<script src="utils/config.js"></script>
 <script src="utils/Ajax.js"></script>
 <script src="js/all_nav.js"></script>
-<script src="utils/config.js"></script>
 <script src="js/index.js"></script>
 
 </body>

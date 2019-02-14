@@ -6,7 +6,7 @@
 .content_sharing {
     border: solid 1px #d9d9d9;
     border-radius: 5px;
-    /*height: 700px;*/
+    min-height: 700px;
 }
 .content_succss{
     border: solid 1px #d9d9d9;
@@ -123,8 +123,8 @@
     border: solid 1px #f7c5c9;
 }
 .release_btn:hover{
-    background: #f7c5c9;
-    border: solid 1px #f7c5c9;
+    background: #deadb1;
+    border: solid 1px #deadb1;
 }
 .remind_text{
     font-size: 0.9em;

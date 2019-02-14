@@ -73,7 +73,7 @@ function s() {
     var arry=new Array()
     search.onclick=function (e) {
         var txt=e.target.parentElement.parentElement.previousElementSibling;
-        if (localStorage.his) {
+        if (localStorage.his && localStorage.his.length>=0) {
             window.localStorage.setItem('his',txt.value)
             arry.push(localStorage.getItem('his'))
             if (localStorage.history && localStorage.history.length>=0) {
@@ -84,8 +84,10 @@ function s() {
                 window.localStorage.setItem('history',arry)
                 arry=[]
             }
-        }else {
+        }else{
             window.localStorage.setItem('his',txt.value)
+            arry.push(localStorage.getItem('his'))
+            window.localStorage.setItem('history',arry)
         }
     }
 }

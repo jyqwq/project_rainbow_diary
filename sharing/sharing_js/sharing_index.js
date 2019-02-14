@@ -1,32 +1,5 @@
 (function () {
 
-    check_login();
-    //自动登录
-    function check_login() {
-        let token = localStorage.getItem('token');
-        if (token){
-            let Token = {'token':token};
-            postData(ajax_url+'/user/login',Token,function (res) {
-                if (res.status_code == '10003') {
-                    let islogin = document.querySelectorAll('.islogin');
-                    let unlogin = document.querySelectorAll('.unlogin');
-                    let usericon_img = document.querySelector('.usericon_img');
-                    let u = res.usermessage;
-                    for (i in u){
-                        sessionStorage.setItem(`${i}`,u[i]);
-                    }
-                    usericon_img.src=`${u.user_icon}`;
-                    unlogin[0].style.display = 'none';
-                    islogin[0].style.display = 'block';
-                    unlogin[1].style.display = 'none';
-                    islogin[1].style.display = 'block';
-                }
-                else {
-                    console.log(res.status_text);
-                }
-            })
-        }
-    }
     //ajax提交
     ajax_post();
     function ajax_post() {
@@ -84,7 +57,7 @@
             let con_tag=con[14].children[2].children[0].children;
             let tag=tag_get(con_tag);
             //整合数据
-            let test={'user_id':user_id,'title':con[1].value,'content':con[3].value,'title1':con[5].value,'content1':con[7].value,'title2':con[9].value,'content2':con[11].value,'img':'img/myimg.jpg','tag':tag,'type':'test'};
+            let test={'user_id':user_id,'title':con[1].value,'content':con[3].value,'title1':con[5].value,'content1':con[7].value,'title2':con[9].value,'content2':con[11].value,'img':'../img/evaluation/ad.jpg','tag':tag,'type':'test'};
             postData(ajax_url+'/sharing/release',test,function (res) {
                 //{status_code: "10008", status_text: "发布成功"}
                 if (res.status_code=="10008") {
@@ -109,7 +82,7 @@
     //获取选定标签放入数组
     function tag_get(tag){
         tag_json=[];
-        for (let i=0;i<5;i++){
+        for (let i=0;i<tag.length;i++){
             if (tag[i].classList.contains('tag-item-active')){
                 tag_json.push(tag[i].innerText);
             }

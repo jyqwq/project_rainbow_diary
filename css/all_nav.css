@@ -26,6 +26,15 @@
     border: solid 1px #00CC00;
     background: #00CC00;
 }
+.unregister_btn{
+    position: relative;
+    top: 7px;
+    margin-right: 20px;
+}
+.unregister_btn:hover{
+    border: solid 1px #00CC00;
+    background: #00CC00;
+}
 .nav_col{
     background: rgba(255, 255, 255, 0.8);
 }
@@ -137,4 +146,14 @@
     float: right;
     color: hotpink;
     margin: 10px 30px;
+}
+.user_nav{
+    top:45px;
+    right: 650px;
+    animation: fadeInDown 0.5s;
+}
+.user_box{
+    float: right;
+    background: #ffffff;
+    border-radius: 5px;
 }
