@@ -1,0 +1,44 @@
+.choose_sharing {
+    border: solid 1px #d9d9d9;
+    border-radius: 5px;
+    height: 100%;
+}
+.content_sharing {
+    border: solid 1px #d9d9d9;
+    border-radius: 5px;
+    min-height: 700px;
+}
+.shu_nav{
+    border-bottom: none;
+    border-right: solid 2px #f7c5c9;
+    /*padding-right: -1px;*/
+    box-sizing: border-box;
+}
+/*心情部分*/
+.row_margin{
+    margin-top: 30px;
+}
+/*--------------输入部分--------------*/
+.margin_end{
+    margin-bottom: 50px;
+}
+.shu_active{
+    margin-right: -2px !important;
+    border: solid 2px #f7c5c9 !important;
+    border-right: solid 2px white !important;
+    border-top-left-radius: 5px !important;
+    border-bottom-left-radius: 5px !important;
+}
+.shu_active:hover{
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.shu_active a{
+    font-size: 1.2em;
+    background: #f7c5c9 !important;
+    border-radius: 3px !important;
+}
+/*--------------输入部分--------------*/
+.text_active{
+    animation: fadeInUp 1s;
+}

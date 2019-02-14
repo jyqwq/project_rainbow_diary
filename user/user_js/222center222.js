@@ -1,5 +1,118 @@
 (function () {
 
+    // 传入数据—左边个人信息框
+    perinf_ajax();
+    function perinf_ajax() {
+        if (sessionStorage.getItem('user_id')) {
+            var user_id = {'user_id': sessionStorage.getItem('user_id'),'methods':'get'};
+        } else {
+            location.href = '../user/login.html'
+        }
+        console.log(user_id);
+        postData(ajax_url + '/user/person', user_id, function (res) {
+            console.log(res);
+            let qz_por = document.querySelectorAll('.qz_por');
+            let font_nic = document.querySelector('.font_nic');
+            let font_gra1 = document.querySelector('.font_gra1');
+            let font_gra2 = document.querySelector('.font_gra2');
+            let font_gra3 = document.querySelector('.font_gra3');
+            let font_gra=document.querySelector('.font_gra');
+            let qz_text1=document.querySelector('.qz_text1');
+            let qz_text2=document.querySelector('.qz_text2');
+            let qz_text3=document.querySelector('.qz_text3');
+            for (i = 0; i < 2; i++) {
+                qz_por[i].src = res.user_icon;
+            }
+            font_nic.innerHTML = res.user_nickname;
+            font_gra1.innerHTML = '个性签名：' + res.user_autograpgh;
+            font_gra2.innerHTML = '关注数：' + res.user_watchs;
+            font_gra3.innerHTML = '粉丝数：' + res.user_fans;
+            font_gra.innerHTML=res.user_nickname;
+            qz_text1.innerHTML=res.user_nickname;
+            qz_text2.innerHTML=res.user_autograpgh;
+            qz_text3.innerHTML=res.user_phone;
+        })
+    }
+
+    // 传入数据—动态模态框(日记本)
+    diary_ajax();
+    function diary_ajax() {
+        // if (sessionStorage.getItem('user_id')){
+        //     var user_id={'user_id':sessionStorage.getItem('user_id'),'methods':'get'};
+        // } else{
+        //     location.href='../user/login.html';
+        // }
+        // postData(ajax_url+'网址',user_id,function (res) {
+        let res2=[
+            {
+                'head':'../img/222center222/dynamic_head.jpg',
+                'author':'南浅',
+                'time':'2019-2-5 15:32:01',
+                'infomation':'昨天一直在看伍佰和阿信合唱《挪威的森林》的视频，我说这也太感人了吧，然后裂裂跟我讲：“知道阿信是伍佰的粉丝之后，这个故事就更感人了”。”念念不忘，必有回响”。他是这么总结的。我想起另一个故事。十三年前，贝克汉姆和两个英格兰球队的小粉丝合影，十三年后，男孩成为了英格兰球队的队长，而照片上的女孩则成为了那个男孩的妻子。像之前说的，月亮虽然遥远，但某一刻，它的光真的照亮过我。',
+                'pic':'../img/222center222/dynamic.jpg'
+            },
+            {
+                'head':'../img/222center222/dynamic_head.jpg',
+                'author':'南浅',
+                'time':'2019-2-14 15:32:01',
+                'infomation':'昨天一直在看伍佰和阿信合唱《挪威的森林》的视频，我说这也太感人了吧，然后裂裂跟我讲：“知道阿信是伍佰的粉丝之后，这个故事就更感人了”。”念念不忘，必有回响”。他是这么总结的。我想起另一个故事。十三年前，贝克汉姆和两个英格兰球队的小粉丝合影，十三年后，男孩成为了英格兰球队的队长，而照片上的女孩则成为了那个男孩的妻子。像之前说的，月亮虽然遥远，但某一刻，它的光真的照亮过我。',
+                'pic':'../img/222center222/dynamic.jpg'
+            },
+            {
+                'head':'../img/222center222/dynamic_head.jpg',
+                'author':'南浅',
+                'time':'2019-2-14 20:04:01',
+                'infomation':'昨天一直在看伍佰和阿信合唱《挪威的森林》的视频，我说这也太感人了吧，然后裂裂跟我讲：“知道阿信是伍佰的粉丝之后，这个故事就更感人了”。”念念不忘，必有回响”。他是这么总结的。我想起另一个故事。十三年前，贝克汉姆和两个英格兰球队的小粉丝合影，十三年后，男孩成为了英格兰球队的队长，而照片上的女孩则成为了那个男孩的妻子。像之前说的，月亮虽然遥远，但某一刻，它的光真的照亮过我。',
+                'pic':'../img/222center222/dynamic.jpg'
+            }
+        ]//测试
+
+        let dynamic=document.querySelector('.dynamic');
+        for (let dyn of res2){
+            dynamic.innerHTML+=`<div class="qz_dynamic">
+                        <!--作者头像日期-->
+                        <div class="row qz_row">
+                            <div class="hidden-xs hidden-sm col-md-1 col-lg-1"></div>
+                            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+                                <div class="dyn_head">
+                                    <img src="${dyn.head}" class="img-responsive" alt="Responsive image">
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-3 col-md-2 col-lg-2">
+                                <div class="dyn_aut">
+                                    <span>${dyn.author}</span><br>
+                                    <div class="font_time">
+                                        <span class="rel_time">${dyn.time}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--动态文字-->
+                        <div class="row qz_row">
+                            <div class="hidden-xs hidden-sm col-md-1 col-lg-1"></div>
+                            <div class="col-xs-12 col-sm-12 col-md-11 col-lg-11">
+                                <div class="qz_dinf">
+                                    <span class="font_dinf">${dyn.infomation}</span><br>
+                                </div>
+                                <span class="font_full">展开全文</span>
+                            </div>
+                        </div>
+                        <!--动态图片-->
+                        <div class="row qz_row">
+                            <div class="hidden-xs hidden-sm col-md-1 col-lg-1"></div>
+                            <div class="col-xs-12 col-sm-5 col-md-4 col-lg-2">
+                                <div class="dyn_pic">
+                                    <img src="${dyn.pic}" class="img-responsive" alt="Responsive image">
+                                </div>
+                            </div>
+                        </div>
+                        <!--分割线-->
+                        <div class="qz_line"></div>
+                    </div>`
+        }
+        // })
+    }
+
     // 模态框
     modal_frame();
     function modal_frame() {
@@ -140,6 +253,8 @@
     window.onload=function (){
         // * 1.浏览器加载时div尺寸随动——开始
         let screen_height=document.documentElement.clientHeight;
+        //定义模态框
+        let dyna_con=document.querySelector('.dyna_con');
         // 定义第一页
         let qz_cover=document.querySelector('.qz_cover');
         let qz_per=document.querySelector('.qz_per');
@@ -155,6 +270,8 @@
         // 定义第二页
         let qz_sep=document.querySelectorAll('.qz_sep');
         let qz_nimg=document.querySelectorAll('.qz_nimg');
+        //计算模态框
+        dyna_con.style.height=(screen_height-50)+'px';
         // 计算第一页
         // 第一页
         qz_cover.style.height=(screen_height-120)*0.97+'px';
@@ -177,8 +294,8 @@
         qz_skinfo.style.height=(screen_height-120)*0.15+'px';
         // 计算第二页
         for(i=0;i<3;i++){
-            qz_sep[i].style.height=(screen_height-120)*0.18+'px';
-            qz_nimg[i].style.height=(screen_height-120)*0.1+'px';
+            qz_sep[i].style.height=(screen_height-50)*0.18+'px';
+            qz_nimg[i].style.height=(screen_height-50)*0.1+'px';
         }
         // * 1.浏览器加载时div尺寸随动——结束
 
@@ -336,72 +453,6 @@
             }
         }
     }
-
-    // 传入数据—左边个人信息框
-    perinf_ajax();
-    function perinf_ajax() {
-        if (sessionStorage.getItem('user_id')) {
-            var user_id = {'user_id': sessionStorage.getItem('user_id'),'methods':'get'};
-        } else {
-            location.href = '../user/login.html'
-        }
-        postData(ajax_url + '/user/person', user_id, function (res) {
-            // let res1={'nic':'南浅','gra1':'小仙女都是喝露水的','gra2':'5','gra3':'1'};//测试
-            console.log(res);
-            // let qz_por = document.querySelectorAll('.qz_por');
-            // let font_nic = document.querySelector('.font_nic');
-            // let font_gra1 = document.querySelector('.font_gra1');
-            // let font_gra2 = document.querySelector('.font_gra2');
-            // let font_gra3 = document.querySelector('.font_gra3');
-            // for (i = 0; i < 2; i++) {
-            //     qz_por[i].src = '../img/222center222/head.png';
-            // }
-            // font_nic.innerHTML = res1.nic;
-            // font_gra1.innerHTML = '个性签名：' + res1.gra1;
-            // font_gra2.innerHTML = '关注数：' + res1.gra2;
-            // font_gra3.innerHTML = '粉丝数：' + res1.gra3;
-        })
-    }
-
-    // 传入数据—编辑模态框
-    edit_ajax();
-    function edit_ajax() {
-        // if(sessionStorage.getItem('user_id')){
-        //     var user_id={'user_id':sessionStorage.getItem('user_id')};
-        // }
-        // else {
-        //     location.href='../user/login.html';
-        // }
-        // postData(ajax_url+'网址',user_id,function (res) {
-        let res2={'gra':'南浅','text1':'南浅','text2':'小仙女啊','text3':'17388888888'};
-        let font_gra=document.querySelector('.font_gra');
-        let qz_text1=document.querySelector('.qz_text1');
-        let qz_text2=document.querySelector('.qz_text2');
-        let qz_text3=document.querySelector('.qz_text3');
-        font_gra.innerHTML=res2.gra;
-        qz_text1.innerHTML=res2.text1;
-        qz_text2.innerHTML=res2.text2;
-        qz_text3.innerHTML=res2.text3;
-        // })
-    }
-
-    // 传入数据—动态模态框(日记本)
-    // diary_ajax();
-    // function diary_ajax() {
-    //     if (sessionStorage.getItem('user_id')){
-    //         var user_id={'user_id':sessionStorage.getItem(('user_id'))};
-    //     }
-    //     else{
-    //         location.href='../user/login.html';
-    //     }
-    //     postData(ajax_url+'网址',user_id,function (res) {
-    //         let dyn_img=document.querySelectorAll('.dyn_img')
-    //     })
-    // }
-
-
-
-
 
 
 })();
