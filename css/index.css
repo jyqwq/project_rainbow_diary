@@ -99,7 +99,7 @@
 }
 .recommend_one{
     margin: 30px 0;
-    height: 400px;
+    /*height: 400px;*/
     border: solid 2px rgba(128, 128, 128, 0.3);
     border-radius: 3px;
     /*text-align: center;*/
