@@ -51,7 +51,7 @@
                     <li><a href="#"><img src="../img/usericon.png" alt="user-icon" class="img-circle usericon_img"></a>
                     </li>
                     <li class="nav_hover"><a href="#" class="a_width">消息 <span class="badge new_num">4</span></a></li>
-                    <li class="nav_hover"><a href="#" class="a_width">动态 <span class="badge new_num">4</span></a></li>
+                    <li class="nav_hover"><a href="../user/dynamic.html" class="a_width">动态 <span class="badge new_num">4</span></a></li>
                     <li class="nav_hover hidden-sm"><a href="#">收藏</a></li>
                     <li>
                         <button type="button" class="btn btn-info sharing_btn">
@@ -99,7 +99,7 @@
                         href="#"><strong>个&nbsp;&nbsp;人&nbsp;&nbsp;中&nbsp;&nbsp;心</strong></a></li>
                 <li class="nav_hover down_nav_text"><a href="#"><strong>消&nbsp;&nbsp;息</strong> <span
                         class="badge">4</span></a></li>
-                <li class="nav_hover down_nav_text"><a href="#"><strong>动&nbsp;&nbsp;态</strong> <span
+                <li class="nav_hover down_nav_text"><a href="../user/dynamic.html"><strong>动&nbsp;&nbsp;态</strong> <span
                         class="badge">4</span></a></li>
                 <li class="nav_hover down_nav_text"><a href="#"><strong>收&nbsp;&nbsp;藏</strong></a></li>
                 <li class="nav_hover down_nav_text"><a href="../sharing/sharing_index.html"><strong>写&nbsp;&nbsp;日&nbsp;&nbsp;记</strong></a></li>
@@ -111,24 +111,56 @@
 <div class="container con">
     <div class="col-lg-3">
         <div class="row all_dy user_message">
-
+            <div class="row margin_top"><img src="../img/usericon.png" alt="" class="img-circle usericon"></div>
+            <div class="row margin_top"><span class="user_nickname">纸上的彩虹</span></div>
+            <div class="row user_fans margin_top">
+                <ul class="nav">
+                    <li class="dy_user_nav"><a href="#"><strong class="fans">100</strong></a> <span>粉丝</span></li>
+                    <li class="dy_user_nav"><a href="#"><strong class="fcs">100</strong></a> <span>关注</span></li>
+                    <li class="dy_user_nav"><a href="#"><strong class="num_dy">100</strong></a> <span>动态</span></li>
+                </ul>
+            </div>
+            <div class="row margin_top">
+                <div class="exit"><a href="#" class="exit_col">退出登录</a></div>
+            </div>
         </div>
     </div>
     <div class="col-lg-6">
         <div class="row all_dy dy_margin re_dy">
-
+            <a href="../sharing/sharing_index.html"><button type="button" class="btn btn-success to_sharing"><strong>去写日记</strong></button></a>
         </div>
         <div class="row all_dy dy_margin dy_nav">
-
+            <div class="col-lg-3 xs_padding">
+                <div role="presentation" class="my_active"><a href="#" class="dy_m_nav dy_all"><strong>所有动态</strong></a></div>
+            </div>
+            <div class="col-lg-3 xs_padding">
+                <div role="presentation"><a href="#" class="dy_m_nav dy_x"><img src="../img/心率.png" alt="">&nbsp;<strong>心情</strong></a></div>
+            </div>
+            <div class="col-lg-3 xs_padding">
+                <div role="presentation"><a href="#" class="dy_m_nav dy_r"><img src="../img/日记.png" alt="">&nbsp;<strong>日记</strong></a></div>
+            </div>
+            <div class="col-lg-3 xs_padding">
+                <div role="presentation"><a href="#" class="dy_m_nav dy_c"><img src="../img/评价.png" alt="">&nbsp;<strong>测评</strong></a></div>
+            </div>
         </div>
-        <div class="row all_dy dy_margin dy_content"></div>
-        <div class="row all_dy dy_margin dy_content"></div>
-        <div class="row all_dy dy_margin dy_content"></div>
-        <div class="row all_dy dy_margin dy_content"></div>
+        <div class="dy_ajax">
+            <!--关注动态ajax-->
+        </div>
     </div>
     <div class="col-lg-3">
         <div class="row all_dy something">
-
+            <span style="font-size: 1.2em;position: relative;top: 15px;left: 15px;color: darkgrey"><strong>公告栏</strong></span>
+        </div>
+        <div class="row all_dy" style="margin-top: 10px">
+            <ul class="nav">
+                <li><span style="font-size: 1.2em;position: relative;top: 15px;left: 15px;color: darkgrey"><strong>热门标签</strong></span></li>
+                <br>
+                <li><a href="#">风景</a></li>
+                <li><a href="#">新年</a></li>
+                <li><a href="#">面膜</a></li>
+                <li><a href="#">旅游</a></li>
+                <li><a href="#">红包</a></li>
+            </ul>
         </div>
     </div>
 </div>
