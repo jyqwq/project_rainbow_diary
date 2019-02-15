@@ -58,18 +58,18 @@
 }
 /*模态框开始*/
 /* 1.编辑模态框*/
-.qz_text{
-    font-family: 幼圆;
-    font-size: 1.1em;
+/*.qz_text{*/
+    /*font-family: 幼圆;*/
+    /*font-size: 1.1em;*/
 
-    width: 95%;
-    margin: 7px;
-    resize: none;
-    float: right;
-}
-.font_opt{
-    font-family: 幼圆;
-}
+    /*width: 95%;*/
+    /*margin: 7px;*/
+    /*resize: none;*/
+    /*float: right;*/
+/*}*/
+/*.font_opt{*/
+    /*font-family: 幼圆;*/
+/*}*/
 /* 3.动态模态框*/
 .font_dyn{
     font-size: 1.1em;
@@ -223,12 +223,12 @@
     /*z-index: 5;*/
     background-color: #95b4ed;
 }
-.edit_con{
-    width: 35%;
-    height: 55%;
-    margin: 150px auto;
-    background-color:#fff;
-}
+/*.edit_con{*/
+    /*width: 35%;*/
+    /*height: 55%;*/
+    /*margin: 150px auto;*/
+    /*background-color:#fff;*/
+/*}*/
 /* 2.肤质测试模态框开始*/
 .test_con{
     width: 40%;

@@ -16,21 +16,13 @@
             let font_gra1 = document.querySelector('.font_gra1');
             let font_gra2 = document.querySelector('.font_gra2');
             let font_gra3 = document.querySelector('.font_gra3');
-            let font_gra=document.querySelector('.font_gra');
-            let qz_text1=document.querySelector('.qz_text1');
-            let qz_text2=document.querySelector('.qz_text2');
-            let qz_text3=document.querySelector('.qz_text3');
             for (i = 0; i < 2; i++) {
-                qz_por[i].src = res.user_icon;
+                qz_por[i].src = '../img/setting/head.png';
             }
             font_nic.innerHTML = res.user_nickname;
             font_gra1.innerHTML = '个性签名：' + res.user_autograpgh;
             font_gra2.innerHTML = '关注数：' + res.user_watchs;
             font_gra3.innerHTML = '粉丝数：' + res.user_fans;
-            font_gra.innerHTML=res.user_nickname;
-            qz_text1.innerHTML=res.user_nickname;
-            qz_text2.innerHTML=res.user_autograpgh;
-            qz_text3.innerHTML=res.user_phone;
         })
     }
 
@@ -116,46 +108,20 @@
     // 模态框
     modal_frame();
     function modal_frame() {
-        let btn = document.querySelector('.qz_mobtn');
         let add=document.querySelector('.qz_add');
         let qz_cen=document.querySelectorAll('.qz_cen');
         let close = document.querySelectorAll('.qz_close');
         let cancel = document.querySelectorAll('.qz_cancel');
         let modal = document.querySelectorAll('.qz_modal');
-        btn.onclick= function(){
-            modal[0].style.display = 'block';
-            // 显示用户性别，生日(模拟数据)
-            let option=document.querySelectorAll('option');
-            for (i=0;i<2;i++){
-                if (option[i].innerText=='女') {
-                    option[i].selected='selected';
-                }
-            }
-            for(i=2;i<103;i++){
-                if(option[i].innerText==1948){
-                    option[i].selected='selected';
-                }
-            }
-            for (i=103;i<115;i++){
-                if (option[i].innerText==2) {
-                    option[i].selected='selected';
-                }
-            }
-            for (i=115;i<option.length;i++){
-                if (option[i].innerText==10) {
-                    option[i].selected='selected';
-                }
-            }
-        };
         add.onclick=function(){
-            modal[1].style.display='block';
+            modal[0].style.display='block';
         };
         for (let i=0;i<18;i++){
             qz_cen[i].onclick=function () {
-                modal[2].style.display='block';
+                modal[1].style.display='block';
             };
         }
-        for (let i=0;i<3;i++){
+        for (let i=0;i<2;i++){
             close[i].onclick= function(){
                 modal[i].style.display = 'none';
             };
@@ -336,69 +302,7 @@
             coimg.style.top='-'+(hei_cimg)+'px';
         }
         // * * * 3.图片动画——浏览器加载时蒙板尺寸随动——结束
-
-        // * * * * 4.生日选择器——开始
-        // 浏览器加载时生成select选项
-        let selects = document.getElementsByTagName("select");//通过标签名获取select对象
-        let date = new Date();//获取系统当前时间
-        let nowYear = date.getFullYear();//获取当前的年
-        //生成年份选择框
-        for(let i=nowYear-100;i<=nowYear;i++){
-            let optionYear = document.createElement("option");
-            optionYear.innerHTML=i;
-            optionYear.value=i;
-            selects[1].appendChild(optionYear);
-        }
-        //生成月份选择框
-        for(let i=1;i<=12;i++){
-            let optionMonth = document.createElement("option");
-            optionMonth.innerHTML=i;
-            optionMonth.value=i;
-            selects[2].appendChild(optionMonth);
-        }
-        // 生成日选择框
-        getDays(selects[2].value,selects[1].value,selects);
-        selects[1].onchange=function () {
-            setDays()
-        };
-        selects[2].onchange=function () {
-            setDays()
-        }
     };
-    // **** 4.生日选择器——内部方法
-    function setDays(){
-        let selects = document.getElementsByTagName("select");
-        let year = selects[1].options[selects[1].selectedIndex].value;
-        let month = selects[2].options[selects[2].selectedIndex].value;
-        getDays(month,year,selects);
-    }
-    function getDays(month,year,selects){
-        let days = getDaysInMonth(month,year);//当月获得天数
-        selects[3].options.length = 0;
-        for(let i=1;i<=days;i++){
-            let optionDay = document.createElement("option");
-            optionDay.innerHTML=i;
-            optionDay.value=i;
-            selects[3].appendChild(optionDay);
-        }
-    }
-    // 获取某年某月存在多少天
-    function getDaysInMonth(month,year){
-        let days;
-        if (month==1 || month==3 || month==5 || month==7 || month==8 || month==10 || month==12) {
-            days=31;
-        }else if (month==4 || month==6 || month==9 || month==11){
-            days=30;
-        }else{
-            if ((year%4 == 0 && year%100 != 0) || (year%400 == 0)) {     // 判断是否为润二月
-                days=29;
-            }else {
-                days=28;
-            }
-        }
-        return days;
-    }
-    // * * * * 4.生日选择器——结束
 
     timer();
     // 计时器

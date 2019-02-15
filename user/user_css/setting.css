@@ -1,3 +1,27 @@
+/*字体*/
+/*我的信息*/
+.text_title{
+    font-family: 幼圆;
+    font-size: 1.1em;
+    float: right;
+    margin-top: 15px;
+}
+.qz_text{
+    font-family: 幼圆;
+    font-size: 1.1em;
+
+    /*width: 95%;*/
+    margin: 15px;
+    resize: none;
+    /*float: right;*/
+}
+.font_pendant{
+    font-size: 1.1em;
+}
+
+
+
+/*全局*/
 .choose_sharing {
     border: solid 1px #d9d9d9;
     border-radius: 5px;
@@ -42,3 +66,66 @@
 .text_active{
     animation: fadeInUp 1s;
 }
+
+
+
+/*我的信息*/
+.select_button{
+    margin: 15px 5px;
+    background: #FFAAAA;
+    border: #FFAAAA;
+}
+.qz_line{
+    margin-top: 50px;
+    height: 1px;
+    background: #d9d9d9;
+}
+.submit_button{
+    background: #FFAAAA;
+    border: #FFAAAA;
+}
+/*我的头像*/
+/*背景*/
+.guide{
+    margin-top: 100px;
+}
+.change_em {
+    width: 200px;
+    height: 200px;
+    /*display: block;*/
+    position: absolute;
+    margin-top: 0px;
+    border: solid 1px #d9d9d9;
+    border-radius: 50%;
+}
+/*选择区域*/
+.change_head {
+    opacity: 0;
+    filter: alpha(opacity=0);
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9;
+    border-radius: 50%;
+    margin: 50px;
+}
+/*头像图片*/
+.master_head {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    margin: 50px;
+}
+.qz_line2{
+    margin-top: 130px;
+    height: 1px;
+    background: #d9d9d9;
+}
+
+
+
+
+
+
