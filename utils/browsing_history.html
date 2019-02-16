@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浏览历史</title>
+    <link rel="stylesheet" href="../bootstrap-3.3.7/dist/css/bootstrap.css">
+    <style type="text/css">
+        .news-list {
+            display: table;
+            table-layout: fixed;
+            width: 100%;
+            font-size: 1.2rem;
+            line-height: 3rem;
+        }
+
+        .news-item {
+            display: table-row;
+            width: 100%;
+        }
+
+        .decoration:before,
+        .decoration:after {
+            content: "";
+            display: block;
+            width: 1px;
+            height: 50%;
+            background: #ccc;
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: auto;
+            z-index: -1;
+        }
+
+        .news-item:nth-child(1) .decoration:before {
+            display: none;
+        }
+
+        .news-item:nth-last-child(1) .decoration:after {
+            display: none;
+        }
+
+        .decoration:before {
+            top: 0;
+        }
+
+        .decoration:after {
+            bottom: 0;
+        }
+
+        .decoration {
+            display: table-cell;
+            width: 10%;
+            position: relative;
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .news-item:hover .news-box {
+            background-color: rgba(255, 170, 170, 0.6);
+            color: #fff;
+        }
+
+        .news-item:hover .news-box:before {
+            content: "";
+            width: 0;
+            height: 0;
+            border-top: 10px solid transparent;
+            border-right: 10px solid rgba(255, 170, 170, 0.6);
+            border-bottom: 10px solid transparent;
+            position: absolute;
+            left: -10px;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+        }
+
+        .news-item:hover .solid-circle {
+            background: rgba(255, 170, 170, 0.6);
+        }
+
+        .news-item .news-title {
+            display: block;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+
+        .news-item:hover .news-title {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .news-item:hover .news-time {
+            color: #fff;
+        }
+
+        .news-box {
+            display: table-cell;
+            line-height: 3rem;
+            width: 80%;
+            vertical-align: middle;
+            color: #000;
+            padding-left: 15px;
+            position: relative;
+            border-radius: 2px;
+        }
+
+        .news-circle {
+            display: inline-block;
+            border-radius: 50%;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            vertical-align: middle;
+        }
+
+        .solid-circle {
+            background: #ccc;
+            border-radius: 50%;
+            width: 0.6rem;
+            height: 0.6rem;
+            overflow: hidden;
+            margin: 0.3rem;
+        }
+    </style>
+</head>
+<body>
+<div class="news-list">
+    <div class="news-item">
+        <div class="decoration">
+            <div class="news-circle">
+                <div class="solid-circle"></div>
+            </div>
+        </div>
+        <div class="news-box">
+            <a href="/home/index/news_detail/id/17862" class="news-title" data-id="17862" target="_blank">Apollo无人车队湘江开跑
+                完成全国首例多车型高速场景自动驾驶及车路协同演示</a>
+            <div class="news-time">
+                2018-12-29
+            </div>
+        </div>
+    </div>
+    <div class="news-item">
+        <div class="decoration">
+            <div class="news-circle">
+                <div class="solid-circle"></div>
+            </div>
+        </div>
+        <div class="news-box">
+            <a href="/home/index/news_detail/id/17861" class="news-title" data-id="17861" target="_blank">百度AI技术斩获中国专利奖
+                人工智能首获专利界最高认可</a>
+            <div class="news-time">
+                2018-12-28
+            </div>
+        </div>
+    </div>
+    <div class="news-item">
+        <div class="decoration">
+            <div class="news-circle">
+                <div class="solid-circle"></div>
+            </div>
+        </div>
+        <div class="news-box">
+            <a href="/home/index/news_detail/id/17860" class="news-title" data-id="17860" target="_blank">百度Apollo顺利pass无人车“驾考”
+                斩获全国牌照总数超半百！</a>
+            <div class="news-time">
+                2018-12-26
+            </div>
+        </div>
+    </div>
+    <div class="news-item">
+        <div class="decoration">
+            <div class="news-circle">
+                <div class="solid-circle"></div>
+            </div>
+        </div>
+        <div class="news-box">
+            <a href="/home/index/news_detail/id/17856" class="news-title" data-id="17856" target="_blank">百度成立AI产业研究中心
+                与IDC联合发布《百度大脑领导力白皮书》</a>
+            <div class="news-time">
+                2018-12-20
+            </div>
+        </div>
+    </div>
+    <div class="news-item">
+        <div class="decoration">
+            <div class="news-circle">
+                <div class="solid-circle"></div>
+            </div>
+        </div>
+        <div class="news-box">
+            <a href="/home/index/news_detail/id/17857" class="news-title" data-id="17857" target="_blank">百度智能小程序开源联盟成立
+                首批成员月活超30亿</a>
+            <div class="news-time">
+                2018-12-20
+            </div>
+        </div>
+    </div>
+    <div class="news-item">
+        <div class="decoration">
+            <div class="news-circle">
+                <div class="solid-circle"></div>
+            </div>
+        </div>
+        <div class="news-box">
+            <a href="/home/index/news_detail/id/17859" class="news-title" data-id="17859" target="_blank">早到医院一分钟也许能救回一个生命！百度地图上线“为急救车让路”功能</a>
+            <div class="news-time">
+                2018-12-20
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,6 +1,6 @@
 /*字体*/
 /*主人的小屋*/
-.font_nic{
+.font_nic {
     font-family: 幼圆;
     font-size: 1.5em;
     font-weight: bolder;
@@ -9,38 +9,20 @@
     margin-left: 15px;
     float: left;
 }
+
 /*个人信息，模态框(2.肤质测试)*/
-.font_gra{
+.font_gra {
     font-family: 幼圆;
     font-size: 1.2em;
 }
-/*护肤指南*/
-.qz_skinfo{
-    text-align: center;
-}
-.font_skinfo{
-    font-family: 幼圆;
-    font-size: 1.3em;
-}
-/*第二页*/
-.qz_open{
-    text-align: center;
-    margin-top: 50px;
-}
-.font_open{
-    font-family: 幼圆;
-    font-size: 2em;
-    font-weight: bolder;
 
-    height: 60px;
-    line-height: 60px;
-}
 /*大导航栏*/
 /*日记本，收藏夹，收纳盒*/
-.qz_nav{
+.qz_nav {
     text-align: center;
 }
-.font_nav{
+
+.font_nav {
     font-family: 幼圆;
     font-size: 1.5em;
     font-weight: bolder;
@@ -48,85 +30,68 @@
     height: 30px;
     line-height: 30px;
 }
-.qz_ndis{
+
+.qz_ndis {
     text-align: center;
 }
-.font_inf{
+
+.font_inf {
     font-family: 幼圆;
     height: 20px;
     line-height: 20px;
 }
-/*模态框开始*/
-/* 1.编辑模态框*/
-/*.qz_text{*/
-    /*font-family: 幼圆;*/
-    /*font-size: 1.1em;*/
 
-    /*width: 95%;*/
-    /*margin: 7px;*/
-    /*resize: none;*/
-    /*float: right;*/
-/*}*/
-/*.font_opt{*/
-    /*font-family: 幼圆;*/
-/*}*/
 /* 3.动态模态框*/
-.font_dyn{
+.font_dyn {
     font-size: 1.1em;
 }
-.font_time{
-    font-size: 0.8em;
-    color: rgba(0, 0, 0, 0.8);
-}
 
-.font_dinf{
-    font-size: 0.9em;
-}
-.font_full{
-    font-size: 0.9em;
-    color: #2e6da4;
-}
 /*模态框结束*/
 
 /*全局*/
-.qz_con{
+.qz_con {
     margin-top: 50px;
     padding: 0;
     height: 2000px;
     background: #f9f9f9;
 }
-.qz_row{
+
+.qz_row {
     margin: 15px;
 }
 
 /*左边个人信息框*/
-.qz_per{
+.qz_per {
     margin-top: 75px;
     border-radius: 20px;
     background: #FFAAAA;
 }
+
 /*主人的头像*/
-.qz_cir{
+.qz_cir {
     float: right;
     position: relative;
     left: 75px;
     top: -75px;
 }
-.qz_por{
+
+.qz_por {
     width: 100%;
 }
-.qz_cul{
+
+.qz_cul {
     float: right;
     position: relative;
     top: -65px;
 }
+
 /*主人的小屋*/
-.qz_nic img{
+.qz_nic img {
     height: 30px;
 }
 
 /*模态框*/
-.qz_modal{
+.qz_modal {
     display: none;
     width: 100%;
     height: 100%;
@@ -134,59 +99,76 @@
     left: 0;
     top: 0;
     z-index: 1000;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
 }
-.qz_mocon{
+
+.qz_mocon {
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
-    border-radius:10px;
+    border-radius: 10px;
     -webkit-animation: zoom 0.6s;
     animation: zoom 0.6s;
     overflow: auto;
     resize: none;
 }
-@-webkit-keyframes zoom{
-    from {-webkit-transform: scale(0)}
-    to {-webkit-transform: scale(1)}
+
+@-webkit-keyframes zoom {
+    from {
+        -webkit-transform: scale(0)
+    }
+    to {
+        -webkit-transform: scale(1)
+    }
 }
-@keyframes zoom{
-    from {transform: scale(0)}
-    to {transform: scale(1)}
+
+@keyframes zoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
 }
-.qz_mohead{
-    box-sizing:border-box;
-    border-bottom:1px solid #ccc;
+
+.qz_mohead {
+    box-sizing: border-box;
+    border-bottom: 1px solid #ccc;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.qz_close{
+
+.qz_close {
     color: #b7b7b7;
     font-size: 30px;
     font-weight: bold;
     margin-right: 20px;
     transition: all 0.3s;
 }
-.qz_close:hover, .qz_close:focus{
+
+.qz_close:hover, .qz_close:focus {
     color: #95b4ed;
     text-decoration: none;
     cursor: pointer;
 }
-.qz_mobody{
+
+.qz_mobody {
     padding: 10px;
     font-size: 16px;
-    box-sizing:border-box;
+    box-sizing: border-box;
 }
-.qz_mofoot{
-    box-sizing:border-box;
-    border-top:1px solid #ccc;
+
+.qz_mofoot {
+    box-sizing: border-box;
+    border-top: 1px solid #ccc;
     display: flex;
     padding: 15px;
     justify-content: flex-end;
     align-items: center;
 }
-.qz_mofoot button{
+
+.qz_mofoot button {
     width: 60px;
     height: 35px;
     padding: 5px;
@@ -197,120 +179,45 @@
     border-radius: 5px;
     background-color: #FFAAAA;
 }
-.qz_mofoot button:hover, .qz_mofoot button:focus{
+
+.qz_mofoot button:hover, .qz_mofoot button:focus {
     background-color: #95b4ed;
     cursor: pointer;
 }
-@media only screen and (max-width: 700px){
+
+@media only screen and (max-width: 700px) {
     .modal-content {
         width: 80%;
     }
 }
-/* 1.编辑模态框开始*/
-.qz_mobtn{
-    /*z-index: 5;*/
-    float: right;
-    width: 50px;
-    height: 35px;
-    border-radius: 5px;
-    font-size: 16px;
-    font-family: 幼圆;
-    color: white;
-    background-color: #FFAAAA;
-    /*outline: none;*/
-}
-.qz_mobtn:hover, .btn:focus{
-    /*z-index: 5;*/
-    background-color: #95b4ed;
-}
-/*.edit_con{*/
-    /*width: 35%;*/
-    /*height: 55%;*/
-    /*margin: 150px auto;*/
-    /*background-color:#fff;*/
-/*}*/
-/* 2.肤质测试模态框开始*/
-.test_con{
-    width: 40%;
-    height: 60%;
-    margin: 150px auto;
-    background-color:#fff;
-}
+
 /* 3.动态模态框开始*/
-.dyna_con{
+.dyna_con {
     width: 50%;
     margin: 50px auto;
-    background-color:#f9f9f9;
+    background-color: #f9f9f9;
 }
+
 /*动态主体开始*/
 /*日记本，收藏夹*/
-.dynamic{
+.dynamic {
     display: block;
 }
-    /*作者头像日期*/
-.dyn_head{
-    height: 40px;
-}
-.dyn_head img{
-    height: 100%;
-}
-    /*动态文字*/
-.qz_dinf{
-    height: 68px;
-    overflow: hidden;
-}
-    /*动态图片*/
-.dyn_pic{
-    margin: 2px -13px;
-    background: crimson;
-}
-    /*分割线*/
-.qz_line{
-    height: 1px;
-    margin: 5px;
-    background: #EEEEEE;
-}
-/*收纳盒*/
-.intake{
-    display: block;
-}
-/*右边妆品*/
-.taif_img{
-    height: 80px;
-}
-.taif_img img{
-    height: 100%;
-}
-/*模态框结束*/
 
-/*肤质测试*/
-.add_img{
-    height: 150px;
-}
-.add_img img{
-    height: 100%;
-}
-.add_iner{
-    width: 80px;
-    height: 30px;
-    margin: -100px 40px;
-}
-.gui_img{
-    height: 150px;
-    background: #9783b9;
-}
 /*肤质测试结束*/
 /*右边个人肤质框*/
 /*浏览历史开始*/
 /*浏览历史，护肤指南标题*/
-.bro_his{
+.bro_his {
     height: 50px;
     margin-top: 50px;
 }
-.bro_his img{
+
+.bro_his img {
     height: 30px;
     margin: auto;
 }
+
 .news-list {
     height: 200px;
     display: table;
@@ -430,102 +337,62 @@
     margin: 0.3rem;
 }
 
-/*浏览历史结束*/
-
-/*箭头指向第二页*/
-.qz_lead{
-    height: 70px;
-}
-.qz_leaimg{
-    width: 80px;
-    margin: auto;
-}
-.lea_img{
-    margin: auto;
-    height: 70px;
-}
-
 /*大导航栏*/
 /*日记本*/
-.qz_nimg{
+.qz_nimg {
     margin: auto;
     width: 200px;
 }
-.img_diary{
+
+.img_diary {
     height: 100%;
     margin: auto;
 }
 
 /*中心内容*/
 /*日记本内容*/
-#qz_diary{
+#qz_diary {
     display: block;
 }
-.qz_cen{
+
+.qz_cen {
     margin: 10px;
     overflow: hidden;
 }
-.qz_cimg{
+
+.qz_cimg {
     margin: auto;
     transition: all 1s ease-in-out;
 }
-.cimg_active{
-    margin: auto;
-    transition: all 1s ease-in-out;
-    transform: scale(1.5,1.5);
-}
-.qz_coimg{
+
+.qz_coimg {
     display: none;
     position: relative;
     background: rgba(220, 20, 60, 0.28);
 }
+
 /*收藏夹内容*/
-#qz_collection{
+#qz_collection {
     display: none;
 }
+
 /*收纳盒内容*/
-#qz_admission{
+#qz_admission {
     display: none;
 }
 
 /*动画*/
 /*由左滑入*/
-.animal_sil{
+.animal_sil {
     animation: slideInLeft 2s;
 }
-/*由右滑入*/
-.animal_sir{
-    animation: slideInRight 1s;
-}
-/*由上滑入*/
-.animal_sid{
-    animation: slideDown 2s;
-}
-/*旋转一半*/
-.animal_rin:hover{
-    animation: rotateIn 1s;
-}
-/*放大*/
-/*.anima_pul:hover{*/
-    /*animation: pulse 1s;*/
-/*}*/
+
 /*摇晃颤抖*/
-.anima_jel:hover{
+.anima_jel:hover {
     animation: jello 1s;
 }
-/*摇晃*/
-/*.animal_jac:hover{*/
-    /*animation: jackInTheBox 1s;*/
-/*}*/
-/*挂着摇晃*/
-/*.animal_swi:hover{*/
-/*animation: swing 1s;*/
-/*}*/
-/*放大震动*/
-/*.animal_bin:hover{*/
-/*animation: bounceIn 1s;*/
-/*}*/
-/*qz动画*/
+
+
 
 
 

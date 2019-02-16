@@ -3,27 +3,26 @@
     // 传入数据—左边个人信息框
     perinf_ajax();
     function perinf_ajax() {
-        if (sessionStorage.getItem('user_id')) {
-            var user_id = {'user_id': sessionStorage.getItem('user_id'),'methods':'get'};
-        } else {
-            location.href = '../user/login.html'
-        }
-        console.log(user_id);
-        postData(ajax_url + '/user/person', user_id, function (res) {
-            console.log(res);
+        // if (sessionStorage.getItem('user_id')) {
+        //     var user_id = {'user_id': sessionStorage.getItem('user_id'),'methods':'get'};
+        // } else {
+        //     location.href = '../user/login.html'
+        // }
+        // postData(ajax_url + '/user/person', user_id, function (res) {
+            let res={'user_pic':'../img/setting/head.png','user_nickname':'JyQQ','user_autograpgh':'1111','user_watchs':'2','user_fans':'5'};//测试
             let qz_por = document.querySelectorAll('.qz_por');
             let font_nic = document.querySelector('.font_nic');
             let font_gra1 = document.querySelector('.font_gra1');
             let font_gra2 = document.querySelector('.font_gra2');
             let font_gra3 = document.querySelector('.font_gra3');
             for (i = 0; i < 2; i++) {
-                qz_por[i].src = '../img/setting/head.png';
+                qz_por[i].src = res.user_pic;
             }
             font_nic.innerHTML = res.user_nickname;
             font_gra1.innerHTML = '个性签名：' + res.user_autograpgh;
             font_gra2.innerHTML = '关注数：' + res.user_watchs;
             font_gra3.innerHTML = '粉丝数：' + res.user_fans;
-        })
+        // })
     }
 
     // 传入数据—动态模态框(日记本)
@@ -108,28 +107,23 @@
     // 模态框
     modal_frame();
     function modal_frame() {
-        let add=document.querySelector('.qz_add');
         let qz_cen=document.querySelectorAll('.qz_cen');
-        let close = document.querySelectorAll('.qz_close');
-        let cancel = document.querySelectorAll('.qz_cancel');
-        let modal = document.querySelectorAll('.qz_modal');
-        add.onclick=function(){
-            modal[0].style.display='block';
-        };
-        for (let i=0;i<18;i++){
+        let close = document.querySelector('.qz_close');
+        let cancel = document.querySelector('.qz_cancel');
+        let modal = document.querySelector('.qz_modal');
+        for (let i=0;i<12;i++){
             qz_cen[i].onclick=function () {
-                modal[1].style.display='block';
+                modal.style.display='block';
             };
         }
-        for (let i=0;i<2;i++){
-            close[i].onclick= function(){
-                modal[i].style.display = 'none';
-            };
-            cancel[i].onclick= function(){
-                console.log(i);
-                modal[i].style.display = 'none';
-            };
-        }
+        close.onclick= function(){
+            modal.style.display = 'none';
+        };
+        cancel.onclick= function(){
+            modal.style.display = 'none';
+        };
+
+
     }
 
     // 导航栏切换
@@ -138,24 +132,15 @@
         let qz_nav=document.querySelector('#qz_nav');
         let dia=document.querySelector('#qz_diary');
         let col=document.querySelector('#qz_collection');
-        let adm=document.querySelector('#qz_admission');
         qz_nav.onclick=function (event) {
             let node=event && event.target;
             if(node.nodeName.toLowerCase()=='span'||'img'){
                 if(node.parentNode.parentNode.nextElementSibling){
-                    if(node.parentNode.parentNode.nextElementSibling.nextElementSibling){
-                        col.style.display='none';
-                        adm.style.display='none';
-                        dia.style.display='block';
-                    }else {
-                        dia.style.display='none';
-                        adm.style.display='none';
-                        col.style.display='block';
-                    }
+                    col.style.display='none';
+                    dia.style.display='block';
                 }else {
                     dia.style.display='none';
-                    col.style.display='none';
-                    adm.style.display='block';
+                    col.style.display='block';
                 }
             }
         };
@@ -229,10 +214,6 @@
         let qz_pernic=document.querySelector('.qz_pernic');
         let qz_nick=document.querySelector('.qz_nick');
         let qz_pla=document.querySelector('.qz_pla');
-        let qz_percha=document.querySelector('.qz_percha');
-        // let qz_rota=document.querySelector('.qz_rota');
-        let qz_gui=document.querySelector('.qz_gui');
-        let qz_skinfo=document.querySelector('.qz_skinfo');
         // 定义第二页
         let qz_sep=document.querySelectorAll('.qz_sep');
         let qz_nimg=document.querySelectorAll('.qz_nimg');
@@ -240,7 +221,7 @@
         dyna_con.style.height=(screen_height-50)+'px';
         // 计算第一页
         // 第一页
-        qz_cover.style.height=(screen_height-120)*0.97+'px';
+        qz_cover.style.height=(screen_height-120)*0.6+'px';
         // 左边个人信息框
         qz_per.style.marginTop=(screen_height-120)*0.21+'px';
         // 主人的头像
@@ -251,15 +232,9 @@
         qz_nick.style.height=(screen_height-120)*0.16+'px';
         // 个人信息
         qz_pla.style.height=(screen_height-120)*0.18+'px';
-        qz_percha.style.height=(screen_height-120)*0.18+'px';
         // 右边个人肤质框
-        //轮播图
-        // qz_rota.style.marginTop=(screen_height-120)*0.15+'px';
-        // 护肤指南
-        qz_gui.style.height=(screen_height-120)*0.23+'px';
-        qz_skinfo.style.height=(screen_height-120)*0.15+'px';
         // 计算第二页
-        for(i=0;i<3;i++){
+        for(i=0;i<2;i++){
             qz_sep[i].style.height=(screen_height-50)*0.18+'px';
             qz_nimg[i].style.height=(screen_height-50)*0.1+'px';
         }
@@ -339,49 +314,10 @@
 
 
 
-    // let anc_eve=document.querySelector('.anchor_event');
-    //获取滚动条到顶部的高度
-    // window.onscroll=function(){
-    //     let scroll_distance = document.documentElement.scrollTop||document.body.scrollTop;
-    //     console.log(scroll_distance);
-    // }
 
 
-    //滚动条匀速滑动
-    anchor_slip();
-    function anchor_slip() {
-        let anc_lin=document.querySelector('.anchor_link');
-        anc_lin.onclick = function () {
-            startMover(969);
-        }
-        var timer = null;
-        function startMover(itarget) {//目标值
-            clearInterval(timer);//执行当前动画同时清除之前的动画
-            timer = setInterval(function () {
-                let scroll_distance = document.documentElement.scrollTop||document.body.scrollTop;
-                console.log(scroll_distance);
-                console.log(itarget);
-                var speed = 0;
-                if (scroll_distance > itarget) {
-                    speed = -5;
-                }
-                else {
-                    speed = 5;
-                }
-                if (scroll_distance == itarget) {
-                    clearInterval(timer);
-                }
-                else {
-                    var a= parseInt(scroll_distance + speed);
-                    if ((itarget-scroll_distance)<5) {
-                        a= parseInt(itarget);
-                    }
-                    window.scrollTo(0,a);
-                }
-            }, 1);
-        }
-    }
-    // 返回顶部
+
+
 
 
 
