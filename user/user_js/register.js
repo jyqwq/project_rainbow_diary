@@ -40,7 +40,7 @@ form.onclick=function (event) {
                 if(sessionStorage.getItem('from')){
                     location.href=sessionStorage.getItem('from');
                 }else{
-                    location.href='index.html';
+                    location.href='/rainbow_diary_html/index.html';
                 }
             }else{
                 alert(res.status_text);

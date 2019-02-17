@@ -22,6 +22,7 @@
                         sessionStorage.setItem(`${i}`,u[i]);
                     }
                     localStorage.setItem('user_skin',u['user_skin']);
+                    localStorage.setItem('user_id',u['user_id']);
                     if (window.location.pathname=='/rainbow_diary_html/index.html'){
                         usericon_img.src=u.user_icon;
                     }else {

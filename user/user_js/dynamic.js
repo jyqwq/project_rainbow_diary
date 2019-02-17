@@ -17,11 +17,25 @@
                     user_nickname.innerHTML=u.user_nickname;
                     fans.innerHTML=u.user_fans;
                     fcs.innerHTML=u.user_watchs;
+                }else {
+                    sessionStorage.setItem('from',window.location.pathname);
+                    location.href='login.html'
                 }
             })
         }else {
-            sessionStorage.setItem('from','/user/dynamic.html');
+            sessionStorage.setItem('from',window.location.pathname);
             location.href='login.html'
+        }
+    }
+    //退出登录
+    exit();
+    function exit(){
+        let exit_col=document.querySelector('.exit_col');
+        exit_col.onclick=function () {
+            localStorage.removeItem('token');
+            sessionStorage.clear();
+            localStorage.setItem('user_skin',1);
+            location.href='/rainbow_diary_html/index.html';
         }
     }
 
@@ -29,13 +43,11 @@
     //获取所有动态
     all_dy();
     function all_dy(){
-        let user_id=sessionStorage.getItem('user_id');
+        let user_id=localStorage.getItem('user_id');
         let user={'user_id':parseInt(user_id),'methods':'dy'};
         let dy_ajax=document.querySelector('.dy_ajax');
-        dy_ajax.innerHTML='';
         let myDate = new Date();
         postData(ajax_url+'/user/person',user,function (res) {
-            console.log(res);
             for (let i in res){
                 let num=parseInt(myDate.getTime())-parseInt(res[i].data);
                 let time=number_to_time(num);
@@ -66,7 +78,8 @@
                         </div>
                     </div>
                     <div class="col-lg-2 margin_top">
-                        <div class="dy_type" style="display: none">心情</div>
+                        <div class="dy_type" style="display: none">dynamic</div>
+                        <div class="dy_id" style="display: none">${res[i].id}</div>
                         <img src="../img/心率.png" alt="">
                     </div>
                 </div>
@@ -108,7 +121,8 @@
                         </div>
                     </div>
                     <div class="col-lg-2 margin_top">
-                        <div class="dy_type" style="display: none">日记</div>
+                        <div class="dy_type" style="display: none">journal</div>
+                        <div class="dy_id" style="display: none">${res[i].id}</div>
                         <img src="../img/日记.png" alt="">
                     </div>
                 </div>
@@ -154,7 +168,8 @@
                         </div>
                     </div>
                     <div class="col-lg-2 margin_top">
-                        <div class="dy_type" style="display: none">测评</div>
+                        <div class="dy_type" style="display: none">test</div>
+                        <div class="dy_id" style="display: none">${res[i].id}</div>
                         <img src="../img/评价.png" alt="">
                     </div>
                 </div>
@@ -168,6 +183,16 @@
                     }
                 }
             }
+            let to_one=document.querySelectorAll('.to_one');
+            for (let p in to_one){
+                to_one[p].onclick=function () {
+                    let dy_message=this.parentElement.nextElementSibling.children;
+                    sessionStorage.setItem('dy_type',dy_message[0].innerText);
+                    sessionStorage.setItem('dy_id',dy_message[1].innerText);
+                    sessionStorage.setItem('from','/rainbow_diary_html/user/dynamic.html');
+                    location.href='/rainbow_diary_html/user/dynamic_one.html'
+                }
+            } 
         })
     }
 
@@ -197,7 +222,7 @@
             dy_c.parentElement.classList.remove('my_active');
             let dy_type=document.querySelectorAll('.dy_type');
             for (i in dy_type){
-                if (dy_type[i].innerText!=='心情') {
+                if (dy_type[i].innerText!=='dynamic') {
                     dy_type[i].parentElement.parentElement.parentElement.style.display='none';
                 }else {
                     dy_type[i].parentElement.parentElement.parentElement.style.display='block';
@@ -211,7 +236,7 @@
             dy_c.parentElement.classList.remove('my_active');
             let dy_type=document.querySelectorAll('.dy_type');
             for (i in dy_type){
-                if (dy_type[i].innerText!=='日记') {
+                if (dy_type[i].innerText!=='journal') {
                     dy_type[i].parentElement.parentElement.parentElement.style.display='none';
                 }else {
                     dy_type[i].parentElement.parentElement.parentElement.style.display='block';
@@ -225,7 +250,7 @@
             dy_all.parentElement.classList.remove('my_active');
             let dy_type=document.querySelectorAll('.dy_type');
             for (i in dy_type){
-                if (dy_type[i].innerText!=='测评') {
+                if (dy_type[i].innerText!=='test') {
                     dy_type[i].parentElement.parentElement.parentElement.style.display='none';
                 }else {
                     dy_type[i].parentElement.parentElement.parentElement.style.display='block';

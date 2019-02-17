@@ -21,7 +21,7 @@
             for(i=0;i<4;i++){
                 infirst.innerHTML+=`<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
                 <div class="row recommend_one">
-                    <a href="#">
+                    <a href="#" class="to_one">
                         <img src="${res[i].com_img}" class="img-responsive img-rounded" alt="Responsive image">
                         <div class="row pro_detail">
                             <span style="font-size: 1.2em;"><strong>${res[i].commodity_name}</strong></span> <br>
@@ -38,6 +38,8 @@
                             <span>参考价:${res[i].commodity_price} RMB</span>
                         </div>
                     </a>
+                    <div class="dy_type" style="display: none">commodity</div>
+                    <div class="dy_id" style="display: none">${res[i].id}</div>
                 </div>
             </div>`
             }
@@ -52,7 +54,7 @@
         postData(ajax_url+'/index',hot,function (res) {
             res.toJSON;
             most_hot.innerHTML=`<div class="row most_content">
-                <span class="most_">&nbsp;&nbsp;最热动态&nbsp;&nbsp;</span><span class="most_ glyphicon glyphicon-fire" aria-hidden="true"></span>
+                <span class="most_">&nbsp;&nbsp;最热日记&nbsp;&nbsp;</span><span class="most_ glyphicon glyphicon-fire" aria-hidden="true"></span>
                 <br>
                 <span class="most_title"><strong>&nbsp;&nbsp;${res[0].tit}</strong></span>
                 <br>
@@ -64,15 +66,19 @@
                 <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true">&nbsp;${res[0].fbs}</span>
             </div>
             <div class="row hot_thing row_most_margin">
-                <a href="#">
+                <a href="#" class="to_one">
                     <img src="${res[0].images}" class="img-responsive img-rounded" alt="Responsive image">
                 </a>
+                <div class="dy_type" style="display: none">journal</div>
+                <div class="dy_id" style="display: none">${res[0].id}</div>
             </div>`;
             for (i=0;i<6;i++){
                 insecond.innerHTML+=`<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 hot_thing">
-                    <a href="#">
+                    <a href="#" class="to_one">
                         <img src="img/rank_img.jpg" class="img-responsive img-rounded hot_img" alt="Responsive image">
                     </a>
+                    <div class="dy_type" style="display: none">journal</div>
+                    <div class="dy_id" style="display: none">${res[i+1].id}</div>
                     <div class="row hot_thing_title"><span><strong>未闻花名</strong></span></div>
                 </div>`;
             }
@@ -142,9 +148,28 @@
                 pro_t[i].innerHTML=res[i].title;
                 pro_img[i].src=res[i].img;
             }
-
+            let to_one=document.querySelectorAll('.to_one');
+            // 前四个量身推荐
+            for (let i=0;i<11;i++){
+                to_one[i].onclick=function () {
+                    sessionStorage.setItem('dy_type',to_one.nextElementSibling.innerHTML);
+                    sessionStorage.setItem('dy_id',to_one.nextElementSibling.nextElementSibling.innerHTML);
+                    sessionStorage.setItem('from',window.location.pathname);
+                    location.href='/rainbow_diary_html/search/icy_detail.html'
+                }
+            }
+            //5-11热门日记//12-16测评资讯
+            for (let m=4;m<16;m++){
+                to_one[m].onclick=function () {
+                    sessionStorage.setItem('dy_type',to_one.nextElementSibling.innerHTML);
+                    sessionStorage.setItem('dy_id',to_one.nextElementSibling.nextElementSibling.innerHTML);
+                    sessionStorage.setItem('from',window.location.pathname);
+                    location.href='/rainbow_diary_html/user/dynamic_one.html'
+                }
+            }
         })
     }
+
 
     //-------------------------动画方法--------------------------------
 

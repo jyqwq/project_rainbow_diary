@@ -116,3 +116,7 @@ a:hover{
 .to_one{
     cursor: pointer;
 }
+.tag-item{
+    margin-top: 10px;
+    margin-left: 80px;
+}
