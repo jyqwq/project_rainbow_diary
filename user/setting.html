@@ -109,19 +109,126 @@
 
 <div class="container" style="margin-top: 100px">
     <div class="row">
+        <!--左边导航-->
         <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 choose_sharing">
             <ul class="nav nav-tabs nav-stacked shu_nav row_margin margin_end">
                 <li role="presentation" class="shu_active"><a href="#"><img src="../img/心率.png" alt="">&nbsp;&nbsp;首页</a></li>
                 <li role="presentation"><a href="#"><img src="../img/日记.png" alt="">&nbsp;&nbsp;我的信息</a></li>
-                <li role="presentation"><a href="#"><img src="../img/评价.png" alt="">&nbsp;&nbsp;测评</a></li>
+                <li role="presentation"><a href="#"><img src="../img/评价.png" alt="">&nbsp;&nbsp;我的头像</a></li>
             </ul>
         </div>
+        <!--右边内容-->
         <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 content_sharing">
-
-
-
-
-
+            <!--首页部分-->
+            <div class="dy_row text_active">
+                <div class="row row_margin">
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                        <img src="../img/setting/dynamic_head.jpg" class="img-responsive" alt="Responsive image">
+                    </div>
+                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                        <span>南浅</span>
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+                        <button type="button" class="btn btn-info">修改资料</button>
+                        <button type="button" class="btn btn-info">个人空间></button>
+                    </div>
+                </div>
+            </div>
+            <!--我的信息-->
+            <div class="dairy_row" style="display: none">
+                <div class="row row_margin">
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                        <table>
+                            <tr>
+                                <td class="text_title">昵称：</td>
+                                <td><textarea class="form-control qz_text qz_text1" rows="1" maxlength="5">南浅</textarea></td>
+                            </tr>
+                            <tr>
+                                <td class="text_title">个性签名：</td>
+                                <td><textarea class="form-control qz_text qz_text2" rows="2" maxlength="16">小仙女都是喝露水的</textarea></td>
+                            </tr>
+                            <tr>
+                                <td class="text_title">手机号：</td>
+                                <td><textarea class="form-control qz_text qz_text3" rows="1" maxlength="11">17355135718</textarea></td>
+                            </tr>
+                            <tr>
+                                <td class="text_title">性别：</td>
+                                <td>
+                                    <button type="button" class="btn btn-info select_button">男</button>
+                                    <button type="button" class="btn btn-info select_button">女</button>
+                                    <button type="button" class="btn btn-info select_button">保密</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="text_title">出生日期：</td>
+                                <td>
+                                    <div class="qz_text">
+                                        <select></select>
+                                        <span>年</span>
+                                        <select></select>
+                                        <span>月</span>
+                                        <select></select>
+                                        <span>日</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2"></div>
+                </div>
+                <div class="qz_line"></div>
+                <div class="row row_margin">
+                    <div class="col-xs-5 col-sm-5 col-md-5 col-lg-6"></div>
+                    <div class="col-xs-7 col-sm-7 col-md-7 col-lg-6">
+                        <button type="button" class="btn btn-info select_button submit_button">提交</button>
+                    </div>
+                </div>
+            </div>
+            <!--我的头像-->
+            <div class="test_row" style="display: none">
+                <div class="row row_margin">
+                    <div class="col-xs-2 col-sm-4 col-md-5 col-lg-5 guide">
+                        <img src="../img/setting/font_guide.PNG" class="img-responsive" alt="Responsive image">
+                    </div>
+                    <div class="col-xs-10 col-sm-8 col-md-7 col-lg-7">
+                        <em class="change_em">
+                            <input type="file" class="change_head">
+                            <img src="../img/setting/dynamic_head.jpg" class="master_head" id="icon">
+                        </em>
+                    </div>
+                </div>
+                <div class="qz_line2"></div>
+                <span class="font_pendant">挂件商城</span>
+                <div class="row row_margin">
+                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                        <img src="../img/setting/pendant1.png" class="img-responsive" alt="Responsive image">
+                    </div>
+                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                        <img src="../img/setting/pendant2.png" class="img-responsive" alt="Responsive image">
+                    </div>
+                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                        <img src="../img/setting/pendant3.png" class="img-responsive" alt="Responsive image">
+                    </div>
+                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                        <img src="../img/setting/pendant4.png" class="img-responsive" alt="Responsive image">
+                    </div>
+                </div>
+                <div class="row row_margin">
+                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                        <img src="../img/setting/pendant5.png" class="img-responsive" alt="Responsive image">
+                    </div>
+                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                        <img src="../img/setting/pendant6.png" class="img-responsive" alt="Responsive image">
+                    </div>
+                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                        <img src="../img/setting/pendant7.png" class="img-responsive" alt="Responsive image">
+                    </div>
+                    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+                        <img src="../img/setting/pendant8.png" class="img-responsive" alt="Responsive image">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -164,7 +271,6 @@
         </div>
     </div>
 </div>
-
 <script src="../utils/config.js"></script>
 <script src="../utils/Ajax.js"></script>
 <script src="../js/all_nav.js"></script>
