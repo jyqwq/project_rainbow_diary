@@ -97,6 +97,7 @@
     font-size: 1.6em;
 }
 .hot-right{
+    margin-left: 3px;
     display: inline-block;
     width: 30%;
     padding: 0px;

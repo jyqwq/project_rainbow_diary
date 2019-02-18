@@ -1,7 +1,9 @@
 body,h1,h2,h3,h4,h5,h6,hr,p,blockquote,dl,dt,dd,ul,ol,li,pre,form,fieldset,legend,button,input,textarea,th,td{margin:0;padding:0}
 body{
     background-color:#f2f2f2;
+    /*background: white;*/
 }
+
 *{padding:0;margin:0;}
 #ul-fenye{font-size:0;font-family:Microsoft YaHei;display:inline-block;}
 #ul-fenye li{
@@ -27,6 +29,7 @@ body{
 }
 .top{
     background: white;
+    /*background: #f2f2f2;*/
    padding-top: 20px;
 }
 .top .top-left img{
@@ -63,17 +66,26 @@ body{
     border: 0px;
     background: white;
     min-height: 1em;
+    /*background: #f2f2f2;*/
 
 }
 .mid-2-ul li{
     margin-right: 30px;
-}
-.mid-2-ul li a{
     font-size: 0.5em;
-    color: rgba(128, 128, 128, 0.55);
+    color: rgba(128, 128, 128, 0.69);
     padding: 0px;
     margin-top: 15px;
 }
+.mid-2-ul li:hover{
+    cursor: pointer;
+    color: black;
+}
+/*.mid-2-ul li a{*/
+    /*font-size: 0.5em;*/
+    /*color: rgba(128, 128, 128, 0.55);*/
+    /*padding: 0px;*/
+    /*margin-top: 15px;*/
+/*}*/
 .r-1 .dao_ul{
     padding-bottom: 10px;
     padding-top: 10px;
@@ -87,8 +99,14 @@ li{
 }
 .r-2-1{
     background: white;
+    /*background: #f2f2f2;*/
 }
-#r-2-1{
+#r-2-1-ul li{
+    border: 1px solid rgba(118, 118, 118, 0.51);
+    /*border-right: 1px solid rgba(118, 118, 118, 0.51);*/
+    background: pink;
+}
+#r-2-1-ul li a{
     background: white;
     color:rgba(128, 128, 128, 0.7);
     cursor: default;
@@ -127,6 +145,7 @@ li{
 
 .r-3-nav{
     background-color:white;
+    /*background: #f2f2f2;*/
 }
 .r-4{
     /*border: 1px solid rgba(128, 128, 128, 0.71);*/
@@ -144,9 +163,11 @@ li{
     padding-left: 0px;
     padding-top: 0px;
     padding-right: 15px;
+    margin-bottom: 20px;
 }
 .goods .goods-content{
     background: white;
+    /*background: #f2f2f2;*/
 }
 .goods .goods-content:hover{
     box-shadow: 0px 0px 5px #888888;
@@ -177,7 +198,7 @@ li{
     color: red;
 }
 .goods-p-3{
-    margin-top: 35px;
+    margin-top: 15px;
     margin-bottom: 35px;
     font-size: 0.8em;
 }

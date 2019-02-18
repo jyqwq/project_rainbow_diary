@@ -21,7 +21,7 @@
             for(i=0;i<4;i++){
                 infirst.innerHTML+=`<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3">
                 <div class="row recommend_one">
-                    <a href="#" class="to_one">
+                    <a class="to_one_one">
                         <img src="${res[i].com_img}" class="img-responsive img-rounded" alt="Responsive image">
                         <div class="row pro_detail">
                             <span style="font-size: 1.2em;"><strong>${res[i].commodity_name}</strong></span> <br>
@@ -42,6 +42,16 @@
                     <div class="dy_id" style="display: none">${res[i].id}</div>
                 </div>
             </div>`
+            }
+            let to_one=document.querySelectorAll('.to_one_one');
+            // 前四个量身推荐
+            for (let i in to_one){
+                to_one[i].onclick=function () {
+                    sessionStorage.setItem('dy_type',this.nextElementSibling.innerHTML);
+                    sessionStorage.setItem('dy_id',this.nextElementSibling.nextElementSibling.innerHTML);
+                    sessionStorage.setItem('from',window.location.pathname);
+                    location.href='/rainbow_diary_html/search/icy_detail.html'
+                }
             }
         })
     }
@@ -66,17 +76,17 @@
                 <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true">&nbsp;${res[0].fbs}</span>
             </div>
             <div class="row hot_thing row_most_margin">
-                <a href="#" class="to_one">
+                <div class="to_one_two">
                     <img src="${res[0].images}" class="img-responsive img-rounded" alt="Responsive image">
-                </a>
+                </div>
                 <div class="dy_type" style="display: none">journal</div>
                 <div class="dy_id" style="display: none">${res[0].id}</div>
             </div>`;
             for (i=0;i<6;i++){
                 insecond.innerHTML+=`<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 hot_thing">
-                    <a href="#" class="to_one">
+                    <div href="" class="to_one_two">
                         <img src="img/rank_img.jpg" class="img-responsive img-rounded hot_img" alt="Responsive image">
-                    </a>
+                    </div>
                     <div class="dy_type" style="display: none">journal</div>
                     <div class="dy_id" style="display: none">${res[i+1].id}</div>
                     <div class="row hot_thing_title"><span><strong>未闻花名</strong></span></div>
@@ -87,6 +97,17 @@
             for (i=1;i<7;i++){
                 hot_img[i-1].src=`${res[i].images}`;
                 hot_thing_title[i-1].innerHTML=`<span><strong>${res[i].tit}</strong></span>`;
+            }
+
+            let to_one=document.querySelectorAll('.to_one_two');
+            for (let m in to_one){
+                to_one[m].onclick=function () {
+                    console.log(this);
+                    sessionStorage.setItem('dy_type',this.nextElementSibling.innerHTML);
+                    sessionStorage.setItem('dy_id',this.nextElementSibling.nextElementSibling.innerHTML);
+                    sessionStorage.setItem('from',window.location.pathname);
+                    location.href='/rainbow_diary_html/user/dynamic_one.html'
+                }
             }
             // 热门动态动画
             //滚动条划入
@@ -124,12 +145,12 @@
                 let hot_thing = document.querySelectorAll('.hot_thing');
                 for (i = 0; i < 6; i++) {
                     hot_thing[i].onmouseover = function () {
-                        this.children[1].style.marginTop = '-40px';
-                        this.children[1].classList.add('hot_thing_title_act');
+                        this.children[3].style.marginTop = '-40px';
+                        this.children[3].classList.add('hot_thing_title_act');
                     };
                     hot_thing[i].onmouseout = function () {
-                        this.children[1].style.marginTop = '0';
-                        this.children[1].classList.remove('hot_thing_title_act');
+                        this.children[3].style.marginTop = '0';
+                        this.children[3].classList.remove('hot_thing_title_act');
                     }
                 }
             }
@@ -144,25 +165,18 @@
             res.toJSON;
             let pro_t=document.querySelectorAll('.pro_t');
             let pro_img=document.querySelectorAll('.pro_img');
+            let dy_id_1=document.querySelectorAll('.dy_id_1');
             for (i=0;i<5;i++){
                 pro_t[i].innerHTML=res[i].title;
                 pro_img[i].src=res[i].img;
+                dy_id_1[i].innerHTML=res[i].id;
             }
-            let to_one=document.querySelectorAll('.to_one');
-            // 前四个量身推荐
-            for (let i=0;i<11;i++){
-                to_one[i].onclick=function () {
-                    sessionStorage.setItem('dy_type',to_one.nextElementSibling.innerHTML);
-                    sessionStorage.setItem('dy_id',to_one.nextElementSibling.nextElementSibling.innerHTML);
-                    sessionStorage.setItem('from',window.location.pathname);
-                    location.href='/rainbow_diary_html/search/icy_detail.html'
-                }
-            }
-            //5-11热门日记//12-16测评资讯
-            for (let m=4;m<16;m++){
+            let to_one=document.querySelectorAll('.to_one_three');
+            for (let m in to_one){
                 to_one[m].onclick=function () {
-                    sessionStorage.setItem('dy_type',to_one.nextElementSibling.innerHTML);
-                    sessionStorage.setItem('dy_id',to_one.nextElementSibling.nextElementSibling.innerHTML);
+                    console.log(this);
+                    sessionStorage.setItem('dy_type',this.nextElementSibling.innerHTML);
+                    sessionStorage.setItem('dy_id',this.nextElementSibling.nextElementSibling.innerHTML);
                     sessionStorage.setItem('from',window.location.pathname);
                     location.href='/rainbow_diary_html/user/dynamic_one.html'
                 }
@@ -221,19 +235,19 @@
             if (j == 0) {
                 for (m = 0; m < 2; m++) {
                     all_eva[j].children[m].onmouseover = function () {
-                        this.children[1].classList.add('upper_div');
+                        this.children[3].classList.add('upper_div');
                     };
                     all_eva[j].children[m].onmouseout = function () {
-                        this.children[1].classList.remove('upper_div');
+                        this.children[3].classList.remove('upper_div');
                     }
                 }
             } else {
                 for (n = 0; n < 3; n++) {
                     all_eva[j].children[n].onmouseover = function () {
-                        this.children[1].classList.add('upper_div');
+                        this.children[3].classList.add('upper_div');
                     };
                     all_eva[j].children[n].onmouseout = function () {
-                        this.children[1].classList.remove('upper_div');
+                        this.children[3].classList.remove('upper_div');
                     }
                 }
             }
