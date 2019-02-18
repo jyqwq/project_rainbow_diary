@@ -25,7 +25,6 @@
 /*第二页*/
 .qz_open{
     text-align: center;
-    margin-top: 50px;
 }
 .font_open{
     font-family: 幼圆;
@@ -59,16 +58,16 @@
 /*模态框开始*/
 /* 1.编辑模态框*/
 /*.qz_text{*/
-    /*font-family: 幼圆;*/
-    /*font-size: 1.1em;*/
+/*font-family: 幼圆;*/
+/*font-size: 1.1em;*/
 
-    /*width: 95%;*/
-    /*margin: 7px;*/
-    /*resize: none;*/
-    /*float: right;*/
+/*width: 95%;*/
+/*margin: 7px;*/
+/*resize: none;*/
+/*float: right;*/
 /*}*/
 /*.font_opt{*/
-    /*font-family: 幼圆;*/
+/*font-family: 幼圆;*/
 /*}*/
 /* 3.动态模态框*/
 .font_dyn{
@@ -88,42 +87,25 @@
 }
 /*模态框结束*/
 
+
+
+
 /*全局*/
+body{
+    background: #FFE3E5;
+    background-image: url("../../img/center/background.jpg");
+    background-size: cover;
+}
 .qz_con{
     margin-top: 50px;
     padding: 0;
     height: 2000px;
-    background: #f9f9f9;
 }
 .qz_row{
     margin: 15px;
 }
 
-/*左边个人信息框*/
-.qz_per{
-    margin-top: 75px;
-    border-radius: 20px;
-    background: #FFAAAA;
-}
-/*主人的头像*/
-.qz_cir{
-    float: right;
-    position: relative;
-    left: 75px;
-    top: -75px;
-}
-.qz_por{
-    width: 100%;
-}
-.qz_cul{
-    float: right;
-    position: relative;
-    top: -65px;
-}
-/*主人的小屋*/
-.qz_nic img{
-    height: 30px;
-}
+
 
 /*模态框*/
 .qz_modal{
@@ -178,6 +160,7 @@
     font-size: 16px;
     box-sizing:border-box;
 }
+
 .qz_mofoot{
     box-sizing:border-box;
     border-top:1px solid #ccc;
@@ -224,10 +207,10 @@
     background-color: #95b4ed;
 }
 /*.edit_con{*/
-    /*width: 35%;*/
-    /*height: 55%;*/
-    /*margin: 150px auto;*/
-    /*background-color:#fff;*/
+/*width: 35%;*/
+/*height: 55%;*/
+/*margin: 150px auto;*/
+/*background-color:#fff;*/
 /*}*/
 /* 2.肤质测试模态框开始*/
 .test_con{
@@ -242,34 +225,6 @@
     margin: 50px auto;
     background-color:#f9f9f9;
 }
-/*动态主体开始*/
-/*日记本，收藏夹*/
-.dynamic{
-    display: block;
-}
-    /*作者头像日期*/
-.dyn_head{
-    height: 40px;
-}
-.dyn_head img{
-    height: 100%;
-}
-    /*动态文字*/
-.qz_dinf{
-    height: 68px;
-    overflow: hidden;
-}
-    /*动态图片*/
-.dyn_pic{
-    margin: 2px -13px;
-    background: crimson;
-}
-    /*分割线*/
-.qz_line{
-    height: 1px;
-    margin: 5px;
-    background: #EEEEEE;
-}
 /*收纳盒*/
 .intake{
     display: block;
@@ -283,6 +238,46 @@
 }
 /*模态框结束*/
 
+
+
+
+
+
+
+/*左边个人信息框*/
+.qz_per{
+    margin-top: 75px;
+    border-radius: 20px;
+    background: #FFE3E5;
+    background-image: url("../../img/center/background.jpg");
+    background-size: cover;
+}
+/*主人的头像*/
+.qz_cir{
+    float: right;
+    position: relative;
+    left: 75px;
+    top: -75px;
+}
+.qz_por{
+    width: 100%;
+}
+.qz_cul{
+    float: right;
+    position: relative;
+    top: -65px;
+}
+/*主人的小屋*/
+.qz_nick{
+    margin-bottom: -15px;
+}
+.qz_nic img{
+    height: 30px;
+}
+/*个人信息*/
+.qz_pla{
+    margin-top: -15px;
+}
 /*肤质测试*/
 .add_img{
     height: 150px;
@@ -294,10 +289,6 @@
     width: 80px;
     height: 30px;
     margin: -100px 40px;
-}
-.gui_img{
-    height: 150px;
-    background: #9783b9;
 }
 /*肤质测试结束*/
 /*右边个人肤质框*/
@@ -319,12 +310,10 @@
     font-size: 1.2rem;
     line-height: 3rem;
 }
-
 .news-item {
     display: table-row;
     width: 100%;
 }
-
 .decoration:before,
 .decoration:after {
     content: "";
@@ -338,7 +327,6 @@
     margin: auto;
     z-index: -1;
 }
-
 .news-item:nth-child(1) .decoration:before {
     display: none;
 }
@@ -350,11 +338,9 @@
 .decoration:before {
     top: 0;
 }
-
 .decoration:after {
     bottom: 0;
 }
-
 .decoration {
     display: table-cell;
     width: 10%;
@@ -362,12 +348,10 @@
     vertical-align: middle;
     text-align: center;
 }
-
 .news-item:hover .news-box {
     background-color: rgba(255, 170, 170, 0.6);
     color: #fff;
 }
-
 .news-item:hover .news-box:before {
     content: "";
     width: 0;
@@ -381,30 +365,25 @@
     bottom: 0;
     margin: auto;
 }
-
 .news-item:hover .solid-circle {
     background: rgba(255, 170, 170, 0.6);
 }
-
 .news-item .news-title {
     display: block;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
 }
-
 .news-item:hover .news-title {
     color: #fff;
     text-decoration: underline;
 }
-
 .news-item:hover .news-time {
     color: #fff;
 }
-
 .news-box {
     display: table-cell;
-    line-height: 3rem;
+    line-height: 2.2rem;
     width: 80%;
     vertical-align: middle;
     color: #000;
@@ -412,7 +391,6 @@
     position: relative;
     border-radius: 2px;
 }
-
 .news-circle {
     display: inline-block;
     border-radius: 50%;
@@ -420,7 +398,6 @@
     background-color: #fff;
     vertical-align: middle;
 }
-
 .solid-circle {
     background: #ccc;
     border-radius: 50%;
@@ -429,9 +406,7 @@
     overflow: hidden;
     margin: 0.3rem;
 }
-
 /*浏览历史结束*/
-
 /*箭头指向第二页*/
 .qz_lead{
     height: 70px;
@@ -444,7 +419,6 @@
     margin: auto;
     height: 70px;
 }
-
 /*大导航栏*/
 /*日记本*/
 .qz_nimg{
@@ -455,7 +429,6 @@
     height: 100%;
     margin: auto;
 }
-
 /*中心内容*/
 /*日记本内容*/
 #qz_diary{
@@ -464,10 +437,12 @@
 .qz_cen{
     margin: 10px;
     overflow: hidden;
+    border-radius: 15px;
 }
 .qz_cimg{
     margin: auto;
     transition: all 1s ease-in-out;
+    border-radius: 15px;
 }
 .cimg_active{
     margin: auto;
@@ -477,7 +452,10 @@
 .qz_coimg{
     display: none;
     position: relative;
-    background: rgba(220, 20, 60, 0.28);
+    background: rgba(255, 105, 180, 0.41);
+    border-radius: 15px;
+    text-align: center;
+    font-size: 1.5em;
 }
 /*收藏夹内容*/
 #qz_collection{
@@ -487,6 +465,8 @@
 #qz_admission{
     display: none;
 }
+
+
 
 /*动画*/
 /*由左滑入*/
@@ -507,7 +487,7 @@
 }
 /*放大*/
 /*.anima_pul:hover{*/
-    /*animation: pulse 1s;*/
+/*animation: pulse 1s;*/
 /*}*/
 /*摇晃颤抖*/
 .anima_jel:hover{
@@ -515,7 +495,7 @@
 }
 /*摇晃*/
 /*.animal_jac:hover{*/
-    /*animation: jackInTheBox 1s;*/
+/*animation: jackInTheBox 1s;*/
 /*}*/
 /*挂着摇晃*/
 /*.animal_swi:hover{*/

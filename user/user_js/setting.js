@@ -3,18 +3,21 @@
     //传入数据—我的信息
     perinf_ajax();
     function perinf_ajax() {
-        if (sessionStorage.getItem('user_id')) {
-            var user_id = {'user_id': sessionStorage.getItem('user_id'),'methods':'get'};
+        if (localStorage.getItem('user_id')) {
+            var user_id = {'user_id': localStorage.getItem('user_id'),'methods':'get'};
         } else {
             location.href = '../user/login.html'
         }
         postData(ajax_url + '/user/person', user_id, function (res) {
+            console.log(res);
             let qz_text1=document.querySelector('.qz_text1');
             let qz_text2=document.querySelector('.qz_text2');
             let qz_text3=document.querySelector('.qz_text3');
+            let master_head=document.querySelector('.master_head');
             qz_text1.innerHTML=res.user_nickname;
             qz_text2.innerHTML=res.user_autograpgh;
-            qz_text3.innerHTML=res.user_phone;
+            qz_text3.value=res.user_phone;
+            master_head.src='../'+res.user_icon;
         })
     }
 
@@ -65,6 +68,30 @@
             }
         }
     }
+
+    // 检查手机号
+    let qz_text3=document.querySelector('.qz_text3');
+    function checkTelphone() {
+        let qz_text3=document.querySelector('.qz_text3');
+        var tel_err=document.querySelector('#tel_err');
+        var regMobile=/^1\d{10}$/;
+        if(qz_text3.value){
+            if(regMobile.test(qz_text3.value)) {
+                tel_err.innerText = '';
+                return true;
+            }else{
+                tel_err.innerText = '*手机号码格式不正确*';
+                return false;
+            }
+        }else{
+            tel_err.innerText='*请输入手机号*';
+            return false;
+        }
+    }
+
+    qz_text3.onchange=function(){
+        console.log(checkTelphone());
+    };
 
     //生日选择器
     data_select();
