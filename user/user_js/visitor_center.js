@@ -3,8 +3,8 @@
     // 传入数据—左边个人信息框
     perinf_ajax();
     function perinf_ajax() {
-        // if (sessionStorage.getItem('user_id')) {
-        //     var user_id = {'user_id': sessionStorage.getItem('user_id'),'methods':'get'};
+        // if (localStorage.getItem('user_id')) {
+        //     var user_id = {'user_id': localStorage.getItem('user_id'),'methods':'get'};
         // } else {
         //     location.href = '../user/login.html'
         // }
@@ -28,8 +28,8 @@
     // 传入数据—动态模态框(日记本)
     diary_ajax();
     function diary_ajax() {
-        // if (sessionStorage.getItem('user_id')){
-        //     var user_id={'user_id':sessionStorage.getItem('user_id'),'methods':'get'};
+        // if (localStorage.getItem('user_id')){
+        //     var user_id={'user_id':localStorage.getItem('user_id'),'methods':'get'};
         // } else{
         //     location.href='../user/login.html';
         // }

@@ -43,7 +43,7 @@
     padding-top: 20px;
 }
 .qz_an{
-   font-size: 1.5em;
+    font-size: 1.5em;
 }
 .qz_ag{
     font-size: 1.2em;
@@ -92,6 +92,8 @@
 .dyt_img img{
     height: 100%;
 }
+
+
 .dy_pic{
     height: 100px;
     margin-right: -12px;
@@ -109,6 +111,10 @@
 .dy_tit{
     font-size: 1.2em;
 }
+
+
+
+
 .qz_a{
     color: purple;
 }
@@ -165,23 +171,39 @@
     font-size: 1.2em;
 }
 
-/*动态页样式*/
-.mic_body{
-    display: none;
-    margin: 15px 0px;
+
+
+
+/*动态主体开始*/
+/*日记本，收藏夹*/
+.dynamic{
+    display: block;
 }
-.dyn_pic{
+/*作者头像日期*/
+.dyn_head{
     height: 40px;
-    /*background: #FFAAAA;*/
 }
-.dyn_pic img{
+.dyn_head img{
     height: 100%;
 }
-.dyn_for{
-    float: left;
+/*动态文字*/
+.qz_dinf{
+    height: 68px;
+    overflow: hidden;
+}
+/*动态图片*/
+.dyn_pic{
+    margin: 2px -13px;
+}
+/*分割线*/
+.qz_line{
+    height: 1px;
+    margin: 5px;
+    background: #EEEEEE;
 }
 
-/*收藏页样式*/
+
+/*收藏夹页样式*/
 .qz_collect{
     display: none;
     margin: 15px 0px;
@@ -191,7 +213,7 @@
     background: #9783b9;
 }
 
-/*设置页样式*/
+/*收纳盒页样式*/
 .qz_set{
     display: none;
     margin: 15px 0px;
@@ -209,15 +231,15 @@
     animation: swing 1s;
 }
 /*.animal_bin:hover{*/
-    /*animation: bounceIn 1s;*/
+/*animation: bounceIn 1s;*/
 /*}*/
 /*.animal_rin:hover{*/
-    /*animation: rotateIn 2s;*/
+/*animation: rotateIn 2s;*/
 /*}*/
 .animal_sil{
     animation: slideInLeft 1s;
     /*color: #FF79BC;*/
 }
 /*.animal_jac:hover{*/
-    /*animation: jackInTheBox 1s;*/
+/*animation: jackInTheBox 1s;*/
 /*}*/
