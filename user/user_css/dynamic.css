@@ -92,7 +92,7 @@ a:hover{
     margin-top: 5px;
 }
 .dy_c_icon{
-    text-align: right;
+    text-align: center;
 }
 .dy_tags{
     float: right;
@@ -119,4 +119,23 @@ a:hover{
 .tag-item{
     margin-top: 10px;
     margin-left: 80px;
+}
+.dy_c_nav{
+    width: 70px;
+}
+.dy_c,.dy_f,.dy_p{
+    cursor: pointer;
+}
+.dy_text{
+    resize: none;
+}
+.content_margin{
+    margin-left: 15px;
+}
+.remind_text{
+    font-size: 0.9em;
+    color: rgba(128,128,128,0.6);
+}
+.line{
+    border-top: 1px solid #dadada;
 }

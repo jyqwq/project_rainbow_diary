@@ -1,34 +1,5 @@
 (function () {
 
-    //页面检查token自动登录
-    let token = localStorage.getItem('token');
-    // check_login(token);
-    //自动登录
-    function check_login(token) {
-        if (token){
-            let Token = {'token':token};
-            postData(ajax_url+'/user/login',Token,function (res) {
-                if (res.status_code == '10003') {
-                    let islogin = document.querySelectorAll('.islogin');
-                    let unlogin = document.querySelectorAll('.unlogin');
-                    let usericon_img = document.querySelector('.usericon_img');
-                    let u = res.usermessage;
-                    for (i in u){
-                        sessionStorage.setItem(`${i}`,u[i]);
-                    }
-                    usericon_img.src='../'+`${u.user_icon}`;
-                    unlogin[0].style.display = 'none';
-                    islogin[0].style.display = 'block';
-                    unlogin[1].style.display = 'none';
-                    islogin[1].style.display = 'block';
-                }
-                else {
-                    console.log(res.status_text);
-                }
-            })
-        }
-    }
-
     real_time();
     //实时热搜ajax
     function real_time() {
@@ -36,15 +7,24 @@
         let real_time=document.querySelector('.real_time');
         postData(ajax_url+'/search/rank',hot,function (res) {
             for (let i in res){
+                if (res[i].t_name=='journal') {
+                    res[i].t_Name='日记'
+                }else if (res[i].t_name=='dynamic') {
+                    res[i].t_Name='心情'
+                }else {
+                    res[i].t_Name='测评'
+                }
                 real_time.innerHTML+=`<div class="row row_margin rank_one">
             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 rank_num"><strong>${parseInt(i)+1}</strong></div>
             <div class="col-xs-10 col-sm-8 col-md-8 col-lg-8">
                 <div class="col-xs-5 col-sm-3 col-md-3 col-lg-3 rank_img">
-                    <img src="${res[i].images}" class="img-responsive img-rounded" alt="Responsive image">
+                    <img src="../${res[i].images}" class="img-responsive img-rounded" alt="Responsive image">
                 </div>
                 <div class="col-xs-7 col-sm-9 col-md-9 col-lg-9 rank_content">
                     <div class="row first_row">
-                        <a href="#" class="content_name"><h5><strong>${res[i].title}</strong></h5></a>
+                        <a class="content_name to_one_dy"><h5><strong>${res[i].title}</strong></h5></a>
+                        <div class="dy_type" style="display: none">${res[i].t_name}</div>
+                        <div class="dy_id" style="display: none">${res[i].id}</div>
                     </div>
                     <div class="row second_row">
                         <span class="glyphicon glyphicon-eye-open" aria-hidden="true">&nbsp;${res[i].click}</span>
@@ -53,7 +33,7 @@
                         &nbsp;&nbsp;&nbsp;&nbsp;
                         <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true">&nbsp;${res[i].fbs}</span>
                         &nbsp;&nbsp;&nbsp;&nbsp;
-                        <span class="glyphicon glyphicon-user" aria-hidden="true">&nbsp;<a href="#">${res[i].user_name}</a></span>
+                        <span class="glyphicon glyphicon-user" aria-hidden="true">&nbsp;<a class="to_one_person">${res[i].user_name}</a></span>
                     </div>
                 </div>
             </div>
@@ -64,11 +44,21 @@
                 </div>
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
                     <span style="color: darkgrey"><strong>分类</strong></span> <br>
-                    <span style="color: #ffadbc; font-size: 1.2em"><strong>${res[i].t_name}</strong></span>
+                    <span style="color: #ffadbc; font-size: 1.2em"><strong>${res[i].t_Name}</strong></span>
                 </div>
             </div>
         </div>`
             }
+            let to_one_dy=document.querySelectorAll('.to_one_dy');
+            for (let p in to_one_dy){
+                to_one_dy[p].onclick=function () {
+                    sessionStorage.setItem('dy_type',to_one_dy[p].nextElementSibling.innerText);
+                    sessionStorage.setItem('dy_id',to_one_dy[p].nextElementSibling.nextElementSibling.innerText);
+                    sessionStorage.setItem('from','/rainbow_diary_html/search/rank.html');
+                    location.href='/rainbow_diary_html/user/dynamic_one.html'
+                }
+            }
+
         })
     }
 
@@ -78,24 +68,51 @@
         let hot={'hot_dairy':1,'hot_search':false};
         let hot_dairy=document.querySelector('.hot_dairy');
         postData(ajax_url+'/search/rank',hot,function (res) {
-            for (i=0;i<res.length;i++){
-                let num_rank=document.querySelectorAll('.num_rank');
-                let img_rank=document.querySelectorAll('.img_rank');
-                let title_rank=document.querySelectorAll('.title_rank');
-                let s_rank=document.querySelectorAll('.s_rank');
-                let t_rank=document.querySelectorAll('.t_rank');
-                let f_rank=document.querySelectorAll('.f_rank');
-                let u_rank=document.querySelectorAll('.u_rank');
-                let fraction=document.querySelectorAll('.fraction');
-                num_rank[i].innerHTML=i+1;
-                img_rank[i].src='../'+res[i].images;
-                title_rank[i].innerHTML=res[i].title;
-                s_rank[i].innerHTML=`&nbsp;${res[i].click}`;
-                t_rank[i].innerHTML=`&nbsp;${res[i].cots}`;
-                f_rank[i].innerHTML=`&nbsp;${res[i].fbs}`;
-                u_rank[i].innerHTML=res[i].user_name;
-                fraction[i].innerHTML=res[i].click+res[i].cots*2+res[i].fbs*4;
-
+            let  hot_dairy=document.querySelector('.hot_dairy');
+            for (let i in res){
+                hot_dairy.innerHTML+=`<div class="row row_margin rank_one">
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 rank_num"><strong class="num_rank">${parseInt(i)+1}</strong></div>
+            <div class="col-xs-10 col-sm-8 col-md-8 col-lg-8">
+                <div class="col-xs-5 col-sm-3 col-md-3 col-lg-3 rank_img">
+                    <img src="../${res[i].images}" class="img-responsive img-rounded img_rank" alt="Responsive image">
+                </div>
+                <div class="col-xs-7 col-sm-9 col-md-9 col-lg-9 rank_content">
+                    <div class="row first_row">
+                        <a class="content_name to_two_dy"><h5><strong class="title_rank">${res[i].title}</strong></h5></a>
+                        <div class="dy_type" style="display: none">journal</div>
+                        <div class="dy_id" style="display: none">${res[i].id}</div>
+                    </div>
+                    <div class="row second_row">
+                        <span class="glyphicon glyphicon-eye-open s_rank" aria-hidden="true">&nbsp;${res[i].click}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="glyphicon glyphicon-edit t_rank" aria-hidden="true">&nbsp;${res[i].cots}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="glyphicon glyphicon-thumbs-up f_rank" aria-hidden="true">&nbsp;${res[i].fbs}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="glyphicon glyphicon-user" aria-hidden="true">&nbsp;<a class="u_rank to_two_person">${res[i].user_name}</a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="hidden-xs col-sm-2 col-md-2 col-lg-2 rank_detail">
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <span style="color: darkgrey"><strong>综合得分</strong></span> <br>
+                    <span style="color: deepskyblue; font-size: 1.2em"><strong class="fraction">${res[i].click+res[i].cots*2+res[i].fbs*4}</strong></span>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <span style="color: darkgrey"><strong>上周排行</strong></span> <br>
+                    <span style="color: deepskyblue; font-size: 1.2em"><strong>未上榜</strong></span>
+                </div>
+            </div>
+        </div>`
+            }
+            let to_two_dy=document.querySelectorAll('.to_two_dy');
+            for (let p in to_two_dy){
+                to_two_dy[p].onclick=function () {
+                    sessionStorage.setItem('dy_type',to_two_dy[p].nextElementSibling.innerText);
+                    sessionStorage.setItem('dy_id',to_two_dy[p].nextElementSibling.nextElementSibling.innerText);
+                    sessionStorage.setItem('from','/rainbow_diary_html/search/rank.html');
+                    location.href='/rainbow_diary_html/user/dynamic_one.html'
+                }
             }
         })
     }
@@ -121,7 +138,6 @@
                 s_t_rank[i].innerHTML=`&nbsp;${res[i].cots}`;
                 s_f_rank[i].innerHTML=`&nbsp;${res[i].fbs}`;
                 cosmetics_fraction[i].innerHTML=res[i].click+res[i].cots*2+res[i].fbs*4;
-
             }
         })
     }

@@ -33,3 +33,6 @@
 .Q_and_Aline{
     border-left: solid 3px gray;
 }
+.to_one_img,.to_one_t1,.to_one_t2,.to_one_t3{
+    cursor: pointer;
+}
