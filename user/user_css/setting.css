@@ -78,6 +78,9 @@
     background: #FFAAAA;
     border: #FFAAAA;
 }
+.button_active{
+    background: #2DAED4;
+}
 .qz_line{
     margin-top: 50px;
     height: 1px;

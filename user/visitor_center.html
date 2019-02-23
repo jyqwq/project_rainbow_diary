@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <link rel="icon" href="../img/logo.ico" type="image/x-icon"/>
-    <title>访客页面</title>
+    <title>个人中心</title>
     <link rel="stylesheet" href="../bootstrap-3.3.7/dist/css/bootstrap.css">
-    <link rel="stylesheet" href="../css/animate.css">
     <link rel="stylesheet" href="../css/all_nav.css">
     <link rel="stylesheet" href="user_css/visitor_center.css">
+    <link rel="stylesheet" href="../css/animate.css">
+
 </head>
+
 <body class="qz_body">
 
 <!--导航栏-->
@@ -107,75 +109,62 @@
     </div>
 </div>
 
-<!--模态框开始-->
-<!--动态模态框开始-->
-<div class="modal qz_modal">
-    <div class="modal-content qz_mocon dyna_con">
-        <header class="modal-header qz_mohead">
-            <span class="font_dyn">收纳盒</span>
-            <span class="close qz_close">×</span>
-        </header>
-        <div class="modal-body qz_mobody">
-            <!--动态主体开始-->
-            <!--日记本，收藏夹-->
-            <div class="dynamic"></div>
-            <!--动态主体结束-->
-        </div>
-        <footer class="modal-footer qz_mofoot">
-            <button class="qz_cancel">取消</button>
-            <button class="qz_sure">确定</button>
-        </footer>
-    </div>
-</div>
-<!--动态模态框结束-->
-<!--模态框结束-->
 
 <div class="container qz_con">
-    <!--第一页-->
-    <div class="row qz_row qz_cover">
+
+    <!--第一部分-->
+    <div class="row qz_row">
         <!--左边个人信息框-->
-        <div class="col-xs-12 col-sm-11 col-md-5 col-lg-5 animal_sil">
+        <div class="col-xs-12 col-sm-11 col-md-5 col-lg-5 animal_sil qz_infor">
             <div class="qz_per">
-                <!--主人的头像-->
-                <div class="qz_cir hidden-xs">
+                <!--头像-->
+                <div class="qz_cir hidden-xs col-sm-3 col-md-5 col-lg-4">
                     <img src="../img/222center222/head.png" class="img-circle img-responsive qz_por" alt="Responsive image">
                 </div>
-                <div class="qz_cul hidden-sm hidden-md hidden-lg">
+                <div class="qz_cul col-xs-5 hidden-sm hidden-md hidden-lg">
                     <img src="../img/222center222/head.png" class="img-circle img-responsive qz_por" alt="Responsive image">
                 </div>
-                <!--主人的小屋-->
+                <!--昵称个签-->
                 <div class="qz_pernic">
                     <div class="row qz_row">
-                        <div class="col-xs-6 col-sm-9 col-md-7 col-lg-7 qz_nick">
+                        <div class="col-xs-7 col-sm-9 col-md-7 col-lg-8 qz_nick">
                             <div class="qz_nic">
+                                <!--昵称-->
                                 <span class="font_nic">南浅</span><br>
-                                <img src="../img/222center222/font_house.png" class="img-responsive" alt="Responsive image">
+                                <!--个性签名-->
+                                <span class="font_gra font_gra1">小仙女都是喝露水的</span><br><br>
                             </div>
                         </div>
-
-                        <div class="col-xs-12 col-sm-11 col-md-5 col-lg-2"></div>
                     </div>
                 </div>
                 <!--个人信息-->
                 <div class="qz_perinf">
                     <div class="row qz_row">
-                        <div class="col-xs-8 col-sm-10 col-md-9 col-lg-9">
-                            <div class="qz_pla">
-                                <span class="font_gra font_gra1">个性签名：小仙女都是喝露水的</span><br><br>
-                                <span class="font_gra font_gra2">关注数：0</span><br><br>
-                                <span class="font_gra font_gra3">粉丝数：0</span>
-                            </div>
+                        <div class="col-xs-8 col-sm-10 col-md-9 col-lg-8">
+                            <ul class="nav">
+                                <li class="nav_infor"><div class="nav_infor1">&nbsp;&nbsp;4</div><div>粉丝</div></li>
+                                <li class="nav_infor"><div class="nav_infor2">&nbsp;&nbsp;3</div><div>关注</div></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row qz_row">
+                        <div class="col-xs-8 col-sm-10 col-md-9 col-lg-12">
+                            <ul class="nav">
+                                <li class="nav_infor nav_infor3"><div>&nbsp;&nbsp;4</div><div>点赞</div></li>
+                                <li class="nav_infor nav_infor4"><div>&nbsp;&nbsp;3</div><div>评论</div></li>
+                                <li class="nav_infor nav_infor5"><div>&nbsp;&nbsp;3</div><div>日记</div></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <div class="hidden-xs col-sm-1 col-md-1 col-lg-1"></div>
-        <!--右边个人肤质框-->
+        <!--右边浏览历史-->
         <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
             <!--浏览历史标题-->
             <div class="bro_his">
-                <img src="../img/visitor_center/his_favorite.PNG" class="img-responsive" alt="Responsive image">
+                <span class="font_bro">浏览历史</span>
             </div>
             <!--浏览历史——主体-->
             <div class="news-list">
@@ -267,14 +256,15 @@
         </div>
     </div>
 
+
+
     <!--大导航栏-->
     <div class="row qz_row" id="qz_nav">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-1"></div>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-10">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-3"></div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
             <div class="row qz_row">
-                <div class="col-xs-12 col-sm-2 col-md-2 col-lg-2"></div>
                 <!--日记本-->
-                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 qz_sep" id="qz_dianav">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 qz_sep" id="qz_dianav">
                     <div class="qz_nimg anima_jel">
                         <img src="../img/222center222/diary.png" class="img-responsive img_diary" alt="Responsive image">
                     </div>
@@ -282,7 +272,7 @@
                     <div class="qz_ndis"><span class="font_inf">快来写日记吧！</span></div>
                 </div>
                 <!--收藏夹-->
-                <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4 qz_sep" id="qz_colnav">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 qz_sep" id="qz_colnav">
                     <div class="qz_nimg anima_jel">
                         <img src="../img/222center222/collection.png" class="img-responsive img_diary" alt="Responsive image">
                     </div>
@@ -291,7 +281,6 @@
                 </div>
             </div>
         </div>
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-1"></div>
     </div>
 
     <!--中心内容-->
@@ -303,19 +292,25 @@
                     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                         <div class="qz_cen">
                             <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg" alt="Responsive image">
-                            <div class="qz_coimg"></div>
+                            <a href="center.html" class="qz_coimg">
+                                室内剧快捷方式的紧迫是v
+                            </a>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                         <div class="qz_cen">
                             <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg" alt="Responsive image">
-                            <div class="qz_coimg"></div>
+                            <a href="center.html" class="qz_coimg">
+                                室内剧快捷方式的紧迫是v
+                            </a>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                         <div class="qz_cen">
                             <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg" alt="Responsive image">
-                            <div class="qz_coimg"></div>
+                            <a href="center.html" class="qz_coimg">
+                                室内剧快捷方式的紧迫是v
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -323,19 +318,25 @@
                     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                         <div class="qz_cen">
                             <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg" alt="Responsive image">
-                            <div class="qz_coimg"></div>
+                            <a href="center.html" class="qz_coimg">
+                                室内剧快捷方式的紧迫是v
+                            </a>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                         <div class="qz_cen">
                             <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg" alt="Responsive image">
-                            <div class="qz_coimg"></div>
+                            <a href="center.html" class="qz_coimg">
+                                室内剧快捷方式的紧迫是v
+                            </a>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                         <div class="qz_cen">
                             <img src="../img/222center222/S90120-18242387.jpg" class="img-responsive qz_cimg" alt="Responsive image">
-                            <div class="qz_coimg"></div>
+                            <a href="center.html" class="qz_coimg">
+                                室内剧快捷方式的紧迫是v
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -348,19 +349,25 @@
                     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                         <div class="qz_cen">
                             <img src="../img/222center222/S90120-18241142.jpg" class="img-responsive qz_cimg" alt="Responsive image">
-                            <div class="qz_coimg"></div>
+                            <a href="center.html" class="qz_coimg">
+                                室内剧快捷方式的紧迫是v
+                            </a>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                         <div class="qz_cen">
                             <img src="../img/222center222/S90120-18241142.jpg" class="img-responsive qz_cimg" alt="Responsive image">
-                            <div class="qz_coimg"></div>
+                            <a href="center.html" class="qz_coimg">
+                                室内剧快捷方式的紧迫是v
+                            </a>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                         <div class="qz_cen">
                             <img src="../img/222center222/S90120-18241142.jpg" class="img-responsive qz_cimg" alt="Responsive image">
-                            <div class="qz_coimg"></div>
+                            <a href="center.html" class="qz_coimg">
+                                室内剧快捷方式的紧迫是v
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -368,19 +375,25 @@
                     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                         <div class="qz_cen">
                             <img src="../img/222center222/S90120-18241142.jpg" class="img-responsive qz_cimg" alt="Responsive image">
-                            <div class="qz_coimg"></div>
+                            <a href="center.html" class="qz_coimg">
+                                室内剧快捷方式的紧迫是v
+                            </a>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                         <div class="qz_cen">
                             <img src="../img/222center222/S90120-18241142.jpg" class="img-responsive qz_cimg" alt="Responsive image">
-                            <div class="qz_coimg"></div>
+                            <a href="center.html" class="qz_coimg">
+                                室内剧快捷方式的紧迫是v
+                            </a>
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                         <div class="qz_cen">
                             <img src="../img/222center222/S90120-18241142.jpg" class="img-responsive qz_cimg" alt="Responsive image">
-                            <div class="qz_coimg"></div>
+                            <a href="center.html" class="qz_coimg">
+                                室内剧快捷方式的紧迫是v
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -388,8 +401,50 @@
         </div>
     </div>
 </div>
+
+<!--网页底部-->
+<div class="container-fluid under_nav min_width">
+    <div class="container">
+        <div class="row row-margin">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <table class="under_table">
+                    <tr>
+                        <td class="colour">彩虹日记&nbsp;&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">关于我们</a></td>
+                        <td><a href="#">联系我们</a></td>
+                        <td><a href="#">加入我们</a></td>
+                        <td><a href="#">友情链接</a></td>
+                        <td class="hidden-xs hidden-sm"><a href="#">彩虹认证</a></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="hidden-xs col-sm-1 col-md-1 col-lg-1 under_line"></div>
+            <div class="col-xs-12 col-sm-5 col-md-5 col-lg-5">
+                <table class="under_table">
+                    <tr>
+                        <td class="colour">传送门&nbsp;&nbsp;&nbsp;&nbsp;</td>
+                    </tr>
+                    <tr>
+                        <td><a href="#">帮助中心</a></td>
+                        <td><a href="#">侵权申诉</a></td>
+                        <td><a href="#">活动中心</a></td>
+                        <td><a href="#">用户反馈</a></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="row last_222center222">
+            &copy;rainbow diary 2019 belong to Ji yuan /Qian zhen /Rui hong sheng
+        </div>
+    </div>
+</div>
+
+
 <script src="../utils/config.js"></script>
 <script src="../utils/Ajax.js"></script>
+<script src="../js/all_nav.js"></script>
 <script src="user_js/visitor_center.js"></script>
 </body>
 </html>
