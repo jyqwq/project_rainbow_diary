@@ -88,3 +88,6 @@
 .real_time ,.hot_dairy ,.hot_cosmetics{
     margin: 0;
 }
+.to_one_dy,.to_one_person,.to_two_dy,.to_two_person{
+    cursor: pointer;
+}

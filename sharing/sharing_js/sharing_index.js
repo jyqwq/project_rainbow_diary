@@ -221,10 +221,10 @@
     function back() {
         let back_from=document.querySelectorAll('.back_from');
         back_from[0].onclick=function () {
-            location.href='../index.html';
+            location.href='/rainbow_diary_html/user/dynamic.html';
         };
         back_from[1].onclick=function () {
-            location.href='../index.html';
+            location.href='/rainbow_diary_html/user/dynamic.html';
         }
     }
 

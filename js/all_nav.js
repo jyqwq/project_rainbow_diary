@@ -74,6 +74,7 @@
         };
         exit_login.onclick=function () {
             localStorage.removeItem('token');
+            localStorage.removeItem('user_id');
             sessionStorage.clear();
             localStorage.setItem('user_skin',1);
             location.href=window.location.pathname;

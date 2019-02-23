@@ -19,7 +19,9 @@
                 }
                 main_title.innerHTML+=`<div class="row content_margin">
                 <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-                    <a href="#"><img src="${res[i].img}" class="img-responsive img-rounded" alt="Responsive image"></a>
+                    <a class="to_one_img"><img src="../${res[i].img}" class="img-responsive img-rounded" alt="Responsive image"></a>
+                    <div class="dy_type" style="display: none">test</div>
+                    <div class="dy_id" style="display: none">${res[i].id}</div>
                 </div>
                 <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8 content_detail">
                     <br>
@@ -35,18 +37,54 @@
                     </div>
                     <br>
                     <div class="row">
-                        <a href="#" class="a_style"><span class="style_title1">${res[i].title}</span></a>
+                        <a class="a_style to_one_t1"><span class="style_title1">${res[i].title}</span></a>
+                        <div class="dy_type" style="display: none">test</div>
+                        <div class="dy_id" style="display: none">${res[i].id}</div>
                     </div>
                     <br><br>
                     <div class="row">
-                        <a href="#" class="a_style"><span class="style_title2">${tt[0]}&nbsp;<span class="glyphicon glyphicon-play" aria-hidden="true"></span></span></a>
+                        <a class="a_style  to_one_t2"><span class="style_title2">${tt[0]}&nbsp;<span class="glyphicon glyphicon-play" aria-hidden="true"></span></span></a>
+                        <div class="dy_type" style="display: none">test</div>
+                        <div class="dy_id" style="display: none">${res[i].id}</div>
                     </div>
 
                     <div class="row">
-                        <a href="#" class="a_style"><span class="style_title2">${tt[1]}&nbsp;<span class="glyphicon glyphicon-play" aria-hidden="true"></span></span></a>
+                        <a class="a_style  to_one_t3"><span class="style_title2">${tt[1]}&nbsp;<span class="glyphicon glyphicon-play" aria-hidden="true"></span></span></a>
+                        <div class="dy_type" style="display: none">test</div>
+                        <div class="dy_id" style="display: none">${res[i].id}</div>
                     </div>
                 </div>
             </div>`
+            }
+            let to_one_img=document.querySelectorAll('.to_one_img');
+            let to_one_t1=document.querySelectorAll('.to_one_t1');
+            let to_one_t2=document.querySelectorAll('.to_one_t2');
+            let to_one_t3=document.querySelectorAll('.to_one_t3');
+            for (let p in to_one_img){
+                to_one_img[p].onclick=function () {
+                    sessionStorage.setItem('dy_type',to_one_img[p].nextElementSibling.innerText);
+                    sessionStorage.setItem('dy_id',to_one_img[p].nextElementSibling.nextElementSibling.innerText);
+                    sessionStorage.setItem('from','/rainbow_diary_html/sharing/evaluation.html');
+                    location.href='/rainbow_diary_html/user/dynamic_one.html'
+                };
+                to_one_t1[p].onclick=function () {
+                    sessionStorage.setItem('dy_type',to_one_t1[p].nextElementSibling.innerText);
+                    sessionStorage.setItem('dy_id',to_one_t1[p].nextElementSibling.nextElementSibling.innerText);
+                    sessionStorage.setItem('from','/rainbow_diary_html/sharing/evaluation.html');
+                    location.href='/rainbow_diary_html/user/dynamic_one.html'
+                };
+                to_one_t2[p].onclick=function () {
+                    sessionStorage.setItem('dy_type',to_one_t2[p].nextElementSibling.innerText);
+                    sessionStorage.setItem('dy_id',to_one_t2[p].nextElementSibling.nextElementSibling.innerText);
+                    sessionStorage.setItem('from','/rainbow_diary_html/sharing/evaluation.html');
+                    location.href='/rainbow_diary_html/user/dynamic_one.html'
+                };
+                to_one_t3[p].onclick=function () {
+                    sessionStorage.setItem('dy_type',to_one_t3[p].nextElementSibling.innerText);
+                    sessionStorage.setItem('dy_id',to_one_t3[p].nextElementSibling.nextElementSibling.innerText);
+                    sessionStorage.setItem('from','/rainbow_diary_html/sharing/evaluation.html');
+                    location.href='/rainbow_diary_html/user/dynamic_one.html'
+                }
             }
         })
     }
