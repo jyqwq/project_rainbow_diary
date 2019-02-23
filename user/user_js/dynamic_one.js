@@ -5,13 +5,17 @@
     function dy(){
         let user_id=NaN;
         if (sessionStorage.getItem('user_id')) {
-            user_id=sessionStorage.getItem('user_id')
+            user_id=sessionStorage.getItem('user_id');
+            let my_icon=document.querySelector('.my_icon');
+            my_icon.src=`../${sessionStorage.getItem('user_icon')}`
         }else {
             user_id=0
         }
         if (sessionStorage.getItem('dy_id') && sessionStorage.getItem('dy_type')){
             let u={'id':sessionStorage.getItem('dy_id'),'type':sessionStorage.getItem('dy_type'),'user_id':user_id};
+            let m={'id':sessionStorage.getItem('dy_id'),'type':sessionStorage.getItem('dy_type'),'comment':1,'method':'check'};
             dy_onload(u);
+            dy_com(m);
         }else {
             location.href='/rainbow_diary_html/index.html'
         }
@@ -45,7 +49,7 @@
             if (u['type']=='dynamic') {
                 dy_ajax.innerHTML+=`<div class="row all_dy dy_margin">
                 <div class="row">
-                    <div class="col-lg-2 dy_c_content dy_c_icon"><img src="../${res.user_message.user_icon}" alt=""></div>
+                    <div class="col-lg-2 dy_c_content dy_c_icon"><img src="../${res.user_message.user_icon}" alt="" class="img-circle"></div>
                     <div class="col-lg-8 dy_c_content" style="overflow: hidden">
                         <div class="row">
                             <span><strong style="font-size: 1.1em">${res.user_message.user_nickname}</strong></span>
@@ -53,7 +57,7 @@
                             <span style="color: darkgrey;font-size: 0.9em">${time}</span>
                             <div class="dy_tags"></div>
                         </div>
-                        <div class="row dy_c_content to_one">
+                        <div class="row dy_c_content">
                             <span>${res.words}</span>
                         </div>
                         <div class="row dy_c_content">
@@ -82,7 +86,7 @@
                 if (u['type']=='journal') {
                     dy_ajax.innerHTML+=`<div class="row all_dy dy_margin">
                 <div class="row">
-                    <div class="col-lg-2 dy_c_content dy_c_icon"><img src="../${res.user_message.user_icon}" alt=""></div>
+                    <div class="col-lg-2 dy_c_content dy_c_icon"><img src="../${res.user_message.user_icon}" alt="" class="img-circle"></div>
                     <div class="col-lg-8 dy_c_content" style="overflow: hidden">
                         <div class="row">
                             <span><strong style="font-size: 1.1em">${res.user_message.user_nickname}</strong></span>
@@ -131,7 +135,7 @@
                         }
                         dy_ajax.innerHTML+=`<div class="row all_dy dy_margin">
                 <div class="row">
-                    <div class="col-lg-2 dy_c_content dy_c_icon"><img src="../${res.user_message.user_icon}" alt=""></div>
+                    <div class="col-lg-2 dy_c_content dy_c_icon"><img src="../${res.user_message.user_icon}" alt="" class="img-circle"></div>
                     <div class="col-lg-8 dy_c_content"  style="overflow: hidden">
                         <div class="row">
                             <span><strong style="font-size: 1.1em">${res.user_message.user_nickname}</strong></span>
@@ -184,7 +188,7 @@
             let dy_id=document.querySelector('.dy_id');
             dy_f.onclick=function () {
                 if (dy_f.alt!=='0') {
-                    let u ={'user_id':localStorage.getItem('user_id'),'other_id':dy_id.innerText,'type':dy_type.innerText,'judge':'compliment','method':'add'};
+                    let u ={'user_id':localStorage.getItem('user_id'),'other_id':dy_id.innerText,'type':dy_type.innerText,'judge':'compliment','method':'add','data': myDate.getTime()};
                     getData(ajax_url+'/user/person',u,function (res) {
                         console.log(res);
                         if (res.status_code == '10018') {
@@ -211,7 +215,7 @@
             };
             dy_c.onclick=function () {
                 if (dy_c.alt!=='0') {
-                    let u ={'user_id':localStorage.getItem('user_id'),'other_id':dy_id.innerText,'type':dy_type.innerText,'judge':'collections','method':'add'};
+                    let u ={'user_id':localStorage.getItem('user_id'),'other_id':dy_id.innerText,'type':dy_type.innerText,'judge':'collections','method':'add','data': myDate.getTime()};
                     getData(ajax_url+'/user/person',u,function (res) {
                         console.log(res);
                         if (res.status_code == '10015') {
@@ -261,8 +265,59 @@
         })
     }
     //获取评论
-    function dy_comment(u){
+    function dy_com(u){
+        let dy_comment=document.querySelector('.dy_comment');
+        getData(ajax_url+'/user/person',u,function (res) {
+            if (res){
+                let myDate = new Date();
+                dy_comment.innerHTML='';
+                for (let i=0;i<res.length;i++){
+                    let num=parseInt(myDate.getTime())-parseInt(res[i].data);
+                    let time=number_to_time(num);
+                    dy_comment.innerHTML+=`<div class="com_one">
+                            <div class="col-lg-1 dy_c_icon" style="margin-top: 5px"><img src="../${res[i].user_message.user_icon}" alt="" class="img-circle"></div>
+                            <div class="col-lg-11 dy_c_content">
+                                <div class="row" style="margin-left: 10px">
+                                    <span><strong>${res[i].user_message.user_nickname}</strong></span>
+                                    <br>
+                                </div>
+                                <div class="row" style="margin-left: 10px">
+                                    <span>${res[i].comment_content}</span>
+                                </div>
+                                <br>
+                                <div class="row" style="margin-left: 10px;color: darkgrey">
+                                    <span>#${i+1}</span>
+                                    <span style="color: darkgrey;font-size: 0.8em;margin-left: 15px">${time}</span>
+                                </div>
+                                <div class="row dy_c_content line"></div>
+                        </div>
+                        </div>`
+                }
+            }
+        })
+    }
 
+    //评论
+    comm();
+    function comm(){
+        let comment_btn=document.querySelector('.comment_btn');
+        comment_btn.onclick=function () {
+            let dy_text=document.querySelector('.dy_text');
+            let myDate = new Date();
+            if (sessionStorage.getItem('user_id') && dy_text.value) {
+                let u={'user_id':sessionStorage.getItem('user_id'),'other_id':sessionStorage.getItem('dy_id'),'type':sessionStorage.getItem('dy_type'),'content':dy_text.value,'data': myDate.getTime(),'comment':1,'method':'add'};
+                getData(ajax_url+'/user/person',u,function (res) {
+                    if (res.status_code=='10021') {
+                        dy_text.value='';
+                        let myDate = new Date();
+                        let m={'id':sessionStorage.getItem('dy_id'),'type':sessionStorage.getItem('dy_type'),'comment':1,'method':'check'};
+                        dy_com(m);
+                    }else {
+                        alert(res.status_text)
+                    }
+                })
+            }
+        }
     }
 
     //关注按钮
@@ -271,9 +326,10 @@
         let follow=document.querySelector('.follow');
         let isfollow=document.querySelector('.isfollow');
         follow.onclick=function () {
+            let myDate = new Date();
             follow.parentElement.parentElement.style.display='none';
             isfollow.parentElement.parentElement.style.display='block';
-            let v={'user_id':sessionStorage.getItem('user_id'),'other_id':sessionStorage.getItem('other_id'),'method':'add'};
+            let v={'user_id':sessionStorage.getItem('user_id'),'other_id':sessionStorage.getItem('other_id'),'method':'add','data': myDate.getTime()};
             getData(ajax_url+'/user/person',v,function (res) {
                 console.log(res);
             })
@@ -301,6 +357,15 @@
         }
     }
 
+    //字数限制
+    text_num();
+    function text_num(){
+        let remind_text=document.querySelector('.remind_text');
+        let dy_text=document.querySelector('.dy_text');
+        dy_text.onkeyup=function () {
+            remind_text.innerText=140-(dy_text.value.length);
+        }
+    }
 
     function number_to_time(num) {
         let num_second=num/1000;
@@ -315,7 +380,7 @@
             var result=hours+'小时前';
         } else if (mimutes>0){
             var result=mimutes+'分钟前';
-        } else if (seconds>0) {
+        } else if (seconds=>0) {
             var result=seconds+'秒前';
         } else {
             var result=null;

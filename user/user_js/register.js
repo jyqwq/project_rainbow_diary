@@ -31,7 +31,8 @@ form.onclick=function (event) {
     // 检查form表单正确输入
     if(node.type=='button' && flag && checkTelphone() && checkPassword() && confirmpas() && checkName()){
         // console.log(flag);
-        let user={'nickname':qz_nam.value,'telephone':qz_tel.value,'password':qz_pas.value};
+        let myDate = new Date();
+        let user={'nickname':qz_nam.value,'telephone':qz_tel.value,'password':qz_pas.value,'data': myDate.getTime()};
         // console.log(user);
         postData(ajax_url+'/user/register',user,function (res) {
             localStorage.setItem('token',res.token);
