@@ -320,7 +320,7 @@
         if (sessionStorage.getItem('user_id')) {
             user={'user_id':id,'methods':'mycol','myid':sessionStorage.getItem('user_id')};
         }else {
-            user={'user_id':id,'methods':'mycol','myid':-1};
+            user={'user_id':id,'methods':'mycol'};
         }
         let qz_collect=document.querySelector('.qz_collect');
         let myDate = new Date();

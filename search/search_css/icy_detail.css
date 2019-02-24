@@ -78,6 +78,10 @@ li{
     border: none;
     outline: none;
 }
+#r-2{
+    /*margin-left: 0px;*/
+    /*margin-right: 0px;*/
+}
 .r-2-1{
     padding-top: 15px;
     padding-left: 35px;
@@ -134,8 +138,9 @@ li{
 }
 .r-2-6 span{
     display: inline-block;
-    width: 45px;
-    height: 26px;
+    padding: 3px;
+    margin-left: 10px;
+
     border-radius: 10px;
     border: 1px solid rgba(98, 132, 34, 0.54);
     text-align: center;
@@ -255,16 +260,12 @@ li{
     height: 16px;
     margin-bottom: 4px;
 }
-.r-2-14 a{
-    color: black;
-}
-.r-2-14 a:hover{
-    text-decoration: none;
-    color: black;
+.r-2-14 img,.r-2-14 span:hover{
+    cursor: pointer;
 }
 .r-3{
     margin-top: 30px;
-    margin-left:0px;
+    /*margin-left:0px;*/
 }
 .r-3-left{
     width: 21.25%;
@@ -282,26 +283,50 @@ li{
     padding-left: 40px;
     line-height: 50px;
     background: white;
+    margin-bottom: 2px;
 }
 .r-3-1 span{
     font-size: 1.3em;
 }
-#r-3-2{
+#r-3-left .r-3-2{
     margin-left: 0px;
-    margin-top: 2px;
+    /*margin-top: 2px;*/
     background: white;
     padding-left: 15px;
     padding-top: 20px;
     padding-bottom: 20px;
     box-sizing: border-box;
+    margin-bottom: 4px;
+}
+#r-3-left .r-3-2:hover{
+    cursor: pointer;
+    box-shadow: 0px 0px 10px #888888;;
 }
 .r-3-2-1 img{
     margin-left:0px;
     width: 65px;
 }
-.r-3-2-2 span{
-    color: #ef9c23;
+.r-3-2-1 :nth-child(2){
+    display: none;
+}
+.r-3-2-2{
+    /*text-align: center;*/
+ }
+.r-3-2-2>:nth-child(1){
+    display: inline-block;
+    background: rgba(0, 179, 238, 0.58);
+    border-radius: 3px;
+    color:white;
+    padding: 3px;
     font-weight:600;
+
+}
+.r-3-2-2 p {
+    margin-top: 20px;
+}
+.r-3-2-2 p img{
+    margin-right: 10px;
+    margin-bottom: 5px;
 }
 #r-3-3{
     margin-right: 0px;
@@ -394,6 +419,9 @@ li{
 .r-3-5 p:last-child{
     padding-bottom: 45px;
 }
+.r-3-5 p:last-child span{
+    font-size: 1.2em;
+}
 #r-3-6{
     margin-top: 28px;
     background: white;
@@ -404,7 +432,11 @@ li{
     margin-top: 60px;
     margin-left: 30px;
 }
+.r-3-6-1{
+    margin-bottom: 20px;
+}
 .r-3-6-1 p span{
+    font-family: Andalus;
     font-size: 20px;
     padding-top: 20px;
     padding-left: 10px;
@@ -414,6 +446,7 @@ li{
 }
 .r-3-6-2 {
     margin-top: 80px;
+    margin-bottom: 20px;
 
 }
 .r-3-6-2 .col-md-2{
@@ -446,4 +479,32 @@ li{
 .r-3-6-2-content :nth-child(2){
     margin-top: 60px;
     color: rgba(64, 64, 64, 0.55);
+}
+
+/*评论栏目*/
+.dy_c,.dy_f,.dy_p{
+    cursor: pointer;
+}
+.dy_text{
+    resize: none;
+}
+.content_margin{
+    margin-left: 15px;
+}
+.remind_text{
+    font-size: 0.9em;
+    color: rgba(128,128,128,0.6);
+}
+.line{
+    border-top: 1px solid #dadada;
+}
+
+.margin_top{
+    text-align: center;
+    margin-top: 5px;
+}
+
+#dy_c_content{
+    margin-top: 60px;
+    margin-left: 186px;
 }
