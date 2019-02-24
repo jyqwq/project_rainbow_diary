@@ -1,5 +1,21 @@
 (function f() {
 
+    //登录
+    check_login();
+    function check_login() {
+        let token = localStorage.getItem('token');
+        if (token){
+            let Token = {'token':token};
+            postData(ajax_url+'/user/login',Token,function (res) {
+                if (res.status_code !== '10003') {
+                    location.href='/rainbow_diary_html/user/login.html'
+                }
+            })
+        }
+    }
+
+
+
     //获取数据—添加个人信息
     perinf_ajax();
     function perinf_ajax() {
@@ -19,6 +35,7 @@
             qz_ag.innerHTML = res.user_autograpgh;
             follow.innerHTML='关注数：'+res.user_watchs;
             fanc.innerHTML='粉丝数：'+res.user_fans;
+
         })
     }
 
@@ -35,15 +52,33 @@
                 let num=parseInt(myDate.getTime())-parseInt(res[i].data);
                 let time=number_to_time(num);
                 let tags=res[i].tags.split(',');
+                let col={};
+                let com={};
+                if (res[i].collection.status_code=='10017') {
+                    col={'img':'收藏.png','alt':1}
+                }else if (res[i].collection.status_code=='10016') {
+                    col={'img':'已收藏.png','alt':0}
+                }else {
+                    console.log(res.collection);
+                    col={'img':'收藏.png','alt':1}
+                }
+                if (res[i].compliment.status_code=='10020') {
+                    com={'img':'花.png','alt':1}
+                }else if (res[i].compliment.status_code=='10019') {
+                    com={'img':'点赞.png','alt':0}
+                }else {
+                    console.log(res[i].collection);
+                    com={'img':'花.png','alt':1}
+                }
                 if (res[i].t_name=='dynamic') {
                     qz_dynamic.innerHTML+=`<!--动态-->
         <div class="row all_dy dy_margin">
             <div class="row">
                 <div class="col-lg-1"></div>
-                <div class="col-lg-1 dy_c_content dy_c_icon"><img src="../img/222center222/dynamic_head.jpg" class="img-responsive" alt="Responsive image"></div>
+                <div class="col-lg-1 dy_c_content dy_c_icon"><img src="../${sessionStorage.getItem('user_icon')}" class="img-responsive" alt="Responsive image"></div>
                 <div class="col-lg-8 dy_c_content" style="overflow: hidden">
                     <div class="row">
-                        <span><strong style="font-size: 1.1em">南浅</strong></span>
+                        <span><strong style="font-size: 1.1em">${sessionStorage.getItem('user_nickname')}</strong></span>
                         <br>
                         <div class="font_time" style="color: darkgrey;font-size: 0.9em">
                             <span class="rel_time">${time}</span>
@@ -63,9 +98,9 @@
                     </div>
                     <div class="row margin_top">
                         <ul class="nav">
-                            <li class="dy_c_nav"><a href="#"><img src="../img/dy/分享转发.png" alt="">&nbsp;<span>10</span></a></li>
-                            <li class="dy_c_nav"><a href="#"><img src="../img/dy/评论.png" alt="">&nbsp;<span>4</span></a></li>
-                            <li class="dy_c_nav"><a href="#"><img src="../img/dy/点赞.png" alt="">&nbsp;<span>5</span></a></li>
+                            <li class="dy_c_nav"><a><img src="../img/dy/${col.img}" alt="${col.alt}" class="dy_c">&nbsp;<span>${res[i].cols}</span></a></li>
+                            <li class="dy_c_nav"><a><img src="../img/dy/评论.png" alt="1" class="dy_p">&nbsp;<span>${res[i].cots}</span></a></li>
+                            <li class="dy_c_nav"><a><img src="../img/dy/${com.img}" alt="${com.alt}" class="dy_f">&nbsp;<span>${res[i].fbs}</span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -116,10 +151,10 @@
         <div class="row all_dy dy_margin">
             <div class="row">
                 <div class="col-lg-1"></div>
-                <div class="col-lg-1 dy_c_content dy_c_icon"><img src="../img/222center222/dynamic_head.jpg" class="img-responsive" alt="Responsive image"></div>
+                <div class="col-lg-1 dy_c_content dy_c_icon"><img src="../${sessionStorage.getItem('user_icon')}" class="img-responsive" alt="Responsive image"></div>
                 <div class="col-lg-8 dy_c_content" style="overflow: hidden">
                     <div class="row">
-                        <span><strong style="font-size: 1.1em">南浅</strong></span>
+                        <span><strong style="font-size: 1.1em">${sessionStorage.getItem('user_nickname')}</strong></span>
                         <br>
                         <div class="font_time" style="color: darkgrey;font-size: 0.9em">
                             <span class="rel_time">${time}</span>
@@ -140,9 +175,9 @@
                     </div>
                     <div class="row margin_top">
                         <ul class="nav">
-                            <li class="dy_c_nav"><a href="#"><img src="../img/dy/分享转发.png" alt="">&nbsp;<span>10</span></a></li>
-                            <li class="dy_c_nav"><a href="#"><img src="../img/dy/评论.png" alt="">&nbsp;<span>${res[i].cots}</span></a></li>
-                            <li class="dy_c_nav"><a href="#"><img src="../img/dy/点赞.png" alt="">&nbsp;<span>${res[i].fbs}</span></a></li>
+                            <li class="dy_c_nav"><a><img src="../img/dy/${col.img}" alt="${col.alt}" class="dy_c">&nbsp;<span>${res[i].cols}</span></a></li>
+                            <li class="dy_c_nav"><a><img src="../img/dy/评论.png" alt="1" class="dy_p">&nbsp;<span>${res[i].cots}</span></a></li>
+                            <li class="dy_c_nav"><a><img src="../img/dy/${com.img}" alt="${com.alt}" class="dy_f">&nbsp;<span>${res[i].fbs}</span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -172,11 +207,11 @@
             <div class="row">
                 <div class="col-lg-1"></div>
                 <div class="col-lg-1 dy_c_content dy_c_icon">
-                    <img src="../img/222center222/dynamic_head.jpg" class="img-responsive" alt="Responsive image">
+                    <img src="../${sessionStorage.getItem('user_icon')}" class="img-responsive" alt="Responsive image">
                 </div>
                 <div class="col-lg-8 dy_c_content"  style="overflow: hidden">
                     <div class="row">
-                        <span><strong style="font-size: 1.1em">南浅</strong></span>
+                        <span><strong style="font-size: 1.1em">${sessionStorage.getItem('user_nickname')}</strong></span>
                         <br>
                         <div class="font_time" style="color: darkgrey;font-size: 0.9em">
                             <span class="rel_time">${time}</span>
@@ -200,9 +235,9 @@
                     </div>
                     <div class="row margin_top">
                         <ul class="nav">
-                            <li class="dy_c_nav"><a href="#"><img src="../img/dy/分享转发.png" alt="">&nbsp;<span>10</span></a></li>
-                            <li class="dy_c_nav"><a href="#"><img src="../img/dy/评论.png" alt="">&nbsp;<span>${res[i].cots}</span></a></li>
-                            <li class="dy_c_nav"><a href="#"><img src="../img/dy/点赞.png" alt="">&nbsp;<span>${res[i].fbs}</span></a></li>
+                            <li class="dy_c_nav"><a><img src="../img/dy/${col.img}" alt="${col.alt}" class="dy_c">&nbsp;<span>${res[i].cols}</span></a></li>
+                            <li class="dy_c_nav"><a><img src="../img/dy/评论.png" alt="1" class="dy_p">&nbsp;<span>${res[i].cots}</span></a></li>
+                            <li class="dy_c_nav"><a><img src="../img/dy/${com.img}" alt="${com.alt}" class="dy_f">&nbsp;<span>${res[i].fbs}</span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -246,19 +281,38 @@
         let qz_collect=document.querySelector('.qz_collect');
         let myDate = new Date();
         postData(ajax_url+'/user/person',user,function (res) {
+            console.log(res);
             for (let i=0;i<res.length;i++){
                 let num=parseInt(myDate.getTime())-parseInt(res[i].data);
                 let time=number_to_time(num);
                 let tags=res[i].tags.split(',');
+                let col={};
+                let com={};
+                if (res[i].collection.status_code=='10017') {
+                    col={'img':'收藏.png','alt':1}
+                }else if (res[i].collection.status_code=='10016') {
+                    col={'img':'已收藏.png','alt':0}
+                }else {
+                    console.log(res.collection);
+                    col={'img':'收藏.png','alt':1}
+                }
+                if (res[i].compliment.status_code=='10020') {
+                    com={'img':'花.png','alt':1}
+                }else if (res[i].compliment.status_code=='10019') {
+                    com={'img':'点赞.png','alt':0}
+                }else {
+                    console.log(res[i].collection);
+                    com={'img':'花.png','alt':1}
+                }
                 if (res[i].t_name=='dynamic') {
                     qz_collect.innerHTML+=`<!--动态-->
         <div class="row all_dy dy_margin">
             <div class="row">
                 <div class="col-lg-1"></div>
-                <div class="col-lg-1 dy_c_content dy_c_icon"><img src="../img/222center222/dynamic_head.jpg" class="img-responsive" alt="Responsive image"></div>
+                <div class="col-lg-1 dy_c_content dy_c_icon"><img src="../${res[i].user_message.user_icon}" class="img-responsive" alt="Responsive image"></div>
                 <div class="col-lg-8 dy_c_content" style="overflow: hidden">
                     <div class="row">
-                        <span><strong style="font-size: 1.1em">南浅</strong></span>
+                        <span><strong style="font-size: 1.1em">${res[i].user_message.user_nickname}</strong></span>
                         <br>
                         <div class="font_time" style="color: darkgrey;font-size: 0.9em">
                             <span class="rel_time">${time}</span>
@@ -278,9 +332,9 @@
                     </div>
                     <div class="row margin_top">
                         <ul class="nav">
-                            <li class="dy_c_nav"><a href="#"><img src="../img/dy/分享转发.png" alt="">&nbsp;<span>10</span></a></li>
-                            <li class="dy_c_nav"><a href="#"><img src="../img/dy/评论.png" alt="">&nbsp;<span>4</span></a></li>
-                            <li class="dy_c_nav"><a href="#"><img src="../img/dy/点赞.png" alt="">&nbsp;<span>5</span></a></li>
+                            <li class="dy_c_nav"><a><img src="../img/dy/${col.img}" alt="${col.alt}" class="dy_c">&nbsp;<span>${res[i].cols}</span></a></li>
+                            <li class="dy_c_nav"><a><img src="../img/dy/评论.png" alt="1" class="dy_p">&nbsp;<span>${res[i].cots}</span></a></li>
+                            <li class="dy_c_nav"><a><img src="../img/dy/${com.img}" alt="${com.alt}" class="dy_f">&nbsp;<span>${res[i].fbs}</span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -331,10 +385,10 @@
         <div class="row all_dy dy_margin">
             <div class="row">
                 <div class="col-lg-1"></div>
-                <div class="col-lg-1 dy_c_content dy_c_icon"><img src="../img/222center222/dynamic_head.jpg" class="img-responsive" alt="Responsive image"></div>
+                <div class="col-lg-1 dy_c_content dy_c_icon"><img src="../${res[i].user_message.user_icon}" class="img-responsive" alt="Responsive image"></div>
                 <div class="col-lg-8 dy_c_content" style="overflow: hidden">
                     <div class="row">
-                        <span><strong style="font-size: 1.1em">南浅</strong></span>
+                        <span><strong style="font-size: 1.1em">${res[i].user_message.user_nickname}</strong></span>
                         <br>
                         <div class="font_time" style="color: darkgrey;font-size: 0.9em">
                             <span class="rel_time">${time}</span>
@@ -355,9 +409,9 @@
                     </div>
                     <div class="row margin_top">
                         <ul class="nav">
-                            <li class="dy_c_nav"><a href="#"><img src="../img/dy/分享转发.png" alt="">&nbsp;<span>10</span></a></li>
-                            <li class="dy_c_nav"><a href="#"><img src="../img/dy/评论.png" alt="">&nbsp;<span>${res[i].cots}</span></a></li>
-                            <li class="dy_c_nav"><a href="#"><img src="../img/dy/点赞.png" alt="">&nbsp;<span>${res[i].fbs}</span></a></li>
+                            <li class="dy_c_nav"><a><img src="../img/dy/${col.img}" alt="${col.alt}" class="dy_c">&nbsp;<span>${res[i].cols}</span></a></li>
+                            <li class="dy_c_nav"><a><img src="../img/dy/评论.png" alt="1" class="dy_p">&nbsp;<span>${res[i].cots}</span></a></li>
+                            <li class="dy_c_nav"><a><img src="../img/dy/${com.img}" alt="${com.alt}" class="dy_f">&nbsp;<span>${res[i].fbs}</span></a></li>
                         </ul>
                     </div>
                 </div>
@@ -387,11 +441,11 @@
             <div class="row">
                 <div class="col-lg-1"></div>
                 <div class="col-lg-1 dy_c_content dy_c_icon">
-                    <img src="../img/222center222/dynamic_head.jpg" class="img-responsive" alt="Responsive image">
+                    <img src="../${res[i].user_message.user_icon}" class="img-responsive" alt="Responsive image">
                 </div>
                 <div class="col-lg-8 dy_c_content"  style="overflow: hidden">
                     <div class="row">
-                        <span><strong style="font-size: 1.1em">南浅</strong></span>
+                        <span><strong style="font-size: 1.1em">${res[i].user_message.user_nickname}</strong></span>
                         <br>
                         <div class="font_time" style="color: darkgrey;font-size: 0.9em">
                             <span class="rel_time">${time}</span>
@@ -415,9 +469,9 @@
                     </div>
                     <div class="row margin_top">
                         <ul class="nav">
-                            <li class="dy_c_nav"><a href="#"><img src="../img/dy/分享转发.png" alt="">&nbsp;<span>10</span></a></li>
-                            <li class="dy_c_nav"><a href="#"><img src="../img/dy/评论.png" alt="">&nbsp;<span>${res[i].cots}</span></a></li>
-                            <li class="dy_c_nav"><a href="#"><img src="../img/dy/点赞.png" alt="">&nbsp;<span>${res[i].fbs}</span></a></li>
+                            <li class="dy_c_nav"><a><img src="../img/dy/${col.img}" alt="${col.alt}" class="dy_c">&nbsp;<span>${res[i].cols}</span></a></li>
+                            <li class="dy_c_nav"><a><img src="../img/dy/评论.png" alt="1" class="dy_p">&nbsp;<span>${res[i].cots}</span></a></li>
+                            <li class="dy_c_nav"><a><img src="../img/dy/${com.img}" alt="${com.alt}" class="dy_f">&nbsp;<span>${res[i].fbs}</span></a></li>
                         </ul>
                     </div>
                 </div>

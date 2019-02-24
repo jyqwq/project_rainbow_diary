@@ -1,5 +1,22 @@
 (function () {
 
+
+    //登录
+    check_login();
+    function check_login() {
+        let token = localStorage.getItem('token');
+        if (token){
+            let Token = {'token':token};
+            postData(ajax_url+'/user/login',Token,function (res) {
+                if (res.status_code !== '10003') {
+                    location.href='/rainbow_diary_html/user/login.html'
+                }
+            })
+        }
+    }
+
+
+
     window.onload=function (){
         // * 1.浏览器加载时div尺寸随动——开始
         let screen_height=document.documentElement.clientHeight;

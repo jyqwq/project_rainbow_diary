@@ -373,7 +373,7 @@
 /*动画*/
 /*由左滑入*/
 .animal_sil{
-    animation: slideInLeft 2s;
+    animation: slideInLeft 1s;
 }
 /*由右滑入*/
 .animal_sir{

@@ -250,7 +250,11 @@
 }
 /*我的头像—结束*/
 
-
+/*动画*/
+/*放大*/
+.anima_pul:hover{
+animation: pulse 1s;
+}
 
 
 
