@@ -180,4 +180,12 @@
             }
         }
     }
+
+
+    //search
+    let btn_search=document.querySelector('.btn_search');
+    btn_search.onclick=function () {
+        location.href='/rainbow_diary_html/search/icy_search.html'
+    };
+
 })();

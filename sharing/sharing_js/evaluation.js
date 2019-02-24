@@ -89,4 +89,14 @@
         })
     }
 
+    //search
+    let btn_search=document.querySelector('.btn_search');
+    let btn_search01=document.querySelector('.btn_search01');
+    btn_search.onclick=function () {
+        location.href='/rainbow_diary_html/search/icy_search.html'
+    };
+    btn_search01.onclick=function () {
+        location.href='/rainbow_diary_html/search/icy_search.html'
+    }
+
 })();

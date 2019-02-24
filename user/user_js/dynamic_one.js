@@ -243,7 +243,7 @@
 
 
             //关注状态
-            sessionStorage.setItem('other_id',res.user_message.user_id);
+            other_index(res.user_message.user_id);
             let v={'user_id':sessionStorage.getItem('user_id'),'other_id':res.user_message.user_id,'method':'check'};
             getData(ajax_url+'/user/person',v,function (res) {
                 let follow=document.querySelector('.follow');
@@ -317,6 +317,18 @@
                     }
                 })
             }
+        }
+    }
+
+    //他人主页按钮
+    function other_index(otherid){
+        let theindex=document.querySelector('.theindex');
+        let user_id = {'user_id': otherid,'methods':'get'};
+        theindex.onclick=function () {
+            postData(ajax_url + '/user/person', user_id, function (res) {
+                sessionStorage.setItem('other_message',JSON.stringify(res));
+                location.href='visitor_center.html'
+            })
         }
     }
 
