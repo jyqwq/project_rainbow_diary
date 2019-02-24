@@ -93,6 +93,9 @@ body{
 .r-1 .dao_ul li a{
     color: gray;
 }
+.r-1 .dao_ul :nth-child(1) a{
+    color: rebeccapurple;
+}
 li{
     text-align: center;
     list-style: none;
@@ -110,6 +113,7 @@ li{
     background: white;
     color:rgba(128, 128, 128, 0.7);
     cursor: default;
+    /*color: rebeccapurple;*/
 }
 .con{
     margin-top: 50px;
@@ -173,7 +177,14 @@ li{
     box-shadow: 0px 0px 5px #888888;
 }
 .goods img{
-    border-bottom: 1px dashed rgba(128, 128, 128, 0.26);
+    display: inline-block;
+    margin-left: 57px;
+
+    /*border-bottom: 1px dashed rgba(128, 128, 128, 0.26);*/
+}
+#r-4-1 img{
+    width: 266px;
+    height: 266px;
 }
 .goods .goods-content .goods-d-1{
     padding: 10px;
@@ -205,6 +216,14 @@ li{
 .goods-p-3 a{
     color: gray;
 }
+.goods-p-3 a:hover{
+    text-decoration: none;
+    cursor: default;
+}
+.goods-p-3 a :nth-child(3),.goods-p-3 a :nth-child(3){
+    display: inline-block;
+    margin-left: 100px;
+}
 .main_content .r-4 .r-4-1{
     margin-bottom:20px;
 }
@@ -230,4 +249,112 @@ li{
     margin-top: 28px;
     color: gray;
     opacity: 0%;
+}
+.r-7 {
+    text-align: center;
+    min-height: 300px;
+}
+.r-7 #no_data{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+
+
+
+.rank_num span{
+    display: none;
+}
+.row_margin{
+    margin-top: 20px;
+}
+.unaction a{
+    text-decoration: none;
+    color: #25003f;
+}
+.my_active{
+    border-bottom: solid 3px lightpink;
+}
+.my_active>a{
+    color: lightpink;
+}
+.xs_padding{
+    padding: 0 3px;
+    text-align: center;
+}
+.rank_one{
+    animation: fadeInLeft 1s;
+    border-bottom: solid 1px #d5d5d5;
+}
+.rank_one:hover{
+    box-shadow: 0 5px 10px #ffc1c3;
+}
+.rank_one>div{
+    text-align: center;
+    height: 150px;
+}
+.rank_num{
+    line-height: 150px;
+    color: darkgrey;
+    font-size: 2.5em;
+}
+.min_width{
+    min-width: 620px;
+}
+.rank_img{
+    /*边框*/
+    border: solid 1px rgba(128, 128, 128, 0);
+    height: 150px;
+    padding: 0;
+}
+.rank_img img{
+    max-height: 148px;
+}
+.rank_content{
+    /*边框*/
+    border: solid 1px rgba(128, 128, 128, 0);
+    height: 150px;
+}
+.first_row{
+    box-sizing: border-box;
+    padding: 0 15px;
+    text-align: left;
+    line-height: 40px;
+}
+.first_row strong:hover{
+    cursor: pointer;
+}
+.second_row{
+    box-sizing: border-box;
+    padding: 0 15px;
+    text-align: left;
+    line-height: 40px;
+    font-size: 12px;
+}
+.content_name{
+    text-align: left;
+}
+.content_name h5{
+    font-size: 1.1em;
+    line-height: 50px;
+}
+.content_name:hover{
+    text-decoration: none;
+}
+.rank_detail{
+    /*边框*/
+    border: solid 1px rgba(128, 128, 128, 0);
+    height: 150px;
+    padding: 0;
+    line-height: 40px;
+    padding-top: 20px;
+}
+.rank_detail div{
+    padding: 0;
+}
+.see_more{
+    text-align: center;
+}
+.real_time ,.hot_dairy ,.hot_cosmetics{
+    margin: 0;
 }

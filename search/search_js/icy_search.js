@@ -1,6 +1,6 @@
 
 function ee() {
-    let u = {'keyword':1};
+    let u = {'keyword':1,'methods':'search'};
     postData(ajax_url+'/search/search_index',u,function (res) {
         let hotsearch=res;
         var tabs=document.querySelector('.tab-1');
@@ -23,28 +23,25 @@ function ee() {
         }
     });
 }
-ee()
+ee();
 
-function g() {
-
-};
-g();
 
 
 //按钮
 function y() {
+    let u = {'keyword':1,'methods':'add'};
     var btns = document.querySelector('.fbtn');
-    var condition='no'
+    var condition='no';
     btns.onclick=function (e) {
         // alert(e.target.nodeName);
         if (e.target.nodeName=="BUTTON") {
-            var a=e.target.parentElement.parentElement.children
+            var a=e.target.parentElement.parentElement.children;
             for (var b of a) {
                 (function (b) {
                     b.children[0].style.background='white';
                 })(b)
             }
-            e.target.style.background="pink"
+            e.target.style.background="pink";
             var d=e.target.innerText
             if (d=='面膜') {
                 condition=1
@@ -63,11 +60,12 @@ function y() {
     //搜索及历史记录
     search.onclick=function (e) {
         var txt=e.target.parentElement.parentElement.previousElementSibling;
-        let key=search.parentElement.parentElement.parentElement.children[0].value
-        if (window.localStorage['user_id']) {
-            var d={'search':key,'condition':condition,'user_id':window.localStorage['user_id']}
-        }else {
-            d={'search':key,'condition':condition,'user_id':''}
+        let key=search.parentElement.parentElement.parentElement.children[0].value;
+        var d={'keyword':key,'condition':condition};
+        if (d.condition=='no'){
+            d={'keyword':key,'condition':condition,'method':1}
+        } else {
+           d={'keyword':key,'condition':condition,'method':2}
         }
         let n=JSON.stringify(d)
         window.sessionStorage.setItem('message',n)
@@ -172,3 +170,4 @@ function u() {
 }
 u();
 
+sessionStorage.setItem('user_id','3')

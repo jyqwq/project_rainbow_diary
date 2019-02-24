@@ -25,6 +25,7 @@
         let dy_ajax=document.querySelector('.dy_ajax');
         let myDate = new Date();
         getData(ajax_url+'/user/person',u,function (res) {
+            sessionStorage.setItem('other_id',res.user_message.user_id);
             let num=parseInt(myDate.getTime())-parseInt(res.data);
             let time=number_to_time(num);
             let tags=res.tags.split(',');
@@ -243,7 +244,7 @@
 
 
             //关注状态
-            sessionStorage.setItem('other_id',res.user_message.user_id);
+            other_index(res.user_message.user_id);
             let v={'user_id':sessionStorage.getItem('user_id'),'other_id':res.user_message.user_id,'method':'check'};
             getData(ajax_url+'/user/person',v,function (res) {
                 let follow=document.querySelector('.follow');
@@ -320,6 +321,18 @@
         }
     }
 
+    //他人主页按钮
+    function other_index(otherid){
+        let theindex=document.querySelector('.theindex');
+        let user_id = {'user_id': otherid,'methods':'get'};
+        theindex.onclick=function () {
+            postData(ajax_url + '/user/person', user_id, function (res) {
+                sessionStorage.setItem('other_message',JSON.stringify(res));
+                location.href='visitor_center.html'
+            })
+        }
+    }
+
     //关注按钮
     follow();
     function follow() {
@@ -327,19 +340,27 @@
         let isfollow=document.querySelector('.isfollow');
         follow.onclick=function () {
             let myDate = new Date();
-            follow.parentElement.parentElement.style.display='none';
-            isfollow.parentElement.parentElement.style.display='block';
             let v={'user_id':sessionStorage.getItem('user_id'),'other_id':sessionStorage.getItem('other_id'),'method':'add','data': myDate.getTime()};
+            console.log(v);
             getData(ajax_url+'/user/person',v,function (res) {
-                console.log(res);
+                if (res.status_code=='10009'){
+                    follow.parentElement.parentElement.style.display='none';
+                    isfollow.parentElement.parentElement.style.display='block';
+                } else {
+                    alert(res.status_text)
+                }
             })
         };
         isfollow.onclick=function () {
-            isfollow.parentElement.parentElement.style.display='none';
-            follow.parentElement.parentElement.style.display='block';
             let v={'user_id':sessionStorage.getItem('user_id'),'other_id':sessionStorage.getItem('other_id'),'method':'delete'};
+            console.log(v);
             getData(ajax_url+'/user/person',v,function (res) {
-                console.log(res);
+                if (res.status_code=='10009'){
+                    follow.parentElement.parentElement.style.display='block';
+                    isfollow.parentElement.parentElement.style.display='none';
+                } else {
+                    alert(res.status_text)
+                }
             })
         }
     }

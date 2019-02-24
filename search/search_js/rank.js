@@ -14,6 +14,9 @@
                 }else {
                     res[i].t_Name='测评'
                 }
+                if (res[i].title.length>20){
+                    res[i].title = res[i].title.substring(0,20)+'...'
+                }
                 real_time.innerHTML+=`<div class="row row_margin rank_one">
             <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 rank_num"><strong>${parseInt(i)+1}</strong></div>
             <div class="col-xs-10 col-sm-8 col-md-8 col-lg-8">
@@ -180,4 +183,12 @@
             }
         }
     }
+
+
+    //search
+    let btn_search=document.querySelector('.btn_search');
+    btn_search.onclick=function () {
+        location.href='/rainbow_diary_html/search/icy_search.html'
+    };
+
 })();

@@ -1,92 +1,43 @@
 function qq() {
     if (sessionStorage['message'] && sessionStorage['message'].length>0) {
         var ipt=document.querySelector('#input-sch')
-        let a=JSON.parse(sessionStorage['message'])
-        ipt.value=a.search
-        postData(ajax_url+'/search/',a,function (res) {
-            var page=document.querySelector('#ul-fenye')
-            let s=res.length;
-            fenye(s);
-            function sortgood(b,a) {
-                var sot=document.querySelector('#sot-ul')
-                sot.onclick=function (term='综合排序') {
-                    if (event.target.nodeName=='A') {
-                        term = event.target.innerText
-                        if (a=='综合排序'){
-                            return (a.fbs+a.cots+a.click)-(b.fbs+b.cots+b.click)
-                        }else if (a=='最多点赞') {
-                            return a.fbs-b.fbs
-                        }else if (a=='最多收藏') {
-                            return a.cots-b.cots
-                        }else if (a=='最新发布'){
-                            return a.commodity_date-b.commodity_date
+            let a=JSON.parse(sessionStorage['message'])
+            ipt.value=a.keyword;
+        var mydate=new Date()
+            if (sessionStorage['user_id']) {
+                var x={'keyword':a.keyword,'user_id':sessionStorage['user_id'],'methods':'add','data':mydate.getTime()}
+            }else {
+                x={'keyword':a.keyword,'user_id':'null','methods':'add','data':mydate.getTime()}
+            }
+            postData(ajax_url+'/search/search_index',x,function (res) {
+            })
+            getData(ajax_url+'/search/',a,function (res) {
+                if (res && res.length>0){
+                    var page=document.querySelector('#ul-fenye')
+                    let s=res.length;
+                    fenye(s);
+                    xr(0,res)
+                    page.onclick=function () {
+                        var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
+                        for (var p of page.children){
+                            if (p.className=='background'){
+                                let res = localStorage['result']
+                                res=JSON.parse(res)
+                                commodity.innerHTML=''
+                                xr(p.innerHTML-1,res)
+                            }
                         }
                     }
+                } else {
+                    var d4=document.querySelector('.r-4')
+                    var d7=document.querySelector('.r-7')
+                    var d5=document.querySelector('.r-5')
+                    d4.style.display='none'
+                    d5.style.display='none'
+                    d7.style.display='block'
+                    d7.innerHTML='<img src="../img/img/no-data.png" alt="" id="no_data">'
                 }
-            }
-            function xr(p=0) {
-                var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
-                var b=res.sort(sortgood);
-                if (b && b.length>0){
-                    for (var goods=16*p;goods<(p+1)*16;goods++) {
-                        var k=b[goods].commodity_component.split('&')
-                        var c=b[goods].commodity_name+k+b[goods].capacity+b[goods].effect
-                        var d=c.slice(0,30)+'...';
-                        if (goods %4 ==0){
-                            commodity.innerHTML+=`<div class="goods goods-1 col-md-3" >
-                <div class="goods-content">
-                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
-                <div class="goods-d-1">
-                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
-            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>自然堂旗舰店</span></a></p>
-            </div>
-            </div>
-            </div>`
-                        } else if (goods%4 ==1){
-                            commodity.innerHTML+=`<div class="goods goods-2 col-md-3" >
-                <div class="goods-content">
-                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
-                <div class="goods-d-1">
-                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
-            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>自然堂旗舰店</span></a></p>
-            </div>
-            </div>
-            </div>`
-                        } else if (goods%4==2){
-                            commodity.innerHTML+=`<div class="goods goods-3 col-md-3" >
-                <div class="goods-content">
-                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
-                <div class="goods-d-1">
-                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
-            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>自然堂旗舰店</span></a></p>
-            </div>
-            </div>
-            </div>`
-                        } else if (goods%4==3){
-                            commodity.innerHTML+=`<div class="goods goods-4 col-md-3" >
-                <div class="goods-content">
-                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
-                <div class="goods-d-1">
-                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
-            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>自然堂旗舰店</span></a></p>
-            </div>
-            </div>
-            </div>`
-                        }
-                    }
-                }
-            }
-            xr(0)
-            page.onclick=function (res) {
-                var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
-                for (var p of page.children){
-                    if (p.className=='background'){
-                        commodity.innerHTML=''
-                        xr(p.innerHTML-1)
-                    }
-                }
-            }
-        })
+            })
     }else {
         location.href='icy_search.html'
     }
@@ -238,7 +189,7 @@ function t() {
     var history=window.localStorage.getItem('history')
     if (history && history.length>=0) {
         var list =history.split(',')
-        for (var i=0;i<5;i++) {
+        for (var i=0;i<5 && i<list.length;i++) {
             op.innerHTML+=`<option value="${list[i]}"></option>`
         }
     }
@@ -249,50 +200,87 @@ t()
 function y() {
     var spans = document.querySelector('.r-6-1');
     spans.onclick=function (e) {
-        // alert(e.target.nodeName);
         if (e.target.nodeName=="SPAN") {
             var a=e.target.parentElement.children
             for (var b of a) {
                 b.style.background='#f2f2f2';
                 b.style.color='black';
-                // (function (b) {
-                //     b.children[0].style.background='white';
-                // })(b)
             }
             e.target.style.background="#71d2c3"
             e.target.style.color='white'
         }
     }
 };
-y();
+// y();
 
-
-
-
-//刷新出热门商品
-function hot() {
-    getData()
-}
 
 //获取搜索数据
 function search() {
+    var d1=document.querySelector('.r-2')
+    var d2=document.querySelector('.r-3')
+    var d3=document.querySelector('.r-4')
+    var d4=document.querySelector('.r-5')
+    var d5=document.querySelector('.r-6')
+    var d6=document.querySelector('.r-7')
     var btn=document.querySelector('#sch_btn')
+    var page=document.querySelector('#ul-fenye')
     btn.onclick=function () {
         var key= btn.parentElement.parentElement.children[0].value
-        var a={'keyword':key,'user_id':''}
-        if (window.localStorage['user_id']) {
-            a={'keyword':key,'user_id':localStorage['user_id']}
-        }
+        var d={'keyword':key,'condition':'no','method':1}
+        var dd=JSON.stringify(d)
+        sessionStorage.setItem('message',dd)
+        location.href='icy_result.html'
+        d1.style.display='block'
+        d2.style.display='block'
+        d3.style.display='block'
+        d4.style.display='block'
+        d5.style.display='none'
+        d6.style.display='none'
 
-        getData()
+        // var a={'keyword':ipt,'method':1}
+        var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
+        commodity.innerHTML=''
+        getData(ajax_url+'/search/',d,function (res) {
+            if (res && res.length>0) {
+                var ll=JSON.stringify(res)
+                window.localStorage.setItem('result',ll)
+                let s=res.length;
+                fenye(s);
+                xr(0,res)
+                page.onclick=function () {
+                            var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
+                            for (var p of page.children){
+                                if (p.className=='background'){
+                                    let res = localStorage['result']
+                                    res=JSON.parse(res)
+                                    commodity.innerHTML=''
+                                    xr(p.innerHTML-1,res)
+                                }
+                    }
+                }
+            }else {
+                d3.style.display='none'
+                d4.style.display='none'
+                d6.style.display='block'
+                d6.innerHTML='<img src="../img/img/no-data.png" alt="" id="no_data">'
 
+            }
 
+        })
     }
+
+    sortgood()
 }
-// search()
+search()
 
 //分类筛选
 function category() {
+    var d2=document.querySelector('.r-2')
+    var d3=document.querySelector('.r-3')
+    var d4=document.querySelector('.r-4')
+    var d5=document.querySelector('.r-5')
+    var d6=document.querySelector('.r-6')
+    var d7=document.querySelector('.r-7')
     var a=document.querySelector('.r-2-td-1')
     var b=document.querySelector('#input-sch')
     var e=document.querySelector('.mid-2-ul')
@@ -301,8 +289,11 @@ function category() {
     var arry2=new Array()
     //根据品牌搜索
     a.onclick=function () {
+        var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
+
     let ipt=b.value
         if (event.target.nodeName=='SPAN') {
+            commodity.innerHTML=''
             var c=event.target.innerText
             var tr=event.target.parentElement.parentElement
             var ul=tr.parentElement.parentElement.parentElement.children[0]
@@ -315,57 +306,126 @@ function category() {
             }
 
             ul.innerHTML=`<li role="presentation" class="active  " ><a href="#" class="r-2-1">所有分类:</a></li>
-<li role="presentation" class="active  " ><a href="#" class="r-2-1">品牌:${c}</a></li>
+<li role="presentation" class="active  " ><a href="#" class="r-2-1">${c}</a></li>
 `
             tr.style.display='none'
-            if (window.localStorage['user_id']){
-                var d={'keyword':ipt,'condition':arry2, 'etp':c,'user_id':window.localStorage['user_id']}
-            }else {
-                d={'keyword':'','condition':arry2, 'etp':c,'user_id':''}
-            }
+            var str2=arry2.join('%')
+            var d={'keyword':ipt,'condition':str2, 'etp':c,'method':3}
             console.log(d);
-            // getData()
+            getData(ajax_url+'/search/',d,function (res) {
+                var page=document.querySelector('#ul-fenye')
+                let s=res.length;
+                fenye(s);
+                xr(0,res)
+                page.onclick=function () {
+                    var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
+                    for (var p of page.children){
+                        if (p.className=='background'){
+                            let res = localStorage['result']
+                            res=JSON.parse(res)
+                            commodity.innerHTML=''
+                            xr(p.innerHTML-1,res)
+                        }
+                    }
+                }
+            })
         }
     }
     //根据种类搜索
     e.onclick=function () {
+        var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
+
         let ipt=b.value
         if (event.target.nodeName=='LI'){
+            commodity.innerHTML=''
             var f =event.target.innerText
             console.log(ipt);
-            if (window.localStorage['user_id']){
-                var g={'keyword':ipt,'conditon':f,'user_id':window.localStorage['user_id']}
-            } else {
-                g={'keyword':'','condition':f,'user_id':''}
-            }
+            var g={'keyword':ipt,'condition':f,'method':4}
             console.log(g);
-            // getData()
+            getData(ajax_url+'/search/',g,function (res) {
+
+                d2.style.display='block'
+                d3.style.display='block'
+                d4.style.display='block'
+                d5.style.display='block'
+                d6.style.display='none'
+                d7.style.display='none'
+                if (res && res.length>0){
+                    var page=document.querySelector('#ul-fenye')
+                    let s=res.length;
+                    fenye(s);
+                    xr(0,res)
+                    page.onclick=function () {
+                        var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
+                        for (var p of page.children){
+                            if (p.className=='background'){
+                                let res = localStorage['result']
+                                res=JSON.parse(res)
+                                commodity.innerHTML=''
+                                xr(p.innerHTML-1,res)
+                            }
+                        }
+                    }
+                } else {
+                    d4.style.display='none'
+                    d5.style.display='none'
+                    d7.style.display='block'
+                    d7.innerHTML='<img src="../img/img/no-data.png" alt="" id="no_data">'
+                }
+            })
         }
     }
-
     //根据功能搜索
     h.onclick=function () {
+        var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
         var etp=document.querySelector('#r-2-1-ul')
         var ipt=b.value
         var j ={'keyword':'','condition':'','etp':''}
         if (event.target.nodeName=='SPAN'){
-            for (var aa of etp.children){
-                j={'keyword':'','condition':'','etp':aa.innerText}
+            commodity.innerHTML=''
+            if (etp.children.length>1) {
+                var aa=etp.children[1].innerText
             }
+            // var bb=aa.slice(4)
+            // console.log(aa);
             if (event.target.style.color!='red'){
                 event.target.style.color='red'
             } else {
                 event.target.style.color='black'
             }
-
             gongneng(arry1,event.target.innerText)
-            if (window.localStorage['user_id']){
-                var j ={'keyword':ipt,'condition':arry1,'etp':aa.innerText,'user_id':window.localStorage['user_id']}
-            } else {
-                j ={'keyword':'','condition':arry1,'etp':aa.innerText,'user_id':''}
+            var str=arry1.join('%')
+            if (aa) {
+                j ={'keyword':ipt,'condition':str,'etp':aa,'method':5}
+            }else {
+                j ={'keyword':ipt,'condition':str,'etp':'','method':5}
             }
             console.log(j);
-            // getData()
+            getData(ajax_url+'/search/',j,function (res) {
+                if (res && res.length>0){
+                    var page=document.querySelector('#ul-fenye')
+                    let s=res.length;
+                    fenye(s);
+                    xr(0,res)
+                    page.onclick=function () {
+                        var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
+                        for (var p of page.children){
+                            if (p.className=='background'){
+                                let res = localStorage['result']
+                                res=JSON.parse(res)
+                                commodity.innerHTML=''
+                                xr(p.innerHTML-1,res)
+                            }
+                        }
+                    }
+                } else {
+                    d4.style.display='none'
+                    d5.style.display='none'
+                    d7.style.display='block'
+                    d7.innerHTML='<img src="../img/img/no-data.png" alt="" id="no_data">'
+                }
+
+            })
         }
     }
 
@@ -379,9 +439,890 @@ function category() {
     }
 }
 category()
-
-
-
 //排序
+function sortgood() {
+    var sot=document.querySelector('#sot-ul')
+    var res
+    sot.onclick=function () {
+        var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
+        res=JSON.parse(window.localStorage['result'])
+        var a ='综合排序'
+        if (event.target.nodeName=='A') {
+            commodity.innerHTML=''
+            a=event.target.innerText
+            // console.log(a);
+            if (a=='综合排序'){
+                res.sort(s1)
+                function xr(p=0) {
+                    var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
+                    var b=res
+                    if (b && b.length>0){
+                        for (var goods=16*p;goods<(p+1)*16;goods++) {
+                            var k=b[goods].commodity_component.split('&')
+                            var c=b[goods].commodity_name+k+b[goods].capacity+b[goods].effect
+                            var d=c.slice(0,30)+'...';
+                            if (goods %4 ==0){
+                                commodity.innerHTML+=`<div class="goods goods-1 col-md-3" >
+                <div class="goods-content">
+                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
+                <div class="goods-d-1">
+                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
+            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span></a></p>
+            </div>
+            </div>
+            </div>`
+                            } else if (goods%4 ==1){
+                                commodity.innerHTML+=`<div class="goods goods-2 col-md-3" >
+                <div class="goods-content">
+                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
+                <div class="goods-d-1">
+                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
+            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span></a></p>
+            </div>
+            </div>
+            </div>`
+                            } else if (goods%4==2){
+                                commodity.innerHTML+=`<div class="goods goods-3 col-md-3" >
+                <div class="goods-content">
+                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
+                <div class="goods-d-1">
+                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
+            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span></a></p>
+            </div>
+            </div>
+            </div>`
+                            } else if (goods%4==3){
+                                commodity.innerHTML+=`<div class="goods goods-4 col-md-3" >
+                <div class="goods-content">
+                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
+                <div class="goods-d-1">
+                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
+            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span></a></p>
+            </div>
+            </div>
+            </div>`
+                            }
+                        }
+                    }
+                }
+                xr(0)
+                page.onclick=function (res) {
+                    var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
+                    for (var p of page.children){
+                        if (p.className=='background'){
+                            commodity.innerHTML=''
+                            xr(p.innerHTML-1)
+                        }
+                    }
+                }
+            }else if (a=='最多点赞') {
+                res.sort(s2)
+                function xr(p=0) {
+                    var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
+                    var b=res
+                    if (b && b.length>0){
+                        for (var goods=16*p;goods<(p+1)*16;goods++) {
+                            var k=b[goods].commodity_component.split('&')
+                            var c=b[goods].commodity_name+k+b[goods].capacity+b[goods].effect
+                            var d=c.slice(0,30)+'...';
+                            if (goods %4 ==0){
+                                commodity.innerHTML+=`<div class="goods goods-1 col-md-3" >
+                <div class="goods-content">
+                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
+                <div class="goods-d-1">
+                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
+            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span></a></p>
+            </div>
+            </div>
+            </div>`
+                            } else if (goods%4 ==1){
+                                commodity.innerHTML+=`<div class="goods goods-2 col-md-3" >
+                <div class="goods-content">
+                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
+                <div class="goods-d-1">
+                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
+            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span></a></p>
+            </div>
+            </div>
+            </div>`
+                            } else if (goods%4==2){
+                                commodity.innerHTML+=`<div class="goods goods-3 col-md-3" >
+                <div class="goods-content">
+                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
+                <div class="goods-d-1">
+                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
+            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span></a></p>
+            </div>
+            </div>
+            </div>`
+                            } else if (goods%4==3){
+                                commodity.innerHTML+=`<div class="goods goods-4 col-md-3" >
+                <div class="goods-content">
+                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
+                <div class="goods-d-1">
+                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
+            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span></a></p>
+            </div>
+            </div>
+            </div>`
+                            }
+                        }
+                    }
+                }
+                xr(0)
+                page.onclick=function (res) {
+                    var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
+                    for (var p of page.children){
+                        if (p.className=='background'){
+                            commodity.innerHTML=''
+                            xr(p.innerHTML-1)
+                        }
+                    }
+                }
+            }else if (a=='最多收藏') {
+                res.sort(s3)
+                function xr(p=0) {
+                    var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
+                    var b=res
+                    if (b && b.length>0){
+                        for (var goods=16*p;goods<(p+1)*16;goods++) {
+                            var k=b[goods].commodity_component.split('&')
+                            var c=b[goods].commodity_name+k+b[goods].capacity+b[goods].effect
+                            var d=c.slice(0,30)+'...';
+                            if (goods %4 ==0){
+                                commodity.innerHTML+=`<div class="goods goods-1 col-md-3" >
+                <div class="goods-content">
+                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
+                <div class="goods-d-1">
+                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
+            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span></a></p>
+            </div>
+            </div>
+            </div>`
+                            } else if (goods%4 ==1){
+                                commodity.innerHTML+=`<div class="goods goods-2 col-md-3" >
+                <div class="goods-content">
+                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
+                <div class="goods-d-1">
+                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
+            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span></a></p>
+            </div>
+            </div>
+            </div>`
+                            } else if (goods%4==2){
+                                commodity.innerHTML+=`<div class="goods goods-3 col-md-3" >
+                <div class="goods-content">
+                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
+                <div class="goods-d-1">
+                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
+            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span></a></p>
+            </div>
+            </div>
+            </div>`
+                            } else if (goods%4==3){
+                                commodity.innerHTML+=`<div class="goods goods-4 col-md-3" >
+                <div class="goods-content">
+                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
+                <div class="goods-d-1">
+                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
+            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span></a></p>
+            </div>
+            </div>
+            </div>`
+                            }
+                        }
+                    }
+                }
+                xr(0)
+                page.onclick=function (res) {
+                    var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
+                    for (var p of page.children){
+                        if (p.className=='background'){
+                            commodity.innerHTML=''
+                            xr(p.innerHTML-1)
+                        }
+                    }
+                }
+            }else if (a=='最新发布'){
+                res.sort(s4)
+                function xr(p=0) {
+                    var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
+                    var b=res
+                    if (b && b.length>0){
+                        for (var goods=16*p;goods<(p+1)*16;goods++) {
+                            var k=b[goods].commodity_component.split('&')
+                            var c=b[goods].commodity_name+k+b[goods].capacity+b[goods].effect
+                            var d=c.slice(0,30)+'...';
+                            if (goods %4 ==0){
+                                commodity.innerHTML+=`<div class="goods goods-1 col-md-3" >
+                <div class="goods-content">
+                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
+                <div class="goods-d-1">
+                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
+            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span></a></p>
+            </div>
+            </div>
+            </div>`
+                            } else if (goods%4 ==1){
+                                commodity.innerHTML+=`<div class="goods goods-2 col-md-3" >
+                <div class="goods-content">
+                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
+                <div class="goods-d-1">
+                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
+            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span></a></p>
+            </div>
+            </div>
+            </div>`
+                            } else if (goods%4==2){
+                                commodity.innerHTML+=`<div class="goods goods-3 col-md-3" >
+                <div class="goods-content">
+                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
+                <div class="goods-d-1">
+                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
+            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span></a></p>
+            </div>
+            </div>
+            </div>`
+                            } else if (goods%4==3){
+                                commodity.innerHTML+=`<div class="goods goods-4 col-md-3" >
+                <div class="goods-content">
+                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
+                <div class="goods-d-1">
+                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
+            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span></a></p>
+            </div>
+            </div>
+            </div>`
+                            }
+                        }
+                    }
+                }
+                xr(0)
+                page.onclick=function (res) {
+                    var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
+                    for (var p of page.children){
+                        if (p.className=='background'){
+                            commodity.innerHTML=''
+                            xr(p.innerHTML-1)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    function s1(b,a) {
+        return (a.fbs+a.cots+a.click)-(b.fbs+b.cots+b.click)
+    }
+    function s2(b,a) {
+        return a.commodity_price-b.commodity_price
+    }
+    function s3(b,a) {
+        return a.cots-b.cots
+    }
+    function s4(b,a) {
+        return a.commodity_date-b.commodity_date
+    }
+}
 
-// sortgood()
+//心情
+function article() {
+    var a={}
+    var d1=document.querySelector('.r-2')
+    var d2=document.querySelector('.r-3')
+    var d3=document.querySelector('.r-4')
+    var d4=document.querySelector('.r-5')
+    var d5=document.querySelector('.r-6')
+    var d6=document.querySelector('.r-7')
+    var btn=document.querySelector('#dao_ul')
+    var ipt=document.querySelector('#input-sch')
+    var sch=document.querySelector('#sch_btn')
+    var page=document.querySelector('#ul-fenye')
+    var sorts=document.querySelector('.r-6-1')
+    btn.onclick=function () {
+        sorts.children[0].style.background="#71d2c3"
+        sorts.children[0].style.color='white'
+        sorts.children[1].style.background='#f2f2f2';
+        sorts.children[1].style.color='black'
+        sorts.children[2].style.background='#f2f2f2';
+        sorts.children[2].style.color='black'
+        var b=document.querySelector('.r-7')
+        b.innerHTML=''
+        if (event.target.innerText=='心情') {
+            let pp=event.target.parentElement.parentElement.children
+            for (var bb of pp) {
+                (function (bb) {
+                    bb.children[0].style.color='gray'
+                })(bb)
+            }
+            event.target.style.color='rebeccapurple'
+            dy()
+        }else if (event.target.innerText=='日记') {
+
+            let pp=event.target.parentElement.parentElement.children
+            for (var bb of pp) {
+                (function (bb) {
+                    bb.children[0].style.color='gray'
+                })(bb)
+            }
+            event.target.style.color='rebeccapurple'
+            jo()
+        }else if(event.target.innerText=='测评'){
+
+            let pp=event.target.parentElement.parentElement.children
+            for (var bb of pp) {
+                (function (bb) {
+                    bb.children[0].style.color='gray'
+                })(bb)
+            }
+            event.target.style.color='rebeccapurple'
+            te()
+        }else if (event.target.innerText=='产品') {
+            let pp=event.target.parentElement.parentElement.children
+            for (var bb of pp) {
+                (function (bb) {
+                    bb.children[0].style.color='gray'
+                })(bb)
+            }
+            event.target.style.color='rebeccapurple'
+            var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
+            commodity.innerHTML=''
+            a={'keyword':ipt.value,'method':1}
+            d5.style.display='none'
+            getData(ajax_url+'/search/',a,function (res) {
+                if (res && res.length>0) {
+                    d1.style.display='block'
+                    d2.style.display='block'
+                    d3.style.display='block'
+                    d4.style.display='block'
+                    d6.style.display='none'
+                    var ll=JSON.stringify(res)
+                    window.localStorage.setItem('result',ll)
+                    let s=res.length;
+                    fenye(s);
+                    xr(0,res)
+                    page.onclick=function () {
+                        var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
+                        for (var p of page.children){
+                            if (p.className=='background'){
+                                let res = localStorage['result']
+                                res=JSON.parse(res)
+                                commodity.innerHTML=''
+                                xr(p.innerHTML-1,res)
+                            }
+                        }
+                    }
+                }else {
+                    d1.style.display='block'
+                    d2.style.display='block'
+                    d3.style.display='none'
+                    d4.style.display='none'
+                    d6.style.display='block'
+                    d6.innerHTML='<img src="../img/img/no-data.png" alt="" id="no_data">'
+                }
+
+            })
+        }
+    }
+}
+article()
+
+function xr(p=0,res) {
+    var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
+    if (res && res.length>0){
+        var b=res
+        if (b && b.length>0){
+            for (var goods=16*p;goods<(p+1)*16;goods++) {
+                var k=b[goods].commodity_component.split('&')
+                var c=b[goods].commodity_name+k+b[goods].capacity+b[goods].effect
+                var d=c.slice(0,25)+'...';
+                if (goods %4 ==0){
+                    commodity.innerHTML+=`<div class="goods goods-1 col-md-3" >
+                <div class="goods-content">
+               <a href="#"> <img src="../${b[goods].com_img}" class="img-responsive"></a>
+                <div class="goods-d-1">
+                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
+            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span><span>产品编号:</span><span>${b[goods].id}</span></a></p>
+            </div>
+            </div>
+            </div>`
+                } else if (goods%4 ==1){
+                    commodity.innerHTML+=`<div class="goods goods-2 col-md-3" >
+                <div class="goods-content">
+                <img src="../${b[goods].com_img}" class="img-responsive">
+                <div class="goods-d-1">
+                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
+            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span><span>产品编号:</span><span>${b[goods].id}</span></a></p>
+            </div>
+            </div>
+            </div>`
+                } else if (goods%4==2){
+                    commodity.innerHTML+=`<div class="goods goods-3 col-md-3" >
+                <div class="goods-content">
+                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
+                <div class="goods-d-1">
+                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
+            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span><span>产品编号:</span><span>${b[goods].id}</span></a></p>
+            </div>
+            </div>
+            </div>`
+                } else if (goods%4==3){
+                    commodity.innerHTML+=`<div class="goods goods-4 col-md-3" >
+                <div class="goods-content">
+                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
+                <div class="goods-d-1">
+                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
+            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span><span>产品编号:</span><span>${b[goods].id}</span></a></p>
+            </div>
+            </div>
+            </div>`
+                }
+            }
+        }
+        commodity.onclick=function () {
+            if (event.target.nodeName=='A'){
+                var com_id=event.target.parentElement.nextElementSibling.children[0].children[3].innerText
+                window.sessionStorage.setItem('com_id',com_id)
+                location.href='icy_detail.html'
+            }
+        }
+    }
+
+}
+
+function art_sort() {
+    var d6=document.querySelector('.r-7')
+    var sorts=document.querySelector('.r-6-1')
+    var res
+    var tt=document.querySelector('#dao_ul')
+    var panduan
+    // console.log(tt);
+    sorts.onclick=function (e) {
+        var tt2=tt.children
+        for (var i of tt2){
+            if (i.children[0].style.color=='rebeccapurple') {
+               panduan= i.children[0].innerText
+            }
+        }
+        console.log(panduan);
+        if (e.target.nodeName=="SPAN") {
+            var a=e.target.parentElement.children
+            for (var b of a) {
+                b.style.background='#f2f2f2';
+                b.style.color='black';
+            }
+            e.target.style.background="#71d2c3"
+            e.target.style.color='white'
+        }
+        d6.innerHTML=''
+        if (panduan=='心情') {
+            res= sessionStorage['dy']
+            res=JSON.parse(res)
+            if (res.status_code=='40005') {
+                d6.innerHTML='<img src="../img/img/no-data.png" alt="" id="no_data">'
+            }else {
+                if (e.target.innerText=='最多点击'){
+                    res.sort(y1)
+                }else if (e.target.innerText=='最新发布') {
+                    res.sort(y2)
+                }else if (e.target.innerText=='最多收藏') {
+                    res.sort(y3)
+                }
+                if (res && res.length>0) {
+                    for (var i=0;i<res.length;i++){
+                        d6.innerHTML+=`<div class="row row_margin rank_one">
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 rank_num"><strong>${i+1}</strong></div>
+            <div class="col-xs-10 col-sm-8 col-md-8 col-lg-8">
+                <div class="col-xs-5 col-sm-3 col-md-3 col-lg-3 rank_img">
+                    <img src="../${res[i].dynamic_images}" class="img-responsive img-rounded" alt="Responsive image">
+                </div>
+                <div class="col-xs-7 col-sm-9 col-md-9 col-lg-9 rank_content">
+                    <div class="row first_row">
+                        <a href="#" class="content_name"><h5><strong>${res[i].words}</strong></h5></a>
+                    </div>
+                    <div class="row second_row">
+                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true">&nbsp;${res[i].click}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true">&nbsp;${res[i].cots}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true">&nbsp;${res[i].fbs}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="glyphicon glyphicon-user" aria-hidden="true">&nbsp;<a href="#">${res[i].user_name}</a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="hidden-xs col-sm-2 col-md-2 col-lg-2 rank_detail">
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <span style="color: darkgrey"><strong>热度</strong></span> <br>
+                    <span style="color: #ffadbc; font-size: 1.2em"><strong>${res[i].click+res[i].cots+res[i].fbs}</strong></span>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <span style="color: darkgrey"><strong>分类</strong></span> <br>
+                    <span style="color: #ffadbc; font-size: 1.2em"><strong>心情</strong></span>
+                </div>
+            </div>
+        </div>`
+                    }
+                }else {
+                    d6.innerHTML='<img src="../img/img/no-data.png" alt="" id="no_data">'
+                }
+            }
+
+        }else if (panduan=='日记') {
+            res=sessionStorage['jo']
+            res=JSON.parse(res)
+            if (res.status_code=='40005') {
+                d6.innerHTML='<img src="../img/img/no-data.png" alt="" id="no_data">'
+            }else {
+                if (e.target.innerText=='最多点击'){
+                    res.sort(y1)
+                }else if (e.target.innerText=='最新发布') {
+                    res.sort(y2)
+                }else if (e.target.innerText=='最多收藏') {
+                    res.sort(y3)
+                }
+                if (res && res.length>0){
+                    for (var i=0;i<res.length;i++){
+                        d6.innerHTML+=`<div class="row row_margin rank_one">
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 rank_num"><strong>${i+1}</strong></div>
+            <div class="col-xs-10 col-sm-8 col-md-8 col-lg-8">
+                <div class="col-xs-5 col-sm-3 col-md-3 col-lg-3 rank_img">
+                    <img src="../${res[i].images}" class="img-responsive img-rounded" alt="Responsive image">
+                </div>
+                <div class="col-xs-7 col-sm-9 col-md-9 col-lg-9 rank_content">
+                    <div class="row first_row">
+                        <a href="#" class="content_name"><h5><strong>${res[i].title}</strong></h5></a>
+                    </div>
+                    <div class="row second_row">
+                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true">&nbsp;${res[i].click}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true">&nbsp;${res[i].cots}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true">&nbsp;${res[i].fbs}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="glyphicon glyphicon-user" aria-hidden="true">&nbsp;<a href="#">${res[i].user_name}</a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="hidden-xs col-sm-2 col-md-2 col-lg-2 rank_detail">
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <span style="color: darkgrey"><strong>热度</strong></span> <br>
+                    <span style="color: #ffadbc; font-size: 1.2em"><strong>${res[i].click+res[i].cots+res[i].fbs}</strong></span>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <span style="color: darkgrey"><strong>分类</strong></span> <br>
+                    <span style="color: #ffadbc; font-size: 1.2em"><strong>日记</strong></span>
+                </div>
+            </div>
+        </div>`
+                    }
+                } else {
+                    d6.innerHTML='<img src="../img/img/no-data.png" alt="" id="no_data">'
+                }
+            }
+        }else if (panduan=='测评') {
+            var res=sessionStorage['test']
+            res=JSON.parse(res)
+            if (res.status_code=='40005') {
+                d6.innerHTML='<img src="../img/img/no-data.png" alt="" id="no_data">'
+            }else {
+                if (e.target.innerText=='最多点击'){
+                    res.sort(y1)
+                }else if (e.target.innerText=='最新发布') {
+                    res.sort(y2)
+                }else if (e.target.innerText=='最多收藏') {
+                    res.sort(y3)
+                }
+                if (res && res.length>0){
+                    for (var i=0;i<res.length;i++){
+                        d6.innerHTML+=`<div class="row row_margin rank_one">
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 rank_num"><strong>${i+1}</strong></div>
+            <div class="col-xs-10 col-sm-8 col-md-8 col-lg-8">
+                <div class="col-xs-5 col-sm-3 col-md-3 col-lg-3 rank_img">
+                    <img src="../${res[i].img}" class="img-responsive img-rounded" alt="Responsive image">
+                </div>
+                <div class="col-xs-7 col-sm-9 col-md-9 col-lg-9 rank_content">
+                    <div class="row first_row">
+                        <a href="#" class="content_name"><h5><strong>${res[i].title}</strong></h5></a>
+                    </div>
+                    <div class="row second_row">
+                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true">&nbsp;${res[i].click}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true">&nbsp;${res[i].cots}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true">&nbsp;${res[i].fbs}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="glyphicon glyphicon-user" aria-hidden="true">&nbsp;<a href="#">${res[i].user_name}</a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="hidden-xs col-sm-2 col-md-2 col-lg-2 rank_detail">
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <span style="color: darkgrey"><strong>热度</strong></span> <br>
+                    <span style="color: #ffadbc; font-size: 1.2em"><strong>${res[i].click+res[i].cots+res[i].fbs}</strong></span>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <span style="color: darkgrey"><strong>分类</strong></span> <br>
+                    <span style="color: #ffadbc; font-size: 1.2em"><strong>测评</strong></span>
+                </div>
+            </div>
+        </div>`
+                    }
+                } else {
+                    d6.innerHTML='<img src="../img/img/no-data.png" alt="" id="no_data">'
+                }
+            }
+
+        }
+    }
+
+    function y1(b,a) {
+        return    a.click-b.click
+    }
+    function y2(b,a) {
+        return   a.data-b.data
+    }
+    function y3(b,a) {
+        return    a.fbs-b.fbs
+    }
+
+}
+art_sort()
+
+function dy() {
+    var d1=document.querySelector('.r-2')
+    var d2=document.querySelector('.r-3')
+    var d3=document.querySelector('.r-4')
+    var d4=document.querySelector('.r-5')
+    var d5=document.querySelector('.r-6')
+    var d6=document.querySelector('.r-7')
+    var btn=document.querySelector('#dao_ul')
+    var ipt=document.querySelector('#input-sch')
+    var sch=document.querySelector('#sch_btn')
+    var page=document.querySelector('#ul-fenye')
+    var a={'keyword':ipt.value,'method':6}
+    d1.style.display='none'
+    d2.style.display='none'
+    d3.style.display='none'
+    d4.style.display='none'
+    d5.style.display='block'
+    d6.style.display='block'
+    getData(ajax_url+'/search/',a,function (res) {
+        let hhh=JSON.stringify(res)
+        sessionStorage.setItem('dy',hhh)
+        if (res && res.length>0) {
+            for (var i=0;i<res.length;i++){
+                d6.innerHTML+=`<div class="row row_margin rank_one">
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 rank_num"><strong>${i+1}</strong><span>${res[i].id}</span></div>
+            <div class="col-xs-10 col-sm-8 col-md-8 col-lg-8">
+                <div class="col-xs-5 col-sm-3 col-md-3 col-lg-3 rank_img">
+                    <img src="../${res[i].dynamic_images}" class="img-responsive img-rounded" alt="Responsive image">
+                </div>
+                <div class="col-xs-7 col-sm-9 col-md-9 col-lg-9 rank_content">
+                    <div class="row first_row">
+                        <a  class="content_name"><h5><strong>${res[i].words}</strong></h5></a>
+                    </div>
+                    <div class="row second_row">
+                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true">&nbsp;${res[i].click}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true">&nbsp;${res[i].cots}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true">&nbsp;${res[i].fbs}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="glyphicon glyphicon-user" aria-hidden="true">&nbsp;<a href="#">${res[i].user_name}</a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="hidden-xs col-sm-2 col-md-2 col-lg-2 rank_detail">
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <span style="color: darkgrey"><strong>热度</strong></span> <br>
+                    <span style="color: #ffadbc; font-size: 1.2em"><strong>${res[i].click+res[i].cots+res[i].fbs}</strong></span>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <span style="color: darkgrey"><strong>分类</strong></span> <br>
+                    <span style="color: #ffadbc; font-size: 1.2em"><strong>心情</strong></span>
+                </div>
+            </div>
+        </div>`
+            }
+        }else {
+            d6.innerHTML='<img src="../img/img/no-data.png" alt="" id="no_data">'
+        }
+
+    })
+    function tiao1() {
+        var d6=document.querySelector('.r-7')
+        d6.onclick=function () {
+            if (event.target.nodeName=='STRONG') {
+                var lll=event.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[0].children[1]
+                lll=lll.innerText
+                sessionStorage.setItem('dy_type','dynamic')
+                sessionStorage.setItem('dy_id',lll)
+                sessionStorage.setItem('from','/rainbow_diary_html/search/icy_result')
+                location.href='/rainbow_diary_html/user/dynamic_one.html'
+            }
+        }
+    }
+    tiao1()
+}
+
+function jo() {
+    var a={}
+    var d1=document.querySelector('.r-2')
+    var d2=document.querySelector('.r-3')
+    var d3=document.querySelector('.r-4')
+    var d4=document.querySelector('.r-5')
+    var d5=document.querySelector('.r-6')
+    var d6=document.querySelector('.r-7')
+    var btn=document.querySelector('#dao_ul')
+    var ipt=document.querySelector('#input-sch')
+    var sch=document.querySelector('#sch_btn')
+    var page=document.querySelector('#ul-fenye')
+
+    a={'keyword':ipt.value,'method':7}
+    d1.style.display='none'
+    d2.style.display='none'
+    d3.style.display='none'
+    d4.style.display='none'
+    d5.style.display='block'
+    d6.style.display='block'
+    getData(ajax_url+'/search/',a,function (res) {
+        let hhh=JSON.stringify(res)
+        sessionStorage.setItem('jo',hhh)
+        if (res && res.length>0){
+            for (var i=0;i<res.length;i++){
+                d6.innerHTML+=`<div class="row row_margin rank_one">
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 rank_num"><strong>${i+1}</strong><span>${res[i].id}</span></div>
+            <div class="col-xs-10 col-sm-8 col-md-8 col-lg-8">
+                <div class="col-xs-5 col-sm-3 col-md-3 col-lg-3 rank_img">
+                    <img src="../${res[i].images}" class="img-responsive img-rounded" alt="Responsive image">
+                </div>
+                <div class="col-xs-7 col-sm-9 col-md-9 col-lg-9 rank_content">
+                    <div class="row first_row">
+                        <a  class="content_name"><h5><strong>${res[i].title}</strong></h5></a>
+                    </div>
+                    <div class="row second_row">
+                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true">&nbsp;${res[i].click}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true">&nbsp;${res[i].cots}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true">&nbsp;${res[i].fbs}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="glyphicon glyphicon-user" aria-hidden="true">&nbsp;<a href="#">${res[i].user_name}</a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="hidden-xs col-sm-2 col-md-2 col-lg-2 rank_detail">
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <span style="color: darkgrey"><strong>热度</strong></span><br>
+                    <span style="color: #ffadbc; font-size: 1.2em"><strong>${res[i].click+res[i].cots+res[i].fbs}</strong></span>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <span style="color: darkgrey"><strong>分类</strong></span> <br>
+                    <span style="color: #ffadbc; font-size: 1.2em"><strong>日记</strong></span>
+                </div>
+            </div>
+        </div>`
+            }
+        } else {
+            d6.innerHTML='<img src="../img/img/no-data.png" alt="" id="no_data">'
+        }
+
+    })
+    function tiao2() {
+        var d6=document.querySelector('.r-7')
+        d6.onclick=function () {
+            console.log(event.target);
+            if (event.target.nodeName=='STRONG') {
+                var lll=event.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[0].children[1]
+                lll=lll.innerText
+                sessionStorage.setItem('dy_type','journal')
+                sessionStorage.setItem('dy_id',lll)
+                sessionStorage.setItem('from','/rainbow_diary_html/search/icy_result')
+                location.href='/rainbow_diary_html/user/dynamic_one.html'
+            }
+        }
+    }
+    tiao2()
+}
+
+function te() {
+    var a={}
+    var d1=document.querySelector('.r-2')
+    var d2=document.querySelector('.r-3')
+    var d3=document.querySelector('.r-4')
+    var d4=document.querySelector('.r-5')
+    var d5=document.querySelector('.r-6')
+    var d6=document.querySelector('.r-7')
+    var btn=document.querySelector('#dao_ul')
+    var ipt=document.querySelector('#input-sch')
+    var sch=document.querySelector('#sch_btn')
+    var page=document.querySelector('#ul-fenye')
+
+    a={'keyword':ipt.value,'method':8}
+    d1.style.display='none'
+    d2.style.display='none'
+    d3.style.display='none'
+    d4.style.display='none'
+    d5.style.display='block'
+    d6.style.display='block'
+    getData(ajax_url+'/search/',a,function (res) {
+        let hhh=JSON.stringify(res)
+        sessionStorage.setItem('test',hhh)
+        if (res && res.length>0){
+            for (var i=0;i<res.length;i++){
+                d6.innerHTML+=`<div class="row row_margin rank_one">
+            <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 rank_num"><strong>${i+1}</strong><span>${res[i].id}</span></div>
+            <div class="col-xs-10 col-sm-8 col-md-8 col-lg-8">
+                <div class="col-xs-5 col-sm-3 col-md-3 col-lg-3 rank_img">
+                    <img src="../${res[i].img}" class="img-responsive img-rounded" alt="Responsive image">
+                </div>
+                <div class="col-xs-7 col-sm-9 col-md-9 col-lg-9 rank_content">
+                    <div class="row first_row">
+                        <a class="content_name"><h5><strong>${res[i].title}</strong></h5></a>
+                    </div>
+                    <div class="row second_row">
+                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true">&nbsp;${res[i].click}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="glyphicon glyphicon-edit" aria-hidden="true">&nbsp;${res[i].cots}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true">&nbsp;${res[i].fbs}</span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;
+                        <span class="glyphicon glyphicon-user" aria-hidden="true">&nbsp;<a href="#">${res[i].user_name}</a></span>
+                    </div>
+                </div>
+            </div>
+            <div class="hidden-xs col-sm-2 col-md-2 col-lg-2 rank_detail">
+                <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                    <span style="color: darkgrey"><strong>热度</strong></span> <br>
+                    <span style="color: #ffadbc; font-size: 1.2em"><strong>${res[i].click+res[i].cots+res[i].fbs}</strong></span>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                    <span style="color: darkgrey"><strong>分类</strong></span> <br>
+                    <span style="color: #ffadbc; font-size: 1.2em"><strong>测评</strong></span>
+                </div>
+            </div>
+        </div>`
+            }
+        } else {
+            d6.innerHTML='<img src="../img/img/no-data.png" alt="" id="no_data">'
+        }
+
+    })
+    function tiao3() {
+        var d6=document.querySelector('.r-7')
+        d6.onclick=function () {
+            if (event.target.nodeName=='STRONG') {
+                var lll=event.target.parentElement.parentElement.parentElement.parentElement.parentElement.parentElement.children[0].children[1]
+                lll=lll.innerText
+                sessionStorage.setItem('dy_type','test')
+                sessionStorage.setItem('dy_id',lll)
+                sessionStorage.setItem('from','/rainbow_diary_html/search/icy_result')
+                location.href='/rainbow_diary_html/user/dynamic_one.html'
+            }
+        }
+    }
+    tiao3()
+}
+
+
+
