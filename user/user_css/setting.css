@@ -1,5 +1,29 @@
 /*字体*/
-/*我的信息*/
+/*首页部分——开始*/
+/*头像昵称*/
+
+.qz_nick{
+    height: 50px;
+}
+.font_nick{
+    font-size: 1.1em;
+    font-weight: bolder;
+    line-height: 50px;
+}
+
+/*账号安全*/
+.font_account{
+    font-size: 1.3em;
+}
+.font_bind{
+    font-size: 1.1em
+}
+.font_binin{
+    color: #A6A2AA;
+    font-size: 0.8em
+}
+/*首页部分——结束*/
+/*我的信息—开始*/
 .text_title{
     font-family: 幼圆;
     font-size: 1.1em;
@@ -18,6 +42,8 @@
 .font_pendant{
     font-size: 1.1em;
 }
+/*我的信息—结束*/
+
 
 
 
@@ -38,7 +64,7 @@
     /*padding-right: -1px;*/
     box-sizing: border-box;
 }
-/*心情部分*/
+/*首页部分*/
 .row_margin{
     margin-top: 30px;
 }
@@ -68,8 +94,99 @@
 }
 
 
+/*首页部分—开始*/
+/*头像昵称—开始*/
+.head_img{
+    border-radius: 50%;
+    height: 100%;
+}
+/*按钮—开始*/
+.button--continue {
+    position: relative;
+    padding-right: 2em;
+}
+.button--primary {
+    background: rgba(220, 20, 60, 0.71);
+    color: #fff;
+    border: solid 2px rgba(220, 20, 60, 0.71);
+}
+.button--primary:hover{
+    background: whitesmoke;
+    text-decoration: none;
+    color: rgba(220, 20, 60, 0.71);
+}
+/*编辑按钮—开始*/
+/*.button--edit {*/
+/*background: #FFAAAA;*/
+/*color: #fff;*/
+/*border: #FFAAAA;*/
+/*}*/
+/*.button--edit:hover{*/
+/*background: #FFE3E5;*/
+/*text-decoration: none;*/
+/*color: #FFAAAA;*/
+/*}*/
+/*编辑按钮—结束*/
+.button {
+    border-radius: .6em;
+    padding: .2em 1em .3em;
+    line-height: 1.618;
+    display: inline-block;
+    text-align: center;
+    text-align-last: center;
+    vertical-align: middle;
+    user-select: none;
+    touch-action: manipulation;
+    cursor: pointer;
+    transition: all .2s ease-out;
+    text-decoration: none;
+}
+.margin-bottom {
+    margin-bottom: 2rem;
+}
+.margin-top {
+    margin-top: 2rem;
+}
+/*按钮—结束*/
+/*头像昵称—结束*/
+/*彩虹认证—开始*/
+.qz_authent{
+    height: 240px;
+    background: rgba(220, 20, 60, 0.6);
+    border-radius: 10px;
+    text-align: center;
+    padding-top: 40px
+}
+.auth_pic{
+    height: 110px;
+}
+.auth_pic img{
+    margin: auto;
+}
+.auth_tit{
+    font-weight: bolder;
+    font-size: 1.6em;
+    color: whitesmoke;
+}
+.auth_inf{
+    font-size: 0.8em;
+    color: whitesmoke;
+}
+/*彩虹认证—结束*/
+/*账号安全—开始*/
+.account_pic{
+    border-radius: 50%;
+    background: #ADB6C7;
+    height: 50px;
+    padding-top: 7px;
+}
+.account_pic img{
+    margin: auto;
+}
+/*账号安全—结束*/
+/*首页部分—结束*/
 
-/*我的信息*/
+/*我的信息—开始*/
 .log_bla{
     margin-left: 30px;
 }
@@ -90,7 +207,9 @@
     background: #FFAAAA;
     border: #FFAAAA;
 }
-/*我的头像*/
+/*我的信息—结束*/
+
+/*我的头像—开始*/
 /*背景*/
 .guide{
     margin-top: 100px;
@@ -129,6 +248,7 @@
     height: 1px;
     background: #d9d9d9;
 }
+/*我的头像—结束*/
 
 
 

@@ -69,8 +69,17 @@
     height: 20px;
     line-height: 20px;
 }
-
-
+/*中心内容*/
+/*日记本内容*/
+.font_main{
+    font-size: 0.9em;
+    margin: auto;
+    color: whitesmoke;
+}
+.font_fabu{
+    font-size: 0.7em;
+    color: whitesmoke;
+}
 
 
 
@@ -116,22 +125,6 @@
 /*个人信息*/
 .qz_perinf{
     margin-top: -25px;
-}
-.qz_mobtn{
-    /*z-index: 5;*/
-    margin-top: -10px;
-    width: 50px;
-    height: 35px;
-    border-radius: 5px;
-    font-size: 16px;
-    font-family: 幼圆;
-    color: white;
-    background-color: #FFAAAA;
-    /*outline: none;*/
-}
-.qz_mobtn:hover, .btn:focus{
-    /*z-index: 5;*/
-    background-color: #95b4ed;
 }
 .nav_infor{
     float: left;
@@ -296,6 +289,10 @@
     overflow: hidden;
     border-radius: 15px;
 }
+.qz_cen img{
+    height: 186px;
+    width: 100%;
+}
 .qz_cimg{
     margin: auto;
     transition: all 1s ease-in-out;
@@ -309,7 +306,7 @@
 .qz_coimg{
     display: none;
     position: relative;
-    background: rgba(255, 105, 180, 0.41);
+    background: rgba(0, 0, 0, 0.5);
     border-radius: 15px;
     text-align: center;
     font-size: 1.5em;
@@ -322,6 +319,54 @@
 #qz_admission{
     display: none;
 }
+/*结尾更多按钮—开始*/
+.button--continue {
+    position: relative;
+    padding-right: 2em;
+}
+/*编辑按钮—开始*/
+.button--edit {
+    background: #FFAAAA;
+    color: #fff;
+    border: #FFAAAA;
+}
+.button--edit:hover{
+    background: #FFE3E5;
+    text-decoration: none;
+    color: #FFAAAA;
+}
+/*编辑按钮—结束*/
+.button--primary {
+    background: rgba(220, 20, 60, 0.71);
+    color: #fff;
+    border: solid 2px rgba(220, 20, 60, 0.71);
+}
+.button--primary:hover{
+    background: whitesmoke;
+    text-decoration: none;
+    color: rgba(220, 20, 60, 0.71);
+}
+.button {
+    border-radius: .6em;
+    padding: .2em 1em .3em;
+    line-height: 1.618;
+    display: inline-block;
+    text-align: center;
+    text-align-last: center;
+    vertical-align: middle;
+    user-select: none;
+    touch-action: manipulation;
+    cursor: pointer;
+    transition: all .2s ease-out;
+    text-decoration: none;
+}
+.margin-bottom {
+    margin-bottom: 2rem;
+}
+.margin-top {
+    margin-top: 2rem;
+}
+/*结尾更多按钮—结束*/
 
 
 

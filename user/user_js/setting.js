@@ -21,12 +21,15 @@
             let qz_text1=document.querySelector('.qz_text1');
             let qz_text2=document.querySelector('.qz_text2');
             let qz_text3=document.querySelector('.qz_text3');
-
             let master_head=document.querySelector('.master_head');
+            let head_img=document.querySelector('.head_img');
+            let font_nick=document.querySelector('.font_nick');
             qz_text1.value=res.user_nickname;
             qz_text2.innerHTML=res.user_autograpgh;
             qz_text3.value=res.user_phone;
             master_head.src='../'+res.user_icon;
+            head_img.src='../'+res.user_icon;
+            font_nick.innerHTML=res.user_nickname;
 
             // 性别选择按钮
             sex_select(res);
@@ -82,7 +85,7 @@
                 if (li.nextElementSibling){
                     li.nextElementSibling.classList.remove('shu_active');
                     if (li.nextElementSibling.nextElementSibling){
-                        //心情
+                        //首页
                         li.nextElementSibling.nextElementSibling.classList.remove('shu_active');
                         dy_row.style.display='block';
                         dairy_row.style.display='none';
@@ -91,7 +94,7 @@
                         dairy_row.classList.remove('text_active');
                         test_row.classList.remove('text_active');
                     } else {
-                        //日记
+                        //我的信息
                         li.previousElementSibling.classList.remove('shu_active');
                         dy_row.style.display='none';
                         dairy_row.style.display='block';
@@ -101,7 +104,7 @@
                         test_row.classList.remove('text_active');
                     }
                 } else {
-                    //测评
+                    //我的头像
                     li.previousElementSibling.classList.remove('shu_active');
                     li.previousElementSibling.previousElementSibling.classList.remove('shu_active');
                     dy_row.style.display='none';
@@ -114,6 +117,38 @@
                 li.classList.add('shu_active');
             }
         }
+    }
+    
+    // 点击'修改资料',头像
+    let head_img=document.querySelector('.head_img');
+    let qz_edit=document.querySelector('.qz_edit');
+    let nav_page=document.querySelector('.nav_page');
+    let nav_info=document.querySelector('.nav_info');
+    let nav_head=document.querySelector('.nav_head');
+    let dy_row=document.querySelector('.dy_row');
+    let dairy_row=document.querySelector('.dairy_row');
+    let test_row=document.querySelector('.test_row');
+    // 点击头像
+    head_img.onclick=function () {
+        nav_page.classList.remove('shu_active');
+        nav_head.classList.add('shu_active')
+        dy_row.style.display='none';
+        dairy_row.style.display='none';
+        test_row.style.display='block';
+        dy_row.classList.remove('text_active');
+        dairy_row.classList.remove('text_active');
+        test_row.classList.add('text_active');
+    }
+    // 点击'修改资料'
+    qz_edit.onclick=function () {
+        nav_page.classList.remove('shu_active');
+        nav_info.classList.add('shu_active')
+        dy_row.style.display='none';
+        dairy_row.style.display='block';
+        test_row.style.display='none';
+        dy_row.classList.remove('text_active');
+        dairy_row.classList.add('text_active');
+        test_row.classList.remove('text_active');
     }
 
     // 检查昵称

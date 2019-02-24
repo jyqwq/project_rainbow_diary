@@ -112,26 +112,118 @@
         <!--左边导航-->
         <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2 choose_sharing">
             <ul class="nav nav-tabs nav-stacked shu_nav row_margin margin_end">
-                <li role="presentation" class="shu_active"><a href="#"><img src="../img/setting/nav_setting.png" alt="">&nbsp;&nbsp;首页</a></li>
-                <li role="presentation"><a href="#"><img src="../img/setting/nav_message.png" alt="">&nbsp;&nbsp;我的信息</a></li>
-                <li role="presentation"><a href="#"><img src="../img/setting/nav_head.png" alt="">&nbsp;&nbsp;我的头像</a></li>
+                <li role="presentation" class="shu_active nav_page"><a href="#"><img src="../img/setting/nav_setting.png" alt="">&nbsp;&nbsp;首页</a></li>
+                <li role="presentation" class="nav_info"><a href="#"><img src="../img/setting/nav_message.png" alt="">&nbsp;&nbsp;我的信息</a></li>
+                <li role="presentation" class="nav_head"><a href="#"><img src="../img/setting/nav_head.png" alt="">&nbsp;&nbsp;我的头像</a></li>
             </ul>
         </div>
         <!--右边内容-->
         <div class="col-xs-10 col-sm-10 col-md-10 col-lg-10 content_sharing">
             <!--首页部分-->
             <div class="dy_row text_active">
+                <!--头像昵称-->
                 <div class="row row_margin">
-                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                        <img src="../img/setting/dynamic_head.jpg" class="img-responsive" alt="Responsive image">
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-1" style="height: 58px">
+                        <img src="../img/setting/dynamic_head.jpg" class="img-responsive head_img" alt="Responsive image">
                     </div>
-                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-                        <span>南浅</span>
+                    <div class="col-xs-8 col-sm-8 col-md-8 col-lg-7 qz_nick">
+                        <span class="font_nick">南浅</span>
                     </div>
-                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
-                        <button type="button" class="btn btn-info">修改资料</button>
-                        <button type="button" class="btn btn-info">个人空间></button>
+                    <div class="col-xs-2 col-sm-2 col-md-2 col-lg-3">
+                        <div class="button button--primary button--continue margin-top margin-bottom qz_edit">修改资料</div>
+                        <a href="222center222.html" class="button button--primary button--continue margin-top margin-bottom">个人空间 ></a>
                     </div>
+                </div>
+                <div class="qz_line" style="margin-top: 15px"></div>
+                <!--彩虹认证-->
+                <div class="row row_margin">
+                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        <div class="qz_authent">
+                            <div class="auth_pic">
+                                <img src="../img/setting/authent_daren.png" class="img-responsive" alt="Responsive image">
+                            </div>
+                            <span class="auth_tit">美妆达人认证 ></span><br>
+                            <span class="auth_inf">彩虹日记知名美妆达人</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        <div class="qz_authent">
+                            <div class="auth_pic">
+                                <img src="../img/setting/authent_identity.png" class="img-responsive" alt="Responsive image">
+                            </div>
+                            <span class="auth_tit">身份认证 ></span><br>
+                            <span class="auth_inf">社会身份及职业</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        <div class="qz_authent">
+                            <div class="auth_pic">
+                                <img src="../img/setting/authent_enterprise.png" class="img-responsive" alt="Responsive image">
+                            </div>
+                            <span class="auth_tit">企业认证 ></span><br>
+                            <span class="auth_inf">企业官方账号</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-3 col-sm-3 col-md-3 col-lg-3">
+                        <div class="qz_authent">
+                            <div class="auth_pic">
+                                <img src="../img/setting/authent_organization.png" class="img-responsive" alt="Responsive image">
+                            </div>
+                            <span class="auth_tit">组织认证 ></span><br>
+                            <span class="auth_inf">社会团体官方账号</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="qz_line" style="margin-bottom: 15px"></div>
+                <!--账号安全-->
+                <span class="font_account">账号安全</span>
+                <div class="row row_margin">
+                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                        <div class="account_pic">
+                            <img src="../img/setting/security_letter.png" class="img-responsive" alt="Responsive image">
+                        </div>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <span class="font_bind">绑定邮箱</span><br>
+                        <span class="font_binin">绑定邮箱后即可使用邮箱登录</span><br>
+                        <a href="#" class="button button--primary button--continue margin-top margin-bottom" style="margin-top: 5px">去绑定 ></a>
+                    </div>
+                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                        <div class="account_pic">
+                            <img src="../img/setting/security_mobile.png" class="img-responsive" alt="Responsive image">
+                        </div>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <span class="font_bind">绑定手机</span><br>
+                        <span class="font_binin">绑定手机后即可使用手机号登录</span><br>
+                        <a href="#" class="button button--primary button--continue margin-top margin-bottom" style="margin-top: 5px">去绑定 ></a>
+                    </div>
+                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+                </div>
+                <div class="row row_margin">
+                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                        <div class="account_pic">
+                            <img src="../img/setting/security_password.png" class="img-responsive" alt="Responsive image">
+                        </div>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <span class="font_bind">设置密保</span><br>
+                        <span class="font_binin">设置密保，账号更安全</span><br>
+                        <a href="#" class="button button--primary button--continue margin-top margin-bottom" style="margin-top: 5px">去设置 ></a>
+                    </div>
+                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
+                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1">
+                        <div class="account_pic">
+                            <img src="../img/setting/security_identity.png" class="img-responsive" alt="Responsive image">
+                        </div>
+                    </div>
+                    <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                        <span class="font_bind">实名认证</span><br>
+                        <span class="font_binin">实名认证成功后，可享受开通直播间等服务</span><br>
+                        <a href="#" class="button button--primary button--continue margin-top margin-bottom" style="margin-top: 5px">去认证 ></a>
+                    </div>
+                    <div class="col-xs-1 col-sm-1 col-md-1 col-lg-1"></div>
                 </div>
             </div>
             <!--我的信息-->
@@ -142,7 +234,6 @@
                         <table>
                             <tr>
                                 <td class="text_title">昵称：</td>
-                                <!--<td><textarea class="form-control qz_text qz_text1" rows="1" maxlength="5">南浅</textarea></td>-->
                                 <td><input class="form-control qz_text qz_text1" maxlength="5" placeholder=""></td>
                                 <td><span id="nic_err" class="log_bla"></span></td>
                             </tr>

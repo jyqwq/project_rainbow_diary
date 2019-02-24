@@ -17,7 +17,6 @@
         let qz_cimg=document.querySelector('.qz_cimg');
         let qz_cen=document.querySelectorAll('.qz_cen');
         let qz_coimg=document.querySelectorAll('.qz_coimg');
-        let font_coimg=document.querySelectorAll('.font_coimg');
         let hei_cimg=qz_cimg.height;
         for(let cen of qz_cen){
             cen.style.height=hei_cimg+'px';
@@ -25,9 +24,6 @@
         for(let coimg of qz_coimg){
             coimg.style.height=hei_cimg+'px';
             coimg.style.top='-'+(hei_cimg)+'px';
-        }
-        for (let foncoi of font_coimg) {
-            foncoi.style.height=hei_cimg+'px';
         }
         // * * * 2.图片动画——浏览器加载时蒙板尺寸随动——结束
     };
@@ -38,12 +34,10 @@
         let qz_cen=document.querySelectorAll('.qz_cen');
         let qz_coimg=document.querySelectorAll('.qz_coimg');
         let hei_cimg=qz_cimg.height;
-        for(let cen of qz_cen){
-            cen.style.height=hei_cimg+'px';
-        }
-        for(let coimg of qz_coimg){
-            coimg.style.height=hei_cimg+'px';
-            coimg.style.top='-'+(hei_cimg)+'px';
+        for (i=0;i<18;i++){
+            qz_cen[i].style.height=hei_cimg+'px';
+            qz_coimg[i].style.height=hei_cimg+'px';
+            qz_coimg[i].style.top='-'+(hei_cimg)+'px';
         }
         // 图片动画——浏览器尺寸改变时蒙板尺寸随动——结束
     };
@@ -56,9 +50,7 @@
         } else {
             location.href = '../user/login.html'
         }
-        console.log(user_id);
         postData(ajax_url + '/user/person', user_id, function (res) {
-            console.log(res);
             let qz_por = document.querySelectorAll('.qz_por');
             let font_nic = document.querySelector('.font_nic');
             let font_gra1 = document.querySelector('.font_gra1');
@@ -72,6 +64,147 @@
             nav_infor1.innerHTML = '&nbsp;&nbsp;' + res.user_fans;
             nav_infor2.innerHTML = '&nbsp;&nbsp;' + res.user_watchs;
         })
+    }
+
+    // 传入数据—主页日记本
+    dynamic_ajax();
+    function dynamic_ajax(){
+        let user_id=localStorage.getItem('user_id');
+        let user={'user_id':user_id,'methods':'mydy'};
+        let qz_cimg=document.querySelectorAll('.qz_cimg');
+        let qz_coimg=document.querySelectorAll('.qz_coimg');
+        postData(ajax_url+'/user/person',user,function (res) {
+            let myDate = new Date();
+            let max=res.length;
+            if (max>6){
+                max=6;
+            }
+            for (i=0;i<max;i++){
+                let num=parseInt(myDate.getTime())-parseInt(res[i].data);
+                let time=number_to_time(num);
+                qz_coimg[i].innerHTML=`<span class="font_main"><br>${res[i].words}</span>
+                                <span class="font_fabu"><br><br>发布时间：${time}</span>
+                                <span class="font_fabu"><br>点击量:${res[i].click}</span>
+                                <div class="dy_type" style="display: none">${res[i].t_name}</div>
+                                <div class="dy_id" style="display: none">${res[i].id}</div>`
+                if (res[i].dynamic_images!=''){
+                    qz_cimg[i].src='../'+res[i].dynamic_images;
+                }else {
+                    qz_cimg[i].src='../img/222center222/S90120-18242387.jpg';
+                }
+            }
+
+            // 传入数据—主页收藏夹
+            collect_ajax();
+
+            //跳转单个页面
+            let to_one=document.querySelectorAll('.to_one');
+            for (let p=0;p<to_one.length;p++){
+                to_one[p].onclick=function () {
+                    let dy_message=this.children;
+                    sessionStorage.setItem('dy_type',dy_message[3].innerText);
+                    sessionStorage.setItem('dy_id',dy_message[4].innerText);
+                    sessionStorage.setItem('from','/rainbow_diary_html/user/222center222.html');
+                    location.href='/rainbow_diary_html/user/dynamic_one.html'
+                };
+            }
+        })
+    }
+
+    // 传入数据—主页收藏夹
+    function collect_ajax(){
+        let user_id=localStorage.getItem('user_id');
+        let user={'user_id':user_id,'methods':'mycol'};
+        let qz_cimg=document.querySelectorAll('.qz_cimg');
+        let qz_coimg=document.querySelectorAll('.qz_coimg');
+        postData(ajax_url+'/user/person',user,function (res) {
+            let myDate = new Date();
+            let max=res.length;
+            if (max>6){
+                max=6;
+            }
+            for (i=0;i<max;i++){
+                let num=parseInt(myDate.getTime())-parseInt(res[i].data);
+                let time=number_to_time(num);
+                qz_coimg[i+6].innerHTML=`<span class="font_main"><br>${res[i].words}</span>
+                                <span class="font_fabu"><br><br>发布时间：${time}</span>
+                                <span class="font_fabu"><br>点击量:${res[i].click}</span>
+                                <div class="dy_type" style="display: none">${res[i].t_name}</div>
+                                <div class="dy_id" style="display: none">${res[i].id}</div>`
+                if (res[i].dynamic_images!=''){
+                    qz_cimg[i+6].src='../'+res[i].dynamic_images;
+                }else {
+                    qz_cimg[i+6].src='../img/222center222/S90120-18241142.jpg';
+                }
+            }
+        })
+    }
+
+    //传入数据—主页收纳盒
+    var res=[
+        {
+            "img":"https://img1.bevol.cn/Goods/source/55ee791e8291b.jpg@90p",
+            "title":"兰蔻新精华肌底液",
+            "data":"52天"
+        },
+        {
+            "img":"https://img0.bevol.cn/Goods/source/570718c5a24f2.jpg@90p",
+            "title":"兰蔻新精华肌底液",
+            "data":"152天"
+        },
+        {
+            "img":"https://img0.bevol.cn/Goods/source/55dae7cf7cf08.jpg@50p",
+            "title":"兰蔻新精华肌底液",
+            "data":"226天"
+        },
+        {
+            "img":"https://img1.bevol.cn/Goods/source/55ee791e8291b.jpg@90p",
+            "title":"兰蔻新精华肌底液",
+            "data":"22天"
+        },
+        {
+            "img":"https://img0.bevol.cn/Goods/source/570718c5a24f2.jpg@90p",
+            "title":"兰蔻新精华肌底液",
+            "data":"52天"
+        },
+        {
+            "img":"https://img0.bevol.cn/Goods/source/55dae7cf7cf08.jpg@50p",
+            "title":"兰蔻新精华肌底液",
+            "data":"165天"
+        },
+        {
+            "img":"https://img1.bevol.cn/Goods/source/55ee791e8291b.jpg@90p",
+            "title":"兰蔻新精华肌底液",
+            "data":"52天"
+        },
+        {
+            "img":"https://img0.bevol.cn/Goods/source/570718c5a24f2.jpg@90p",
+            "title":"兰蔻新精华肌底液",
+            "data":"36天"
+        },
+        {
+            "img":"https://img0.bevol.cn/Goods/source/55dae7cf7cf08.jpg@50p",
+            "title":"兰蔻新精华肌底液",
+            "data":"100天"
+        }
+    ]//测试
+    storage_ajax();
+    function storage_ajax(){
+        let qz_cimg=document.querySelectorAll('.qz_cimg');
+        let qz_coimg=document.querySelectorAll('.qz_coimg');
+        let max=res.length;
+        if (max>6){
+            max=6;
+        }
+        for (i=0;i<max;i++){
+            qz_coimg[i+12].innerHTML=`<span class="font_main"><br><br>${res[i].title}</span>
+                                <span class="font_fabu"><br>剩余${res[i].data}</span>`
+            if (res[i].img!=''){
+                qz_cimg[i+12].src=res[i].img;
+            }else {
+                qz_cimg[i+12].src='../img/222center222/S90131-16385218.jpg';
+            }
+        }
     }
 
     // 导航栏切换
@@ -148,6 +281,27 @@
         }
     }
 
+    function number_to_time(num) {
+        let num_second=num/1000;
+        let days=Math.floor(num_second/(60*60*24));
+        let hours=Math.floor((num_second%(60*60*24))/(60*60));
+        let mimutes=Math.floor((num_second%(60*60))/60);
+        let seconds=Math.floor((num_second%60));
+        // 显示距系统时间时间差
+        if (days>0){
+            var result=days+'天前';
+        }else if (hours>0){
+            var result=hours+'小时前';
+        } else if (mimutes>0){
+            var result=mimutes+'分钟前';
+        } else if (seconds=>0) {
+            var result=seconds+'秒前';
+        } else {
+            var result=null;
+        }
+        return result;
+    }
+
 
     // let anc_eve=document.querySelector('.anchor_event');
     //获取滚动条到顶部的高度
@@ -189,9 +343,6 @@
             }
         }, 1);
     }
-
-
-
 
 
     // 返回顶部

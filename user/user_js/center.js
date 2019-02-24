@@ -30,6 +30,7 @@
         let qz_dynamic=document.querySelector('.qz_dynamic');
         let myDate = new Date();
         postData(ajax_url+'/user/person',user,function (res) {
+            console.log(res);
             for (let i=0;i<res.length;i++){
                 let num=parseInt(myDate.getTime())-parseInt(res[i].data);
                 let time=number_to_time(num);
@@ -234,20 +235,14 @@
                     location.href='/rainbow_diary_html/user/dynamic_one.html'
                 }
             }
+            collect_ajax();
         })
-
-
-
-
-
-
     }
 
     //获取收藏夹页数据
-    collect_ajax();
     function collect_ajax(){
         let user_id=localStorage.getItem('user_id');
-        let user={'user_id':parseInt(user_id),'methods':'mydy'};
+        let user={'user_id':parseInt(user_id),'methods':'mycol'};
         let qz_collect=document.querySelector('.qz_collect');
         let myDate = new Date();
         postData(ajax_url+'/user/person',user,function (res) {
