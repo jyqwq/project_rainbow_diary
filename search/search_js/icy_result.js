@@ -12,6 +12,8 @@ function qq() {
             postData(ajax_url+'/search/search_index',x,function (res) {
             })
             getData(ajax_url+'/search/',a,function (res) {
+                re=JSON.stringify(res)
+                localStorage.setItem('result',re)
                 if (res && res.length>0){
                     var page=document.querySelector('#ul-fenye')
                     let s=res.length;
@@ -241,6 +243,7 @@ function search() {
         var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
         commodity.innerHTML=''
         getData(ajax_url+'/search/',d,function (res) {
+            console.log(res);
             if (res && res.length>0) {
                 var ll=JSON.stringify(res)
                 window.localStorage.setItem('result',ll)
@@ -285,13 +288,15 @@ function category() {
     var b=document.querySelector('#input-sch')
     var e=document.querySelector('.mid-2-ul')
     var h=document.querySelector('.r-2-td-3')
+    var tj=document.querySelector('#r-2-1-ul')
     var arry1=new Array()
     var arry2=new Array()
+    var ss=''
     //根据品牌搜索
     a.onclick=function () {
         var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
 
-    let ipt=b.value
+        let ipt=b.value
         if (event.target.nodeName=='SPAN') {
             commodity.innerHTML=''
             var c=event.target.innerText
@@ -306,28 +311,43 @@ function category() {
             }
 
             ul.innerHTML=`<li role="presentation" class="active  " ><a href="#" class="r-2-1">所有分类:</a></li>
-<li role="presentation" class="active  " ><a href="#" class="r-2-1">${c}</a></li>
+             <li role="presentation" class="active  " ><a href="#" class="r-2-1">${c}</a></li>
 `
             tr.style.display='none'
             var str2=arry2.join('%')
+            ss=str2
             var d={'keyword':ipt,'condition':str2, 'etp':c,'method':3}
-            console.log(d);
+            // console.log(d);
             getData(ajax_url+'/search/',d,function (res) {
-                var page=document.querySelector('#ul-fenye')
-                let s=res.length;
-                fenye(s);
-                xr(0,res)
-                page.onclick=function () {
-                    var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
-                    for (var p of page.children){
-                        if (p.className=='background'){
-                            let res = localStorage['result']
-                            res=JSON.parse(res)
-                            commodity.innerHTML=''
-                            xr(p.innerHTML-1,res)
+                d2.style.display='block'
+                d3.style.display='block'
+                d4.style.display='block'
+                d5.style.display='block'
+                d6.style.display='none'
+                d7.style.display='none'
+                if (res && res.length>0){
+                    var page=document.querySelector('#ul-fenye')
+                    let s=res.length;
+                    fenye(s);
+                    xr(0,res)
+                    page.onclick=function () {
+                        var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
+                        for (var p of page.children){
+                            if (p.className=='background'){
+                                let res = localStorage['result']
+                                res=JSON.parse(res)
+                                commodity.innerHTML=''
+                                xr(p.innerHTML-1,res)
+                            }
                         }
                     }
+                } else {
+                    d4.style.display='none'
+                    d5.style.display='none'
+                    d7.style.display='block'
+                    d7.innerHTML='<img src="../img/img/no-data.png" alt="" id="no_data">'
                 }
+
             })
         }
     }
@@ -400,8 +420,19 @@ function category() {
             }else {
                 j ={'keyword':ipt,'condition':str,'etp':'','method':5}
             }
-            console.log(j);
+            if (j.condition=='' && j.etp=='' ){
+                j ={'keyword':ipt,'method':1}
+            }else if (j.condition=='' && j.etp!=''){
+                j={'keyword':ipt,'condition':'', 'etp':aa,'method':3}
+            }
             getData(ajax_url+'/search/',j,function (res) {
+                console.log(res);
+                d2.style.display='block'
+                d3.style.display='block'
+                d4.style.display='block'
+                d5.style.display='block'
+                d6.style.display='none'
+                d7.style.display='none'
                 if (res && res.length>0){
                     var page=document.querySelector('#ul-fenye')
                     let s=res.length;
@@ -429,6 +460,59 @@ function category() {
         }
     }
 
+    tj.onclick=function (e) {
+        var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
+        let ipt=b.value
+        // console.log(e.target.innerText);
+        commodity.innerHTML=''
+        if (e.target.innerText!='所有分类:'){
+            var tr=document.querySelector('.tr-1')
+            tj.innerHTML=`<li role="presentation" class="active  " ><a href="#" class="r-2-1">所有分类:</a></li>`
+            tr.style.display='table-row'
+            let fi={'keyword':ipt,'condition':ss, 'etp':'','method':3}
+
+            if (fi.condition==''){
+                fi={'keyword':ipt,'method':1}
+            } else {
+                fi={'keyword':ipt,'condition':ss, 'etp':'','method':5}
+            }
+            console.log(fi);
+            getData(ajax_url+'/search/',fi,function (res) {
+                console.log(res);
+                d2.style.display='block'
+                d3.style.display='block'
+                d4.style.display='block'
+                d5.style.display='block'
+                d6.style.display='none'
+                d7.style.display='none'
+                if (res && res.length>0){
+                    var page=document.querySelector('#ul-fenye')
+                    let s=res.length;
+                    fenye(s);
+                    xr(0,res)
+                    page.onclick=function () {
+                        var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
+                        for (var p of page.children){
+                            if (p.className=='background'){
+                                let res = localStorage['result']
+                                res=JSON.parse(res)
+                                commodity.innerHTML=''
+                                xr(p.innerHTML-1,res)
+                            }
+                        }
+                    }
+                } else {
+                    d4.style.display='none'
+                    d5.style.display='none'
+                    d7.style.display='block'
+                    d7.innerHTML='<img src="../img/img/no-data.png" alt="" id="no_data">'
+                }
+
+            })
+
+        }
+    }
+
     function gongneng(arry,i) {
         if (arry.indexOf(i)==-1){
             arry.push(i)
@@ -453,257 +537,57 @@ function sortgood() {
             // console.log(a);
             if (a=='综合排序'){
                 res.sort(s1)
-                function xr(p=0) {
-                    var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
-                    var b=res
-                    if (b && b.length>0){
-                        for (var goods=16*p;goods<(p+1)*16;goods++) {
-                            var k=b[goods].commodity_component.split('&')
-                            var c=b[goods].commodity_name+k+b[goods].capacity+b[goods].effect
-                            var d=c.slice(0,30)+'...';
-                            if (goods %4 ==0){
-                                commodity.innerHTML+=`<div class="goods goods-1 col-md-3" >
-                <div class="goods-content">
-                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
-                <div class="goods-d-1">
-                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
-            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span></a></p>
-            </div>
-            </div>
-            </div>`
-                            } else if (goods%4 ==1){
-                                commodity.innerHTML+=`<div class="goods goods-2 col-md-3" >
-                <div class="goods-content">
-                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
-                <div class="goods-d-1">
-                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
-            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span></a></p>
-            </div>
-            </div>
-            </div>`
-                            } else if (goods%4==2){
-                                commodity.innerHTML+=`<div class="goods goods-3 col-md-3" >
-                <div class="goods-content">
-                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
-                <div class="goods-d-1">
-                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
-            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span></a></p>
-            </div>
-            </div>
-            </div>`
-                            } else if (goods%4==3){
-                                commodity.innerHTML+=`<div class="goods goods-4 col-md-3" >
-                <div class="goods-content">
-                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
-                <div class="goods-d-1">
-                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
-            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span></a></p>
-            </div>
-            </div>
-            </div>`
-                            }
-                        }
-                    }
-                }
-                xr(0)
-                page.onclick=function (res) {
+                xr(0,res)
+                page.onclick=function () {
                     var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
                     for (var p of page.children){
                         if (p.className=='background'){
+                            let res = localStorage['result']
+                            res=JSON.parse(res)
                             commodity.innerHTML=''
-                            xr(p.innerHTML-1)
+                            xr(p.innerHTML-1,res)
                         }
                     }
                 }
             }else if (a=='最多点赞') {
                 res.sort(s2)
-                function xr(p=0) {
-                    var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
-                    var b=res
-                    if (b && b.length>0){
-                        for (var goods=16*p;goods<(p+1)*16;goods++) {
-                            var k=b[goods].commodity_component.split('&')
-                            var c=b[goods].commodity_name+k+b[goods].capacity+b[goods].effect
-                            var d=c.slice(0,30)+'...';
-                            if (goods %4 ==0){
-                                commodity.innerHTML+=`<div class="goods goods-1 col-md-3" >
-                <div class="goods-content">
-                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
-                <div class="goods-d-1">
-                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
-            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span></a></p>
-            </div>
-            </div>
-            </div>`
-                            } else if (goods%4 ==1){
-                                commodity.innerHTML+=`<div class="goods goods-2 col-md-3" >
-                <div class="goods-content">
-                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
-                <div class="goods-d-1">
-                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
-            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span></a></p>
-            </div>
-            </div>
-            </div>`
-                            } else if (goods%4==2){
-                                commodity.innerHTML+=`<div class="goods goods-3 col-md-3" >
-                <div class="goods-content">
-                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
-                <div class="goods-d-1">
-                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
-            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span></a></p>
-            </div>
-            </div>
-            </div>`
-                            } else if (goods%4==3){
-                                commodity.innerHTML+=`<div class="goods goods-4 col-md-3" >
-                <div class="goods-content">
-                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
-                <div class="goods-d-1">
-                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
-            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span></a></p>
-            </div>
-            </div>
-            </div>`
-                            }
-                        }
-                    }
-                }
-                xr(0)
-                page.onclick=function (res) {
+                xr(0,res)
+                page.onclick=function () {
                     var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
                     for (var p of page.children){
                         if (p.className=='background'){
+                            let res = localStorage['result']
+                            res=JSON.parse(res)
                             commodity.innerHTML=''
-                            xr(p.innerHTML-1)
+                            xr(p.innerHTML-1,res)
                         }
                     }
                 }
             }else if (a=='最多收藏') {
                 res.sort(s3)
-                function xr(p=0) {
-                    var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
-                    var b=res
-                    if (b && b.length>0){
-                        for (var goods=16*p;goods<(p+1)*16;goods++) {
-                            var k=b[goods].commodity_component.split('&')
-                            var c=b[goods].commodity_name+k+b[goods].capacity+b[goods].effect
-                            var d=c.slice(0,30)+'...';
-                            if (goods %4 ==0){
-                                commodity.innerHTML+=`<div class="goods goods-1 col-md-3" >
-                <div class="goods-content">
-                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
-                <div class="goods-d-1">
-                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
-            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span></a></p>
-            </div>
-            </div>
-            </div>`
-                            } else if (goods%4 ==1){
-                                commodity.innerHTML+=`<div class="goods goods-2 col-md-3" >
-                <div class="goods-content">
-                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
-                <div class="goods-d-1">
-                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
-            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span></a></p>
-            </div>
-            </div>
-            </div>`
-                            } else if (goods%4==2){
-                                commodity.innerHTML+=`<div class="goods goods-3 col-md-3" >
-                <div class="goods-content">
-                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
-                <div class="goods-d-1">
-                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
-            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span></a></p>
-            </div>
-            </div>
-            </div>`
-                            } else if (goods%4==3){
-                                commodity.innerHTML+=`<div class="goods goods-4 col-md-3" >
-                <div class="goods-content">
-                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
-                <div class="goods-d-1">
-                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
-            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span></a></p>
-            </div>
-            </div>
-            </div>`
-                            }
-                        }
-                    }
-                }
-                xr(0)
-                page.onclick=function (res) {
+                xr(0,res)
+                page.onclick=function () {
                     var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
                     for (var p of page.children){
                         if (p.className=='background'){
+                            let res = localStorage['result']
+                            res=JSON.parse(res)
                             commodity.innerHTML=''
-                            xr(p.innerHTML-1)
+                            xr(p.innerHTML-1,res)
                         }
                     }
                 }
             }else if (a=='最新发布'){
                 res.sort(s4)
-                function xr(p=0) {
-                    var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
-                    var b=res
-                    if (b && b.length>0){
-                        for (var goods=16*p;goods<(p+1)*16;goods++) {
-                            var k=b[goods].commodity_component.split('&')
-                            var c=b[goods].commodity_name+k+b[goods].capacity+b[goods].effect
-                            var d=c.slice(0,30)+'...';
-                            if (goods %4 ==0){
-                                commodity.innerHTML+=`<div class="goods goods-1 col-md-3" >
-                <div class="goods-content">
-                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
-                <div class="goods-d-1">
-                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
-            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span></a></p>
-            </div>
-            </div>
-            </div>`
-                            } else if (goods%4 ==1){
-                                commodity.innerHTML+=`<div class="goods goods-2 col-md-3" >
-                <div class="goods-content">
-                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
-                <div class="goods-d-1">
-                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
-            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span></a></p>
-            </div>
-            </div>
-            </div>`
-                            } else if (goods%4==2){
-                                commodity.innerHTML+=`<div class="goods goods-3 col-md-3" >
-                <div class="goods-content">
-                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
-                <div class="goods-d-1">
-                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
-            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span></a></p>
-            </div>
-            </div>
-            </div>`
-                            } else if (goods%4==3){
-                                commodity.innerHTML+=`<div class="goods goods-4 col-md-3" >
-                <div class="goods-content">
-                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
-                <div class="goods-d-1">
-                <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
-            <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span></a></p>
-            </div>
-            </div>
-            </div>`
-                            }
-                        }
-                    }
-                }
-                xr(0)
-                page.onclick=function (res) {
+                xr(0,res)
+                page.onclick=function () {
                     var commodity=document.querySelector('.r-4 .col-md-12 .r-4-1');
                     for (var p of page.children){
                         if (p.className=='background'){
+                            let res = localStorage['result']
+                            res=JSON.parse(res)
                             commodity.innerHTML=''
-                            xr(p.innerHTML-1)
+                            xr(p.innerHTML-1,res)
                         }
                     }
                 }
@@ -838,7 +722,7 @@ function xr(p=0,res) {
                 if (goods %4 ==0){
                     commodity.innerHTML+=`<div class="goods goods-1 col-md-3" >
                 <div class="goods-content">
-               <a href="#"> <img src="../${b[goods].com_img}" class="img-responsive"></a>
+                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
                 <div class="goods-d-1">
                 <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
             <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span><span>产品编号:</span><span>${b[goods].id}</span></a></p>
@@ -848,7 +732,7 @@ function xr(p=0,res) {
                 } else if (goods%4 ==1){
                     commodity.innerHTML+=`<div class="goods goods-2 col-md-3" >
                 <div class="goods-content">
-                <img src="../${b[goods].com_img}" class="img-responsive">
+                <a href="#"><img src="../${b[goods].com_img}" class="img-responsive"></a>
                 <div class="goods-d-1">
                 <p class="goods-p-1"> <strong>${b[goods].commodity_price}</strong> <span class="rect">市场价</span></p>
             <p class="goods-p-2"><a href="#">${d}</a></p><p class="goods-p-3"><a href="#"><span class="glyphicon glyphicon-menu-hamburger"></span><span>${b[goods].enterprise_name}</span><span>产品编号:</span><span>${b[goods].id}</span></a></p>

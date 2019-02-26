@@ -508,3 +508,12 @@ li{
     margin-top: 60px;
     margin-left: 186px;
 }
+#search:hover{
+    border: 1px solid rgb(255, 20, 147);
+    background: deeppink !important;
+    color: white;
+}
+#search:focus{
+    color: white;
+    outline: 0px;
+}

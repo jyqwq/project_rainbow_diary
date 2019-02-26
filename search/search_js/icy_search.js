@@ -23,25 +23,29 @@ function ee() {
         }
     });
 }
-ee();
+ee()
 
+function g() {
+
+};
+g();
 
 
 //按钮
 function y() {
     let u = {'keyword':1,'methods':'add'};
     var btns = document.querySelector('.fbtn');
-    var condition='no';
+    var condition='no'
     btns.onclick=function (e) {
         // alert(e.target.nodeName);
         if (e.target.nodeName=="BUTTON") {
-            var a=e.target.parentElement.parentElement.children;
+            var a=e.target.parentElement.parentElement.children
             for (var b of a) {
                 (function (b) {
                     b.children[0].style.background='white';
                 })(b)
             }
-            e.target.style.background="pink";
+            e.target.style.background="pink"
             var d=e.target.innerText
             if (d=='面膜') {
                 condition=1
@@ -60,8 +64,8 @@ function y() {
     //搜索及历史记录
     search.onclick=function (e) {
         var txt=e.target.parentElement.parentElement.previousElementSibling;
-        let key=search.parentElement.parentElement.parentElement.children[0].value;
-        var d={'keyword':key,'condition':condition};
+        let key=search.parentElement.parentElement.parentElement.children[0].value
+        var d={'keyword':key,'condition':condition}
         if (d.condition=='no'){
             d={'keyword':key,'condition':condition,'method':1}
         } else {
@@ -170,4 +174,25 @@ function u() {
 }
 u();
 
-sessionStorage.setItem('user_id','3')
+function kuaisou() {
+    var a=document.querySelector('#tab-1')
+    var b=document.querySelector('#tab-2')
+    var c=document.querySelector('#tab-3')
+    var d=document.querySelector('.icy_sch')
+    a.onclick=function (e) {
+        if (e.target.nodeName=='TD' && isNaN(e.target.innerText)){
+            d.children[0].value=e.target.innerText
+        }
+    }
+    b.onclick=function (e) {
+        if (e.target.nodeName=='TD' && isNaN(e.target.innerText)){
+            d.children[0].value=e.target.innerText
+        }
+    }
+    c.onclick=function (e) {
+        if (e.target.nodeName=='TD' && isNaN(e.target.innerText)){
+            d.children[0].value=e.target.innerText
+        }
+    }
+}
+kuaisou()

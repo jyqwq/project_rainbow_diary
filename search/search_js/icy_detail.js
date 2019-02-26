@@ -21,7 +21,7 @@ function f() {
 
     createInteral();
 }
-f();
+f()
 //倒计时
 // function keishi() {
 //     var mydiv=document.querySelector('#content');
@@ -108,27 +108,27 @@ function number_to_time(num) {
 
 // 产品及评论信息
 function get_good() {
-    let a = sessionStorage['com_id'];
-    let b ={'id':a};
+    let a = sessionStorage['com_id']
+    let b ={'id':a}
     getData(ajax_url+'/search/commodity',b,function (res) {
-      let res2=JSON.stringify(res);
-        sessionStorage.setItem('good',res2);
-        good_detail();
-        hot();
-        message();
-        get_comment(res);
-        test();
+      let res2=JSON.stringify(res)
+        sessionStorage.setItem('good',res2)
+        good_detail()
+        hot()
+        message()
+        get_comment(res)
+        test()
         q();
     })
 }
-get_good();
+get_good()
 
 
 function user_message() {
     if (localStorage.getItem('token')) {
-        let t={'token':localStorage['token']};
+        let t={'token':localStorage['token']}
         postData(ajax_url+'/user/login',t,function (res) {
-            let a=JSON.stringify(res);
+            let a=JSON.stringify(res)
             window.sessionStorage.setItem('user_message',a)
         })
     }
@@ -136,28 +136,28 @@ function user_message() {
 
 // 刷新上半部分数据
 function good_detail() {
-    let a=sessionStorage['good'];
-    let b=JSON.parse(a);
-    let c=b.com_tags;
-    c=c.split('&');
-    let t = '';
+    let a=sessionStorage['good']
+    let b=JSON.parse(a)
+    let c=b.com_tags
+    c=c.split('&')
+    let t = ''
     for (let i of c){
         (function (i) {
-            var tags='<span>'+i+'</span>';
+            var tags='<span>'+i+'</span>'
             t+=tags
         })(i)
     }
-    let d=b.commodity_component;
-    d=d.split('&');
-    let u='';
+    let d=b.commodity_component
+    d=d.split('&')
+    let u=''
     for (let j of d){
         (function (j) {
-            var x='<p>'+ '<span>'+'本产品含有'+j+'</span>'+ '</p>';
+            var x='<p>'+ '<span>'+'本产品含有'+j+'</span>'+ '</p>'
             u+=x
         })(j)
     }
     // console.log(u);
-    var content=document.querySelector('.r-2');
+    var content=document.querySelector('.r-2')
     content.innerHTML=` 
                     <div class="col-md-6">
                         <div class="row r-2-1">
@@ -231,16 +231,16 @@ function good_detail() {
                             <span class="glyphicon glyphicon-star-empty"></span>
                         </div>
                     </div>
-                `;
-    var cc2=document.querySelector('.r-2');
-    cc2=cc2.children[1];
+                `
+    var cc2=document.querySelector('.r-2')
+    cc2=cc2.children[1]
     cc2.innerHTML+=`<div class="row r-2-14">
         
         <img src="../img/img/收藏.png" alt="">
         <span>收藏</span>
         
-        </div>`;
-    var save=document.querySelector('.r-2-13');
+        </div>`
+    var save=document.querySelector('.r-2-13')
     if (b.save){
         save.innerHTML=`<span>安全指数</span>
                             <span class="glyphicon glyphicon-star"></span>
@@ -285,7 +285,7 @@ function hot() {
     let hot = {'hot_cosmetics': 1, 'hot_dairy': false, 'hot_search': false};
     postData(ajax_url + '/search/rank', hot, function (res) {
         // console.log(res);
-        var hot=document.querySelector('.r-3-left');
+        var hot=document.querySelector('.r-3-left')
         hot.innerHTML=`<div class="row r-3-1" id="r-3-1">
                             <span>热门产品</span>
                         </div>
@@ -356,67 +356,67 @@ function hot() {
                         </div>
 `
         //热门产品链接点击
-        var hclick1=document.querySelector('.h-1');
-        var hclick2=document.querySelector('.h-2');
-        var hclick3=document.querySelector('.h-3');
-        var hclick4=document.querySelector('.h-4');
-        var hclick5=document.querySelector('.h-5');
+        var hclick1=document.querySelector('.h-1')
+        var hclick2=document.querySelector('.h-2')
+        var hclick3=document.querySelector('.h-3')
+        var hclick4=document.querySelector('.h-4')
+        var hclick5=document.querySelector('.h-5')
         hclick1.onclick=function () {
             if (event.target.nodeName=='SPAN' || 'IMG' || 'DIV' || 'P'){
-                var a=hclick1.children[0].children[1].innerText;
-                let b={'id':a};
-                sessionStorage.setItem('com_id',a);
+                var a=hclick1.children[0].children[1].innerText
+                let b={'id':a}
+                sessionStorage.setItem('com_id',a)
                 getData(ajax_url+'/search/commodity',b,function (res) {
-                    let res2=JSON.stringify(res);
-                    sessionStorage.setItem('good',res2);
+                    let res2=JSON.stringify(res)
+                    sessionStorage.setItem('good',res2)
                     location.href='icy_detail.html'
                 })
             }
-        };
+        }
         hclick2.onclick=function () {
             if (event.target.nodeName=='SPAN' || 'IMG' || 'DIV' || 'P'){
-                var a=hclick2.children[0].children[1].innerText;
-                let b={'id':a};
-                sessionStorage.setItem('com_id',a);
+                var a=hclick2.children[0].children[1].innerText
+                let b={'id':a}
+                sessionStorage.setItem('com_id',a)
                 getData(ajax_url+'/search/commodity',b,function (res) {
-                    let res2=JSON.stringify(res);
-                    sessionStorage.setItem('good',res2);
+                    let res2=JSON.stringify(res)
+                    sessionStorage.setItem('good',res2)
                     location.href='icy_detail.html'
                 })
             }
         }
         hclick3.onclick=function () {
             if (event.target.nodeName=='SPAN' || 'IMG' || 'DIV' || 'P'){
-                var a=hclick3.children[0].children[1].innerText;
-                let b={'id':a};
-                sessionStorage.setItem('com_id',a);
+                var a=hclick3.children[0].children[1].innerText
+                let b={'id':a}
+                sessionStorage.setItem('com_id',a)
                 getData(ajax_url+'/search/commodity',b,function (res) {
-                    let res2=JSON.stringify(res);
-                    sessionStorage.setItem('good',res2);
+                    let res2=JSON.stringify(res)
+                    sessionStorage.setItem('good',res2)
                     location.href='icy_detail.html'
                 })
             }
-        };
+        }
         hclick4.onclick=function () {
             if (event.target.nodeName=='SPAN' || 'IMG' || 'DIV' || 'P'){
-                var a=hclick4.children[0].children[1].innerText;
-                let b={'id':a};
-                sessionStorage.setItem('com_id',a);
+                var a=hclick4.children[0].children[1].innerText
+                let b={'id':a}
+                sessionStorage.setItem('com_id',a)
                 getData(ajax_url+'/search/commodity',b,function (res) {
-                    let res2=JSON.stringify(res);
-                    sessionStorage.setItem('good',res2);
+                    let res2=JSON.stringify(res)
+                    sessionStorage.setItem('good',res2)
                     location.href='icy_detail.html'
                 })
             }
-        };
+        }
         hclick5.onclick=function () {
             if (event.target.nodeName=='SPAN' || 'IMG' || 'DIV' || 'P'){
-                var a=hclick5.children[0].children[1].innerText;
-                let b={'id':a};
-                sessionStorage.setItem('com_id',a);
+                var a=hclick5.children[0].children[1].innerText
+                let b={'id':a}
+                sessionStorage.setItem('com_id',a)
                 getData(ajax_url+'/search/commodity',b,function (res) {
-                    let res2=JSON.stringify(res);
-                    sessionStorage.setItem('good',res2);
+                    let res2=JSON.stringify(res)
+                    sessionStorage.setItem('good',res2)
                     location.href='icy_detail.html'
                 })
             }
@@ -427,19 +427,19 @@ function hot() {
 
 //刷新产品信息
 function message() {
-    let a=sessionStorage['good'];
-    let b=JSON.parse(a);
-    let d=b.commodity_component;
-    d=d.split('&');
-    let u='';
+    let a=sessionStorage['good']
+    let b=JSON.parse(a)
+    let d=b.commodity_component
+    d=d.split('&')
+    let u=''
     for (let j of d){
         (function (j) {
-            var x='<span>'+j+'</span>';
+            var x='<span>'+j+'</span>'
             u+=x
         })(j)
     }
-    var table=document.querySelector('.tab-1');
-    var div=document.querySelector('#r-3-5');
+    var table=document.querySelector('.tab-1')
+    var div=document.querySelector('#r-3-5')
     table.innerHTML=`<tr>
                                         <td>商品编号 <strong>:</strong></td>
                                         <td>${b.id}</td>
@@ -463,7 +463,7 @@ function message() {
                                     <tr>
                                         <td>保质期限 <strong>:</strong></td>
                                         <td>${b.overdue}，具体日期以收到的实物为准，开封后跟产品包装指示为准</td>
-                                    </tr>`;
+                                    </tr>`
     div.innerHTML=`<div class="col-md-12">
                                 <span>商品详情</span>&nbsp;&nbsp;
                                 <span class="s-2">Detail</span>
@@ -486,10 +486,10 @@ function message() {
 
 //刷新评论
 function  get_comment(res) {
-    let b=res.comment;
-    b.sort(s);
-    var cot = document.querySelector('#r-3-6 .r-3-6-main .col-md-12');
-    cot.innerHTML='';
+    let b=res.comment
+    b.sort(s)
+    var cot = document.querySelector('#r-3-6 .r-3-6-main .col-md-12')
+    cot.innerHTML=''
     if (b && b.length>0){
         cot.innerHTML=`        
                                 <span>用户评价</span>&nbsp;&nbsp;
@@ -500,12 +500,12 @@ function  get_comment(res) {
                                 <span>条评价</span>
                                 </p>
                               
-                                `;
+                                `
         let myDate = new Date();
         for (let i=0;i<b.length;i++) {
             let num=parseInt(myDate.getTime())-parseInt(b[i].date);
             let time=number_to_time(num);
-            let w=b[i].content.slice(0,5);
+            let w=b[i].content.slice(0,5)
             cot.innerHTML+=`<div class="row r-3-6-2">
                                     <div class="col-md-2">
                                         <img src="../img/img/usericon.png" alt=""><br>
@@ -548,8 +548,8 @@ function  get_comment(res) {
 
 
 function collection() {
-        var myDate=new Date();
-        var col=document.querySelector('.r-2-14');
+        var myDate=new Date()
+        var col=document.querySelector('.r-2-14')
         // console.log(col);
         if (sessionStorage['user_id']){
             let u={'user_id':sessionStorage['user_id'],'other_id':sessionStorage['com_id'],'type':'commodity','judge':'collections','method':'check','data': myDate.getTime()}
@@ -565,9 +565,9 @@ function collection() {
             })
         }
         col.onclick=function () {
-            var message={};
+            var message={}
             if (sessionStorage['user_id']) {
-                var img=col.children[0];
+                var img=col.children[0]
                 // console.log(img);
                 if (img.alt==1){
                      message={'user_id':sessionStorage['user_id'],'other_id':sessionStorage['com_id'],'type':'commodity','judge':'collections','method':'add','data': myDate.getTime()}
@@ -585,7 +585,7 @@ function collection() {
                     }
                 })
             } else {
-                alert('请先登录');
+                alert('请先登录')
                 location.href='../user/login.html'
             }
         }
@@ -602,16 +602,16 @@ function q() {
     img_lists.onclick=function (e) {
 
         if (e.target.nodeName=="IMG") {
-            big_img.src=e.target.src;
-            var a=e.target.parentElement.parentElement.children;
+            big_img.src=e.target.src
+            var a=e.target.parentElement.parentElement.children
             for (var b of a){
                 b.style.outline="";
             }
             e.target.parentElement.style.outline="3px solid rgba(128, 128, 128, 0.31)"
         }
         if (e.target.className=='div-img') {
-            big_img.src=e.target.children[0].src;
-            var a=e.target.parentElement.children;
+            big_img.src=e.target.children[0].src
+            var a=e.target.parentElement.children
             for (var b of a){
                 b.style.outline="";
             }
@@ -625,11 +625,11 @@ function test(){
     var comment_btn=document.querySelector('.comment_btn');
     comment_btn.onclick=function () {
         let dy_text=document.querySelector('.dy_text');
-        let va=dy_text.value;
-        vb=va.slice(0,5);
+        let va=dy_text.value
+        vb=va.slice(0,5)
         let myDate = new Date();
         if (dy_text.value) {
-            let u={};
+            let u={}
             if (sessionStorage['user_id']) {
                 u = {'user_id':sessionStorage['user_id'],'other_id':sessionStorage['com_id'],'type':'commodity','content':dy_text.value,'data':myDate.getTime(),'comment':1,'method':'add'}
             }else {
@@ -643,7 +643,7 @@ function test(){
                 }
             })
         }
-        var cot = document.querySelector('#r-3-6 .r-3-6-main .col-md-12');
+        var cot = document.querySelector('#r-3-6 .r-3-6-main .col-md-12')
         if (sessionStorage['user_id']){
             cot.innerHTML+=`<div class="row r-3-6-2">
                                     <div class="col-md-2">
@@ -689,3 +689,33 @@ function test(){
 
     }
 }
+
+function sch() {
+    var search = document.querySelector('#search');
+    var arry = new Array()
+    search.onclick = function (e) {
+        var txt = e.target.parentElement.parentElement.previousElementSibling;
+        let key = search.parentElement.parentElement.parentElement.children[0].value
+        var d = {'keyword': key, 'condition': 'no', 'method': 1}
+        let n = JSON.stringify(d)
+        window.sessionStorage.setItem('message', n)
+        location.href = 'icy_result.html';
+        if (localStorage.his && localStorage.his.length >= 0) {
+            window.localStorage.setItem('his', txt.value)
+            arry.push(localStorage.getItem('his'))
+            if (localStorage.history && localStorage.history.length >= 0) {
+                arry.push(localStorage.getItem('history'))
+                window.localStorage.setItem('history', arry)
+                arry = []
+            } else {
+                window.localStorage.setItem('history', arry)
+                arry = []
+            }
+        } else {
+            window.localStorage.setItem('his', txt.value)
+            arry.push(localStorage.getItem('his'))
+            window.localStorage.setItem('history', arry)
+        }
+    }
+}
+sch()
