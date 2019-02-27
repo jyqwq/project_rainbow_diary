@@ -65,25 +65,25 @@
                     sessionStorage.setItem('dy_type',to_one_img[p].nextElementSibling.innerText);
                     sessionStorage.setItem('dy_id',to_one_img[p].nextElementSibling.nextElementSibling.innerText);
                     sessionStorage.setItem('from','/rainbow_diary_html/sharing/evaluation.html');
-                    location.href='/rainbow_diary_html/user/dynamic_one.html'
+                    location.href='../user/dynamic_one.html'
                 };
                 to_one_t1[p].onclick=function () {
                     sessionStorage.setItem('dy_type',to_one_t1[p].nextElementSibling.innerText);
                     sessionStorage.setItem('dy_id',to_one_t1[p].nextElementSibling.nextElementSibling.innerText);
                     sessionStorage.setItem('from','/rainbow_diary_html/sharing/evaluation.html');
-                    location.href='/rainbow_diary_html/user/dynamic_one.html'
+                    location.href='../user/dynamic_one.html'
                 };
                 to_one_t2[p].onclick=function () {
                     sessionStorage.setItem('dy_type',to_one_t2[p].nextElementSibling.innerText);
                     sessionStorage.setItem('dy_id',to_one_t2[p].nextElementSibling.nextElementSibling.innerText);
                     sessionStorage.setItem('from','/rainbow_diary_html/sharing/evaluation.html');
-                    location.href='/rainbow_diary_html/user/dynamic_one.html'
+                    location.href='../user/dynamic_one.html'
                 };
                 to_one_t3[p].onclick=function () {
                     sessionStorage.setItem('dy_type',to_one_t3[p].nextElementSibling.innerText);
                     sessionStorage.setItem('dy_id',to_one_t3[p].nextElementSibling.nextElementSibling.innerText);
                     sessionStorage.setItem('from','/rainbow_diary_html/sharing/evaluation.html');
-                    location.href='/rainbow_diary_html/user/dynamic_one.html'
+                    location.href='../user/dynamic_one.html'
                 }
             }
         })

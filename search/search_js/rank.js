@@ -57,8 +57,8 @@
                 to_one_dy[p].onclick=function () {
                     sessionStorage.setItem('dy_type',to_one_dy[p].nextElementSibling.innerText);
                     sessionStorage.setItem('dy_id',to_one_dy[p].nextElementSibling.nextElementSibling.innerText);
-                    sessionStorage.setItem('from','/rainbow_diary_html/search/rank.html');
-                    location.href='/rainbow_diary_html/user/dynamic_one.html'
+                    sessionStorage.setItem('from','search/rank.html');
+                    location.href='../user/dynamic_one.html'
                 }
             }
 
@@ -113,8 +113,8 @@
                 to_two_dy[p].onclick=function () {
                     sessionStorage.setItem('dy_type',to_two_dy[p].nextElementSibling.innerText);
                     sessionStorage.setItem('dy_id',to_two_dy[p].nextElementSibling.nextElementSibling.innerText);
-                    sessionStorage.setItem('from','/rainbow_diary_html/search/rank.html');
-                    location.href='/rainbow_diary_html/user/dynamic_one.html'
+                    sessionStorage.setItem('from','search/rank.html');
+                    location.href='../user/dynamic_one.html'
                 }
             }
         })
@@ -148,8 +148,8 @@
             for (let j=0;j<to_com_one.length;j++){
                 to_com_one[j].onclick=function () {
                     sessionStorage.setItem('com_id',com_id[j].innerHTML);
-                    sessionStorage.setItem('from','/rainbow_diary_html/search/rank.html');
-                    location.href='/rainbow_diary_html/search/icy_detail.html'
+                    sessionStorage.setItem('from','rank.html');
+                    location.href='icy_detail.html'
                 }
             }
         })
@@ -198,7 +198,7 @@
     //search
     let btn_search=document.querySelector('.btn_search');
     btn_search.onclick=function () {
-        location.href='/rainbow_diary_html/search/icy_search.html'
+        location.href='icy_search.html'
     };
 
 })();

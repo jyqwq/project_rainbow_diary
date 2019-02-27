@@ -94,16 +94,16 @@
                         </div>
                         <div class="row margin_top">
                             <ul class="nav">
-                                <li class="dy_c_nav"><a><img src="../img/dy/${col.img}" alt="${col.alt}" class="dy_c">&nbsp;<span>${res[i].cols}</span></a></li>
-                                <li class="dy_c_nav"><a><img src="../img/dy/评论.png" alt="1" class="dy_p">&nbsp;<span>${res[i].cots}</span></a></li>
-                                <li class="dy_c_nav"><a><img src="../img/dy/${com.img}" alt="${com.alt}" class="dy_f">&nbsp;<span>${res[i].fbs}</span></a></li>
+                                <li class="dy_c_nav"><a><img src="img/dy/${col.img}" alt="${col.alt}" class="dy_c">&nbsp;<span>${res[i].cols}</span></a></li>
+                                <li class="dy_c_nav"><a><img src="img/dy/评论.png" alt="1" class="dy_p">&nbsp;<span>${res[i].cots}</span></a></li>
+                                <li class="dy_c_nav"><a><img src="img/dy/${com.img}" alt="${com.alt}" class="dy_f">&nbsp;<span>${res[i].fbs}</span></a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-2 margin_top">
                         <div class="dy_type" style="display: none">dynamic</div>
                         <div class="dy_id" style="display: none">${res[i].id}</div>
-                        <img src="../img/心率.png" alt="">
+                        <img src="img/心率.png" alt="">
                     </div>
                 </div>
             </div>`;
@@ -137,16 +137,16 @@
                         </div>
                         <div class="row margin_top">
                             <ul class="nav">
-                                <li class="dy_c_nav"><a><img src="../img/dy/${col.img}" alt="${col.alt}" class="dy_c">&nbsp;<span>${res[i].cols}</span></a></li>
-                                <li class="dy_c_nav"><a><img src="../img/dy/评论.png" alt="1" class="dy_p">&nbsp;<span>${res[i].cots}</span></a></li>
-                                <li class="dy_c_nav"><a><img src="../img/dy/${com.img}" alt="${com.alt}" class="dy_f">&nbsp;<span>${res[i].fbs}</span></a></li>
+                                <li class="dy_c_nav"><a><img src="img/dy/${col.img}" alt="${col.alt}" class="dy_c">&nbsp;<span>${res[i].cols}</span></a></li>
+                                <li class="dy_c_nav"><a><img src="img/dy/评论.png" alt="1" class="dy_p">&nbsp;<span>${res[i].cots}</span></a></li>
+                                <li class="dy_c_nav"><a><img src="img/dy/${com.img}" alt="${com.alt}" class="dy_f">&nbsp;<span>${res[i].fbs}</span></a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-2 margin_top">
                         <div class="dy_type" style="display: none">journal</div>
                         <div class="dy_id" style="display: none">${res[i].id}</div>
-                        <img src="../img/日记.png" alt="">
+                        <img src="img/日记.png" alt="">
                     </div>
                 </div>
             </div>`;
@@ -184,16 +184,16 @@
                         </div>
                         <div class="row margin_top">
                             <ul class="nav">
-                                <li class="dy_c_nav"><a><img src="../img/dy/${col.img}" alt="${col.alt}" class="dy_c">&nbsp;<span>${res[i].cols}</span></a></li>
-                                <li class="dy_c_nav"><a><img src="../img/dy/评论.png" alt="1" class="dy_p">&nbsp;<span>${res[i].cots}</span></a></li>
-                                <li class="dy_c_nav"><a><img src="../img/dy/${com.img}" alt="${com.alt}" class="dy_f">&nbsp;<span>${res[i].fbs}</span></a></li>
+                                <li class="dy_c_nav"><a><img src="img/dy/${col.img}" alt="${col.alt}" class="dy_c">&nbsp;<span>${res[i].cols}</span></a></li>
+                                <li class="dy_c_nav"><a><img src="img/dy/评论.png" alt="1" class="dy_p">&nbsp;<span>${res[i].cots}</span></a></li>
+                                <li class="dy_c_nav"><a><img src="img/dy/${com.img}" alt="${com.alt}" class="dy_f">&nbsp;<span>${res[i].fbs}</span></a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-2 margin_top">
                         <div class="dy_type" style="display: none">test</div>
                         <div class="dy_id" style="display: none">${res[i].id}</div>
-                        <img src="../img/评价.png" alt="">
+                        <img src="img/评价.png" alt="">
                     </div>
                 </div>
             </div>`;
@@ -213,8 +213,8 @@
                     let dy_message=this.parentElement.nextElementSibling.children;
                     sessionStorage.setItem('dy_type',dy_message[0].innerText);
                     sessionStorage.setItem('dy_id',dy_message[1].innerText);
-                    sessionStorage.setItem('from','/rainbow_diary_html/user/dynamic.html');
-                    location.href='/rainbow_diary_html/user/dynamic_one.html'
+                    sessionStorage.setItem('from','dynamic.html');
+                    location.href='dynamic_one.html'
                 };
             }
 
@@ -230,7 +230,7 @@
                         getData(ajax_url+'/user/person',u,function (res) {
                             console.log(res);
                             if (res.status_code == '10018') {
-                                dy_f[i].src='../img/dy/点赞.png';
+                                dy_f[i].src='img/dy/点赞.png';
                                 dy_f[i].alt='0';
                                 dy_f[i].nextElementSibling.innerHTML=parseInt(dy_f[i].nextElementSibling.innerHTML)+1;
                             }else {
@@ -242,7 +242,7 @@
                         getData(ajax_url+'/user/person',u,function (res) {
                             console.log(res);
                             if (res.status_code == '10010') {
-                                dy_f[i].src='../img/dy/花.png';
+                                dy_f[i].src='img/dy/花.png';
                                 dy_f[i].alt='1';
                                 dy_f[i].nextElementSibling.innerHTML=parseInt(dy_f[i].nextElementSibling.innerHTML)-1;
                             }else {
@@ -259,7 +259,7 @@
                         getData(ajax_url+'/user/person',u,function (res) {
                             console.log(res);
                             if (res.status_code == '10015') {
-                                dy_c[m].src='../img/dy/已收藏.png';
+                                dy_c[m].src='img/dy/已收藏.png';
                                 dy_c[m].alt='0';
                                 dy_c[m].nextElementSibling.innerHTML=parseInt(dy_c[m].nextElementSibling.innerHTML)+1;
                             }else {
@@ -271,7 +271,7 @@
                         getData(ajax_url+'/user/person',u,function (res) {
                             console.log(res);
                             if (res.status_code == '10010') {
-                                dy_c[m].src='../img/dy/收藏.png';
+                                dy_c[m].src='img/dy/收藏.png';
                                 dy_c[m].alt='1';
                                 dy_c[m].nextElementSibling.innerHTML=parseInt(dy_c[m].nextElementSibling.innerHTML)-1;
                             }else {

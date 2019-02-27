@@ -266,8 +266,8 @@
                     let dy_message=this.parentElement.nextElementSibling.children;
                     sessionStorage.setItem('dy_type',dy_message[0].innerText);
                     sessionStorage.setItem('dy_id',dy_message[1].innerText);
-                    sessionStorage.setItem('from','/rainbow_diary_html/user/dynamic.html');
-                    location.href='/rainbow_diary_html/user/dynamic_one.html'
+                    sessionStorage.setItem('from','dynamic.html');
+                    location.href='dynamic_one.html'
                 }
             }
             collect_ajax();
@@ -500,8 +500,8 @@
                     let dy_message=this.parentElement.nextElementSibling.children;
                     sessionStorage.setItem('dy_type',dy_message[0].innerText);
                     sessionStorage.setItem('dy_id',dy_message[1].innerText);
-                    sessionStorage.setItem('from','/rainbow_diary_html/user/dynamic.html');
-                    location.href='/rainbow_diary_html/user/dynamic_one.html'
+                    sessionStorage.setItem('from','dynamic.html');
+                    location.href='dynamic_one.html'
                 }
             }
 

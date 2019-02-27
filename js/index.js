@@ -50,7 +50,7 @@
                     sessionStorage.setItem('dy_type',this.nextElementSibling.innerHTML);
                     sessionStorage.setItem('dy_id',this.nextElementSibling.nextElementSibling.innerHTML);
                     sessionStorage.setItem('from',window.location.pathname);
-                    location.href='/rainbow_diary_html/search/icy_detail.html'
+                    location.href='search/icy_detail.html'
                 }
             }
         })
@@ -106,7 +106,7 @@
                     sessionStorage.setItem('dy_type',this.nextElementSibling.innerHTML);
                     sessionStorage.setItem('dy_id',this.nextElementSibling.nextElementSibling.innerHTML);
                     sessionStorage.setItem('from',window.location.pathname);
-                    location.href='/rainbow_diary_html/user/dynamic_one.html'
+                    location.href='user/dynamic_one.html'
                 }
             }
             // 热门动态动画
@@ -178,7 +178,7 @@
                     sessionStorage.setItem('dy_type',this.nextElementSibling.innerHTML);
                     sessionStorage.setItem('dy_id',this.nextElementSibling.nextElementSibling.innerHTML);
                     sessionStorage.setItem('from',window.location.pathname);
-                    location.href='/rainbow_diary_html/user/dynamic_one.html'
+                    location.href='user/dynamic_one.html'
                 }
             }
         })
