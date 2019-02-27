@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态实验</title>
+    <style type="text/css">
+        a:link{
+            text-decoration: none;
+        }
+        a:visited{
+            text-decoration: none;
+        }
+        a:hover{
+            text-decoration: none;
+        }
+        .all_dy{
+            border-radius: 5px;
+        }
+        .margin_top{
+            text-align: center;
+            margin-top: 5px;
+        }
+        .dy_margin{
+            margin-left: 0;
+            margin-right: 0;
+            margin-bottom: 10px;
+        }
+        .dy_c_content{
+            margin-top: 5px;
+        }
+        .dy_c_icon{
+            text-align: right;
+        }
+        .dy_tags{
+            float: right;
+        }
+        .dy_c_nav{
+            float: left;
+        }
+        .to_one{
+            cursor: pointer;
+        }
+    </style>
+    <link rel="stylesheet" href="../bootstrap-3.3.7/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="../css/all_nav.css">
+    <link rel="stylesheet" href="../css/animate.css">
+</head>
+<body>
+<div class="dy_ajax">
+    <div class="row all_dy dy_margin">
+        <div class="row">
+            <div class="col-lg-2 dy_c_content dy_c_icon"><img src="../img/222center222/dynamic_head.jpg" class="img-responsive" alt="Responsive image"></div>
+            <div class="col-lg-8 dy_c_content" style="overflow: hidden">
+                <div class="row">
+                    <span><strong style="font-size: 1.1em">南浅</strong></span>
+                    <br>
+                    <span style="color: darkgrey;font-size: 0.9em">5天前</span>
+                    <div class="dy_tags"></div>
+                </div>
+                <div class="row dy_c_content to_one">
+                    <span>心情balabababa</span>
+                </div>
+                <div class="row dy_c_content">
+                    <img src="../img/222center222/S90131-16385218.jpg" class="img-responsive" alt="Responsive image">
+                </div>
+                <div class="row margin_top">
+                    <ul class="nav">
+                        <li class="dy_c_nav"><a href="#"><img src="../img/dy/分享转发.png" alt="">&nbsp;<span>10</span></a></li>
+                        <li class="dy_c_nav"><a href="#"><img src="../img/dy/评论.png" alt="">&nbsp;<span>3</span></a></li>
+                        <li class="dy_c_nav"><a href="#"><img src="../img/dy/点赞.png" alt="">&nbsp;<span>6</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-2 margin_top">
+                <div class="dy_type" style="display: none">dynamic</div>
+                <div class="dy_id" style="display: none">${res[i].id}</div>
+                <img src="../img/心率.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="row all_dy dy_margin">
+        <div class="row">
+            <div class="col-lg-2 dy_c_content dy_c_icon"><img src="../img/222center222/dynamic_head.jpg" class="img-responsive" alt="Responsive image"></div>
+            <div class="col-lg-8 dy_c_content" style="overflow: hidden">
+                <div class="row">
+                    <span><strong style="font-size: 1.1em">南浅</strong></span>
+                    <br>
+                    <span style="color: darkgrey;font-size: 0.9em">5天前</span>
+                    <div class="dy_tags"></div>
+                </div>
+                <div class="row dy_c_content to_one">
+                    <span style="font-size: 1.1em"><strong>日记标题</strong></span>
+                    <br>
+                    <span>副标题</span>
+                </div>
+                <div class="row dy_c_content">
+                    <img src="../img/222center222/S90131-16385218.jpg" class="img-responsive" alt="Responsive image">
+                </div>
+                <div class="row margin_top">
+                    <ul class="nav">
+                        <li class="dy_c_nav"><a href="#"><img src="../img/dy/分享转发.png" alt="">&nbsp;<span>10</span></a></li>
+                        <li class="dy_c_nav"><a href="#"><img src="../img/dy/评论.png" alt="">&nbsp;<span>6</span></a></li>
+                        <li class="dy_c_nav"><a href="#"><img src="../img/dy/点赞.png" alt="">&nbsp;<span>5</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-2 margin_top">
+                <div class="dy_type" style="display: none">journal</div>
+                <div class="dy_id" style="display: none">${res[i].id}</div>
+                <img src="../img/日记.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div class="row all_dy dy_margin">
+        <div class="row">
+            <div class="col-lg-2 dy_c_content dy_c_icon">
+                <img src="../img/222center222/dynamic_head.jpg" class="img-responsive" alt="Responsive image">
+            </div>
+            <div class="col-lg-8 dy_c_content"  style="overflow: hidden">
+                <div class="row">
+                    <span><strong style="font-size: 1.1em">南浅</strong></span>
+                    <br>
+                    <span style="color: darkgrey;font-size: 0.9em">5天前</span>
+                    <div class="dy_tags"></div>
+                </div>
+                <div class="row dy_c_content to_one">
+                    <span style="font-size: 1.1em"><strong>测评标题</strong></span>
+                    <br>
+                    <span>副标题1</span>
+                    <br>
+                    <span>副标题2</span>
+                </div>
+                <div class="row dy_c_content">
+                    <img src="../img/222center222/S90131-16385218.jpg" class="img-responsive" alt="Responsive image">
+                </div>
+                <div class="row margin_top">
+                    <ul class="nav">
+                        <li class="dy_c_nav"><a href="#"><img src="../img/dy/分享转发.png" alt="">&nbsp;<span>10</span></a></li>
+                        <li class="dy_c_nav"><a href="#"><img src="../img/dy/评论.png" alt="">&nbsp;<span>3</span></a></li>
+                        <li class="dy_c_nav"><a href="#"><img src="../img/dy/点赞.png" alt="">&nbsp;<span>8</span></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-2 margin_top">
+                <div class="dy_type" style="display: none">test</div>
+                <div class="dy_id" style="display: none">${res[i].id}</div>
+                <img src="../img/评价.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

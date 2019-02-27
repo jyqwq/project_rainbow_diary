@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动画效果</title>
+</head>
+<style type="text/css">
+    html, body {
+        margin: 0;
+        padding: 0;
+    }
+    .odiv {
+        width: 200px;
+        height: 200px;
+        background: crimson;
+        position: relative;
+        left: 300px;
+        top: 100px;
+    }
+</style>
+<body>
+<div id="odiv" class="odiv"></div>
+<script type="text/javascript">
+    window.onload = function () {
+        var odiv = document.getElementById('odiv');
+        odiv.onmouseover = function () {
+            startMover(500);
+        }
+        odiv.onmouseout = function () {
+            startMover(300);
+        }
+    }
+    var timer = null;
+
+    function startMover(itarget) {//目标值
+        clearInterval(timer);//执行当前动画同时清除之前的动画
+        var odiv = document.getElementById('odiv');
+        timer = setInterval(function () {
+            var speed = 0;
+            if (odiv.offsetTop > itarget) {
+                speed = -2;
+            }
+            else {
+                speed = 2;
+            }
+            if (odiv.offsetTop == itarget) {
+                clearInterval(timer);
+            }
+            else {
+                odiv.style.top = odiv.offsetTop + speed + 'px';
+                console.log(odiv.offsetTop);
+            }
+        }, 30);
+    }
+</script>
+</body>
+</html>
