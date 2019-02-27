@@ -3,13 +3,15 @@ function qq() {
         var ipt=document.querySelector('#input-sch')
             let a=JSON.parse(sessionStorage['message'])
             ipt.value=a.keyword;
-        var mydate=new Date()
-            if (sessionStorage['user_id']) {
-                var x={'keyword':a.keyword,'user_id':sessionStorage['user_id'],'methods':'add','data':mydate.getTime()}
+        var date=new Date()
+        let x={}
+        if (sessionStorage['user_id']) {
+            x={'keyword':a.keyword,'user_id':sessionStorage['user_id'],'methods':'add','data':date.getTime()}
             }else {
-                x={'keyword':a.keyword,'user_id':'null','methods':'add','data':mydate.getTime()}
+                x={'keyword':a.keyword,'user_id':'null','methods':'add','data':date.getTime()}
             }
-            postData(ajax_url+'/search/search_index',x,function (res) {
+        console.log(x);
+        postData(ajax_url+'/search/search_index',x,function (res) {
             })
             getData(ajax_url+'/search/',a,function (res) {
                 re=JSON.stringify(res)
