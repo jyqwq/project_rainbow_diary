@@ -126,6 +126,7 @@
         let hot={'hot_cosmetics':1,'hot_dairy':false,'hot_search':false};
         let hot_cosmetics=document.querySelector('.hot_cosmetics');
         postData(ajax_url+'/search/rank',hot,function (res) {
+            let com_id=document.querySelectorAll('.com_id');
             for (i=0;i<res.length;i++){
                 let cosmetics_num_rank=document.querySelectorAll('.cosmetics_num_rank');
                 let cosmetics_img_rank=document.querySelectorAll('.cosmetics_img_rank');
@@ -141,6 +142,15 @@
                 s_t_rank[i].innerHTML=`&nbsp;${res[i].cots}`;
                 s_f_rank[i].innerHTML=`&nbsp;${res[i].fbs}`;
                 cosmetics_fraction[i].innerHTML=res[i].click+res[i].cots*2+res[i].fbs*4;
+                com_id[i].innerHTML=res[i].id;
+            }
+            let to_com_one=document.querySelectorAll('.to_com_one');
+            for (let j=0;j<to_com_one.length;j++){
+                to_com_one[j].onclick=function () {
+                    sessionStorage.setItem('com_id',com_id[j].innerHTML);
+                    sessionStorage.setItem('from','/rainbow_diary_html/search/rank.html');
+                    location.href='/rainbow_diary_html/search/icy_detail.html'
+                }
             }
         })
     }

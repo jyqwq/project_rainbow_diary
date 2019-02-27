@@ -203,3 +203,6 @@ button{
     }
 }
 
+#tab-1 tr :nth-child(2),#tab-2 tr :nth-child(2),#tab-3 tr :nth-child(2):hover{
+    cursor: pointer;
+}
